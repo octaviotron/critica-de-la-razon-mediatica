@@ -1,0 +1,23 @@
+# Caché y compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos temporales y de sistema operativo
+.DS_Store
+Thumbs.db
+*~
+*.tmp
+*.bak
+*.swp
+
+# Editores / IDEs
+.vscode/
+.idea/
