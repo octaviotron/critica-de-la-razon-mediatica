@@ -27,11 +27,15 @@ Repositorio oficial del proyecto de procesamiento digital, estructuración en fo
 * **Depósito Legal:** `lf25220060702192`
 * **Lugar y año:** Distrito Metropolitano de Caracas, República Bolivariana de Venezuela, 2006 — ver [`libro/00_preliminares.md`](libro/00_preliminares.md)
 
+### Asesoría Informática para la Segunda Edición
+* **Asesor Informático:** **Octavio Rossell Tabet** <[octavio.rossell@gmail.com](mailto:octavio.rossell@gmail.com)> — [https://github.com/octaviotron](https://github.com/octaviotron)
+  * *Rol:* Arquitectura de extracción documental sin pérdida, conversión automatizada a Markdown, sistema de versionado con etiquetas de párrafo para dictado por voz con IA y auditoría de integridad textual para la realización de la segunda edición del libro.
+
 ---
 
 ## Estructura del Proyecto
 
-El repositorio está organizado en cuatro directorios principales: [`fuente/`](fuente/), [`libro/`](libro/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/).
+El repositorio está organizado en cinco directorios principales: [`fuente/`](fuente/), [`libro/`](libro/), [`versiones/`](versiones/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/).
 
 ```text
 critica-de-la-razon-mediatica/
@@ -44,13 +48,26 @@ critica-de-la-razon-mediatica/
 │   └── RAZON/                 # Maquetación QuarkXPress (.qxp/.qxb) y portadillas (.tif/.jpg)
 │       └── images/            # Ilustraciones separadoras de cada parte y sección
 ├── libro/                     # Libro convertido a Markdown (33 archivos .md por capítulo)
-├── scripts/                   # Scripts deterministas de extracción XML, conversión y auditoría
+├── versiones/                 # Versiones PDF de lectura etiquetadas ([CC.PPP]) y control de versiones
+│   ├── README.md              # Guía de la estructura de versiones y generación de PDFs
+│   ├── Critica_de_la_Razon_Mediatica_Lectura_v1.0.pdf
+│   ├── v1.0_original/         # Respaldo congelado e inmutable de la 1.ª edición (2006)
+│   │   ├── manifiesto_v1.0.md # Hashes SHA-256 de los 33 archivos originales
+│   │   └── md/                # Copia testigo intacta de los 33 archivos .md originales
+│   ├── v2.0_en_proceso/       # Espacio de trabajo para la 2.ª edición
+│   │   ├── bitacora_cambios.md
+│   │   ├── notas_autor/       # Transcripciones y fichas de dictado por voz del autor
+│   │   └── borradores_md/     # Capítulos en edición antes de consolidar versión
+│   └── historial_cambios/     # Archivos diff/.patch comparativos entre versiones
+├── scripts/                   # Scripts deterministas de extracción XML, conversión, auditoría y PDF
 │   ├── 01_extraer_xml.py
 │   ├── 02_convertir_a_md.py
-│   └── 03_auditar_integridad.py
-└── SSOT/                      # Single Source of Truth (Especificación y Auditoría del proceso)
+│   ├── 03_auditar_integridad.py
+│   └── 04_generar_pdf_lectura.py
+└── SSOT/                      # Single Source of Truth (Especificación, Auditoría y Metodología)
     ├── proceso_conversion_pdf_a_md.md
-    └── detalle_ejecucion_y_auditoria_conversion.md
+    ├── detalle_ejecucion_y_auditoria_conversion.md
+    └── guia_edicion_segunda_edicion_ia_voz.md
 ```
 
 ### Descripción y Vínculos a las Carpetas Principales
@@ -62,13 +79,21 @@ critica-de-la-razon-mediatica/
    * **[`fuente/RAZON/`](fuente/RAZON/):** Documentos nativos de maquetación en QuarkXPress (`INICIAL.qxp`, `liminar.qxp`, `1a PARTE.qxp` a `6a parte.qxp`, `POST-Escriptum.qxp`, `POSTERIOR.qxp`), nota editorial [`UBICACION DE liminar.txt`](<fuente/RAZON/UBICACION DE liminar.txt>) y subcarpeta **[`fuente/RAZON/images/`](fuente/RAZON/images/)** con las 14 portadillas gráficas separadoras.
 2. **[`libro/`](libro/) — Libro Convertido en Formato Markdown (`.md`):**
    * Aloja los **33 archivos Markdown** extraídos siguiendo la estructura principal del Índice (págs. 7–10) más el capítulo *Liminar*, asegurando el **100% de integridad textual** (`197,741` palabras, `513` notas al pie y `1,008,962` caracteres alfanuméricos verificados sin pérdidas ni mezclas entre capítulos).
-3. **[`scripts/`](scripts/) — Pipeline de Extracción, Conversión y Auditoría:**
+3. **[`versiones/`](versiones/) — Versiones PDF de Lectura Etiquetadas e Historial de Edición:**
+   * **[`versiones/README.md`](versiones/README.md):** Documentación del sistema de control de versiones y guía de generación de nuevos PDFs numerados.
+   * **[`versiones/Critica_de_la_Razon_Mediatica_Lectura_v1.0.pdf`](versiones/Critica_de_la_Razon_Mediatica_Lectura_v1.0.pdf):** Versión de lectura `v1.0` en PDF (`658` páginas) donde cada párrafo inicia con una etiqueta única **`[CC.PPP]`** (`2,641` párrafos etiquetados) y cada nota al pie con **`[CC.NXX]`** (`513` notas etiquetadas) para facilitar el dictado por voz del autor.
+   * **[`versiones/v1.0_original/`](versiones/v1.0_original/):** Respaldo inmutable de la primera edición de 2006, compuesto por el manifiesto criptográfico **[`manifiesto_v1.0.md`](versiones/v1.0_original/manifiesto_v1.0.md)** y la subcarpeta **[`versiones/v1.0_original/md/`](versiones/v1.0_original/md/)** con copia congelada de los 33 capítulos originales.
+   * **[`versiones/v2.0_en_proceso/`](versiones/v2.0_en_proceso/):** Espacio de trabajo activo para la Segunda Edición, que incluye el registro cronológico **[`bitacora_cambios.md`](versiones/v2.0_en_proceso/bitacora_cambios.md)**, la carpeta **[`notas_autor/`](versiones/v2.0_en_proceso/notas_autor/)** (con su **[`PLANTILLA_nota_autor.md`](versiones/v2.0_en_proceso/notas_autor/PLANTILLA_nota_autor.md)** para transcripciones del dispositivo de voz con IA) y la carpeta **[`borradores_md/`](versiones/v2.0_en_proceso/borradores_md/)** (ver **[`README.md`](versiones/v2.0_en_proceso/borradores_md/README.md)**).
+   * **[`versiones/historial_cambios/`](versiones/historial_cambios/):** Directorio destinado a alojar los reportes comparativos (`diff` / `.patch`) entre `v1.0_original` y las versiones sucesivas (ver **[`README.md`](versiones/historial_cambios/README.md)**).
+4. **[`scripts/`](scripts/) — Pipeline de Extracción, Conversión, Auditoría y Generación de PDF:**
    * **[`scripts/01_extraer_xml.py`](scripts/01_extraer_xml.py):** Extrae la capa vectorial de las 666 páginas del PDF mediante `pdftohtml -xml -i`, resuelve la tabla acumulativa de fuentes y filtra determinísticamente el ruido de imprenta (sombras duplicadas `#cccccc`/`#bdbbbc`/`#918f8f`, sellos laterales rotados `width="0"`, líneas de registro QuarkXPress, cabeceras corridas y folios marginales).
    * **[`scripts/02_convertir_a_md.py`](scripts/02_convertir_a_md.py):** Reconstruye los párrafos, encabezados (`#`, `##`, `###`), cursivas (`*...*`), negritas (`**...**`), epígrafes, citas a bando (`>`), letras capitulares, palabras divididas por guion y notas al pie (`[^n]: ...`), generando los 33 archivos en [`libro/`](libro/).
    * **[`scripts/03_auditar_integridad.py`](scripts/03_auditar_integridad.py):** Ejecuta la auditoría contable comparando carácter por carácter el flujo alfanumérico del PDF contra los archivos en [`libro/`](libro/) y genera el reporte en [`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md).
-4. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso y Auditoría):**
+   * **[`scripts/04_generar_pdf_lectura.py`](scripts/04_generar_pdf_lectura.py):** Genera las versiones numeradas en PDF de lectura dentro de [`versiones/`](versiones/) insertando las etiquetas `[CC.PPP]` al inicio de cada párrafo y `[CC.NXX]` en cada nota al pie, además de inicializar el respaldo en [`versiones/v1.0_original/`](versiones/v1.0_original/).
+5. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría y Edición):**
    * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica detallada del Método 1, caracterización geométrica y tipográfica del PDF y mapa maestro de capítulos.
    * **[`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md):** Memoria técnica de la conversión ejecutada y tabla de resultados de la auditoría contable capítulo por capítulo.
+   * **[`SSOT/guia_edicion_segunda_edicion_ia_voz.md`](SSOT/guia_edicion_segunda_edicion_ia_voz.md):** Guía metodológica para la edición asistida por voz con IA (plantilla de *System Prompt* para el dispositivo del autor, flujo de trabajo en 3 capas sin que el autor use Git y matriz de actualización conceptual 2006 vs. actualidad).
 
 ---
 
@@ -160,21 +185,25 @@ A continuación se presenta la estructura completa de la obra con acceso directo
 
 ---
 
-## Reproducción del Pipeline y Verificación de Integridad
+## Reproducción del Pipeline, Auditoría y Generación de PDF de Lectura
 
-Para ejecutar nuevamente la extracción desde [`fuente/Libro Crítica de La Razon Mediatica.pdf`](<fuente/Libro Crítica de La Razon Mediatica.pdf>), regenerar los archivos en [`libro/`](libro/) y verificar la auditoría contable en [`SSOT/`](SSOT/):
+Para ejecutar nuevamente la extracción desde [`fuente/Libro Crítica de La Razon Mediatica.pdf`](<fuente/Libro Crítica de La Razon Mediatica.pdf>), regenerar los archivos en [`libro/`](libro/), verificar la auditoría contable en [`SSOT/`](SSOT/) y generar el PDF de lectura etiquetado en [`versiones/`](versiones/):
 
 ```bash
 # 1. Extraer la capa vectorial XML de las 666 páginas del PDF
-python3 scripts/01_extraer_xml.py
+python3 -B scripts/01_extraer_xml.py
 
 # 2. Convertir las 650 páginas de texto en los 33 archivos Markdown en libro/
-python3 scripts/02_convertir_a_md.py
+python3 -B scripts/02_convertir_a_md.py
 
 # 3. Auditar al 100% la integridad de caracteres, palabras, capítulos y notas al pie
-python3 scripts/03_auditar_integridad.py
+python3 -B scripts/03_auditar_integridad.py
+
+# 4. Generar el PDF de lectura numerado con etiquetas [CC.PPP] en versiones/
+python3 -B scripts/04_generar_pdf_lectura.py --version v1.0
 ```
 
-Para consultar el detalle técnico completo del proceso y la tabla de auditoría capítulo por capítulo, véanse:
+Para consultar el detalle técnico completo del proceso, la tabla de auditoría capítulo por capítulo y la guía de edición por voz para la Segunda Edición, véanse:
 * [`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md)
 * [`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md)
+* [`SSOT/guia_edicion_segunda_edicion_ia_voz.md`](SSOT/guia_edicion_segunda_edicion_ia_voz.md)
