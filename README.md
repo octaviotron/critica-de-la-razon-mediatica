@@ -19,12 +19,6 @@ Repositorio oficial del proyecto de procesamiento digital, estructuración en fo
   * **Pro(Logos) III** (*Trayectos claves para pensar el socialismo como pasión*): **Magaldy Téllez** — ver [`libro/06_prologo_3_magaldy_tellez.md`](libro/06_prologo_3_magaldy_tellez.md)
   * **Post-scriptum — Tercer movimiento** (*Entre dinosaurios y unicornios*): **Javier Biardeau** — ver [`libro/29_post_scriptum.md`](libro/29_post_scriptum.md)
 
-### Asesoría Informática — Segunda Edición
-* **Asesor Informático en la realización de este trabajo de creación de la Segunda Edición del libro:**  
-  **Octavio Rossell Tabet**  
-  * Correo electrónico: [<octavio.rossell@gmail.com>](mailto:octavio.rossell@gmail.com)  
-  * GitHub: [https://github.com/octaviotron](https://github.com/octaviotron)
-
 ### Datos Editoriales de la Primera Edición (2006)
 * **Institución:** Universidad Central de Venezuela (UCV) — Centro de Investigaciones Post-Doctorales (CIPOST)
 * **Diseño Gráfico:** Gustavo Velásquez Purroy
