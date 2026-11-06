@@ -1,0 +1,404 @@
+# BIBLIOGRAFÍA
+
+- AA. VV: *La cultura del 900,* Fondo de Cultura Económica, México, 2000.
+- ______________: Revista. *Pensamiento de los Confines*, Nº 8, primer Semestre, Universidad de Buenos Aires. 2000.
+- ______________: Revista. *RELEA, Revista latinoamericana de Estudios Avanzados,* No 21, Venezuela, 2005.
+- ______________: Revista. *Crítica de Nuestro Tiempo,* No 33, Venezuela, 2006.
+- ______________: Revista. *Quórum Académico.* Vol 1. No 2, LUZ. Venezuela. Caracas, 2004.
+- ______________: Revista. *Confines,* No 7, Universidad de Buenos Aires, Argentina, 1999.
+- ABAD Domínguez, Fernando, *Filosofía de la comunicación,* Imprenta Municipal, Caracas, 2006.
+- ADORNO, Theodor: *Mínima moralia,* Amecar, Barcelona, 1983.
+- ADORNO, Theodor y Horkheimer, Max: *La industria de la cultura,* Fondo de Cultura Económica, México, 1981.
+- AGUIRRE, Jesús María: *“Interpretar la comunicación”*, en Revista Comunicación, No. 82, Caracas, 1994, pp. 65-87.
+- ______________: *De la práctica periodística a la investigación comunicacional*, Polar-UCAB, 1996.
+- ______________: *“Ciencias de la Comunicación: Identidades y Fronteras. El pensamiento latinoamericano”,* ININCO, Vol 1, No 10, 1999.
+- AGUIRRE, Jesús María y Bisbal, Marcelino: *La ideología como mensaje y masaje,* Monte Ávila, Caracas, 1981.
+- ALBIAC, Gabriel: *Léxico leninista, o pequeño Lenin de bolsillo*, Ediciones Libertarias, Madrid, 1991.
+- ALI IBM ABI TALIB, Imam: *Consejos para un buen gobierno,* Embajada de Irán, Irán, 2005.
+- AMIN, Samir y otros: *Marx y el siglo XXI*, Anthropos, Barcelona, 1999.
+- AOÚN, Alberto: *Sociopolítica de la comunicación* [Tesis de Grado], Escuela de Comunicación Social / FHE-UCV, Caracas, 1985.
+- ARENDT, Hannah: *Hombres en tiempos de oscuridad,* Gedisa, Barcelona, 2001.
+- ______________: *La condición humana*, Paidós, Barcelona, 1993.
+- ARNAU, Juan: *La palabra frente al vacío,* Fondo de Cultura Económica, México, 2005.
+- ATTALI, Jacques: *Los modelos políticos,* Labor, Barcelona, 1974.
+- AUGE, Marc: *Los no lugares,* Gedisa, Barcelona, 1993.
+- BALANDIER, George: *El poder,* Gedisa, Barcelona, 1989.
+- ______________: *Poder y representación*, Gali, París, 1989.
+- ______________: *El poder en escenas,* Paidós, Barcelona, 1994.
+- ______________: *El desorden*, Gedisa, Barcelona, 2003.
+- BARRETO, Juan: *Los medios de los medios,* Planeta, Caracas, 1995.
+- BARRETO, Juan y Esté, Aquiles: *Ideas para una epistemología de la comunicación*, UCV, Caracas, 1990.
+- BARRETO, Luz Marina: *El lenguaje de la modernidad,* Monte Ávila, Caracas, 1993.
+- BARRIOS, Leoncio: *La razón de ser de la teoría crítica o la crisis de la sociedad moderna,* Nueva Sociedad, Nº 110, Caracas, 1995.
+- BARTHES, Roland: *Elementos de semiología,* Paidós, Barcelona, 1986.
+- _______________: *Fragmentos de un discurso amoroso,* Siglo XXI, México, 1988.
+- _______________: *Lo obvio y lo obtuso,* Paidós, Barcelona, 1986.
+- BAUDRILLARD, Jean: *El intercambio simbólico y la muerte,* Monte Ávila, Caracas, Editores, 1980.
+- *______________: Cultura y simulacro,* Kairós, Barcelona, 1980.
+- *______________*: *Crítica a la economía política del signo,* Siglo XXI, México, 1986.
+- ______________: “El éxtasis de la comunicación”, en FOSTER, Hall, *La posmodernidad*, Kairós, Barcelona, 1990.
+- *______________*: *A la sombra de las mayorías silenciosas,* Anagrama, Barcelona, 1991.
+- ______________: *La guerra del Golfo no ha tenido lugar,* Anagrama, Barcelona, 1991.
+- ______________: *La transparencia del mal,* Anagrama, Barcelona, 1991.
+- ______________: *Las estrategias fatales,* Ariel, Barcelona, 1992.
+- ______________: *El sistema de los objetos,* Siglo XXI, México, 1994.
+- ______________: *El espejo de la producción,* Gedisa, Barcelona, 1996.
+- ______________: *El paroxista indiferente*, Anagrama, Barcelona, 1998.
+- ______________: *Pantalla total*, Anagrama, Barcelona, 2000.
+- BEARDSLEY, Monroe y J. Hospens: *Estética, historia y fundamentos,* Cátedra, Madrid, 1984.
+- BEAUPORT, Elaine*: Las tres caras de la mente*, Galac, Caracas, 1994.
+- BEIRIAIN, Joetxo: *Representaciones colectivas y proyecto de modernidad,* Anthrópos, Barcelona, 1990.
+- BÉJAR, Helena: *La cultura del yo,* Alianza, Madrid, 1993.
+- BELL, Daniel: *The end of Ideology*, The Free Press, Chicago, 1963.
+- BENDIX, Reinhard: *Max Weber,* Amorrortu, Buenos Aires, 1966.
+- BENEYTO, Juan, *Historia y doctrinas políticas*, Aguilar, Madrid, 1.977.
+- BENJAMIN, Walter: *Discursos interrumpidos,* Taurus, Madrid, 1973.
+- ______________: *The work of art in an age of mechanical reproduction,* Manchester Museum, Nueva York, 1987.
+- BERLO, David: *El proceso de la comunicación*, Ateneo, Buenos Aires, 1999.
+- BETTETINI, Gianfranco: *La conversación audiovisual,* Cátedra, Madrid, 1995.
+- BISBAL, Marcelino: *Pensar la cultura de los medios,* UCAB, Caracas, 1999.
+- ______________: “*Otros lugares para pensar la política”,* en Revista *Comunicación*, No. 98, Caracas, 2000.
+- ______________: *Televisión, pan nuestro de cada día,* Alfadil, Caracas, 2005.
+- BISKY, Leonard: *La teoría burguesa de la comunicación de masas*, De La Torre, Madrid, 1982.
+- BLANCO, Desiderio: *Claves semióticas*, Comunicación, Lima, 1989.
+- BOHN, David: *Quantum Theory*, Edit. INC, Princenton, 1951.
+- BOLTANSKI, Luc y Chiapello, Ëve: *Una definición mínima del capitalismo*, Akal, Barcelona, 2002.
+- BOOKCHIN, Liguri: *La Utopía es posible*, Tupac, Argentina, 2004.
+- BORDELOIS, Ivone: *La palabra amenazada*, Monte Ávila, Caracas, 2004.
+- BOURDIEU, Pierre: *Cosas dichas,* Gedisa, Barcelona, 1988.
+- ______________: *La distinción*, Taurus, Madrid, 1988.
+- ______________: *Lo que hablar quiere decir,* Akal, Barcelona, 1992.
+- ______________: *Sociología de la cultura,* Grijalbo, México, 1994.
+- ______________: *Sobre la televisión,* Anagrama, Barcelona, 1997.
+- ______________: *Contrafuegos 1*, Anagrama, Barcelona, 2001.
+- ______________: *Contrafuegos 2*, Anagrama, Barcelona, 2001.
+- ______________: *El oficio de científico*, Anagrama, Barcelona, 2003.
+- ______________: *Las estructuras sociales de la economía*, Anagrama, Barcelona, 2003.
+- _____________: *Pensamiento y acción*, Monte Ávila, Caracas, 2005.
+- BOURRICAUD, François: “*Sobre la noción de comunicación política”, en:*
+- LABARRIÈRE, Jean-Louis, Lazzeri, Christian y Otros*, Teoría política y comunicación*, Gedisa, Barcelona, 1992.
+- BRICMONT, Jean y Sokal Alan: *imposturas intelectuales*, Paidós, Barcelona, 1999.
+- BUTLER, Judith; E. Laclau; S. Žižek: *Contingencia, hegemonía y universalidad*, Fondo de Cultura Económica, México. 2004.
+- CADENAS, Johana y Molina, Angela: *La interpretación hermenéutica* [Tesis de Grado]*,* Escuela de Comunicación Social / FHE-UCV, Caracas, 1995.
+- CALABRESE, Oscar: *La era neobarroca,* Cátedra, Madrid, 1993.
+- CALELLO, Hugo: *Gramsci,* Altamira, Caracas, 2000.
+- CAPRA, Fritjof: *Las conexiones ocultas*, Anagrama, Barcelona, 2003.
+- CAPRILES, Oswaldo*:* “*El debate sobre políticas de comunicación en América Latina*”*, ANUARIO*
+- *ININCO*, Volumen 1, Número, 2002.
+- CASETTI, Fernando: *Introducción a la semiótica,* Fontanella, Buenos Aires, 1989.
+- CASSIRER, Ernest: *Filosofía de las formas simbólicas,* Tomo I, Gedisa, Barcelona, 1990.
+- CASTILLA DEL PINO, Carlos: *La incomunicación,* Península, Barcelona, 1975.
+- CASTORIADIS, Cornelius: *Los dominios del hombre*, Gedisa, Barcelona, 1986.
+- _________________: *El progreso técnico en la encrucijada*, Comunicación, Madrid, 1970.
+- CHATER, Jean: *La désir el citè,* Gallimard, París, 1991.
+- CHESTERTON, Gilbert: *El hombre que era jueves,* Alianza, Madrid, 1992.
+- CHOPRA, Deeprak: *Cuerpos sin edad,* Vergara, Buenos Aires, 1995.
+- COLINA, Carlos: “Telemática y control social”, en *Anuario del ININ-*
+- *CO*, N° 8, Caracas, 1996-1997.
+- ______________: “Nuevas formas de control social: ¿panopticismo electrónico o seducción postmoderna”, en *Anuario del ININCO*, Vol. 1, N° 8, Caracas, 2000.
+- COLSON, Daniel: *Pequeño léxico filosófico del Anarquismo*, Nueva Visión, Buenos Aires, 2001.
+- COOPER, Edwin y JOHODA, Gustav: “The evasion of propaganda”, The journal Of Psycology, University of Nueva York, 1972.
+- CROUCH, Colin: *Posdemocracia,* Taurus, Madrid, 2004.
+- DAMASIO, Antonio: *En busca de Spinoza,* Crítica, Barcelona, 2005.
+- DANCE, Fedor: *Teoría de la comunicación*, Tusquets, Buenos Aires, 1973.
+- DEBORD, Guy: *La sociedad del espectáculo,* Pre-Textos, Barcelona, 2003.
+- DEBRAY, Régis: *Vida y muerte de la imagen,* Paidós, Barcelona, 1992.
+- ______________: *El Estado seductor. Las revoluciones mediológicas del poder*, Manantial, Buenos Aires, 1995.
+- DE FLEUR, Melvin: *Occupational Roles or Portrayed On Television, Public Opinion*, Quarterly, Nueva York, 1956.
+- DE FLEUR, Melvin y Ball-Rokeach, Sandra: *Teorías de la comunicación de masas*, Paidós, Buenos Aires, 1982.
+- DEL BÚFALO, Enzo: *Genealogía de la subjetividad,* Monte Ávila, Caracas, 1992.
+- DELEUZE, Gilles: *Lógica del sentido*. Paidós, Barcelona, 1969.
+- ______________: *Spinoza, Kant, Nietzsche*, Labor, Barcelona, 1974.
+- DELEUZE, Gilles y Guattari, Felix: *El Anti-Edipo,* Paidós, Barcelona, 1985.
+- ______________: *Foucault*, Paidós, Barcelona, 1987.
+- ______________: *Empirismo y subjetividad,* Gedisa, Barcelona, 1988.
+- ______________: *Diferencia y repetición,* Júcar Universidad, Madrid, 1988.
+- _______________: *¿Qué es la filosofía?,* Anagrama, Barcelona, 1993.
+- ______________: *Conversaciones*, Pre-Textos, Valencia, 1995.
+- ______________: *Rizoma,* Pre-Textos, Valencia, 1977.
+- ______________: *Diálogos*, Pre-textos, 1997, Valencia, 1997.
+- ______________: *Mil mesetas,* Pre-Textos, Valencia, 2000.
+- ______________: *Nietszche y la filosofía,* Anagrama, Barcelona, 2002.
+- DELEUZE, G y Parnet, C.: *Diálogos*, Pre-textos, París, 2004.
+- DE MORAGAS SPÁ, Miguel: *Sociología de la comunicación,* Gustavo Gili, Barcelona, 1990.
+- DERRIDA, Jacques: *Márgenes de la filosofía*, Cátedra, Madrid, 1989.
+- ______________: *La deconstrucción en las fronteras de la filosofía,* Paidós, Barcelona, 1989.
+- ______________: *La escritura y la diferencia,* Anthropos, Barcelona, 1989.
+- ______________: *El lenguaje y las instituciones filosóficas*, Paidós, Barcelona, 1990.
+- ______________: *“Drama e identidad”,* en Revista *Anthropos*, No. 123, Barcelona, 1991.
+- ______________: *Aporías*, Paidós, Barcelona, 1996.
+- ______________: *Fuerza de ley*, Tecnos, Madrid, 1997.
+- ______________: *Espolones,* Pre-textos, Valencia, 1997.
+- ______________: *Memorias para Paul de Man*, Gedisa, Barcelona, 1998.
+- ______________: *Espectros de Marx,* Trotta, Barcelona, 2003.
+- DELGADO, María: *Lo que no da igual*, Caballo de Troya, Barcelona, 2004.
+- DE SPINOZA, Baruch: *Ética demostrada según el orden geométrico,* Orbis, Madrid, 1980.
+- ______________: *Correspondencia,* Alianza, Madrid, 1988.
+- ______________: *Tratado Teológico-Político*, Folio, Barcelona, 2002.
+- DURAND, Gilles: *Las estructuras antropológicas de la imaginación,* Verjat, Barcelona, 1989.
+- ______________: *La imaginación simbólica,* Anthropos, Barcelona, 1990.
+- DYSON, Freeman: *El Infinito en todas direcciones*, Metatemas, Barcelona, 2004.
+- ECO, Umberto: *Apocalípticos e integrados,* Lumen, Madrid, 1977.
+- ______________: *Una nueva edad media,* Alianza, Madrid, 1979.
+- ______________: *Tratado de semiótica general,* Lumen, Madrid, 1989.
+- ______________: *El signo*, Lumen, Madrid 1997.
+- EDELMAN, Gerald; Tononi, Giulio: *El Universo de la conciencia,* Crítica, Barcelona, 2002.
+- EINSTEIN, Albert*: Correspondencia*, Metatemas, Barcelona, 1994.
+- ESTÉ, Aquiles: “Periodismo y ritual”, Mimeografiado, Caracas, 1992.
+- FABBRI, Paolo: *El giro semiótico,* Gedisa, Barcelona, 1999.
+- FAYERABEND, Paul: *Contra el método,* Alianza, Madrid, 1990.
+- FERNÁNDEZ, Alba: *La metrópoli vacía,* Anthropos, Barcelona, 1990.
+- FERNÁNDEZ, Ana María: *Política y subjetividad. Asambleas barriales y fábricas recuperadas*, Tinta y Limón, Buenos Aires, 2006.
+- ______________: *Instituciones estalladas*, Eudeba, Buenos Aires, 1999.
+- FERRY, Jean-Marc y Wolton, Dominique: *El nuevo espacio público,* Gedisa, Barcelona, 1992.
+- FEYNMAN, Richard: *La conferencia perdida*, Metatemas, Barcelona, 1998.
+- FOUCAULT, Michel: *Historia de la locura en la época clásica,* Fondo de Cultura Económica, México, 1967.
+- ______________: *Las palabras y las cosas,* Siglo XXI, México, 1968.
+- ______________: *Sobre Nietzsche, Freud y Marx,* Anagrama, Barcelona, 1970.
+- ______________: *Vigilar y castigar,* Siglo XXI, México, 1974.
+- ______________: *El nacimiento de la clínica*, Siglo XXI, México, 1976.
+- ______________: *Un diálogo sobre el poder,* Alianza, Madrid, 1981.
+- ______________: *El orden del discurso,* Pre-Textos, Valencia, 1987.
+- ______________: *Historia de la sexualidad 1. La voluntad de saber,* Siglo
+- XXI, México, 1987.
+- ______________: *El pensamiento del afuera,* Pre-Textos, Valencia, 1993.
+- ______________: *Esto no es una pipa,* Anagrama, Barcelona, 1993.
+- ______________: *Los Sujetos infames*, Paidós, Barcelona, 1998.
+- ______________: *Estética, ética y hermenéutica,* Paidós, Barcelona, 2001.
+- FORESTER, Viviane: *Una extraña dictadura*, Anagrama, Barcelona, 2001.
+- FOWELER, Roger: *Lenguaje y control,* Fondo de Cultura Económica, Valencia, 1977.
+- FREDMAN, James y Sears, David: *How comunicationes Works*. University of Illinois.1965.
+- FRIEDMAN, George: *La filosofía política de la Escuela de Frankfurt,* Fondo de Cultura Económica, México, 1982.
+- GABILONDO, Ángel: *El discurso en acción. Foucault y una ontología del presente*, Anthropos, Barcelona, 1990.
+- GADAMER, Hans George: *Verdad y método*, Tomo II, Sígueme, Salamanca, 1992.
+- GARAGALZA, Luis: *La interpretación de los símbolos,* Anthropos, Barcelona, 1990.
+- GARCÍA BERRIO, Eduardo: *Lingüística del texto,* Corazón, Madrid, 1978.
+- GARCÍA-CANCLINI, Néstor: *Culturas híbridas,* Grijalbo, México, 1990.
+- ______________: *Imaginarios urbanos*, Editorial Universitaria, Buenos Aires, 1997.
+- ______________: *Diferentes, desiguales, desconectados*, Gedisa, Barcelona, 2005.
+- ______________: *Consumidores y ciudadanos. Conflictos culturales de la globalización,* Grijalbo, México, 2005.
+- GAUTHIER, Guy: *Veinte lecciones sobre la imagen y el sentido,* Cátedra, Barcelona, 1992.
+- GIBSON, William, *Neuromance*, Crítica, Buenos Aires, 1993.
+- GIRARDIN, Ernest: *Signos para una política*, Cuadernos Anagrama, Barcelona, 1976.
+- GONZÁLEZ, Carlos: *Imagen y sentido,* UNAM, México, 1986.
+- GONZÁLEZ, Jesús: *El discurso televisivo*, Cátedra, Barcelona, 1993.
+- GREIMAS, Alan: *En torno al sentido,* Ensayos, Madrid, 1973.
+- GREENE, Brian: *El universo elegante*, Planeta, 2003.
+- GORELIK, Adrián: *Miradas sobre Buenos Aires*, Siglo XXI, México, 2004.
+- GUATTARI, Félix: *Cartografía esquizoanalíticas,* Galilei, París, 1993.
+- ______________: “La producción de subjetividad del capitalismo monopolista internacional”, en *Revista de Crítica Cultural*, No 4. Santiago de Chile, 1991.
+- GUÉHENNO, Jean-Marie: *El fin de la democracia*, Paidós, Barcelona, 1995.
+- GUIRAUD, Pierre: *La semiología,* Siglo XXI, México, 1988.
+- GUMIS, Lorenzo: *Teoría del periodismo*, Paidós, Barcelona, 1992.
+- GUSDORF, Georges: *Mito y metafísica,* Buenos Aires, Nova, 1960.
+- HABERMAS, Jürgen: *Problemas de legitimación del capitalismo tardío,* Amorrortu, Buenos Aires, 1975.
+- ______________: *Historia y crítica de la opinión pública,* Gustavo Gili, Barcelona, 1981.
+- ______________: *La reconstrucción del materialismo histórico,* Taurus, Barcelona, 1989.
+- ______________: *Facticidad y validez*, Trotta, Madrid, 1998.
+- ______________: *Teoría de la acción comunicativa,* Tomo II, Taurus, Madrid, 1998.
+- ______________: *La ética del discurso y la cuestión de la verdad*, Paidós, Barcelona, 2003.
+- ______________: *El futuro de la naturaleza humana.* Paidós. Barcelona. 2005.
+- HALL, Stuart: *La cultura de los medios de comunicación,* Fondo de Cultura Económica, Madrid, 1982.
+- HARDT, Michael: *Deleuze*, Paidós, Buenos Aires, 2004.
+- HARVEY, David: *Espacios de esperanza*, Akal, Madrid, 2000.
+- HAYLES, Katherine: *La evolución del caos,* Límites, Barcelona, 1993.
+- HEIDEGGER, Martín: *Ser y tiempo,* Fondo de Cultura Económica, México, 1951.
+- HERMANN, Edgard y McChesley, Robert: *Los medios globales,* Aguilar, Madrid, 2002.
+- HODGE, Roger: *Lenguaje y control,* Fondo de Cultura Económica, México, 1977.
+- HOPENHAYN, Martín: *Ni apocalípticos ni integrados,* Fondo de Cultura Económica, Buenos Aires, 1995.
+- HORKHEIMER, Max: *Teoría crítica*, Barral, Barcelona, 1973.
+- HOVLAND, Carl I: *Hand book of social psychology*, Campidge, Massachusets. 1954.
+- ______________: *The generalization of conditioned responses,* Yale University Press, New Heaven, 1948.
+- HUME, David: *Tratado sobre el entendimiento humano,* Orbis, Buenos Aires, 1987.
+- JACOB, Francois: *La Lógica de lo viviente*, Metatemas, Barcelona, 2000.
+- JANOWITZ, Morris y Schulze, Teodor: *Tendences de la recharche dans les dominedes comunications de masse*. Culture, New York, 1982.
+- KAMINSKY, Gregorio: *Spinoza, la política de las pasiones,* Gedisa, Barcelona, 1998.
+- KANDINSKY, Vasili: *La gramática de la creación*, Paidos, Barcelona, 2000.
+- KLAPPER, Joseph y SCHCRAMM, Wilbur: *Efectos de las comunicaciones de masas*, Aguilar, Madrid, 1974.
+- KOHAN, Néstor: *Toni Negri y los desafíos de Imperio*, Campo de Ideas, Madrid, 2002.
+- KOSTAS, Pappaionou: *De Marx et du marxisme,* Gallimard, París, 1983.
+- LABARRIÈRE, Jean-Louis Lazzeri, Christian y Otros: *Teoría política y comunicación*, Gedisa, Barcelona, 1992.
+- LACLAU, Ernesto: *Hegemonía y estrategia socialista*, México, Siglo XXI, 1987.
+- ______________: *La razón populista,* Fondo de Cultura Económica, México, 2005.
+- LANG, Gustav y LANG, Karl: *Mass communication and public opinion,* Basic Books, Nuew York, 1981.
+- LANZ, Rigoberto: “El vaciamiento massmediático del discurso político”, en Revista *RELEA*, Nº 1, Caracas, 1985.
+- ______________: *Razón y dominación,* CDCH-UCV, Caracas, 1988.
+- ______________: *El malestar de la política,* ULA, Mérida, 1994.
+- ______________: *Las Palabras no son neutras*, Monte Ávila, Caracas, 2005.
+- LARROSA, JORGE y Skliar, Carlos (edit.): *Habitantes de Babel*, Laertes, Barcelona, 2001.
+- LARROSA, Jorge: *Entre las Lenguas*, Laertes, Barcelona, 2003.
+- LASH, Scott: *Posmodernidad y deseo*, Amorrortu, Buenos Aires, 1998.
+- LASSWELL, Félix P.: *El lenguaje de la política*, Pirámide, Madrid, 1948.
+- LENIN, Vladimir I. *Obras escogidas*, Progreso, Moscú, 1961.
+- LINDHOLM, Charles: *Carisma*, Gedisa, Barcelona, 1997.
+- LIPOVESTSKY, Gilles: *El crepúsculo del deber,* Anagrama, Barcelona, 1994.
+- LIPOVESTSKY, Gilles y Roux, E.: *El lujo eterno*, Anagrama, Barcelona, 2004.
+- LOCKE, John: *Ensayo sobre el entendimiento humano*, Fondo de Cultura Económica, México, 1956, Libro IV.
+- LÓPEZ, Julio: *La música de la posmodernidad,* Anthropos, Barcelona, 1988.
+- LÓPEZ, C., Antonio: *El Genoma para peatones*, Voces, Madrid, 2004.
+- LÓPEZ, Manuel: *América Latina a través del espejo español*, Imprenta. Nacional, Caracas, 2006.
+- LÓPEZ, P., Rafael: *Hermes y sus hijos*, Ateneo de Caracas, Caracas, 1980.
+- LUMMIS, Douglas: *Democracia radical,* Buenos Aires, Siglo XXI, 2002.
+- LYON, David: *El ojo electrónico,* Alianza, Madrid, 1998.
+- LYOTARD, Jean-François: *La condición posmoderna*, Paidós, Barcelona, 1989.
+- ______________: *Lo inhumano*, Manantial, Buenos Aires, 1998.
+- ______________: *Firmado Malraux*, Taurus, México, 2001.
+- MAESTRE, Agapito: *El poder en vilo,* Tecnos, Barcelona, 1994.
+- MAFFESOLI, Michel: *Lógica de la dominación,* Península, Barcelona, 1977.
+- ______________: *El tiempo de las tribus*, Barcelona, Icaria, 1990.
+- ______________: *Instante eterno,* Paidós, Buenos Aires, 2000.
+- ______________: *El nomadismo, vagabundeos iniciáticos*, Fondo de Cultura Económica, México, 2004.
+- ______________: *La transfiguración de lo político,* Herder, México, 2004.
+- ______________: *La tajada del diablo*, Siglo XXI, México, 2005.
+- MANDEL, Ernest: *Tratado de economía marxista*, Era, México, 1974.
+- MARCUSE, Herbert: “El fin de la utopía”, en revista *El viejo Topo*, No. 86, Barcelona, 1969.
+- MARTÍNEZ, Agustín: *Ruido de fondo,* Tropykos, Caracas, 1995.
+- MARTÍNEZ, Xiomara: “Repensar la democracia para seguir pensando la política”, en X. Martínez (comp.), *Paradojas de la política.* Sentido/CIPOST, Caracas, 2000.
+- ______________: “La democracia. Una cierta idea de lo barroco”, en X. Martínez y M. Téllez, *Pliegues de la democracia*, UCV-CIPOS/Trpoykos, 2001.
+- MARTÍN-BARBERO, Jesús: *Comunicación masiva: discurso y poder,* Época, Quito, 1978.
+- ______________: *De los medios a las mediaciones*, Planeta, Bogotá, 1988
+- ______________: “Comunicación y ciudad: entre medios y miedos”, en Revista *Comunicación,* No. 82, Caracas, 1993.
+- ______________: *El ejercicio del ver,* Gedisa, Barcelona, 1999.
+- ______________: *Mediaciones urbanas y nuevos escenarios de comunicación,* Fundarte, Caracas, 1999.
+- ______________: *Pretextos*, Gedisa, Barcelona, 1999.
+- MARTINI, Stella: *Periodismo, noticia y noticiabilidad*, Norma, Bogotá 2000.
+- MARX, Karl: *El Capital*, Fondo de Cultura Económica, México, 2000.
+- ______________: *Diferencia entre la filosofía de Demócrito y Epicuro*, Sexto Piso, México, 2004.
+- MARX, Karl y Engels, Federico: *Obras escogidas,* Progreso, Moscú, 1976.
+- MATIA, Gerardo: *Spinoza, teoría de los afectos y pensamiento político*, Tesis Doctoral, UNAM, México, 2005.
+- MATO, Daniel (comp.): *Política de identidades y diferencias sociales en tiempos de globalización,* FACES-UCV, Caracas, 2003.
+- ______________: *Política de economía, ambiente y sociedad*, FACES-UCV, Caracas, 2003.
+- MATTELART, Armand: *La comunicación mundo*, Siglo XXI, Madrid, 1996.
+- MATTELART, Armand y Mattelart, Michelle: *Historia de las teorías de la comunicación,* Paidós, Barcelona, 1997.
+- ______________: *La mundialización de la comunicación*, Paidós, Barcelona, 1998.
+- ______________: *Para comprender los medios*, Paidós, Barcelona, 1996.
+- MATURANA, Humberto: *Autopoiesis y Cognición,* Debate, Madrid, 1998.
+- MAYO, José: *La contra cultura digital,* Gedisa, Buenos Aires, 1999. McBRIDE, Sean: *Cuadernos de la comunicación,* CNP, Caracas, 1987. McGUIRE, Willian Jenes: *Order of presentation as a factor in conditioning persuasive*, Yale University Press, New Haven, 1985. McLUHAN, Marshall: *La Galaxia Gutenberg*, Círculo de lectores, Barcelona, 1993.
+- MERQUIOR, Joheps: *Foucault o el nihilismo de la cátedra,* Fondo de Cultura Económica, México, 1988.
+- MÉSZÁROS, István: *Más allá del capital,* Vadell Hermanos, Caracas, 2001.
+- _______________: *Socialismo o Barbarie*, Pasado y Presente, México, 2005.
+- METZ, Christian: *Más allá de la analogía y la imagen,* Tiempo Contemporáneo, Buenos Aires, 1972.
+- MEZZADRA, Sandro: *Derecho de fuga*, Tinta y Limón, Buenos Aires, 2005.
+- MICHELET, Jules: *El pueblo*, México, Fondo de Cultura Económica, 2005.
+- MIRES, Fernando: *La revolución que nadie soñó,* Nueva Sociedad, Caracas, 1995.
+- MONCAYO, Víctor Manuel: *El Leviatán derrotado,* Editorial Norma, Argentina, 2006.
+- MONEDERO, Juan Carlos: *La trampa de la gobernanza*, Fondo de Cultura Económica, México 2004.
+- MONOD, Jacques: *El azar y la necesidad,* Metatemas, Barcelona, 2000.
+- MORIN, Edgar: *Introducción al pensamiento complejo*, Gedisa, Barcelona, 1994.
+- ___________: *La violencia en el mundo,* Monte Ávila, Caracas, 2004.
+- MUJICA, Joaquín L.: *La proclamación de lo sagrado*, Fundación H N. M, Caracas, 2005.
+- MUÑOZ, Jacobo: *Marx, antología*, Grandes Pensadores, Barcelona, 1999.
+- MUÑOZ, Jacobo y Otros: *La violencia del mundo*, Monte Ávila, Caracas, 2003.
+- NADER, Steven: *Spinoza*, Acento, Madrid, 1999.
+- NAILIS, Elena: *Estudio comparativo de las lenguas,* Amorrortu, Buenos Aires, 1980.
+- NEGRI, Toni: *Marx más allá de Marx*, Bourgois, París, 1979.
+- ______________: *Fin de Siglo,* Paidós, Barcelona, 1992.
+- ______________: *La anomalía salvaje,* Anthropos, Barcelona, 1993.
+- ______________: *El poder constituyente,* Libertarias, Barcelona, 1994.
+- ______________: *Arte y multitud*, Trotta, Madrid, 2000.
+- ______________: *Spinoza subversivo,* Akal, Madrid, 2000.
+- ______________: *Multitud,* Akal, Madrid, 2000.
+- ______________: Imperio, Paidós, barcelona, 2002.
+- ______________: *Del retorno*, Debate, Barcelona, 2003.
+- ______________: *La Forma-Estado*, Akal, Madrid, 2003.
+- ______________: *La Fábrica de la estrategia*, Akal, Madrid, 2004.
+- ______________: *Ocho tesis preliminares para una teoría del poder constituyente*, Alcaldía Mayor, Caracas, 2006.
+- NEGRI, Toni y Guattari, Felix: *Las verdades nómadas,* Akal, Madrid, 1999.
+- NEGRI, Toni y Hardt, Michael: *El trabajo de Dionisios*, Akal, Madrid, 2003.
+- ______________: *Multitud, guerra y democracia en la era del Imperio*, Debate, Barcelona, 2004.
+- ______________: *Imperio,* Paidós, Barcelona, 2005.
+- NEGROPONTE, Nicolás: *Ser digital,* Sinecuanon, Barcelona, 2000.
+- NIETZSCHE, Federico: *El nacimiento de la tragedia,* Alianza, Madrid, 1973.
+- ______________: *Aurora,* Editores Mexicanos Unidos, México, 1983.
+- ______________: *El ocaso de los ídolos,* Siglo Veinte, Buenos Aires, 1984.
+- ______________: *La genealogía de la moral,* Alianza, Madrid, 1988.
+- ______________: *La ciencia jovial,* Monte Ávila, Caracas, 1990.
+- ______________: *Así hablaba Zaratustra,* Alianza, Madrid, 1993.
+- OFFE, Claus: *Partidos políticos y nuevos movimientos sociales*, Sistema, Madrid, 1992.
+- OROZCO, Guillermo: *Televisión, audiencias, educación*, Norma, Bogotá, 2001.
+- ORTIZ-OSÉS, Andrés: *Antropología hermenéutica,* Ricardo Aguilera, Madrid, 1973.
+- ______________: *El inconsciente colectivo vasco,* Anthropos, Barcelona, 1990.
+- ______________: “Una hermenéutica simbólica del sentido”, en Revista *Anthropos*, Nº 153, Barcelona, 1995.
+- ORTIZ-OSÉS, Andrés y Gómez Requena, Jesús: *El spot publicitario,* Cátedra, Madrid, 1995.
+- PALTI, Elías José: *Verdades y saberes del marxismo*, Fondo de Cultura Económica, 2005.
+- PASQUALI, Antonio: *Bienvenido Global Village,* Monte Ávila, Caracas, 1998.
+- PETRUCINI, Enzo: *Estado y soberanía,* Amorrortu, Buenos Aíres, 1990.
+- PHILLIPS, Cristhina y Priwer, Shana: *Todo sobre Einstein*, Manon Troppo, Barcelona, 2005.
+- PIERCE, Charles S.: *La ciencia de la semiótica,* Nueva Visión, Buenos Aires, 1986.
+- PISCITELLI, Alejandro: *Ciberculturas en la era de las máquinas inteligentes,* Paidós, Buenos Aíres, 1995.
+- PIZARRO, Ernesto: *Los virus,* Tropical, México, 1980.
+- PREOBRAZHENSKI, Evgueni: *Anarquismo y comunismo*, Fundación F. Engels, Madrid, 2005.
+- PRIGOGINE, Ilya: *El nacimiento del tiempo*, Metatemas, Barcelona, 2005.
+- PUTNAM, Hillary: *Razón, verdad e historia*, Tecnos, Madrid, 1988.
+- RABOTNIKOF, Nora: *Desencanto político y democracia,* Anagrama, Barcelona, 1991.
+- RAJCHMAN, John: *Deleuze, un mapa*, Claves, Buenos Aires, 2004.
+- RAMETAL, Samuel: *Teorías del desconcierto*, Urano, Barcelona, 2004.
+- RAMONEDA, Joseph: *Después de la pasión política*, Taurus, Madrid, 2000.
+- RAMONET, Ignacio: *La golosina audiovisual,* Fácil, Caracas, 1993.
+- ______________: *La tiranía de la comunicación*, Temas, Madrid, 2000.
+- ______________: “El poder en el fin de siglo”, en Revista *El Viejo Topo*, Nº 86, Barcelona, 1995.
+- RANCIÈRE, Jacques: *El desacuerdo. Política y filosofía.* Buenos Aires, Nueva Visión, 1996.
+- RAUBER, Isabel: *América Latina, poder y socialismo*, Vadell Hermanos, Caracas, 2006.
+- RHEINGOLD, Howard: *Multitudes inteligentes*, Gedisa, Barcelona, 2004.
+- RICHARD, Nelly: “Zonas de cruce”, en revista *Redes. Revista de Estudios Sociales*, Vol. 3, N° 7. Buenos Aires, mayo 1997.
+- RICOEUR, Paul: *La metáfora viva*, Trotta, Madrid, 2001.
+- RINCÖN, Omar: *TV, video y subjetividad*, Norma, Bogotá, 2002.
+- RODA, Rafael: *Medios de comunicación de masas,* Siglo XXI, Madrid, 1989.
+- RODRÍGUEZ-MAGDA, Rosa María: *La sonrisa de saturno*, Anthropos, Barcelona, 1989.
+- RORTY, Richard: *Contingencia, Ironía y solidaridad*, Paidós, Barcelona, 1996.
+- ROSZAK, Theodore: *El culto a la información,* Gedisa, Barcelona, 2005.
+- SARTORI, Giovanni: *Homo videns,* Taurus, Madrid, 1998.
+- SAUSSURE, Ferdinand: *Curso de lingüística general,* Editorial Latinoamericana, Buenos Aíres, 1972.
+- SAVATER, Fernando: *Panfleto contra el todo,* Alianza, Madrid, 1987.
+- ______________: *Apología de sofistas,* Taurus, Barcelona, 1988.
+- ______________: *Idea de Nietzsche,* Ariel, Colombia, 2003.
+- SEGOVIA, Alexander: *Integración real y grupos de poder económico en América central,* Fundación Friedrich Ebert América Central, 2005.
+- SCHMITT, Carl: *Legalidad y legitimidad*, Aguilar, Madrid, 1971.
+- ______________: *El sentido de lo político*, Aguilar, Madrid, 1987.
+- ______________: *Las guerras del futuro*, P&J, Barcelona, 1994.
+- SCHRAMM, Wilbur: *Mass communication: A Book of readings,* Urbana-University Press, Chicago, 1961.
+- SCRUTON, Roger: *Spinoza*: Norma, Bogotá, 1999.
+- SHILLS, Edward: *Más allá de las clases sociales*, en revista *Times*, enero, 1959.
+- SIM, Stuart: *Lyotard y lo inhumano*, Gedisa, Barcelona, 2004.
+- SIMMEL, Georg: *Sobre la aventura*, Península, Barcelona, 2002.
+- SPRINKER, Michael: *Demarcaciones espectrales*, Akal, Madrid, 2002.
+- STEWART, Matthew: *La verdad sobre todo. Una historia irreverente de la filosofía*, Taurus, Madrid, 1998.
+- STRATHERN, Paul: *Derrida, en 90 Minutos.* Siglo XXI, Madrid, 2002.
+- SUBIRATS, Eduardo: *La cultura como espectáculo,* Alianza, Madrid, 1998.
+- ______________: *Cultura virtual,* Alianza, Madrid, 2002.
+- TÉLLEZ, Magaldy: “Reinventar la comunidad, interrumpir su mito”, en X. Martínez y M. Téllez (compiladoras): *Pliegues de la democracia*,
+- UCV, CIPOST-FACES/Tropykos, Caracas, 2001.
+- ______________: “Los cambios de época y el espacio público”, en X. Martínez (comp.), *Paradojas de la política.* CIPOST/Sentido, Caracas, 2000.
+- TOURAINE, Alain: *Crítica de la modernidad,* Fondo de Cultura Económica, Buenos Aires, 1994.
+- TRONTI, Mario: *Obreros y capital*, Madrid, Akal, 2001.
+- VASILACHIS, Irene: *Discurso político y prensa escrita,*Gedisa, Barcelona, 1998.
+- VATTIMO, Gianni: *El fin de la modernidad,* Gedisa, Barcelona, 1990.
+- ______________: *En torno a la posmodernidad,* Anthropos, Barcelona, 1990.
+- ______________: *Ética de la interpretación,* Paidós, Barcelona, 1991.
+- VERÓN, Eliseo: *Construir el acontecimiento,* Gedisa, Barcelona, 1987.
+- ______________: *Semiosis social,* Gedisa, Barcelona, 1987.
+- VÍLCHES, Lorenzo: *Manipulación de la información televisiva,* Paidós, Barcelona, 1989.
+- ______________: *La TV,* Paidós, Barcelona, 1990.
+- ______________: *La televisión: efectos del bien y del mal*, Paidós, Barcelona, 1993.
+- VILLALBA, Federico: *La agenda hegemónica de hoy,* Instituto Municipal de Publicaciones, Venezuela, 2005.
+- ______________: *La televisión: efectos del bien y del mal*, Paidós, Barcelona, 1993.
+- VIRILIO, Paul: *La máquina de la visión,* Cátedra, Barcelona, 1989.
+- ___________: *Un cambio de civilización,* Suplemento de El País, *Babelia*, Madrid, 1994.
+- ___________: *Estética de la desaparición,* Anagrama, Madrid, 1998.
+- ___________: *Un paisaje de acontecimientos,* Paidós, Barcelona, 1998.
+- VIRNO, Paolo: *Gramática de la multitud*, Colihue, Buenos Aires, 2003.
+- VOLPE, Dominique: *Crítica de la ideología contemporánea,* Icaria,Barcelona, 1995.
+- WALLERSTEIN, Immanuel: *Utopística o las opciones históricas del siglo*
+- *XXI,* Siglo XXI, México, 2003.
+- WEBER, Max: *Economía y sociedad,* Fondo de Cultura Económica, México, 1987.
+- WEISS, Walter: *The country new space*. University of North Caroline, 1969.
+- WINNER, Lotte: *La ballena y el reactor,* Gedisa, Barcelona, 1987.
+- WITTGENSTEIN, Ludwig: *Tractatus logico-philosophicus,* Alianza, Madrid, 1979.
+- WOLFE, Tom: “McLuhan and his friends”, en revista *Vanity Fairy,* New *Y*ork, 1971.
+- WOLTON, Dominique: *Elogio del gran público,* Gedisa, Barcelona, 1992.
+- WRIGHT, Charles R: *Functional analysis and mass communication,* Quaterly, Chicago, 1960.
+- YNDURAIN, F. J: *Electrones, neutrinos y quarks*, Drakontos, Barcelona, 2001.
+- ZABALA, Germán: *Ética, la paradoja de la diferencia*, Tres, Bogotá, 2004.
+- ZALLO, Ramón: *Economía de la comunicación y la cultura*, Akal, Madrid, 1988.
+- ZIBECHI, Raúl: *Dispersar el poder*, Tinta y Limón, Buenos Aires, 2006. ŽIŽEK, Slavoj: *El sublime objeto de la ideología,* Siglo XXI, México, 2001.
+- *______________: La Ideología,* Fondo de Cultura Económica,
