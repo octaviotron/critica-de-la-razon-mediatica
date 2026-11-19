@@ -5,24 +5,27 @@ Paso 2: Conversión Estructural Determinista de PDF (vía XML de Poppler) a Mark
 Procesa las 666 páginas del PDF según el Mapa Maestro del SSOT y genera los 33 archivos .md en libro/.
 """
 
+import argparse
 import html
 import importlib.util
 import os
 import re
 from typing import Dict, List, Optional, Set, Tuple
 
-# Importar definiciones y parser del Paso 1 (01_extraer_xml.py)
+# Importar definiciones y parser del Paso 1 (scripts/extraccion_v1/01_extraer_xml.py)
 _spec = importlib.util.spec_from_file_location("step1", os.path.join(os.path.dirname(__file__), "01_extraer_xml.py"))
 step1 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(step1)
 
+REPO_ROOT = step1.REPO_ROOT
 CHAPTERS = step1.CHAPTERS
 PageData = step1.PageData
 TextNode = step1.TextNode
 parse_all_pages = step1.parse_all_pages
 
-OUT_DIR = "libro"
-os.makedirs(OUT_DIR, exist_ok=True)
+# Por seguridad, la salida por defecto es un directorio temporal en dist/ para no
+# sobrescribir accidentalmente las ediciones de la 2.ª edición en libro/ ni el respaldo inmutable.
+DEFAULT_OUT_DIR = os.path.join(REPO_ROOT, "dist", "extraccion_v1_md")
 
 COMPOUND_PREFIXES = {
     "auto", "anti", "pre", "post", "co", "no", "sin", "con", "sub", "ex",
@@ -594,7 +597,23 @@ def convert_body_chapter(
     return "\n".join(out_parts)
 
 
-def main() -> None:
+def main(out_dir: str = DEFAULT_OUT_DIR, confirmar_sobrescritura: bool = False) -> None:
+    resolved_out = os.path.abspath(out_dir)
+    respaldo_root = os.path.abspath(os.path.join(REPO_ROOT, "respaldo_v1.0"))
+    libro_root = os.path.abspath(os.path.join(REPO_ROOT, "libro"))
+
+    if resolved_out == respaldo_root or resolved_out.startswith(respaldo_root + os.sep):
+        raise PermissionError(
+            f"Operación bloqueada: '{out_dir}' pertenece al respaldo inmutable respaldo_v1.0/ y no puede sobrescribirse."
+        )
+    if (resolved_out == libro_root or resolved_out.startswith(libro_root + os.sep)) and not confirmar_sobrescritura:
+        raise PermissionError(
+            "Operación bloqueada por seguridad: escribir en 'libro/' sobrescribiría los cambios de la 2.ª edición.\n"
+            "Usa la salida por defecto ('dist/extraccion_v1_md') o añade '--confirmar-sobrescritura' si realmente deseas regenerar 'libro/'."
+        )
+
+    os.makedirs(resolved_out, exist_ok=True)
+
     pages = parse_all_pages()
     all_words, inline_compounds = build_lexicons(pages)
     print(f"[INFO] Diccionario interno cargado: {len(all_words):,} palabras simples y {len(inline_compounds):,} compuestos con guion.")
@@ -613,15 +632,29 @@ def main() -> None:
         else:
             md_content = convert_body_chapter(pages, p_start, p_end, all_words, inline_compounds)
 
-        out_path = os.path.join(OUT_DIR, fname)
+        out_path = os.path.join(resolved_out, fname)
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(md_content)
 
         words_count = len(md_content.split())
         print(f"  [{cid:02d}] {fname:<34s} | PDF {p_start:3d}–{p_end:3d} (Folios {folio_range:<8s}) | {words_count:6,d} palabras")
 
-    print(f"\n[OK] Conversión completada: {len(CHAPTERS)} archivos Markdown generados en '{OUT_DIR}/'.")
+    print(f"\n[OK] Conversión completada: {len(CHAPTERS)} archivos Markdown generados en '{resolved_out}'.")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description="Pipeline histórico v1.0: convierte el PDF de 2006 a 33 archivos Markdown (protegido contra sobrescritura accidental)."
+    )
+    parser.add_argument(
+        "--salida",
+        default=DEFAULT_OUT_DIR,
+        help="Carpeta de salida para los 33 archivos .md (por defecto: dist/extraccion_v1_md)",
+    )
+    parser.add_argument(
+        "--confirmar-sobrescritura",
+        action="store_true",
+        help="Requerido explícitamente si --salida apunta a libro/",
+    )
+    args = parser.parse_args()
+    main(out_dir=args.salida, confirmar_sobrescritura=args.confirmar_sobrescritura)

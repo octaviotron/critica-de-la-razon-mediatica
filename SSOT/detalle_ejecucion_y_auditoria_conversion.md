@@ -1,7 +1,8 @@
-# Detalle Completo del Proceso Ejecutado y Auditoría de Conversión (PDF a Markdown)
+# Detalle Completo del Proceso Ejecutado y Auditoría de Conversión (PDF a Markdown — v1.0)
 
 **Proyecto:** Segunda Edición — *Crítica de la Razón Mediática* (Juan Barreto Cipriani)  
 **Archivo Fuente:** `fuente/Libro Crítica de La Razon Mediatica.pdf` (`21,078,531 bytes`, `666 páginas físicas`)  
+**Respaldo Inmutable Verificado:** `respaldo_v1.0/md/` (copia testigo intacta de los 33 archivos originales; ver `respaldo_v1.0/README.md`)  
 **Método Implementado:** Método 1 — Extracción Estructural Determinista por Coordenadas, Fuentes y Color (`pdftohtml -xml` + Python)  
 **Especificación Base:** `SSOT/proceso_conversion_pdf_a_md.md`  
 
@@ -12,20 +13,22 @@
 | Métrica de Control | Valor Verificado | Estado |
 | :--- | :---: | :---: |
 | **Páginas físicas totales del PDF analizadas** | `666 / 666` (`650` texto + `16` gráficas) | **100% Cubierto** |
-| **Archivos Markdown generados en `libro/`** | `33` archivos (incluyendo `01_indice.md`) | **100% Completado** |
-| **Palabras totales en Markdown (`libro/*.md`)** | `197,741` palabras | **Verificado** |
+| **Archivos Markdown originales (`respaldo_v1.0/md/` y base inicial de `libro/`)** | `33` archivos (incluyendo `01_indice.md`) | **100% Completado** |
+| **Palabras totales en Markdown (1.ª edición)** | `197,741` palabras | **Verificado** |
 | **Bloques estructurales (títulos, párrafos, citas, notas)** | `2,688` bloques | **Verificado** |
 | **Notas al pie extraídas y enlazadas (`[^n]:`)** | `513` notas al pie (`0` huérfanas) | **100% Íntegro** |
 | **Caracteres alfanuméricos en capa útil del PDF (XML)** | `1,008,962` caracteres | **Base Contable** |
-| **Caracteres alfanuméricos en archivos Markdown (`libro/`)** | `1,008,962` caracteres | **Exactitud 100.000%** |
+| **Caracteres alfanuméricos en archivos Markdown (`respaldo_v1.0/md/`)** | `1,008,962` caracteres | **Exactitud 100.000%** |
 | **Caracteres perdidos (`missing`) / añadidos (`extra`)** | `0` perdidos / `0` extra | **0% Pérdida / 0% Mezcla** |
 | **Consumo de tokens de IA para lectura del libro** | `0` tokens (100% procesado por scripts locales) | **Óptimo** |
 
 ---
 
-## 2. Arquitectura de Scripts Implementados en `scripts/`
+## 2. Arquitectura de Scripts Históricos (`scripts/extraccion_v1/`) y Respaldo Inmutable (`respaldo_v1.0/`)
 
-### 2.1. `scripts/01_extraer_xml.py` — Extracción Vectorial y Filtrado de Imprenta
+> **Nota de preservación:** Tras completar la extracción inicial, estos tres scripts se archivan en `scripts/extraccion_v1/` como pipeline histórico congelado de la 1.ª edición (2006), mientras que la copia íntegra de los 33 archivos y su manifiesto estructural se resguardan de forma inmutable en `respaldo_v1.0/`. Las herramientas activas de edición, validación y compilación de la 2.ª edición residen en `scripts/edicion/` (ver `SSOT/flujo_editorial_segunda_edicion.md`).
+
+### 2.1. `scripts/extraccion_v1/01_extraer_xml.py` — Extracción Vectorial y Filtrado de Imprenta
 1. **Invocación de Poppler:** Ejecuta `pdftohtml -xml -i -stdout` sobre `fuente/Libro Crítica de La Razon Mediatica.pdf`, extrayendo las 666 páginas sin procesar imágenes pesadas (`-i`), generando un árbol XML de `4,490,886 bytes` con coordenadas precisas (`top`, `left`, `width`, `height`) y especificaciones tipográficas (`<fontspec>`).
 2. **Resolución de Herencia de Fuentes en Poppler:** Mantiene una tabla acumulativa global de `<fontspec id="...">` a lo largo de las 666 páginas, ya que Poppler declara cada `id` de fuente únicamente en la primera página donde aparece.
 3. **Filtrado Determinista de los 5 Ruidos de Maquetación (QuarkXPress 9.51):**
@@ -35,7 +38,7 @@
    * **Folios marginales (Números de página impresos):** Registra como metadato y retira del flujo de texto los números en `Bauhaus93 14pt` situados en `top < 145` en los márgenes exteriores.
    * **Cabeceras corridas superiores:** Retira del flujo de texto las cabeceras de sección (`Garamond 12pt/14pt` en `top < 65` para páginas de `616px` de ancho en la *Primera Parte* y `top < 105` para páginas de `697px` en el resto del libro).
 
-### 2.2. `scripts/02_convertir_a_md.py` — Reconstrucción Estructural y Tipográfica en Markdown
+### 2.2. `scripts/extraccion_v1/02_convertir_a_md.py` — Reconstrucción Estructural y Tipográfica en Markdown
 1. **Agrupación Horizontal de Líneas (`±4 px`):** Reúne en una misma línea visual todos los fragmentos `<text>` con igual coordenada base `top`, reconociendo como llamadas de nota al pie en superíndice (`[^n]`) los nodos numéricos `Garamond 14pt/15pt` elevados hasta `6 px` respecto a la línea base `Garamond 18pt`, así como llamadas pospuestas a signos de puntuación al cierre de línea.
 2. **Integración de Letras Capitulares (Drop Caps):** Identifica las 53 letras capitulares (`AmigaForeverPro2`, tamaños `28pt` a `65pt` de un carácter) y las une sin espacio espurio al primer vocablo del párrafo inicial (o como encabezado alfabético `**A**.-` en el *Alfabeto de signos incompletos* del Epílogo), evitando además que las dos líneas contiguas desplazadas por la caja de la capitular se partan como párrafos distintos.
 3. **Separación Exacta de Notas al Pie y Continuaciones entre Páginas:**
@@ -46,15 +49,19 @@
    * Construye primero el diccionario completo del libro (`18,931` palabras simples sin guion y `619` palabras compuestas con guion explícito en medio de línea).
    * Al unir líneas terminadas en guion, elimina el guion de corte silábico (`arti-` + `culación` → `articulación`) pero preserva los compuestos conceptuales del autor (`significante-signo`, `ético-política`, `rostro-proceso`, `cuerpo-potencia`, etc.).
 5. **Formateadores Especializados:** Procesa con reglas específicas `00_preliminares.md`, `01_indice.md` (uniendo títulos multilínea y limpiando líneas de puntos), `30_bibliografia.md` (lista de obras citadas), `31_glosario.md` (términos `· Concepto:`) y `32_indice_onomastico.md` (autores y páginas).
+6. **Protección contra Sobrescritura:** Por defecto escribe en `dist/extraccion_v1_md/`, bloquea cualquier escritura sobre `respaldo_v1.0/` y exige `--confirmar-sobrescritura` si se apunta explícitamente a `libro/`.
 
-### 2.3. `scripts/03_auditar_integridad.py` — Verificación Contable 100%
-Compara carácter por carácter el flujo alfanumérico de los nodos útiles del XML en cada rango de páginas contra el archivo `.md` generado en `libro/`, verificando que no falte ni sobre ni un solo carácter alfanumérico en ninguno de los 33 archivos.
+### 2.3. `scripts/extraccion_v1/03_auditar_integridad.py` — Verificación Contable 100%
+Compara carácter por carácter el flujo alfanumérico de los nodos útiles del XML en cada rango de páginas contra los 33 archivos `.md` (por defecto en `respaldo_v1.0/md/`), verificando que no falte ni sobre ni un solo carácter alfanumérico.
+
+### 2.4. `respaldo_v1.0/` — Respaldo Inmutable de Estructura y Contenido Inicial
+Preserva permanentemente la copia congelada de los 33 archivos Markdown originales (`respaldo_v1.0/md/`), su manifiesto criptográfico SHA-256 (`respaldo_v1.0/manifiesto_v1.0.md`), su documentación (`respaldo_v1.0/README.md`) y su manifiesto estructural congelado (`respaldo_v1.0/libro.yaml`), garantizando que la 1.ª edición (`v1.0.0`) pueda auditarse y compilarse siempre sin depender del estado de `libro/`.
 
 ---
 
-## 3. Tabla de Auditoría Capítulo por Capítulo (`libro/`)
+## 3. Tabla de Auditoría Capítulo por Capítulo (`respaldo_v1.0/md/`)
 
-| Nº | Archivo en `libro/` | Págs. PDF | Folios | Palabras | Bloques | Notas | Chars XML | Chars MD | Pérdida / Extra |
+| Nº | Archivo en `respaldo_v1.0/md/` | Págs. PDF | Folios | Palabras | Bloques | Notas | Chars XML | Chars MD | Pérdida / Extra |
 | :-: | :--- | :---: | :---: | ---: | ---: | ---: | ---: | ---: | :---: |
 | 00 | `00_preliminares.md` | 2–4 (3) | 2–5 | 254 | 5 | 0 | 1,361 | 1,361 | **0 / 0 (100%)** |
 | 01 | `01_indice.md` | 5–8 (4) | 7–10 | 930 | 14 | 0 | 3,799 | 3,799 | **0 / 0 (100%)** |
@@ -89,19 +96,22 @@ Compara carácter por carácter el flujo alfanumérico de los nodos útiles del 
 | 30 | `30_bibliografia.md` | 590–609 (20) | 621–641 | 4,481 | 2 | 0 | 22,219 | 22,219 | **0 / 0 (100%)** |
 | 31 | `31_glosario.md` | 611–655 (45) | 643–687 | 13,690 | 95 | 0 | 70,180 | 70,180 | **0 / 0 (100%)** |
 | 32 | `32_indice_onomastico.md` | 657–665 (9) | 691–699 | 1,738 | 2 | 0 | 5,922 | 5,922 | **0 / 0 (100%)** |
-| **TOTAL** | **33 archivos en `libro/`** | **650 págs. texto (+16 gráf.)** | **2–699** | **197,741** | **2,688** | **513** | **1,008,962** | **1,008,962** | **0 / 0 (100.000%)** |
+| **TOTAL** | **33 archivos en `respaldo_v1.0/md/`** | **650 págs. texto (+16 gráf.)** | **2–699** | **197,741** | **2,688** | **513** | **1,008,962** | **1,008,962** | **0 / 0 (100.000%)** |
 
 ---
 
-## 4. Comandos para Reproducir el Proceso y la Auditoría
+## 4. Comandos para Reproducir la Extracción Histórica y la Auditoría
 
 ```bash
 # 1. Extraer y validar las 666 páginas del PDF a XML vectorial
-python3 scripts/01_extraer_xml.py
+python3 scripts/extraccion_v1/01_extraer_xml.py
 
-# 2. Generar los 33 archivos Markdown por capítulo en libro/
-python3 scripts/02_convertir_a_md.py
+# 2. Reproducir la conversión de prueba en dist/extraccion_v1_md/ (sin tocar libro/ ni respaldo_v1.0/)
+python3 scripts/extraccion_v1/02_convertir_a_md.py
 
-# 3. Ejecutar la auditoría matemática de integridad (0% pérdida) y actualizar este reporte
-python3 scripts/03_auditar_integridad.py
+# 3. Ejecutar la auditoría matemática de integridad (0% pérdida) sobre respaldo_v1.0/md/
+python3 scripts/extraccion_v1/03_auditar_integridad.py
+
+# 4. (Opcional) Auditar una carpeta específica y regenerar este reporte en SSOT/
+python3 scripts/extraccion_v1/03_auditar_integridad.py --fuente respaldo_v1.0/md --actualizar-reporte
 ```

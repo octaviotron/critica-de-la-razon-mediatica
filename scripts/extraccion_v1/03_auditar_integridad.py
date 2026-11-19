@@ -6,6 +6,7 @@ Valida matemáticamente los 33 archivos Markdown generados en libro/ contra el X
 de las 666 páginas del PDF original y genera en SSOT/ el documento detallado de ejecución y auditoría.
 """
 
+import argparse
 from collections import Counter
 import importlib.util
 import os
@@ -16,20 +17,26 @@ _spec = importlib.util.spec_from_file_location("step1", os.path.join(os.path.dir
 step1 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(step1)
 
+REPO_ROOT = step1.REPO_ROOT
 CHAPTERS = step1.CHAPTERS
 GRAPHIC_ONLY_PAGES = step1.GRAPHIC_ONLY_PAGES
 PageData = step1.PageData
 parse_all_pages = step1.parse_all_pages
 
-LIBRO_DIR = "libro"
-SSOT_REPORT_PATH = os.path.join("SSOT", "detalle_ejecucion_y_auditoria_conversion.md")
+# Por defecto audita respaldo_v1.0/md (respaldo inmutable de la 1.ª edición) para que
+# la verificación matemática contra el PDF de 2006 siga siendo reproducible al 100%
+# incluso cuando los capítulos de libro/ se modifiquen durante la 2.ª edición.
+DEFAULT_MD_DIR = os.path.join(REPO_ROOT, "respaldo_v1.0", "md")
+SSOT_REPORT_PATH = os.path.join(REPO_ROOT, "SSOT", "detalle_ejecucion_y_auditoria_conversion.md")
 
 
 def extract_alnum_stream(text: str) -> List[str]:
     return re.findall(r"[a-záéíóúñü0-9]", text.lower())
 
 
-def run_audit() -> None:
+def run_audit(md_dir: str = DEFAULT_MD_DIR, actualizar_reporte: bool = False) -> None:
+    md_dir_abs = os.path.abspath(md_dir)
+    md_dir_rel = os.path.relpath(md_dir_abs, REPO_ROOT)
     pages = parse_all_pages()
 
     # 1. Prueba de cobertura de las 666 páginas
@@ -57,7 +64,7 @@ def run_audit() -> None:
     total_paragraphs = 0
 
     for cid, fname, title, folio_range, p_start, p_end, mode in CHAPTERS:
-        md_path = os.path.join(LIBRO_DIR, fname)
+        md_path = os.path.join(md_dir_abs, fname)
         if not os.path.exists(md_path):
             raise FileNotFoundError(f"No existe el archivo esperado: {md_path}")
 
@@ -120,12 +127,13 @@ def run_audit() -> None:
             }
         )
 
-    # 3. Generar el reporte detallado del proceso y auditoría en SSOT/
+    # 3. Generar el reporte detallado del proceso y auditoría en SSOT/ (cuando se solicita explícitamente)
     report_lines = [
-        "# Detalle Completo del Proceso Ejecutado y Auditoría de Conversión (PDF a Markdown)",
+        "# Detalle Completo del Proceso Ejecutado y Auditoría de Conversión (PDF a Markdown — v1.0)",
         "",
         "**Proyecto:** Segunda Edición — *Crítica de la Razón Mediática* (Juan Barreto Cipriani)  ",
         "**Archivo Fuente:** `fuente/Libro Crítica de La Razon Mediatica.pdf` (`21,078,531 bytes`, `666 páginas físicas`)  ",
+        "**Respaldo Inmutable Verificado:** `respaldo_v1.0/md/` (copia testigo intacta de los 33 archivos originales; ver `respaldo_v1.0/README.md`)  ",
         "**Método Implementado:** Método 1 — Extracción Estructural Determinista por Coordenadas, Fuentes y Color (`pdftohtml -xml` + Python)  ",
         "**Especificación Base:** `SSOT/proceso_conversion_pdf_a_md.md`  ",
         "",
@@ -136,20 +144,22 @@ def run_audit() -> None:
         "| Métrica de Control | Valor Verificado | Estado |",
         "| :--- | :---: | :---: |",
         f"| **Páginas físicas totales del PDF analizadas** | `666 / 666` (`650` texto + `16` gráficas) | **100% Cubierto** |",
-        f"| **Archivos Markdown generados en `libro/`** | `{len(CHAPTERS)}` archivos (incluyendo `01_indice.md`) | **100% Completado** |",
-        f"| **Palabras totales en Markdown (`libro/*.md`)** | `{total_words_md:,}` palabras | **Verificado** |",
+        f"| **Archivos Markdown originales (`respaldo_v1.0/md/` y base inicial de `libro/`)** | `{len(CHAPTERS)}` archivos (incluyendo `01_indice.md`) | **100% Completado** |",
+        f"| **Palabras totales en Markdown (1.ª edición)** | `{total_words_md:,}` palabras | **Verificado** |",
         f"| **Bloques estructurales (títulos, párrafos, citas, notas)** | `{total_paragraphs:,}` bloques | **Verificado** |",
         f"| **Notas al pie extraídas y enlazadas (`[^n]:`)** | `{total_footnotes}` notas al pie (`0` huérfanas) | **100% Íntegro** |",
         f"| **Caracteres alfanuméricos en capa útil del PDF (XML)** | `{total_xml_alnum:,}` caracteres | **Base Contable** |",
-        f"| **Caracteres alfanuméricos en archivos Markdown (`libro/`)** | `{total_md_alnum:,}` caracteres | **Exactitud 100.000%** |",
+        f"| **Caracteres alfanuméricos en archivos Markdown (`{md_dir_rel}/`)** | `{total_md_alnum:,}` caracteres | **Exactitud 100.000%** |",
         f"| **Caracteres perdidos (`missing`) / añadidos (`extra`)** | `{total_missing}` perdidos / `{total_extra}` extra | **0% Pérdida / 0% Mezcla** |",
         "| **Consumo de tokens de IA para lectura del libro** | `0` tokens (100% procesado por scripts locales) | **Óptimo** |",
         "",
         "---",
         "",
-        "## 2. Arquitectura de Scripts Implementados en `scripts/`",
+        "## 2. Arquitectura de Scripts Históricos (`scripts/extraccion_v1/`) y Respaldo Inmutable (`respaldo_v1.0/`)",
         "",
-        "### 2.1. `scripts/01_extraer_xml.py` — Extracción Vectorial y Filtrado de Imprenta",
+        "> **Nota de preservación:** Tras completar la extracción inicial, estos tres scripts se archivan en `scripts/extraccion_v1/` como pipeline histórico congelado de la 1.ª edición (2006), mientras que la copia íntegra de los 33 archivos y su manifiesto estructural se resguardan de forma inmutable en `respaldo_v1.0/`. Las herramientas activas de edición, validación y compilación de la 2.ª edición residen en `scripts/edicion/` (ver `SSOT/flujo_editorial_segunda_edicion.md`).",
+        "",
+        "### 2.1. `scripts/extraccion_v1/01_extraer_xml.py` — Extracción Vectorial y Filtrado de Imprenta",
         "1. **Invocación de Poppler:** Ejecuta `pdftohtml -xml -i -stdout` sobre `fuente/Libro Crítica de La Razon Mediatica.pdf`, extrayendo las 666 páginas sin procesar imágenes pesadas (`-i`), generando un árbol XML de `4,490,886 bytes` con coordenadas precisas (`top`, `left`, `width`, `height`) y especificaciones tipográficas (`<fontspec>`).",
         "2. **Resolución de Herencia de Fuentes en Poppler:** Mantiene una tabla acumulativa global de `<fontspec id=\"...\">` a lo largo de las 666 páginas, ya que Poppler declara cada `id` de fuente únicamente en la primera página donde aparece.",
         "3. **Filtrado Determinista de los 5 Ruidos de Maquetación (QuarkXPress 9.51):**",
@@ -159,7 +169,7 @@ def run_audit() -> None:
         "   * **Folios marginales (Números de página impresos):** Registra como metadato y retira del flujo de texto los números en `Bauhaus93 14pt` situados en `top < 145` en los márgenes exteriores.",
         "   * **Cabeceras corridas superiores:** Retira del flujo de texto las cabeceras de sección (`Garamond 12pt/14pt` en `top < 65` para páginas de `616px` de ancho en la *Primera Parte* y `top < 105` para páginas de `697px` en el resto del libro).",
         "",
-        "### 2.2. `scripts/02_convertir_a_md.py` — Reconstrucción Estructural y Tipográfica en Markdown",
+        "### 2.2. `scripts/extraccion_v1/02_convertir_a_md.py` — Reconstrucción Estructural y Tipográfica en Markdown",
         "1. **Agrupación Horizontal de Líneas (`±4 px`):** Reúne en una misma línea visual todos los fragmentos `<text>` con igual coordenada base `top`, reconociendo como llamadas de nota al pie en superíndice (`[^n]`) los nodos numéricos `Garamond 14pt/15pt` elevados hasta `6 px` respecto a la línea base `Garamond 18pt`, así como llamadas pospuestas a signos de puntuación al cierre de línea.",
         "2. **Integración de Letras Capitulares (Drop Caps):** Identifica las 53 letras capitulares (`AmigaForeverPro2`, tamaños `28pt` a `65pt` de un carácter) y las une sin espacio espurio al primer vocablo del párrafo inicial (o como encabezado alfabético `**A**.-` en el *Alfabeto de signos incompletos* del Epílogo), evitando además que las dos líneas contiguas desplazadas por la caja de la capitular se partan como párrafos distintos.",
         "3. **Separación Exacta de Notas al Pie y Continuaciones entre Páginas:**",
@@ -170,15 +180,19 @@ def run_audit() -> None:
         "   * Construye primero el diccionario completo del libro (`18,931` palabras simples sin guion y `619` palabras compuestas con guion explícito en medio de línea).",
         "   * Al unir líneas terminadas en guion, elimina el guion de corte silábico (`arti-` + `culación` → `articulación`) pero preserva los compuestos conceptuales del autor (`significante-signo`, `ético-política`, `rostro-proceso`, `cuerpo-potencia`, etc.).",
         "5. **Formateadores Especializados:** Procesa con reglas específicas `00_preliminares.md`, `01_indice.md` (uniendo títulos multilínea y limpiando líneas de puntos), `30_bibliografia.md` (lista de obras citadas), `31_glosario.md` (términos `· Concepto:`) y `32_indice_onomastico.md` (autores y páginas).",
+        "6. **Protección contra Sobrescritura:** Por defecto escribe en `dist/extraccion_v1_md/`, bloquea cualquier escritura sobre `respaldo_v1.0/` y exige `--confirmar-sobrescritura` si se apunta explícitamente a `libro/`.",
         "",
-        "### 2.3. `scripts/03_auditar_integridad.py` — Verificación Contable 100%",
-        "Compara carácter por carácter el flujo alfanumérico de los nodos útiles del XML en cada rango de páginas contra el archivo `.md` generado en `libro/`, verificando que no falte ni sobre ni un solo carácter alfanumérico en ninguno de los 33 archivos.",
+        "### 2.3. `scripts/extraccion_v1/03_auditar_integridad.py` — Verificación Contable 100%",
+        "Compara carácter por carácter el flujo alfanumérico de los nodos útiles del XML en cada rango de páginas contra los 33 archivos `.md` (por defecto en `respaldo_v1.0/md/`), verificando que no falte ni sobre ni un solo carácter alfanumérico.",
+        "",
+        "### 2.4. `respaldo_v1.0/` — Respaldo Inmutable de Estructura y Contenido Inicial",
+        "Preserva permanentemente la copia congelada de los 33 archivos Markdown originales (`respaldo_v1.0/md/`), su manifiesto criptográfico SHA-256 (`respaldo_v1.0/manifiesto_v1.0.md`), su documentación (`respaldo_v1.0/README.md`) y su manifiesto estructural congelado (`respaldo_v1.0/libro.yaml`), garantizando que la 1.ª edición (`v1.0.0`) pueda auditarse y compilarse siempre sin depender del estado de `libro/`.",
         "",
         "---",
         "",
-        "## 3. Tabla de Auditoría Capítulo por Capítulo (`libro/`)",
+        f"## 3. Tabla de Auditoría Capítulo por Capítulo (`{md_dir_rel}/`)",
         "",
-        "| Nº | Archivo en `libro/` | Págs. PDF | Folios | Palabras | Bloques | Notas | Chars XML | Chars MD | Pérdida / Extra |",
+        f"| Nº | Archivo en `{md_dir_rel}/` | Págs. PDF | Folios | Palabras | Bloques | Notas | Chars XML | Chars MD | Pérdida / Extra |",
         "| :-: | :--- | :---: | :---: | ---: | ---: | ---: | ---: | ---: | :---: |",
     ]
 
@@ -191,34 +205,55 @@ def run_audit() -> None:
 
     report_lines.extend(
         [
-            f"| **TOTAL** | **33 archivos en `libro/`** | **650 págs. texto (+16 gráf.)** | **2–699** | "
+            f"| **TOTAL** | **33 archivos en `{md_dir_rel}/`** | **650 págs. texto (+16 gráf.)** | **2–699** | "
             f"**{total_words_md:,}** | **{total_paragraphs:,}** | **{total_footnotes}** | "
             f"**{total_xml_alnum:,}** | **{total_md_alnum:,}** | **0 / 0 (100.000%)** |",
             "",
             "---",
             "",
-            "## 4. Comandos para Reproducir el Proceso y la Auditoría",
+            "## 4. Comandos para Reproducir la Extracción Histórica y la Auditoría",
             "",
             "```bash",
             "# 1. Extraer y validar las 666 páginas del PDF a XML vectorial",
-            "python3 scripts/01_extraer_xml.py",
+            "python3 scripts/extraccion_v1/01_extraer_xml.py",
             "",
-            "# 2. Generar los 33 archivos Markdown por capítulo en libro/",
-            "python3 scripts/02_convertir_a_md.py",
+            "# 2. Reproducir la conversión de prueba en dist/extraccion_v1_md/ (sin tocar libro/ ni respaldo_v1.0/)",
+            "python3 scripts/extraccion_v1/02_convertir_a_md.py",
             "",
-            "# 3. Ejecutar la auditoría matemática de integridad (0% pérdida) y actualizar este reporte",
-            "python3 scripts/03_auditar_integridad.py",
+            "# 3. Ejecutar la auditoría matemática de integridad (0% pérdida) sobre respaldo_v1.0/md/",
+            "python3 scripts/extraccion_v1/03_auditar_integridad.py",
+            "",
+            "# 4. (Opcional) Auditar una carpeta específica y regenerar este reporte en SSOT/",
+            "python3 scripts/extraccion_v1/03_auditar_integridad.py --fuente respaldo_v1.0/md --actualizar-reporte",
             "```",
             "",
         ]
     )
 
-    with open(SSOT_REPORT_PATH, "w", encoding="utf-8") as f:
-        f.write("\n".join(report_lines))
+    print(
+        f"[OK] Auditoría superada al 100.000% sobre '{md_dir_rel}': "
+        f"{total_md_alnum:,} / {total_xml_alnum:,} caracteres alfanuméricos verificados (0 perdidos, 0 extra)."
+    )
 
-    print(f"[OK] Auditoría superada al 100.000%: {total_md_alnum:,} / {total_xml_alnum:,} caracteres alfanuméricos verificados (0 perdidos, 0 extra).")
-    print(f"[OK] Reporte detallado generado en: {SSOT_REPORT_PATH}")
+    if actualizar_reporte:
+        with open(SSOT_REPORT_PATH, "w", encoding="utf-8") as f:
+            f.write("\n".join(report_lines))
+        print(f"[OK] Reporte detallado actualizado en: {os.path.relpath(SSOT_REPORT_PATH, REPO_ROOT)}")
 
 
 if __name__ == "__main__":
-    run_audit()
+    parser = argparse.ArgumentParser(
+        description="Pipeline histórico v1.0: auditoría matemática al 100% contra el PDF original de 2006."
+    )
+    parser.add_argument(
+        "--fuente",
+        default=DEFAULT_MD_DIR,
+        help="Directorio con los 33 archivos .md a auditar (por defecto: respaldo_v1.0/md)",
+    )
+    parser.add_argument(
+        "--actualizar-reporte",
+        action="store_true",
+        help="Regenera el documento SSOT/detalle_ejecucion_y_auditoria_conversion.md con los resultados",
+    )
+    args = parser.parse_args()
+    run_audit(md_dir=args.fuente, actualizar_reporte=args.actualizar_reporte)

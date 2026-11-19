@@ -12,7 +12,8 @@ import subprocess
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
-PDF_PATH = os.path.join("fuente", "Libro Crítica de La Razon Mediatica.pdf")
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+PDF_PATH = os.path.join(REPO_ROOT, "fuente", "Libro Crítica de La Razon Mediatica.pdf")
 XML_CACHE_PATH = "/tmp/libro_razon_mediatica.xml"
 
 # Las 16 páginas exclusivamente gráficas (Portada, 14 portadillas ilustradas, Contraportada)
@@ -85,9 +86,11 @@ class PageData:
 def resolve_pdf_path(pdf_path: str = PDF_PATH) -> str:
     if os.path.exists(pdf_path):
         return pdf_path
-    for fname in os.listdir("fuente"):
-        if fname.endswith(".pdf") and "Razon" in fname:
-            return os.path.join("fuente", fname)
+    fuente_dir = os.path.join(REPO_ROOT, "fuente")
+    if os.path.isdir(fuente_dir):
+        for fname in os.listdir(fuente_dir):
+            if fname.endswith(".pdf") and "Razon" in fname:
+                return os.path.join(fuente_dir, fname)
     raise FileNotFoundError(f"No se encontró el PDF en {pdf_path}")
 
 

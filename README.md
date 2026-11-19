@@ -29,71 +29,80 @@ Repositorio oficial del proyecto de procesamiento digital, estructuración en fo
 
 ### Asesoría Informática para la Segunda Edición
 * **Asesor Informático:** **Octavio Rossell Tabet** <[octavio.rossell@gmail.com](mailto:octavio.rossell@gmail.com)> — [https://github.com/octaviotron](https://github.com/octaviotron)
-  * *Rol:* Arquitectura de extracción documental sin pérdida, conversión automatizada a Markdown, sistema de versionado con etiquetas de párrafo para dictado por voz con IA y auditoría de integridad textual para la realización de la segunda edición del libro.
+  * *Rol:* Arquitectura de extracción documental sin pérdida, conversión automatizada a Markdown, sistema de versionamiento nativo en Git con manifiesto estructural declarativo (`libro.yaml`), respaldo inmutable de la primera edición (`respaldo_v1.0/`), auditoría de integridad textual y herramientas de compilación editorial para la realización de la segunda edición del libro.
 
 ---
 
 ## Estructura del Proyecto
 
-El repositorio está organizado en cinco directorios principales: [`fuente/`](fuente/), [`libro/`](libro/), [`versiones/`](versiones/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/).
+El repositorio está organizado alrededor de cinco directorios versionados ([`fuente/`](fuente/), [`libro/`](libro/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), el manifiesto estructural [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para artefactos compilados.
 
 ```text
 critica-de-la-razon-mediatica/
 ├── README.md                  # Documentación general, créditos e índice navegable
-├── .gitignore                 # Reglas de exclusión de archivos temporales y caché
-├── fuente/                    # Archivos originales de la 1.ª edición (PDF, QuarkXPress, fuentes e imágenes)
+├── CHANGELOG.md               # Bitácora editorial de alto nivel por versión/tag Git
+├── libro.yaml                 # Manifiesto maestro: metadatos y orden flexible de partes/capítulos (Opción A)
+├── .gitignore                 # Excluye dist/ (PDFs/reportes compilados) y temporales
+├── fuente/                    # [Inmutable] Archivos originales de la 1.ª edición (PDF, QuarkXPress, fuentes, artes)
 │   ├── Libro Crítica de La Razon Mediatica.pdf
 │   ├── FUENTES/               # Fuentes tipográficas TrueType (.ttf) originales
 │   ├── PORTADA/               # Artes originales de portada (.tif)
 │   └── RAZON/                 # Maquetación QuarkXPress (.qxp/.qxb) y portadillas (.tif/.jpg)
 │       └── images/            # Ilustraciones separadoras de cada parte y sección
-├── libro/                     # Libro convertido a Markdown (33 archivos .md por capítulo)
-├── versiones/                 # Versiones PDF de lectura etiquetadas ([CC.PPP]) y control de versiones
-│   ├── README.md              # Guía de la estructura de versiones y generación de PDFs
-│   ├── Critica_de_la_Razon_Mediatica_Lectura_v1.0.pdf
-│   ├── v1.0_original/         # Respaldo congelado e inmutable de la 1.ª edición (2006)
-│   │   ├── manifiesto_v1.0.md # Hashes SHA-256 de los 33 archivos originales
-│   │   └── md/                # Copia testigo intacta de los 33 archivos .md originales
-│   ├── v2.0_en_proceso/       # Espacio de trabajo para la 2.ª edición
-│   │   ├── bitacora_cambios.md
-│   │   ├── notas_autor/       # Transcripciones y fichas de dictado por voz del autor
-│   │   └── borradores_md/     # Capítulos en edición antes de consolidar versión
-│   └── historial_cambios/     # Archivos diff/.patch comparativos entre versiones
-├── scripts/                   # Scripts deterministas de extracción XML, conversión, auditoría y PDF
-│   ├── 01_extraer_xml.py
-│   ├── 02_convertir_a_md.py
-│   ├── 03_auditar_integridad.py
-│   └── 04_generar_pdf_lectura.py
-└── SSOT/                      # Single Source of Truth (Especificación, Auditoría y Metodología)
+├── libro/                     # Única fuente viva de edición en Markdown (33 capítulos iniciales como IDs estables)
+├── respaldo_v1.0/             # [Inmutable] Respaldo congelado de estructura y contenido inicial (1.ª edición 2006)
+│   ├── README.md              # Documentación, reglas de inmutabilidad y comandos para compilar v1.0.0
+│   ├── libro.yaml             # Manifiesto estructural congelado de la 1.ª edición (v1.0.0)
+│   ├── manifiesto_v1.0.md     # Huellas criptográficas SHA-256 de los 33 archivos originales
+│   └── md/                    # Copia testigo intacta de los 33 archivos .md originales
+├── dist/                      # [Ignorado por Git] PDFs compilados, vistas previas de índice y reportes diff
+├── scripts/
+│   ├── extraccion_v1/         # [Congelado] Pipeline histórico de extracción y auditoría del PDF de 2006
+│   │   ├── 01_extraer_xml.py
+│   │   ├── 02_convertir_a_md.py
+│   │   └── 03_auditar_integridad.py
+│   └── edicion/               # [Activo] Herramientas para la 2.ª edición (leen libro.yaml o respaldo_v1.0/libro.yaml)
+│       ├── manifiesto.py      # Cargador compartido de manifiestos YAML
+│       ├── validar_libro.py   # Validación editorial (notas, enlaces, huérfanos y SHA-256 de respaldo_v1.0/)
+│       ├── generar_indice.py  # Regeneración automática del índice desde libro.yaml y encabezados
+│       ├── compilar_pdf.py    # Compilador de PDF limpio (o con etiquetas --etiquetar-parrafos) hacia dist/
+│       └── reporte_cambios.py # Reporte comparativo de cambios estructurales y textuales contra v1.0
+└── SSOT/                      # Single Source of Truth (Especificación, Auditoría y Flujo Editorial)
     ├── proceso_conversion_pdf_a_md.md
     ├── detalle_ejecucion_y_auditoria_conversion.md
-    └── guia_edicion_segunda_edicion_ia_voz.md
+    └── flujo_editorial_segunda_edicion.md
 ```
 
 ### Descripción y Vínculos a las Carpetas Principales
 
-1. **[`fuente/`](fuente/) — Material Fuente de la Primera Edición:**
+1. **[`fuente/`](fuente/) — Material Fuente de la Primera Edición (Inmutable):**
    * **[`fuente/Libro Crítica de La Razon Mediatica.pdf`](<fuente/Libro Crítica de La Razon Mediatica.pdf>):** Documento PDF maestro de la primera edición (`21.08 MB`, `666` páginas físicas, numeración impresa hasta la pág. `699`).
    * **[`fuente/FUENTES/`](fuente/FUENTES/):** Tipografías empleadas en la edición original (`Garamond`, `Bauhaus93`, `AmigaForeverPro2`, `Swis721`, `Arial Black`).
    * **[`fuente/PORTADA/`](fuente/PORTADA/):** Archivos `.tif` de arte de portada (`PORTADA repujado1.tif`, `PORTADA repujado2.tif`, `PORTADA uv.tif`).
    * **[`fuente/RAZON/`](fuente/RAZON/):** Documentos nativos de maquetación en QuarkXPress (`INICIAL.qxp`, `liminar.qxp`, `1a PARTE.qxp` a `6a parte.qxp`, `POST-Escriptum.qxp`, `POSTERIOR.qxp`), nota editorial [`UBICACION DE liminar.txt`](<fuente/RAZON/UBICACION DE liminar.txt>) y subcarpeta **[`fuente/RAZON/images/`](fuente/RAZON/images/)** con las 14 portadillas gráficas separadoras.
-2. **[`libro/`](libro/) — Libro Convertido en Formato Markdown (`.md`):**
-   * Aloja los **33 archivos Markdown** extraídos siguiendo la estructura principal del Índice (págs. 7–10) más el capítulo *Liminar*, asegurando el **100% de integridad textual** (`197,741` palabras, `513` notas al pie y `1,008,962` caracteres alfanuméricos verificados sin pérdidas ni mezclas entre capítulos).
-3. **[`versiones/`](versiones/) — Versiones PDF de Lectura Etiquetadas e Historial de Edición:**
-   * **[`versiones/README.md`](versiones/README.md):** Documentación del sistema de control de versiones y guía de generación de nuevos PDFs numerados.
-   * **[`versiones/Critica_de_la_Razon_Mediatica_Lectura_v1.0.pdf`](versiones/Critica_de_la_Razon_Mediatica_Lectura_v1.0.pdf):** Versión de lectura `v1.0` en PDF (`658` páginas) donde cada párrafo inicia con una etiqueta única **`[CC.PPP]`** (`2,641` párrafos etiquetados) y cada nota al pie con **`[CC.NXX]`** (`513` notas etiquetadas) para facilitar el dictado por voz del autor.
-   * **[`versiones/v1.0_original/`](versiones/v1.0_original/):** Respaldo inmutable de la primera edición de 2006, compuesto por el manifiesto criptográfico **[`manifiesto_v1.0.md`](versiones/v1.0_original/manifiesto_v1.0.md)** y la subcarpeta **[`versiones/v1.0_original/md/`](versiones/v1.0_original/md/)** con copia congelada de los 33 capítulos originales.
-   * **[`versiones/v2.0_en_proceso/`](versiones/v2.0_en_proceso/):** Espacio de trabajo activo para la Segunda Edición, que incluye el registro cronológico **[`bitacora_cambios.md`](versiones/v2.0_en_proceso/bitacora_cambios.md)**, la carpeta **[`notas_autor/`](versiones/v2.0_en_proceso/notas_autor/)** (con su **[`PLANTILLA_nota_autor.md`](versiones/v2.0_en_proceso/notas_autor/PLANTILLA_nota_autor.md)** para transcripciones del dispositivo de voz con IA) y la carpeta **[`borradores_md/`](versiones/v2.0_en_proceso/borradores_md/)** (ver **[`README.md`](versiones/v2.0_en_proceso/borradores_md/README.md)**).
-   * **[`versiones/historial_cambios/`](versiones/historial_cambios/):** Directorio destinado a alojar los reportes comparativos (`diff` / `.patch`) entre `v1.0_original` y las versiones sucesivas (ver **[`README.md`](versiones/historial_cambios/README.md)**).
-4. **[`scripts/`](scripts/) — Pipeline de Extracción, Conversión, Auditoría y Generación de PDF:**
-   * **[`scripts/01_extraer_xml.py`](scripts/01_extraer_xml.py):** Extrae la capa vectorial de las 666 páginas del PDF mediante `pdftohtml -xml -i`, resuelve la tabla acumulativa de fuentes y filtra determinísticamente el ruido de imprenta (sombras duplicadas `#cccccc`/`#bdbbbc`/`#918f8f`, sellos laterales rotados `width="0"`, líneas de registro QuarkXPress, cabeceras corridas y folios marginales).
-   * **[`scripts/02_convertir_a_md.py`](scripts/02_convertir_a_md.py):** Reconstruye los párrafos, encabezados (`#`, `##`, `###`), cursivas (`*...*`), negritas (`**...**`), epígrafes, citas a bando (`>`), letras capitulares, palabras divididas por guion y notas al pie (`[^n]: ...`), generando los 33 archivos en [`libro/`](libro/).
-   * **[`scripts/03_auditar_integridad.py`](scripts/03_auditar_integridad.py):** Ejecuta la auditoría contable comparando carácter por carácter el flujo alfanumérico del PDF contra los archivos en [`libro/`](libro/) y genera el reporte en [`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md).
-   * **[`scripts/04_generar_pdf_lectura.py`](scripts/04_generar_pdf_lectura.py):** Genera las versiones numeradas en PDF de lectura dentro de [`versiones/`](versiones/) insertando las etiquetas `[CC.PPP]` al inicio de cada párrafo y `[CC.NXX]` en cada nota al pie, además de inicializar el respaldo en [`versiones/v1.0_original/`](versiones/v1.0_original/).
+2. **[`libro/`](libro/) y [`libro.yaml`](libro.yaml) — Manuscrito Vivo de la Segunda Edición (Opción A):**
+   * [`libro/`](libro/) aloja los **33 archivos Markdown** iniciales extraídos con **100% de integridad textual** (`197,741` palabras, `513` notas al pie y `1,008,962` caracteres alfanuméricos) y se edita directamente para la Segunda Edición.
+   * [`libro.yaml`](libro.yaml) gobierna el orden de lectura, la agrupación en partes y los metadatos editoriales. Los nombres actuales en `libro/` permanecen como **IDs estables** para facilitar las comparaciones contra 2006; cualquier reordenamiento futuro del índice o inserción de nuevos capítulos se declara únicamente en `libro.yaml`.
+3. **[`respaldo_v1.0/`](respaldo_v1.0/) — Respaldo Inmutable de Estructura y Contenido Inicial (2006):**
+   * **[`respaldo_v1.0/README.md`](respaldo_v1.0/README.md):** Política de inmutabilidad y comandos para auditar o compilar la Primera Edición.
+   * **[`respaldo_v1.0/libro.yaml`](respaldo_v1.0/libro.yaml):** Manifiesto estructural congelado de la 1.ª edición (`v1.0.0`), independiente de [`libro.yaml`](libro.yaml).
+   * **[`respaldo_v1.0/manifiesto_v1.0.md`](respaldo_v1.0/manifiesto_v1.0.md):** Huellas criptográficas SHA-256 de los 33 archivos originales.
+   * **[`respaldo_v1.0/md/`](respaldo_v1.0/md/):** Copia testigo intacta de los 33 capítulos de 2006, que permite **compilar siempre la primera versión (`v1.0.0`)** aunque cambien los archivos dentro de [`libro/`](libro/).
+4. **[`scripts/`](scripts/) — Herramientas Editoriales Activas y Pipeline Histórico de Extracción:**
+   * **`scripts/edicion/` (uso diario para la 2.ª edición):**
+     * **[`scripts/edicion/manifiesto.py`](scripts/edicion/manifiesto.py):** Cargador compartido para `libro.yaml` y `respaldo_v1.0/libro.yaml`.
+     * **[`scripts/edicion/validar_libro.py`](scripts/edicion/validar_libro.py):** Valida consistencia del manifiesto, notas al pie `[^n]`, enlaces locales, archivos huérfanos y (con `--verificar-respaldo`) integridad SHA-256 de `respaldo_v1.0/md/`.
+     * **[`scripts/edicion/generar_indice.py`](scripts/edicion/generar_indice.py):** Regenera el Índice General a partir de `libro.yaml` y los encabezados reales de cada capítulo (por defecto previsualiza en `dist/indice_generado.md`; con `--escribir` actualiza `libro/01_indice.md`).
+     * **[`scripts/edicion/compilar_pdf.py`](scripts/edicion/compilar_pdf.py):** Compila el libro en PDF dentro de `dist/` desde cualquier manifiesto (`libro.yaml` para la 2.ª edición o `respaldo_v1.0/libro.yaml` para la 1.ª edición), con modo lectura limpio por defecto y opción `--etiquetar-parrafos`.
+     * **[`scripts/edicion/reporte_cambios.py`](scripts/edicion/reporte_cambios.py):** Genera en `dist/reporte_cambios.md` un informe de cambios estructurales y textuales comparando `libro/` contra `respaldo_v1.0/` o contra un tag Git (`--desde-git`).
+   * **`scripts/extraccion_v1/` (pipeline histórico congelado de 2006):**
+     * **[`scripts/extraccion_v1/01_extraer_xml.py`](scripts/extraccion_v1/01_extraer_xml.py):** Extrae la capa vectorial XML de las 666 páginas del PDF mediante `pdftohtml -xml -i` y filtra determinísticamente el ruido de QuarkXPress.
+     * **[`scripts/extraccion_v1/02_convertir_a_md.py`](scripts/extraccion_v1/02_convertir_a_md.py):** Reconstruye los 33 archivos Markdown (protegido: escribe por defecto en `dist/extraccion_v1_md/` y bloquea sobrescrituras accidentales sobre `respaldo_v1.0/` o `libro/`).
+     * **[`scripts/extraccion_v1/03_auditar_integridad.py`](scripts/extraccion_v1/03_auditar_integridad.py):** Ejecuta la auditoría contable al 100.000% contra el PDF original (por defecto sobre `respaldo_v1.0/md/`).
 5. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría y Edición):**
-   * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica detallada del Método 1, caracterización geométrica y tipográfica del PDF y mapa maestro de capítulos.
-   * **[`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md):** Memoria técnica de la conversión ejecutada y tabla de resultados de la auditoría contable capítulo por capítulo.
-   * **[`SSOT/guia_edicion_segunda_edicion_ia_voz.md`](SSOT/guia_edicion_segunda_edicion_ia_voz.md):** Guía metodológica para la edición asistida por voz con IA (plantilla de *System Prompt* para el dispositivo del autor, flujo de trabajo en 3 capas sin que el autor use Git y matriz de actualización conceptual 2006 vs. actualidad).
+   * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica del Método 1, mapa maestro de capítulos de 2006 y política del respaldo inmutable `respaldo_v1.0/`.
+   * **[`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md):** Memoria técnica de la conversión ejecutada y tabla de auditoría contable capítulo por capítulo.
+   * **[`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md):** Guía oficial de edición directa en Markdown, versionamiento nativo en Git, uso de `libro.yaml` (**Opción A**) y operación del respaldo inmutable `respaldo_v1.0/`.
 
 ---
 
@@ -185,25 +194,45 @@ A continuación se presenta la estructura completa de la obra con acceso directo
 
 ---
 
-## Reproducción del Pipeline, Auditoría y Generación de PDF de Lectura
+## Comandos de Edición, Compilación y Auditoría
 
-Para ejecutar nuevamente la extracción desde [`fuente/Libro Crítica de La Razon Mediatica.pdf`](<fuente/Libro Crítica de La Razon Mediatica.pdf>), regenerar los archivos en [`libro/`](libro/), verificar la auditoría contable en [`SSOT/`](SSOT/) y generar el PDF de lectura etiquetado en [`versiones/`](versiones/):
+### 1. Trabajo diario sobre la Segunda Edición (`libro/` y `libro.yaml`)
 
 ```bash
-# 1. Extraer la capa vectorial XML de las 666 páginas del PDF
-python3 -B scripts/01_extraer_xml.py
+# Validar estructura, notas al pie, enlaces y la integridad SHA-256 de respaldo_v1.0/
+python3 -B scripts/edicion/validar_libro.py --verificar-respaldo
 
-# 2. Convertir las 650 páginas de texto en los 33 archivos Markdown en libro/
-python3 -B scripts/02_convertir_a_md.py
+# Previsualizar el Índice General generado desde libro.yaml en dist/indice_generado.md
+python3 -B scripts/edicion/generar_indice.py
 
-# 3. Auditar al 100% la integridad de caracteres, palabras, capítulos y notas al pie
-python3 -B scripts/03_auditar_integridad.py
+# (Cuando cambies el índice o encabezados) Actualizar directamente libro/01_indice.md
+python3 -B scripts/edicion/generar_indice.py --escribir
 
-# 4. Generar el PDF de lectura numerado con etiquetas [CC.PPP] en versiones/
-python3 -B scripts/04_generar_pdf_lectura.py --version v1.0
+# Compilar el PDF de lectura de la versión actual en dist/
+python3 -B scripts/edicion/compilar_pdf.py
+
+# Generar en dist/reporte_cambios.md un comparativo contra respaldo_v1.0/
+python3 -B scripts/edicion/reporte_cambios.py --incluir-diffs
 ```
 
-Para consultar el detalle técnico completo del proceso, la tabla de auditoría capítulo por capítulo y la guía de edición por voz para la Segunda Edición, véanse:
+### 2. Compilar y auditar siempre la Primera Edición (`respaldo_v1.0/`)
+
+Aunque los archivos de [`libro/`](libro/) o [`libro.yaml`](libro.yaml) cambien por completo, siempre es posible compilar y verificar la 1.ª edición intacta:
+
+```bash
+# Compilar el PDF completo de la 1.ª edición (v1.0.0) en dist/
+python3 -B scripts/edicion/compilar_pdf.py --manifiesto respaldo_v1.0/libro.yaml
+
+# Auditar al 100.000% respaldo_v1.0/md/ contra el PDF maestro de 2006
+python3 -B scripts/extraccion_v1/03_auditar_integridad.py
+
+# Reproducir la extracción histórica de 2006 en dist/extraccion_v1_md/ (sin tocar libro/)
+python3 -B scripts/extraccion_v1/01_extraer_xml.py
+python3 -B scripts/extraccion_v1/02_convertir_a_md.py
+```
+
+Para consultar el detalle técnico completo del proceso, la tabla de auditoría capítulo por capítulo y el flujo editorial de la Segunda Edición, véanse:
 * [`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md)
 * [`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md)
-* [`SSOT/guia_edicion_segunda_edicion_ia_voz.md`](SSOT/guia_edicion_segunda_edicion_ia_voz.md)
+* [`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md)
+* [`respaldo_v1.0/README.md`](respaldo_v1.0/README.md)

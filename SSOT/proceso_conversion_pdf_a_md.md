@@ -3,8 +3,9 @@
 **Proyecto:** Segunda Edición — *Crítica de la Razón Mediática* (Juan Barreto Cipriani, 2006)  
 **Documento Fuente:** `fuente/Libro Crítica de La Razon Mediatica.pdf`  
 **Método Seleccionado:** Método 1 — Extracción Estructural por Coordenadas, Fuentes y Color (`pdftohtml -xml` + Parser Determinista en Python + Auditoría Contable 100%)  
-**Directorio de Scripts:** `scripts/` (o `script/`)  
-**Directorio de Salida:** `libro/` (un archivo `.md` por capítulo, incluyendo un archivo independiente para el Índice)
+**Directorio de Scripts Históricos:** `scripts/extraccion_v1/`  
+**Directorio de Salida Inicial (Trabajo Vivo):** `libro/` (un archivo `.md` por capítulo, incluyendo un archivo independiente para el Índice)  
+**Directorio de Respaldo Inmutable (1.ª Edición):** `respaldo_v1.0/` (copia testigo congelada de contenido y estructura inicial; ver Sección 5)
 
 ---
 
@@ -113,13 +114,15 @@ La siguiente tabla define la partición **exacta, exhaustiva y sin solapamientos
 
 ---
 
-## 4. Pipeline de Ejecución paso a paso (Scripts en `scripts/`)
+## 4. Pipeline Histórico de Ejecución paso a paso (`scripts/extraccion_v1/`)
 
-### Paso 1: Exportación de Capa Vectorial a XML (`scripts/01_extraer_xml.py`)
+> **Nota operativa:** Una vez completada y auditada la extracción inicial al 100.000%, estos scripts permanecen congelados en `scripts/extraccion_v1/`. Por seguridad, el Paso 2 escribe por defecto en `dist/extraccion_v1_md/` (bloqueando escrituras sobre `respaldo_v1.0/` y exigiendo confirmación explícita para escribir en `libro/`), y el Paso 3 audita por defecto `respaldo_v1.0/md/`.
+
+### Paso 1: Exportación de Capa Vectorial a XML (`scripts/extraccion_v1/01_extraer_xml.py`)
 1. Ejecuta `pdftohtml -xml -i -stdout "fuente/Libro Crítica de La Razon Mediatica.pdf"` para obtener el árbol XML completo en memoria o en un archivo intermedio temporal.
 2. Verifica que el XML contenga exactamente `<page number="1">` hasta `<page number="666">`.
 
-### Paso 2: Parser Estructural y Generador de Markdown (`scripts/02_convertir_a_md.py`)
+### Paso 2: Parser Estructural y Generador de Markdown (`scripts/extraccion_v1/02_convertir_a_md.py`)
 Para cada uno de los **33 capítulos** definidos en el Mapa Maestro (Sección 3):
 
 1. **Filtrado de Ruido de Imprenta (por página):**
@@ -143,8 +146,8 @@ Para cada uno de los **33 capítulos** definidos en el Mapa Maestro (Sección 3)
    * **Glosario (`31_glosario.md`):** Cada término que inicia con `· Término:` en negrita se convierte en un subtítulo `### Término` seguido de su definición completa.
    * **Índice Onomástico (`32_indice_onomastico.md`):** Cada autor y su lista de páginas en cursiva se formatea como lista estructurada (`- **APELLIDO, Nombre:** *págs.*`).
 
-### Paso 3: Auditoría Contable y Verificación de Integridad (`scripts/03_auditar_integridad.py`)
-Una vez generados los 33 archivos `.md` en `libro/`, este script ejecuta cuatro pruebas automáticas obligatorias y genera un reporte de auditoría (`SSOT/reporte_auditoria_conversion.md`):
+### Paso 3: Auditoría Contable y Verificación de Integridad (`scripts/extraccion_v1/03_auditar_integridad.py`)
+Valida los 33 archivos `.md` (por defecto en `respaldo_v1.0/md/`, o en la carpeta indicada con `--fuente`) ejecutando cuatro pruebas automáticas obligatorias y, cuando se indica `--actualizar-reporte`, regenera el reporte de auditoría (`SSOT/detalle_ejecucion_y_auditoria_conversion.md`):
 
 1. **Prueba de Cobertura de Páginas (666/666):** Verifica que las 650 páginas con texto hayan sido procesadas exactamente una vez.
 2. **Prueba Contable de Palabras y Caracteres (Página por Página y Capítulo por Capítulo):**
@@ -154,3 +157,16 @@ Una vez generados los 33 archivos `.md` en `libro/`, este script ejecuta cuatro 
    * Verifica que cada uno de los 33 archivos `.md` inicie con el título exacto esperado según el Índice y termine con la última frase de la página final de su rango antes del inicio del capítulo siguiente.
 4. **Prueba de Integridad de Notas al Pie:**
    * Verifica que el número total de llamadas a notas al pie `[^n]` en el cuerpo de cada capítulo coincida exactamente con el número de definiciones `[^n]: ...` al final del archivo.
+
+---
+
+## 5. Respaldo Inmutable de la Primera Edición (`respaldo_v1.0/`)
+
+Para garantizar que la estructura y el contenido inicial de la 1.ª edición (2006) permanezcan siempre disponibles y reproducibles aunque los archivos en `libro/` o la estructura del índice en `libro.yaml` cambien durante la 2.ª edición, el resultado verificado de esta conversión se preserva de forma **inmutable** en `respaldo_v1.0/`:
+
+* **`respaldo_v1.0/README.md`**: Documentación de propósito, reglas de inmutabilidad y comandos de verificación y compilación.
+* **`respaldo_v1.0/libro.yaml`**: Manifiesto estructural congelado de la 1.ª edición (`v1.0.0`), independiente del `libro.yaml` raíz.
+* **`respaldo_v1.0/manifiesto_v1.0.md`**: Registro criptográfico SHA-256 y tamaño en bytes de los 33 archivos originales.
+* **`respaldo_v1.0/md/`**: Copia testigo intacta de los 33 archivos Markdown extraídos del PDF de 2006.
+
+Con este respaldo es posible compilar la Primera Edición en cualquier momento mediante `python3 scripts/edicion/compilar_pdf.py --manifiesto respaldo_v1.0/libro.yaml` y verificar su integridad criptográfica con `python3 scripts/edicion/validar_libro.py --manifiesto respaldo_v1.0/libro.yaml --verificar-respaldo`. Para el flujo activo de edición de la Segunda Edición, véase `SSOT/flujo_editorial_segunda_edicion.md`.

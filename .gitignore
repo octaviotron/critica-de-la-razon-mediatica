@@ -18,6 +18,9 @@ Thumbs.db
 *.bak
 *.swp
 
+# Artefactos compilados localmente (PDF, EPUB, reportes diff, extracciones de prueba)
+dist/
+
 # Editores / IDEs
 .vscode/
 .idea/
