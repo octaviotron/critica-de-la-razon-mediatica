@@ -29,48 +29,49 @@ Repositorio oficial del proyecto de procesamiento digital, estructuración en fo
 
 ### Asesoría Informática para la Segunda Edición
 * **Asesor Informático:** **Octavio Rossell Tabet** <[octavio.rossell@gmail.com](mailto:octavio.rossell@gmail.com)> — [https://github.com/octaviotron](https://github.com/octaviotron)
-  * *Rol:* Arquitectura de extracción documental sin pérdida, conversión automatizada a Markdown, sistema de versionamiento nativo en Git con manifiesto estructural declarativo (`libro.yaml`), respaldo inmutable de la primera edición (`respaldo_v1.0/`), auditoría de integridad textual y herramientas de compilación editorial para la realización de la segunda edición del libro.
+  * *Rol:* Arquitectura de extracción documental sin pérdida, conversión automatizada a Markdown, diseño del flujo editorial simplificado capítulo por capítulo asistido por IA, manifiesto estructural declarativo (`libro.yaml`), respaldo inmutable de la primera edición (`respaldo_v1.0/`), auditoría de integridad textual y herramientas internas de validación y compilación editorial.
 
 ---
 
 ## Estructura del Proyecto
 
-El repositorio está organizado alrededor de cinco directorios versionados ([`fuente/`](fuente/), [`libro/`](libro/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), el manifiesto estructural [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para artefactos compilados.
+El repositorio está organizado alrededor de cinco directorios versionados ([`fuente/`](fuente/), [`libro/`](libro/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), el manifiesto estructural y de avance [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para entregas compiladas (PDF o Word `.docx`).
 
 ```text
 critica-de-la-razon-mediatica/
-├── README.md                  # Documentación general, créditos e índice navegable
-├── CHANGELOG.md               # Bitácora editorial de alto nivel por versión/tag Git
-├── libro.yaml                 # Manifiesto maestro: metadatos y orden flexible de partes/capítulos (Opción A)
-├── .gitignore                 # Excluye dist/ (PDFs/reportes compilados) y temporales
+├── README.md                  # Documentación general, créditos, flujo editorial e índice navegable
+├── CHANGELOG.md               # Bitácora editorial de capítulos aprobados y pendientes para el cierre
+├── libro.yaml                 # Manifiesto maestro: orden flexible del índice y estado por capítulo (Opción A)
+├── .gitignore                 # Excluye dist/ (PDFs/DOCX/reportes compilados) y temporales
 ├── fuente/                    # [Inmutable] Archivos originales de la 1.ª edición (PDF, QuarkXPress, fuentes, artes)
 │   ├── Libro Crítica de La Razon Mediatica.pdf
 │   ├── FUENTES/               # Fuentes tipográficas TrueType (.ttf) originales
 │   ├── PORTADA/               # Artes originales de portada (.tif)
 │   └── RAZON/                 # Maquetación QuarkXPress (.qxp/.qxb) y portadillas (.tif/.jpg)
 │       └── images/            # Ilustraciones separadoras de cada parte y sección
-├── libro/                     # Única fuente viva de edición en Markdown (33 capítulos iniciales como IDs estables)
+├── libro/                     # Única fuente viva de edición en Markdown (se edita 1 capítulo .md a la vez)
 ├── respaldo_v1.0/             # [Inmutable] Respaldo congelado de estructura y contenido inicial (1.ª edición 2006)
 │   ├── README.md              # Documentación, reglas de inmutabilidad y comandos para compilar v1.0.0
 │   ├── libro.yaml             # Manifiesto estructural congelado de la 1.ª edición (v1.0.0)
 │   ├── manifiesto_v1.0.md     # Huellas criptográficas SHA-256 de los 33 archivos originales
 │   └── md/                    # Copia testigo intacta de los 33 archivos .md originales
-├── dist/                      # [Ignorado por Git] PDFs compilados, vistas previas de índice y reportes diff
+├── dist/                      # [Ignorado por Git] Entregas PDF/DOCX por capítulo o libro completo y reportes diff
 ├── scripts/
 │   ├── extraccion_v1/         # [Congelado] Pipeline histórico de extracción y auditoría del PDF de 2006
 │   │   ├── 01_extraer_xml.py
 │   │   ├── 02_convertir_a_md.py
 │   │   └── 03_auditar_integridad.py
-│   └── edicion/               # [Activo] Herramientas para la 2.ª edición (leen libro.yaml o respaldo_v1.0/libro.yaml)
-│       ├── manifiesto.py      # Cargador compartido de manifiestos YAML
-│       ├── validar_libro.py   # Validación editorial (notas, enlaces, huérfanos y SHA-256 de respaldo_v1.0/)
-│       ├── generar_indice.py  # Regeneración automática del índice desde libro.yaml y encabezados
-│       ├── compilar_pdf.py    # Compilador de PDF limpio (o con etiquetas --etiquetar-parrafos) hacia dist/
-│       └── reporte_cambios.py # Reporte comparativo de cambios estructurales y textuales contra v1.0
-└── SSOT/                      # Single Source of Truth (Especificación, Auditoría y Flujo Editorial)
+│   └── edicion/               # [Herramientas internas] Ejecutadas por la IA bajo demanda (sin uso manual diario)
+│       ├── manifiesto.py      # Cargador compartido de libro.yaml y respaldo_v1.0/libro.yaml
+│       ├── validar_libro.py   # Validación por capítulo o libro completo, tablero de avance y SHA-256
+│       ├── compilar_pdf.py    # Compilador de un capítulo o libro completo a PDF o Word (.docx) en dist/
+│       ├── reporte_cambios.py # Resumen comparativo por capítulo o libro completo contra respaldo_v1.0/
+│       └── generar_indice.py  # Regeneración automática de libro/01_indice.md desde libro.yaml
+└── SSOT/                      # Single Source of Truth (Especificación, Auditoría, Flujo y Guía de Estilo IA)
     ├── proceso_conversion_pdf_a_md.md
     ├── detalle_ejecucion_y_auditoria_conversion.md
-    └── flujo_editorial_segunda_edicion.md
+    ├── flujo_editorial_segunda_edicion.md
+    └── guia_estilo_ia.md
 ```
 
 ### Descripción y Vínculos a las Carpetas Principales
@@ -81,28 +82,29 @@ critica-de-la-razon-mediatica/
    * **[`fuente/PORTADA/`](fuente/PORTADA/):** Archivos `.tif` de arte de portada (`PORTADA repujado1.tif`, `PORTADA repujado2.tif`, `PORTADA uv.tif`).
    * **[`fuente/RAZON/`](fuente/RAZON/):** Documentos nativos de maquetación en QuarkXPress (`INICIAL.qxp`, `liminar.qxp`, `1a PARTE.qxp` a `6a parte.qxp`, `POST-Escriptum.qxp`, `POSTERIOR.qxp`), nota editorial [`UBICACION DE liminar.txt`](<fuente/RAZON/UBICACION DE liminar.txt>) y subcarpeta **[`fuente/RAZON/images/`](fuente/RAZON/images/)** con las 14 portadillas gráficas separadoras.
 2. **[`libro/`](libro/) y [`libro.yaml`](libro.yaml) — Manuscrito Vivo de la Segunda Edición (Opción A):**
-   * [`libro/`](libro/) aloja los **33 archivos Markdown** iniciales extraídos con **100% de integridad textual** (`197,741` palabras, `513` notas al pie y `1,008,962` caracteres alfanuméricos) y se edita directamente para la Segunda Edición.
-   * [`libro.yaml`](libro.yaml) gobierna el orden de lectura, la agrupación en partes y los metadatos editoriales. Los nombres actuales en `libro/` permanecen como **IDs estables** para facilitar las comparaciones contra 2006; cualquier reordenamiento futuro del índice o inserción de nuevos capítulos se declara únicamente en `libro.yaml`.
+   * [`libro/`](libro/) aloja los **33 archivos Markdown** iniciales extraídos con **100% de integridad textual** (`197,741` palabras, `513` notas al pie y `1,008,962` caracteres alfanuméricos) y se edita directamente **un capítulo `.md` a la vez** con asistencia de IA.
+   * [`libro.yaml`](libro.yaml) gobierna el orden de lectura, la agrupación en partes y el `estado` de avance de cada capítulo (`pendiente` | `en_revision` | `aprobado`). Los nombres actuales en `libro/` permanecen como **IDs estables**; cualquier capítulo nuevo o reordenamiento futuro del índice se declara únicamente en `libro.yaml`.
 3. **[`respaldo_v1.0/`](respaldo_v1.0/) — Respaldo Inmutable de Estructura y Contenido Inicial (2006):**
    * **[`respaldo_v1.0/README.md`](respaldo_v1.0/README.md):** Política de inmutabilidad y comandos para auditar o compilar la Primera Edición.
    * **[`respaldo_v1.0/libro.yaml`](respaldo_v1.0/libro.yaml):** Manifiesto estructural congelado de la 1.ª edición (`v1.0.0`), independiente de [`libro.yaml`](libro.yaml).
    * **[`respaldo_v1.0/manifiesto_v1.0.md`](respaldo_v1.0/manifiesto_v1.0.md):** Huellas criptográficas SHA-256 de los 33 archivos originales.
    * **[`respaldo_v1.0/md/`](respaldo_v1.0/md/):** Copia testigo intacta de los 33 capítulos de 2006, que permite **compilar siempre la primera versión (`v1.0.0`)** aunque cambien los archivos dentro de [`libro/`](libro/).
-4. **[`scripts/`](scripts/) — Herramientas Editoriales Activas y Pipeline Histórico de Extracción:**
-   * **`scripts/edicion/` (uso diario para la 2.ª edición):**
+4. **[`scripts/`](scripts/) — Herramientas Internas de Edición y Pipeline Histórico:**
+   * **`scripts/edicion/` (herramientas ejecutadas por la IA bajo demanda):**
      * **[`scripts/edicion/manifiesto.py`](scripts/edicion/manifiesto.py):** Cargador compartido para `libro.yaml` y `respaldo_v1.0/libro.yaml`.
-     * **[`scripts/edicion/validar_libro.py`](scripts/edicion/validar_libro.py):** Valida consistencia del manifiesto, notas al pie `[^n]`, enlaces locales, archivos huérfanos y (con `--verificar-respaldo`) integridad SHA-256 de `respaldo_v1.0/md/`.
-     * **[`scripts/edicion/generar_indice.py`](scripts/edicion/generar_indice.py):** Regenera el Índice General a partir de `libro.yaml` y los encabezados reales de cada capítulo (por defecto previsualiza en `dist/indice_generado.md`; con `--escribir` actualiza `libro/01_indice.md`).
-     * **[`scripts/edicion/compilar_pdf.py`](scripts/edicion/compilar_pdf.py):** Compila el libro en PDF dentro de `dist/` desde cualquier manifiesto (`libro.yaml` para la 2.ª edición o `respaldo_v1.0/libro.yaml` para la 1.ª edición), con modo lectura limpio por defecto y opción `--etiquetar-parrafos`.
-     * **[`scripts/edicion/reporte_cambios.py`](scripts/edicion/reporte_cambios.py):** Genera en `dist/reporte_cambios.md` un informe de cambios estructurales y textuales comparando `libro/` contra `respaldo_v1.0/` o contra un tag Git (`--desde-git`).
+     * **[`scripts/edicion/validar_libro.py`](scripts/edicion/validar_libro.py):** Valida un capítulo (`--capitulo`) o el libro completo (notas al pie, enlaces locales, tablero de `estado` y SHA-256 de `respaldo_v1.0/md/` con `--verificar-respaldo`).
+     * **[`scripts/edicion/compilar_pdf.py`](scripts/edicion/compilar_pdf.py):** Compila un único capítulo (`--capitulo`) o el libro completo en `dist/` en formato **PDF** o **Word (`.docx`)** (`--formato docx`), tanto desde `libro.yaml` como desde `respaldo_v1.0/libro.yaml`.
+     * **[`scripts/edicion/reporte_cambios.py`](scripts/edicion/reporte_cambios.py):** Genera en `dist/` un reporte comparativo de un capítulo (`--capitulo`) o del libro completo contra `respaldo_v1.0/`.
+     * **[`scripts/edicion/generar_indice.py`](scripts/edicion/generar_indice.py):** Regenera `libro/01_indice.md` automáticamente desde `libro.yaml` y los encabezados reales cuando cambie el índice o al cierre editorial.
    * **`scripts/extraccion_v1/` (pipeline histórico congelado de 2006):**
      * **[`scripts/extraccion_v1/01_extraer_xml.py`](scripts/extraccion_v1/01_extraer_xml.py):** Extrae la capa vectorial XML de las 666 páginas del PDF mediante `pdftohtml -xml -i` y filtra determinísticamente el ruido de QuarkXPress.
      * **[`scripts/extraccion_v1/02_convertir_a_md.py`](scripts/extraccion_v1/02_convertir_a_md.py):** Reconstruye los 33 archivos Markdown (protegido: escribe por defecto en `dist/extraccion_v1_md/` y bloquea sobrescrituras accidentales sobre `respaldo_v1.0/` o `libro/`).
      * **[`scripts/extraccion_v1/03_auditar_integridad.py`](scripts/extraccion_v1/03_auditar_integridad.py):** Ejecuta la auditoría contable al 100.000% contra el PDF original (por defecto sobre `respaldo_v1.0/md/`).
-5. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría y Edición):**
-   * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica del Método 1, mapa maestro de capítulos de 2006 y política del respaldo inmutable `respaldo_v1.0/`.
+5. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría, Flujo y Estilo):**
+   * **[`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md):** Flujo oficial simplificado capítulo por capítulo con IA, revisión/aprobación del autor, gestión de nuevos capítulos e índice en `libro.yaml`, y operación de `respaldo_v1.0/`.
+   * **[`SSOT/guia_estilo_ia.md`](SSOT/guia_estilo_ia.md):** Reglas de fidelidad estilística, vocabulario filosófico protegido y protocolo operativo que la IA sigue en cada capítulo.
+   * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica histórica del Método 1 (2006) y política del respaldo inmutable `respaldo_v1.0/`.
    * **[`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md):** Memoria técnica de la conversión ejecutada y tabla de auditoría contable capítulo por capítulo.
-   * **[`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md):** Guía oficial de edición directa en Markdown, versionamiento nativo en Git, uso de `libro.yaml` (**Opción A**) y operación del respaldo inmutable `respaldo_v1.0/`.
 
 ---
 
@@ -194,28 +196,36 @@ A continuación se presenta la estructura completa de la obra con acceso directo
 
 ---
 
-## Comandos de Edición, Compilación y Auditoría
+## Flujo Editorial de la Segunda Edición
 
-### 1. Trabajo diario sobre la Segunda Edición (`libro/` y `libro.yaml`)
+El proceso está diseñado para **reducir al mínimo los comandos manuales** y centrarse exclusivamente en editar los capítulos `.md` de [`libro/`](libro/):
+
+1. **Elegir un capítulo `.md`** en [`libro/`](libro/) y editarlo/actualizarlo con la IA siguiendo [`SSOT/guia_estilo_ia.md`](SSOT/guia_estilo_ia.md).
+2. **Entregar ese capítulo al autor:** La IA valida el archivo, genera solo ese capítulo en PDF o Word (`.docx`) dentro de `dist/` y redacta un resumen breve de los cambios realizados.
+3. **Iterar hasta aprobación:** Se aplican sobre el mismo `.md` las orientaciones del autor hasta obtener su visto bueno.
+4. **Cerrar capítulo y avanzar:** Se marca `estado: "aprobado"` en [`libro.yaml`](libro.yaml), se anota en [`CHANGELOG.md`](CHANGELOG.md), se hace un commit + push simple en `main` y se pasa al siguiente `.md`.
+5. **Nuevos capítulos o cambios de índice (a futuro):** Los capítulos nuevos se añaden en `libro/` y se declaran en `libro.yaml`; si cambia el orden de las partes o ensayos, solo se reordena `libro.yaml` y la IA regenera `libro/01_indice.md`.
+
+### Referencia de Scripts Internos (ejecutados por la IA bajo demanda o manualmente)
 
 ```bash
-# Validar estructura, notas al pie, enlaces y la integridad SHA-256 de respaldo_v1.0/
+# Validar un capítulo recién editado (o sin --capitulo para ver el avance global y verificar respaldo_v1.0/)
+python3 -B scripts/edicion/validar_libro.py --capitulo 19
 python3 -B scripts/edicion/validar_libro.py --verificar-respaldo
 
-# Previsualizar el Índice General generado desde libro.yaml en dist/indice_generado.md
-python3 -B scripts/edicion/generar_indice.py
+# Generar entrega solo de un capítulo para revisión del autor (PDF o Word .docx) en dist/
+python3 -B scripts/edicion/compilar_pdf.py --capitulo 19
+python3 -B scripts/edicion/compilar_pdf.py --capitulo 19 --formato docx
 
-# (Cuando cambies el índice o encabezados) Actualizar directamente libro/01_indice.md
-python3 -B scripts/edicion/generar_indice.py --escribir
+# Generar resumen de cambios de un capítulo contra 2006 (respaldo_v1.0/)
+python3 -B scripts/edicion/reporte_cambios.py --capitulo 19 --incluir-diffs
 
-# Compilar el PDF de lectura de la versión actual en dist/
+# Compilar el libro completo actual (2.ª edición) o regenerar el índice desde libro.yaml
 python3 -B scripts/edicion/compilar_pdf.py
-
-# Generar en dist/reporte_cambios.md un comparativo contra respaldo_v1.0/
-python3 -B scripts/edicion/reporte_cambios.py --incluir-diffs
+python3 -B scripts/edicion/generar_indice.py --escribir
 ```
 
-### 2. Compilar y auditar siempre la Primera Edición (`respaldo_v1.0/`)
+### Compilar y Auditar Siempre la Primera Edición (`respaldo_v1.0/`)
 
 Aunque los archivos de [`libro/`](libro/) o [`libro.yaml`](libro.yaml) cambien por completo, siempre es posible compilar y verificar la 1.ª edición intacta:
 
@@ -225,14 +235,11 @@ python3 -B scripts/edicion/compilar_pdf.py --manifiesto respaldo_v1.0/libro.yaml
 
 # Auditar al 100.000% respaldo_v1.0/md/ contra el PDF maestro de 2006
 python3 -B scripts/extraccion_v1/03_auditar_integridad.py
-
-# Reproducir la extracción histórica de 2006 en dist/extraccion_v1_md/ (sin tocar libro/)
-python3 -B scripts/extraccion_v1/01_extraer_xml.py
-python3 -B scripts/extraccion_v1/02_convertir_a_md.py
 ```
 
-Para consultar el detalle técnico completo del proceso, la tabla de auditoría capítulo por capítulo y el flujo editorial de la Segunda Edición, véanse:
+Para consultar la especificación completa del proyecto, véanse:
+* [`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md)
+* [`SSOT/guia_estilo_ia.md`](SSOT/guia_estilo_ia.md)
 * [`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md)
 * [`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md)
-* [`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md)
 * [`respaldo_v1.0/README.md`](respaldo_v1.0/README.md)

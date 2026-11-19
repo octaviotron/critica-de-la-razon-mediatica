@@ -1,124 +1,128 @@
-# SSOT: Flujo Editorial, Versionamiento en Git y Manifiesto Estructural (Segunda Edición)
+# SSOT: Flujo Editorial de la Segunda Edición (Edición Asistida por IA, Capítulo por Capítulo)
 
 **Proyecto:** Segunda Edición — *Crítica de la Razón Mediática* (Juan Barreto Cipriani)  
 **Asesor Informático:** Octavio Rossell Tabet (<octavio.rossell@gmail.com> — https://github.com/octaviotron)  
-**Propósito:** Definir la arquitectura oficial de edición directa en Markdown, versionamiento nativo en Git, gestión flexible de la estructura del índice mediante `libro.yaml` (**Opción A**) y preservación inmutable de la primera edición en `respaldo_v1.0/`.
+**Propósito:** Establecer el flujo editorial simple, centrado en editar los archivos `.md` de [`libro/`](../libro/) con asistencia de IA, someter cada capítulo a revisión y aprobación del autor, minimizar el uso manual de comandos CLI y preservar un respaldo inmutable de la primera edición en [`respaldo_v1.0/`](../respaldo_v1.0/).
 
 ---
 
-## 1. Principios de la Arquitectura Editorial
+## 1. Principios del Flujo de Trabajo
 
-1. **Una sola fuente viva del texto (`libro/`):** Los capítulos en Markdown de [`libro/`](../libro/) se editan directamente. No se duplican borradores ni copias temporales dentro del repositorio.
-2. **Versionamiento nativo en Git (sin carpetas `versiones/`):** El historial de modificaciones, ramas de trabajo y versiones cerradas se gestionan mediante commits, ramas y *tags* anotados de Git, complementados por la bitácora editorial [`CHANGELOG.md`](../CHANGELOG.md).
-3. **Respaldo inmutable de la 1.ª edición ([`respaldo_v1.0/`](../respaldo_v1.0/)):** Existe un directorio dedicado y congelado con los 33 `.md` originales de 2006 (`respaldo_v1.0/md/`), sus huellas SHA-256 (`respaldo_v1.0/manifiesto_v1.0.md`), su documentación (`respaldo_v1.0/README.md`) y su manifiesto propio (`respaldo_v1.0/libro.yaml`). Esto garantiza que **siempre se podrá consultar la estructura inicial, auditar al 100% contra el PDF de 2006 y compilar la Primera Edición (`v1.0.0`)** aunque cambien por completo los archivos de `libro/` o el índice de la Segunda Edición.
-4. **Orden e índice desacoplados mediante [`libro.yaml`](../libro.yaml) (Opción A):** Los nombres de archivo existentes en `libro/` (`00_preliminares.md` … `32_indice_onomastico.md`) se conservan como **identificadores estables** para evitar renombramientos masivos y mantener limpio el historial `git diff` contra 2006. El orden real de lectura, la agrupación por partes y los títulos del índice los gobierna exclusivamente [`libro.yaml`](../libro.yaml).
-5. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs generados localmente, vistas previas de índice y reportes comparativos se escriben en `dist/` (ignorado en [`.gitignore`](../.gitignore)). Los binarios de hitos cerrados se publican como adjuntos en *Releases* de GitHub.
+1. **Edición directa y secuencial (`libro/`):** Los capítulos Markdown en [`libro/`](../libro/) son la única copia viva del texto. Se trabaja **un capítulo `.md` a la vez** (o máximo dos mientras se espera respuesta del autor).
+2. **Mínima fricción técnica (cero burocracia CLI):** El usuario no necesita memorizar comandos, scripts, `Makefile`, ramas complejas ni *tags* obligatorios. Los scripts de [`scripts/edicion/`](../scripts/edicion/) actúan como **herramientas internas que la IA ejecuta bajo demanda** cuando se le pide en lenguaje natural (validar notas, compilar un capítulo en PDF/Word para el autor, ver avance o actualizar el índice).
+3. **Git simple y lineal:** Se trabaja directamente sobre `main`. Al aprobarse cada capítulo se realiza **un commit + push** claro (por ejemplo `cap 08 aprobado`). Las etiquetas (*tags*) o ramas adicionales son estrictamente opcionales.
+4. **Orden y avance centralizados en [`libro.yaml`](../libro.yaml) (Opción A):** Los nombres de archivo existentes en `libro/` (`00_preliminares.md` … `32_indice_onomastico.md`) se conservan como **identificadores estables**; el orden del índice, las partes y el `estado` de cada capítulo (`pendiente` | `en_revision` | `aprobado`) viven en [`libro.yaml`](../libro.yaml).
+5. **Respaldo inmutable de la 1.ª edición ([`respaldo_v1.0/`](../respaldo_v1.0/)):** Conserva congelados los 33 archivos originales de 2006 y su manifiesto estructural (`respaldo_v1.0/libro.yaml`) para tener siempre una referencia exacta y poder compilar la 1.ª edición (`v1.0.0`) aunque cambien los archivos de `libro/` o la estructura del índice.
+6. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs y archivos Word (`.docx`) generados para lectura/revisión del autor se escriben en `dist/`, carpeta excluida en [`.gitignore`](../.gitignore).
 
 ---
 
-## 2. Respaldo Inmutable de Referencia (`respaldo_v1.0/`)
+## 2. Ciclo Principal: Edición Capítulo por Capítulo
+
+Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
+
+```text
+1. Elegir un archivo .md en libro/
+        │
+        ▼
+2. Editar y actualizar el contenido con la IA (siguiendo SSOT/guia_estilo_ia.md)
+        │
+        ▼
+3. La IA valida ese capítulo y prepara la entrega al autor (PDF o Word .docx en dist/ + resumen breve)
+        │
+        ▼
+4. Revisión del autor ──► ¿Solicita cambios? ──► Sí ──► Pasar orientaciones a la IA
+        │                                                 y volver al paso 2
+        │ No (Capítulo aprobado)
+        ▼
+5. Cierre del capítulo:
+   • Marcar estado: "aprobado" en libro.yaml
+   • Anotar en CHANGELOG.md el capítulo aprobado (y pendientes de glosario/bibliografía si surgieron)
+   • 1 commit + push (ej. "cap 08 aprobado")
+        │
+        ▼
+6. Pasar al siguiente archivo .md
+```
+
+### Cómo operar en lenguaje natural con la IA (sin comandos manuales)
+En cada etapa basta pedirle a la IA:
+* **Al empezar un capítulo:** *"Lee `SSOT/guia_estilo_ia.md` y actualiza `libro/19_parte4_ensayo_3.md` con estas orientaciones..."*
+* **Para enviarlo al autor:** *"Valida el capítulo 19, genera su PDF (o DOCX) en `dist/` para el autor y dame un resumen breve de los cambios."*
+* **Al recibir comentarios del autor:** *"Aplica estas observaciones del autor sobre `libro/19_parte4_ensayo_3.md` y vuelve a generar el PDF del capítulo."*
+* **Al aprobarse el capítulo:** *"El autor aprobó el capítulo 19; márcalo como aprobado en `libro.yaml` y regístralo en `CHANGELOG.md`."*
+* **Para consultar avance:** *"Muéstrame el avance de los capítulos según `libro.yaml`."*
+
+---
+
+## 3. Cambios Futuros: Nuevos Capítulos y Reordenamiento del Índice
+
+Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
+
+1. **Añadir un capítulo nuevo (ej. *Prefacio a la Segunda Edición*):**
+   * Se crea un archivo con nombre descriptivo en [`libro/`](../libro/) sin necesidad de prefijo numérico (ej. `libro/prefacio_segunda_edicion.md`).
+   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado: "pendiente"`.
+   * Pasa exactamente por el mismo ciclo de la Sección 2 (edición con IA → revisión del autor → aprobación → commit/push).
+2. **Cambiar el orden del índice o agrupar distinto las Partes:**
+   * **No se renombran los archivos `.md` existentes** en `libro/` (así las comparaciones contra `respaldo_v1.0/md/` siguen funcionando sin fricción).
+   * Se reordenan las entradas o secciones únicamente en [`libro.yaml`](../libro.yaml).
+   * Se le pide a la IA: *"Regenera `libro/01_indice.md` desde `libro.yaml` y compila el libro completo en `dist/` para revisión."*
+
+---
+
+## 4. Fase Final de Cierre Editorial (Una Sola Vez)
+
+Mientras se editan los capítulos individuales **no** conviene tocar todavía el Índice General ni el Índice Onomástico. Una vez aprobados todos los capítulos:
+1. **Bibliografía y Glosario:** Consolidar en [`libro/30_bibliografia.md`](../libro/30_bibliografia.md) y [`libro/31_glosario.md`](../libro/31_glosario.md) las obras y conceptos anotados en la sección de pendientes de [`CHANGELOG.md`](../CHANGELOG.md).
+2. **Índice General y validación global:** Pedir a la IA regenerar `libro/01_indice.md` desde `libro.yaml`, validar notas al pie y enlaces en todo el libro, y compilar el manuscrito completo en `dist/`.
+3. **Revisión final e Índice Onomástico:** Tras el visto bueno final del autor sobre el manuscrito completo, actualizar [`libro/32_indice_onomastico.md`](../libro/32_indice_onomastico.md) con la paginación definitiva.
+
+---
+
+## 5. Respaldo Inmutable de la Primera Edición (`respaldo_v1.0/`)
 
 ```text
 respaldo_v1.0/
-├── README.md           # Guía de uso, políticas de inmutabilidad y comandos
+├── README.md           # Guía de uso, reglas de inmutabilidad y comandos
 ├── libro.yaml          # Manifiesto estructural congelado de la 1.ª edición (v1.0.0)
-├── manifiesto_v1.0.md  # Checksums SHA-256 de los 33 archivos originales
+├── manifiesto_v1.0.md  # Huellas SHA-256 de los 33 archivos originales
 └── md/                 # Copia testigo bit a bit de los 33 archivos de 2006
 ```
 
-### Reglas sobre `respaldo_v1.0/`
-* **Inmutabilidad estricta:** Ningún script de `scripts/extraccion_v1/` ni de `scripts/edicion/` permite escribir dentro de `respaldo_v1.0/`. Nunca se debe editar manualmente ningún archivo allí alojado.
-* **Compilación garantizada de la 1.ª edición (`v1.0.0`):**
-  ```bash
-  python3 scripts/edicion/compilar_pdf.py --manifiesto respaldo_v1.0/libro.yaml
-  ```
-* **Verificación criptográfica SHA-256 del respaldo:**
-  ```bash
-  python3 scripts/edicion/validar_libro.py --manifiesto respaldo_v1.0/libro.yaml --verificar-respaldo
-  ```
-* **Re-auditoría matemática contra el PDF de 2006:**
-  ```bash
-  python3 scripts/extraccion_v1/03_auditar_integridad.py
-  ```
+* **Inmutabilidad estricta:** Ningún script permite escribir dentro de `respaldo_v1.0/`, y jamás debe editarse manualmente.
+* **Reproducibilidad garantizada:** Aunque cambien todos los archivos de `libro/` y el orden de `libro.yaml`, siempre se puede compilar la 1.ª edición intacta en `dist/` o auditarla al 100.000% contra el PDF original de 2006 (ver [`respaldo_v1.0/README.md`](../respaldo_v1.0/README.md)).
 
 ---
 
-## 3. Convención de Versionamiento en Git
+## 6. Referencia de Herramientas Internas (`scripts/`)
 
-### 3.1. Etiquetas (*Tags*) Semánticas Editoriales
-* **`v1.0.0`**: Primera edición íntegra (2006), auditada al 100.000% (equivalente al estado de `respaldo_v1.0/`).
-* **`v1.0.1`** *(opcional)*: Corrección exclusiva de erratas tipográficas de 2006 antes de iniciar la reescritura conceptual.
-* **`v2.0.0-alpha.N`**: Hitos intermedios de edición de la Segunda Edición (por ejemplo, al completar la revisión de una Parte).
-* **`v2.0.0-rc.N`**: Versiones candidatas a publicación (texto, índice, glosario y bibliografía cerrados para revisión final).
-* **`v2.0.0`**: Segunda edición definitiva.
+> Estos scripts están pensados para que los ejecute la IA automáticamente cuando lo necesites, aunque también pueden invocarse manualmente en cualquier momento.
 
-### 3.2. Estrategia de Ramas
-* **`main`**: Rama principal siempre válida y compilable con el progreso consolidado hacia la 2.ª edición.
-* **Ramas temáticas cortas (opcionales para reescrituras amplias):** p. ej. `edicion/cap-07-preambulo` o `edicion/cap-19-tv`.
-* **Ramas de experimento estructural (recomendado si cambias el índice):** p. ej. `estructura/nuevo-indice`. Permite reordenar partes, mover ensayos en `libro.yaml`, regenerar el índice y compilar un PDF de prueba en `dist/` sin afectar `main` hasta aprobar el resultado.
+### 6.1. Herramientas Activas de Edición (`scripts/edicion/`)
 
-### 3.3. Convención de Mensajes de Commit
-Usar prefijos semánticos claros en español:
-* `errata(cap-XX): ...` — Correcciones tipográficas o de caracteres faltantes de 2006.
-* `edicion(cap-XX): ...` — Modificaciones, adendas o reescrituras de contenido.
-* `glosario: ...` / `bibliografia: ...` — Actualizaciones del aparato crítico.
-* `estructura: ...` — Cambios de orden, partes, capítulos nuevos o regeneración de índice en `libro.yaml`.
-* `docs: ...` / `scripts: ...` — Cambios en documentación (`README.md`, `SSOT/`, `CHANGELOG.md`) o herramientas.
-
----
-
-## 4. Gestión de la Estructura del Índice con `libro.yaml` (Opción A)
-
-El archivo [`libro.yaml`](../libro.yaml) define:
-* `obra`: Título, subtítulo, autor, etiqueta de edición, versión semántica y marca `inmutable`.
-* `carpeta_base`: Carpeta donde viven los `.md` (`libro` en el manifiesto raíz; `md` en `respaldo_v1.0/libro.yaml`).
-* `secciones`: Lista ordenada de partes/bloques y sus `capitulos`, cada uno con `id`, `archivo`, `titulo`, `tipo` (`preliminares`, `indice`, `cuerpo`, `bibliografia`, `glosario`, `onomastico`) y `folios_2006` (opcional).
-
-### Escenarios frecuentes
-1. **Editar el texto de un capítulo existente:**
-   * Modifica directamente el archivo correspondiente en `libro/` (por ejemplo `libro/19_parte4_ensayo_3.md`).
-   * Ejecuta `python3 scripts/edicion/validar_libro.py`.
-2. **Añadir un capítulo nuevo (ej. *Prefacio a la Segunda Edición*):**
-   * Crea un archivo con nombre descriptivo sin prefijo numérico en `libro/` (ej. `libro/prefacio_segunda_edicion.md`).
-   * Regístralo en la posición deseada dentro de `libro.yaml` con un `id` único (ej. `prefacio_2da`).
-   * Ejecuta `validar_libro.py` y `generar_indice.py --escribir`.
-3. **Reordenar capítulos o cambiar la estructura de Partes:**
-   * Crea una rama de prueba (`git checkout -b estructura/reorganizacion`).
-   * Mueve las entradas de capítulos o crea/renombra secciones únicamente dentro de `libro.yaml` (**sin renombrar los archivos existentes en `libro/`**).
-   * Regenera el índice con `python3 scripts/edicion/generar_indice.py --escribir` y compila el PDF con `python3 scripts/edicion/compilar_pdf.py` para evaluar la lectura en `dist/`.
-   * Si el resultado te convence, haz *merge* a `main`; de lo contrario, descarta la rama.
-
----
-
-## 5. Catálogo de Scripts del Proyecto
-
-### 5.1. Herramientas Activas de Edición (`scripts/edicion/`)
-
-| Script | Propósito | Comando habitual |
+| Script | Función | Uso típico (invocado por la IA o manual) |
 | :--- | :--- | :--- |
-| [`manifiesto.py`](../scripts/edicion/manifiesto.py) | Módulo compartido que carga `libro.yaml` o `respaldo_v1.0/libro.yaml` y resuelve rutas relativas de forma segura. | *(Importado por los demás scripts)* |
-| [`validar_libro.py`](../scripts/edicion/validar_libro.py) | Comprueba archivos faltantes/huérfanos, IDs duplicados, correspondencia 1:1 de notas al pie (`[^n]` ↔ `[^n]:`), enlaces locales rotos y (con `--verificar-respaldo`) hashes SHA-256 de `respaldo_v1.0/md/`. | `python3 scripts/edicion/validar_libro.py --verificar-respaldo` |
-| [`generar_indice.py`](../scripts/edicion/generar_indice.py) | Construye el Índice General a partir de `libro.yaml` y los encabezados reales (`#`, `##`, opcionalmente `###`). Por defecto previsualiza en `dist/indice_generado.md`; con `--escribir` actualiza `libro/01_indice.md`. | `python3 scripts/edicion/generar_indice.py --escribir` |
-| [`compilar_pdf.py`](../scripts/edicion/compilar_pdf.py) | Compila un PDF de lectura limpio en `dist/` siguiendo el orden de `libro.yaml` (o de `respaldo_v1.0/libro.yaml` para la 1.ª edición). Soporta `--etiquetar-parrafos` como modo opcional de revisión. | `python3 scripts/edicion/compilar_pdf.py` |
-| [`reporte_cambios.py`](../scripts/edicion/reporte_cambios.py) | Genera en `dist/reporte_cambios.md` un informe de cambios estructurales (índice/orden) y textuales (palabras y diffs) comparando `libro/` contra `respaldo_v1.0/` o contra un tag Git (`--desde-git v1.0.0`). | `python3 scripts/edicion/reporte_cambios.py --incluir-diffs` |
+| [`manifiesto.py`](../scripts/edicion/manifiesto.py) | Carga `libro.yaml` o `respaldo_v1.0/libro.yaml`, resuelve capítulos por `id`/archivo y bloquea escrituras sobre `respaldo_v1.0/`. | *(Módulo interno compartido)* |
+| [`validar_libro.py`](../scripts/edicion/validar_libro.py) | Valida un capítulo (`--capitulo`) o el libro completo: archivos faltantes/huérfanos, notas al pie, enlaces locales, tablero de `estado` y SHA-256 de `respaldo_v1.0/` (`--verificar-respaldo`). | `python3 -B scripts/edicion/validar_libro.py --capitulo 19` |
+| [`compilar_pdf.py`](../scripts/edicion/compilar_pdf.py) | Compila un capítulo (`--capitulo`) o el libro completo en `dist/` en formato `pdf` (por defecto) o Word `docx` (`--formato docx`). También compila la 1.ª edición desde `--manifiesto respaldo_v1.0/libro.yaml`. | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
+| [`reporte_cambios.py`](../scripts/edicion/reporte_cambios.py) | Compara un capítulo (`--capitulo`) o el libro completo contra `respaldo_v1.0/` y genera un informe en `dist/` (útil para redactar el resumen de cambios al autor). | `python3 -B scripts/edicion/reporte_cambios.py --capitulo 19 --incluir-diffs` |
+| [`generar_indice.py`](../scripts/edicion/generar_indice.py) | Genera el Índice General desde `libro.yaml` y los encabezados reales (`#`, `##`). Previsualiza en `dist/indice_generado.md` o actualiza `libro/01_indice.md` con `--escribir`. | `python3 -B scripts/edicion/generar_indice.py --escribir` |
 
-### 5.2. Pipeline Histórico de Extracción 2006 (`scripts/extraccion_v1/`)
-Congelado para trazabilidad histórica y auditoría reproducible de la 1.ª edición:
+### 6.2. Pipeline Histórico de Extracción 2006 (`scripts/extraccion_v1/`)
+Congelado para trazabilidad y auditoría reproducible de la 1.ª edición:
 * [`scripts/extraccion_v1/01_extraer_xml.py`](../scripts/extraccion_v1/01_extraer_xml.py): Extrae el XML vectorial de las 666 páginas del PDF de 2006.
-* [`scripts/extraccion_v1/02_convertir_a_md.py`](../scripts/extraccion_v1/02_convertir_a_md.py): Reproduce la conversión histórica en `dist/extraccion_v1_md/` por defecto (bloqueado sobre `respaldo_v1.0/` y protegido sobre `libro/` salvo `--confirmar-sobrescritura`).
-* [`scripts/extraccion_v1/03_auditar_integridad.py`](../scripts/extraccion_v1/03_auditar_integridad.py): Audita al 100.000% los caracteres alfanuméricos contra el PDF original (apunta por defecto a `respaldo_v1.0/md/`).
+* [`scripts/extraccion_v1/02_convertir_a_md.py`](../scripts/extraccion_v1/02_convertir_a_md.py): Reproduce la conversión histórica en `dist/extraccion_v1_md/` (bloqueado sobre `respaldo_v1.0/` y protegido sobre `libro/`).
+* [`scripts/extraccion_v1/03_auditar_integridad.py`](../scripts/extraccion_v1/03_auditar_integridad.py): Audita al 100.000% los caracteres alfanuméricos de `respaldo_v1.0/md/` contra el PDF de 2006.
 
 ---
 
-## 6. Estrategia Editorial (2006 → 2026) para la Segunda Edición
+## 7. Guía Temática de Actualización (2006 → Actualidad)
 
-Como guía temática de actualización frente a la primera edición de 2006, se sugieren cuatro frentes modulares que respetan el aparato crítico existente:
-
-1. **Nuevo Estudio Introductorio o Prefacio a la Segunda Edición:** Capítulo independiente (ej. `libro/prefacio_segunda_edicion.md`) registrado en `libro.yaml` para dialogar con la obra veinte años después (IA, plataformas digitales, hipervigilancia, nuevas disputas biopolíticas).
-2. **Actualizaciones o Adendas en Capítulos Estratégicos:**
+Como orientación editorial opcional al abordar cada capítulo con el autor:
+1. **Prefacio a la Segunda Edición:** Capítulo nuevo e independiente (`libro/prefacio_segunda_edicion.md`) sobre el horizonte contemporáneo (IA, plataformas digitales, hipervigilancia y nuevas disputas biopolíticas).
+2. **Capítulos tecnológicos y mediáticos prioritarios:**
    * [`libro/07_preambulo.md`](../libro/07_preambulo.md): contraste entre las proyecciones tecnológicas de 2006 y la computación ubicua/IA actual.
    * [`libro/08_parte1_ensayo_1.md`](../libro/08_parte1_ensayo_1.md): trabajo digital, extractivismo de datos y valorización algorítmica.
-   * [`libro/19_parte4_ensayo_3.md`](../libro/19_parte4_ensayo_3.md) y [`libro/20_parte4_ensayo_4.md`](../libro/20_parte4_ensayo_4.md): transición del régimen televisivo al régimen de pantallas móviles, *streaming* y micro-video.
+   * [`libro/19_parte4_ensayo_3.md`](../libro/19_parte4_ensayo_3.md) y [`libro/20_parte4_ensayo_4.md`](../libro/20_parte4_ensayo_4.md): transición del régimen televisivo al régimen de pantallas móviles, *streaming* y plataformas.
    * [`libro/21_parte5_ensayo_1.md`](../libro/21_parte5_ensayo_1.md) a [`libro/24_parte5_ensayo_4.md`](../libro/24_parte5_ensayo_4.md): cámaras de eco, posverdad, micro-segmentación política y guerra cognitiva.
-3. **Ampliación del Glosario ([`libro/31_glosario.md`](../libro/31_glosario.md)):** Incorporación de nuevos conceptos contemporáneos (*Algoritmo*, *Big Data*, *Biopolítica digital*, *Extractivismo atencional*, *Inteligencia Artificial*, *Plataforma*, etc.).
-4. **Corrección Sistemática de Erratas de 2006:** Limpieza de erratas heredadas de la edición impresa original (ej. glifos ausentes en la fuente Garamond de 1998 como `S.  i ek` → `S. Žižek`, o erratas tipográficas puntuales), idealmente en un commit inicial de tipo `errata(...)` antes de las reescrituras conceptuales.
+3. **Glosario ([`libro/31_glosario.md`](../libro/31_glosario.md)):** Incorporar nuevos conceptos al cierre (*Algoritmo*, *Big Data*, *Biopolítica digital*, *Extractivismo atencional*, *Inteligencia Artificial*, *Plataforma*, etc.).
+4. **Erratas de 2006:** Corregir durante la revisión de cada capítulo los glifos ausentes de la imprenta original (ej. `S.  i ek` → `S. Žižek`) y las advertencias heredadas de notas al pie detectadas por `validar_libro.py`.

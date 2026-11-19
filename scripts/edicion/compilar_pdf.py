@@ -1,30 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Compilador de PDF de lectura desde un manifiesto YAML (`libro.yaml` o `respaldo_v1.0/libro.yaml`).
+Compilador de lectura (PDF y Word .docx) desde un manifiesto YAML (`libro.yaml` o
+`respaldo_v1.0/libro.yaml`).
 
-Genera un PDF limpio de alta legibilidad en `dist/` siguiendo exactamente el orden de secciones
-y capítulos definido en el manifiesto. No depende del pipeline histórico de extracción ni de un
-número fijo de capítulos: si reordenas, añades o quitas capítulos en `libro.yaml`, el PDF refleja
-automáticamente la nueva estructura.
+Soporta compilar el libro completo o un único capítulo (`--capitulo <id|archivo>`) para
+enviarlo rápidamente a revisión del autor en `dist/`, sin depender del pipeline histórico
+de extracción ni de un número fijo de capítulos.
 
-Ejemplos:
-  # Compilar la versión actual (Segunda Edición en proceso) desde libro.yaml:
+Ejemplos (ejecutados normalmente por la IA bajo demanda):
+  # Compilar un solo capítulo en PDF para revisión del autor:
+  python3 scripts/edicion/compilar_pdf.py --capitulo 19
+
+  # Compilar un solo capítulo en Word (.docx) para comentarios del autor:
+  python3 scripts/edicion/compilar_pdf.py --capitulo 19 --formato docx
+
+  # Compilar el libro completo actual desde libro.yaml:
   python3 scripts/edicion/compilar_pdf.py
 
   # Compilar la Primera Edición intacta desde el respaldo inmutable:
   python3 scripts/edicion/compilar_pdf.py --manifiesto respaldo_v1.0/libro.yaml
-
-  # Compilar en modo revisión con etiquetas de párrafo [ID.PPP]:
-  python3 scripts/edicion/compilar_pdf.py --etiquetar-parrafos
 """
 
 import argparse
 from datetime import datetime
 from pathlib import Path
 import re
+import shutil
+import subprocess
 import sys
-from typing import List, Tuple
+import tempfile
+from typing import List, Optional, Tuple
 
 import cairo
 import gi
@@ -39,6 +45,7 @@ from manifiesto import (  # noqa: E402
     DEFAULT_DIST_DIR,
     LibroManifiesto,
     REPO_ROOT,
+    buscar_capitulo,
     cargar_manifiesto,
     es_ruta_dentro_de_respaldo,
 )
@@ -380,6 +387,65 @@ class BookPDFBuilder:
             space_after=8.0,
         )
 
+    def draw_chapter_cover(self, cap: CapituloRef) -> None:
+        self.start_new_page(is_cover=True)
+        self.y = 130.0
+
+        obra = self.manifiesto.obra
+        self.render_layout_block(
+            f'<span foreground="#555555" weight="bold">{escape_pango(obra.titulo.upper())} — {escape_pango(obra.edicion)}</span>',
+            font_str="Sans Bold 9.5",
+            justify=False,
+            align=Pango.Alignment.CENTER,
+            space_after=16.0,
+        )
+        self.render_layout_block(
+            f'<span foreground="#666666">{escape_pango(cap.seccion_titulo)}</span>',
+            font_str="Serif Italic 12",
+            indent_left=20.0,
+            indent_right=20.0,
+            justify=False,
+            align=Pango.Alignment.CENTER,
+            space_after=12.0,
+        )
+        self.render_layout_block(
+            f"<b>{escape_pango(cap.titulo)}</b>",
+            font_str="Serif Bold 20",
+            indent_left=16.0,
+            indent_right=16.0,
+            justify=False,
+            align=Pango.Alignment.CENTER,
+            space_after=24.0,
+        )
+        if obra.autor:
+            self.render_layout_block(
+                f"<b>{escape_pango(obra.autor)}</b>",
+                font_str="Serif Bold 13",
+                justify=False,
+                align=Pango.Alignment.CENTER,
+                space_after=32.0,
+            )
+
+        self.ctx.save()
+        self.ctx.set_source_rgb(0.6, 0.6, 0.6)
+        self.ctx.set_line_width(0.8)
+        self.ctx.move_to(MARGIN_LEFT + 90, self.y)
+        self.ctx.line_to(PAGE_WIDTH - MARGIN_RIGHT - 90, self.y)
+        self.ctx.stroke()
+        self.ctx.restore()
+        self.y += 24.0
+
+        fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M")
+        estado_txt = f"  |  Estado: <b>{escape_pango(cap.estado)}</b>" if cap.estado else ""
+        self.render_layout_block(
+            f'<span foreground="#555555">Capítulo para revisión del autor ({fecha_actual})\n'
+            f"Archivo: <b>{escape_pango(cap.archivo)}</b>{estado_txt}</span>",
+            font_str="Sans 8.5",
+            justify=False,
+            align=Pango.Alignment.CENTER,
+            space_after=8.0,
+        )
+
     def render_chapter(self, cap: CapituloRef, md_text: str) -> None:
         header_titulo = cap.titulo if len(cap.titulo) <= 78 else cap.titulo[:75] + "…"
         self.current_chapter_header = header_titulo
@@ -517,11 +583,65 @@ class BookPDFBuilder:
         return self.page_num
 
 
-def compilar_pdf(
-    ruta_manifiesto: str | None = None,
-    version_override: str | None = None,
-    salida_dir: str | None = None,
+def compilar_docx(
+    manifiesto: LibroManifiesto,
+    capitulos: List[CapituloRef],
+    out_docx_path: Path,
+    es_capitulo_unico: bool,
+) -> Path:
+    pandoc_bin = shutil.which("pandoc")
+    if not pandoc_bin:
+        raise RuntimeError("No se encontró 'pandoc' en el sistema para exportar a Word (.docx).")
+
+    obra = manifiesto.obra
+    titulo_doc = f"{obra.titulo} — {capitulos[0].titulo}" if es_capitulo_unico else obra.titulo
+    partes_md: List[str] = []
+    for cap in capitulos:
+        if not cap.ruta.exists():
+            raise FileNotFoundError(f"No se encontró el archivo de capítulo declarado en el manifiesto: {cap.ruta}")
+        partes_md.append(cap.ruta.read_text(encoding="utf-8").strip())
+
+    contenido_unido = "\n\n---\n\n".join(partes_md) + "\n"
+    with tempfile.NamedTemporaryFile("w", suffix=".md", encoding="utf-8", delete=False) as tmp:
+        tmp.write(contenido_unido)
+        tmp_path = Path(tmp.name)
+
+    try:
+        cmd = [
+            pandoc_bin,
+            str(tmp_path),
+            "-f",
+            "markdown+footnotes",
+            "-t",
+            "docx",
+            "--metadata",
+            f"title={titulo_doc}",
+            "--metadata",
+            f"author={obra.autor}",
+            "-o",
+            str(out_docx_path),
+        ]
+        subprocess.run(cmd, check=True)
+    finally:
+        tmp_path.unlink(missing_ok=True)
+
+    size_kb = out_docx_path.stat().st_size / 1024
+    try:
+        rel_out = out_docx_path.relative_to(REPO_ROOT)
+    except ValueError:
+        rel_out = out_docx_path
+
+    print(f"[OK] DOCX compilado: {rel_out} ({len(capitulos)} capítulo(s), {size_kb:.1f} KB)")
+    return out_docx_path
+
+
+def compilar_documento(
+    ruta_manifiesto: Optional[str] = None,
+    version_override: Optional[str] = None,
+    salida_dir: Optional[str] = None,
     etiquetar_parrafos: bool = False,
+    capitulo_selector: Optional[str] = None,
+    formato: str = "pdf",
 ) -> Path:
     manifiesto = cargar_manifiesto(ruta_manifiesto)
     raw_ver = version_override or manifiesto.obra.version
@@ -535,46 +655,77 @@ def compilar_pdf(
         raise PermissionError(f"Operación bloqueada: no se puede compilar dentro de respaldo_v1.0/ ({out_dir}).")
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    sufijo = "_revision" if etiquetar_parrafos else ""
-    out_pdf_path = out_dir / f"Critica_de_la_Razon_Mediatica_{clean_ver}{sufijo}.pdf"
+
+    if capitulo_selector:
+        cap_unico = buscar_capitulo(manifiesto, capitulo_selector)
+        capitulos = [cap_unico]
+        base_name = f"cap_{Path(cap_unico.archivo).stem}"
+    else:
+        capitulos = manifiesto.capitulos
+        base_name = f"Critica_de_la_Razon_Mediatica_{clean_ver}"
+
+    sufijo = "_revision" if (etiquetar_parrafos and formato == "pdf") else ""
+    out_path = out_dir / f"{base_name}{sufijo}.{formato}"
+
+    if formato == "docx":
+        return compilar_docx(
+            manifiesto=manifiesto,
+            capitulos=capitulos,
+            out_docx_path=out_path,
+            es_capitulo_unico=bool(capitulo_selector),
+        )
 
     builder = BookPDFBuilder(
-        out_pdf_path=out_pdf_path,
+        out_pdf_path=out_path,
         manifiesto=manifiesto,
         version_str=clean_ver,
         etiquetar=etiquetar_parrafos,
     )
-    builder.draw_cover()
+    if capitulo_selector:
+        builder.draw_chapter_cover(capitulos[0])
+    else:
+        builder.draw_cover()
 
-    for cap in manifiesto.capitulos:
+    for cap in capitulos:
         if not cap.ruta.exists():
             raise FileNotFoundError(f"No se encontró el archivo de capítulo declarado en el manifiesto: {cap.ruta}")
         md_text = cap.ruta.read_text(encoding="utf-8")
         builder.render_chapter(cap, md_text)
 
     total_pages = builder.finish()
-    size_mb = out_pdf_path.stat().st_size / (1024 * 1024)
+    size_mb = out_path.stat().st_size / (1024 * 1024)
     try:
-        rel_out = out_pdf_path.relative_to(REPO_ROOT)
+        rel_out = out_path.relative_to(REPO_ROOT)
     except ValueError:
-        rel_out = out_pdf_path
+        rel_out = out_path
 
     print(
         f"[OK] PDF compilado: {rel_out} "
-        f"({total_pages} páginas, {len(manifiesto.capitulos)} capítulos, "
+        f"({total_pages} páginas, {len(capitulos)} capítulo(s), "
         f"{builder.total_paragraphs:,} bloques, {builder.total_footnotes} notas al pie, {size_mb:.2f} MB)"
     )
-    return out_pdf_path
+    return out_path
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Compila el libro en PDF desde un manifiesto YAML (libro.yaml o respaldo_v1.0/libro.yaml)."
+        description="Compila el libro completo o un solo capítulo (PDF o DOCX) desde libro.yaml o respaldo_v1.0/libro.yaml."
     )
     parser.add_argument(
         "--manifiesto",
         default=None,
         help="Ruta al manifiesto YAML (por defecto: libro.yaml; usar respaldo_v1.0/libro.yaml para la 1.ª edición)",
+    )
+    parser.add_argument(
+        "--capitulo",
+        default=None,
+        help="Compila únicamente un capítulo por id o nombre de archivo para revisión del autor (ej. 19 o 19_parte4_ensayo_3.md)",
+    )
+    parser.add_argument(
+        "--formato",
+        choices=("pdf", "docx"),
+        default="pdf",
+        help="Formato de salida: 'pdf' (por defecto) o 'docx' (Word vía Pandoc para comentarios del autor)",
     )
     parser.add_argument(
         "--version",
@@ -584,20 +735,22 @@ def main() -> int:
     parser.add_argument(
         "--salida",
         default=None,
-        help="Directorio de salida del PDF (por defecto: dist/)",
+        help="Directorio de salida del archivo compilado (por defecto: dist/)",
     )
     parser.add_argument(
         "--etiquetar-parrafos",
         action="store_true",
-        help="Modo revisión opcional: antepone etiquetas [ID.PPP] a cada párrafo y [ID.NXX] a cada nota",
+        help="Modo revisión opcional (solo PDF): antepone etiquetas [ID.PPP] a cada párrafo y [ID.NXX] a cada nota",
     )
     args = parser.parse_args()
 
-    compilar_pdf(
+    compilar_documento(
         ruta_manifiesto=args.manifiesto,
         version_override=args.version,
         salida_dir=args.salida,
         etiquetar_parrafos=args.etiquetar_parrafos,
+        capitulo_selector=args.capitulo,
+        formato=args.formato,
     )
     return 0
 

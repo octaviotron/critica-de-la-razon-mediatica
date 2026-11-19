@@ -16,6 +16,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MANIFIESTO = REPO_ROOT / "libro.yaml"
 RESPALDO_MANIFIESTO = REPO_ROOT / "respaldo_v1.0" / "libro.yaml"
 DEFAULT_DIST_DIR = REPO_ROOT / "dist"
+ESTADOS_VALIDOS = ("pendiente", "en_revision", "aprobado")
 
 
 @dataclass(frozen=True)
@@ -38,6 +39,8 @@ class CapituloRef:
     seccion_id: str
     seccion_titulo: str
     ruta: Path
+    estado: Optional[str] = None
+    nota: Optional[str] = None
 
 
 @dataclass(frozen=True)
@@ -122,6 +125,8 @@ def cargar_manifiesto(ruta: Optional[str] = None) -> LibroManifiesto:
                     seccion_id=sec_id,
                     seccion_titulo=sec_titulo,
                     ruta=cap_ruta,
+                    estado=str(cap_raw["estado"]) if cap_raw.get("estado") is not None else None,
+                    nota=str(cap_raw["nota"]) if cap_raw.get("nota") is not None else None,
                 )
             )
         secciones.append(
@@ -138,6 +143,21 @@ def cargar_manifiesto(ruta: Optional[str] = None) -> LibroManifiesto:
         obra=obra,
         carpeta_base=carpeta_base,
         secciones=secciones,
+    )
+
+
+def buscar_capitulo(manifiesto: LibroManifiesto, selector: str) -> CapituloRef:
+    """Busca un capítulo por id (ej. '19'), nombre de archivo ('19_parte4_ensayo_3.md') o nombre sin extensión."""
+    objetivo = selector.strip()
+    objetivo_norm = objetivo.lstrip("0") or "0"
+    for cap in manifiesto.capitulos:
+        stem = Path(cap.archivo).stem
+        if objetivo in (cap.id, cap.archivo, stem):
+            return cap
+        if cap.id.isdigit() and objetivo.isdigit() and (cap.id.lstrip("0") or "0") == objetivo_norm:
+            return cap
+    raise LookupError(
+        f"No se encontró el capítulo '{selector}' en {manifiesto.ruta_manifiesto.relative_to(REPO_ROOT)}."
     )
 
 

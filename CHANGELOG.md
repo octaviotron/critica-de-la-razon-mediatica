@@ -1,26 +1,29 @@
 # Bitácora Editorial de Cambios (`CHANGELOG.md`)
 
-Registro editorial de alto nivel por versión/hito de ***Crítica de la Razón Mediática*** (Juan Barreto Cipriani).  
-El detalle línea por línea de cada intervención se gestiona nativamente con Git (`git log`, `git diff`) y puede compararse en cualquier momento contra el respaldo inmutable `respaldo_v1.0/` mediante `python3 scripts/edicion/reporte_cambios.py`.
+Registro editorial de alto nivel por capítulo aprobado e hitos de ***Crítica de la Razón Mediática*** (Juan Barreto Cipriani).  
+El estado de cada capítulo (`pendiente` | `en_revision` | `aprobado`) se consulta en [`libro.yaml`](libro.yaml), y el detalle exacto de cambios contra 2006 puede consultarse en cualquier momento frente al respaldo inmutable [`respaldo_v1.0/`](respaldo_v1.0/).
 
 ---
 
-## `[2.0.0-dev]` — En proceso (Preparación de la Segunda Edición)
+## Segunda Edición — En proceso (`libro/`)
 
-### Arquitectura y flujo editorial
-* Adopción de versionamiento nativo en Git y retiro de la carpeta redundante `versiones/` y del flujo de dictado por voz.
-* Incorporación del manifiesto declarativo [`libro.yaml`](libro.yaml) (**Opción A**: los nombres de archivo en `libro/` actúan como IDs estables y el orden/agrupación del índice se controla desde `libro.yaml`).
-* Creación del respaldo inmutable [`respaldo_v1.0/`](respaldo_v1.0/) con copia testigo de los 33 capítulos originales, manifiesto estructural congelado (`respaldo_v1.0/libro.yaml`), huellas SHA-256 (`respaldo_v1.0/manifiesto_v1.0.md`) y guía propia (`respaldo_v1.0/README.md`).
-* Separación de scripts en `scripts/extraccion_v1/` (pipeline histórico congelado de 2006, protegido contra sobrescritura) y `scripts/edicion/` (`validar_libro.py`, `generar_indice.py`, `compilar_pdf.py`, `reporte_cambios.py`).
-* Exclusión de artefactos compilados en `dist/` mediante `.gitignore`.
-* Actualización de la documentación en `README.md` y `SSOT/` (sustituyendo la guía de voz por `SSOT/flujo_editorial_segunda_edicion.md`).
+### Capítulos aprobados por el autor
+* *(Ninguno aún — todos los capítulos en [`libro/`](libro/) se encuentran en su estado base de 2006, `estado: pendiente` en [`libro.yaml`](libro.yaml).)*
 
-### Contenido textual (`libro/`)
-* *(Pendiente: los 33 archivos en `libro/` aún se encuentran idénticos a `v1.0.0`.)*
+### Pendientes para el cierre editorial (Glosario / Bibliografía / Índice)
+* *(Anotar aquí, a medida que se aprueban capítulos, los términos nuevos para `31_glosario.md`, referencias nuevas para `30_bibliografia.md` o ideas de reordenamiento de `libro.yaml`.)*
+
+### Arquitectura editorial
+* Definición del flujo simplificado capítulo por capítulo: edición directa de cada `.md` en `libro/` con IA → revisión e iteración con el autor (entrega por capítulo en PDF o Word `.docx`) → aprobación en `libro.yaml` (`estado: aprobado`) → commit y push simple en `main`.
+* Incorporación de [`SSOT/guia_estilo_ia.md`](SSOT/guia_estilo_ia.md) con las reglas de voz filosófica, vocabulario protegido y protocolo operativo por capítulo para la IA.
+* Incorporación del manifiesto declarativo [`libro.yaml`](libro.yaml) (**Opción A**: nombres de archivo estables, orden flexible del índice y seguimiento de `estado` por capítulo).
+* Creación del respaldo inmutable [`respaldo_v1.0/`](respaldo_v1.0/) con copia testigo de los 33 capítulos originales, manifiesto congelado (`respaldo_v1.0/libro.yaml`), huellas SHA-256 (`respaldo_v1.0/manifiesto_v1.0.md`) y guía propia (`respaldo_v1.0/README.md`).
+* Separación de scripts en `scripts/extraccion_v1/` (pipeline histórico congelado de 2006, protegido contra sobrescritura) y `scripts/edicion/` (herramientas internas ejecutadas por la IA bajo demanda, con soporte por capítulo en PDF/DOCX).
+* Exclusión de artefactos compilados en `dist/` mediante [`.gitignore`](.gitignore).
 
 ---
 
-## `[1.0.0]` — Primera Edición (2006) — Conversión Digital Íntegra
+## Primera Edición (2006) — Base Digital Íntegra (`respaldo_v1.0/`)
 
 ### Extracción y verificación
 * Extracción determinista desde `fuente/Libro Crítica de La Razon Mediatica.pdf` (666 páginas físicas) a 33 archivos Markdown en `libro/` y copia inmutable en `respaldo_v1.0/md/`.

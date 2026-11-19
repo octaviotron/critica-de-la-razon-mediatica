@@ -20,7 +20,12 @@ import sys
 from typing import Dict, List, Set, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from manifiesto import REPO_ROOT, cargar_manifiesto  # noqa: E402
+from manifiesto import (  # noqa: E402
+    ESTADOS_VALIDOS,
+    REPO_ROOT,
+    buscar_capitulo,
+    cargar_manifiesto,
+)
 
 
 def analizar_notas_al_pie(md_text: str) -> Tuple[Set[str], Set[str], List[str]]:
@@ -115,6 +120,11 @@ def main() -> int:
         help="Ruta al manifiesto YAML (por defecto: libro.yaml)",
     )
     parser.add_argument(
+        "--capitulo",
+        default=None,
+        help="Valida únicamente un capítulo específico por id o nombre de archivo (ej. 19 o 19_parte4_ensayo_3.md)",
+    )
+    parser.add_argument(
         "--verificar-respaldo",
         action="store_true",
         help="Verifica también las huellas SHA-256 de respaldo_v1.0/md/ contra respaldo_v1.0/manifiesto_v1.0.md",
@@ -122,7 +132,7 @@ def main() -> int:
     parser.add_argument(
         "--estricto",
         action="store_true",
-        help="Trata las advertencias (ej. archivos huérfanos o definiciones no referenciadas) como errores",
+        help="Trata las advertencias (ej. archivos huérfanos o notas desparejadas) como errores",
     )
     args = parser.parse_args()
 
@@ -136,13 +146,25 @@ def main() -> int:
     total_palabras = 0
     total_notas = 0
     total_bloques = 0
+    conteo_estados: Dict[str, int] = {e: 0 for e in ESTADOS_VALIDOS}
+    usa_estados = False
+
+    if args.capitulo:
+        capitulos_a_validar = [buscar_capitulo(manifiesto, args.capitulo)]
+    else:
+        capitulos_a_validar = manifiesto.capitulos
 
     print(f"=== Validación Editorial: {manifiesto.obra.titulo} ({manifiesto.obra.version}) ===")
     print(f"Manifiesto:   {manifiesto.ruta_manifiesto.relative_to(REPO_ROOT)}")
     print(f"Carpeta base: {manifiesto.carpeta_base.relative_to(REPO_ROOT)}")
-    print(f"Secciones:    {len(manifiesto.secciones)} | Capítulos declarados: {len(manifiesto.capitulos)}\n")
+    if args.capitulo:
+        c0 = capitulos_a_validar[0]
+        estado_str = f" | Estado: {c0.estado}" if c0.estado else ""
+        print(f"Capítulo:     [{c0.id}] {c0.archivo}{estado_str}\n")
+    else:
+        print(f"Secciones:    {len(manifiesto.secciones)} | Capítulos declarados: {len(manifiesto.capitulos)}\n")
 
-    for cap in manifiesto.capitulos:
+    for cap in capitulos_a_validar:
         if cap.id in ids_vistos:
             errores.append(f"ID de capítulo duplicado en manifiesto: '{cap.id}'")
         ids_vistos.add(cap.id)
@@ -150,6 +172,15 @@ def main() -> int:
         if cap.ruta in rutas_vistas:
             errores.append(f"Archivo declarado dos veces en manifiesto: '{cap.archivo}'")
         rutas_vistas.add(cap.ruta)
+
+        if cap.estado is not None:
+            usa_estados = True
+            if cap.estado not in ESTADOS_VALIDOS:
+                errores.append(
+                    f"[{cap.id}] Estado inválido '{cap.estado}' en manifiesto (válidos: {', '.join(ESTADOS_VALIDOS)})"
+                )
+            else:
+                conteo_estados[cap.estado] += 1
 
         if not cap.ruta.exists():
             errores.append(f"[{cap.id}] Archivo inexistente: {cap.archivo}")
@@ -182,8 +213,8 @@ def main() -> int:
         for roto in enlaces_rotos:
             errores.append(f"[{cap.id}] {cap.archivo}: enlace local roto -> '{roto}'")
 
-    # Detectar archivos .md huérfanos en la carpeta base no listados en el manifiesto
-    if manifiesto.carpeta_base.is_dir():
+    # Detectar archivos .md huérfanos solo cuando se valida el libro completo
+    if not args.capitulo and manifiesto.carpeta_base.is_dir():
         en_disco = sorted(p.resolve() for p in manifiesto.carpeta_base.rglob("*.md"))
         for p in en_disco:
             if p not in rutas_vistas:
@@ -198,9 +229,16 @@ def main() -> int:
             print(f"[OK] Respaldo inmutable verificado por SHA-256: {n_sha}/{n_sha} archivos íntegros en respaldo_v1.0/md/.")
 
     print(
-        f"[RESUMEN] Capítulos: {len(manifiesto.capitulos)} | Palabras: {total_palabras:,} | "
+        f"[RESUMEN] Capítulos: {len(capitulos_a_validar)} | Palabras: {total_palabras:,} | "
         f"Bloques: {total_bloques:,} | Notas al pie: {total_notas}"
     )
+    if usa_estados and not args.capitulo:
+        total_caps = len(capitulos_a_validar)
+        pct = (conteo_estados["aprobado"] / total_caps * 100.0) if total_caps else 0.0
+        print(
+            f"[AVANCE]  Aprobados: {conteo_estados['aprobado']}/{total_caps} ({pct:.1f}%) | "
+            f"En revisión: {conteo_estados['en_revision']} | Pendientes: {conteo_estados['pendiente']}"
+        )
 
     if advertencias:
         print(f"\n[ADVERTENCIAS] ({len(advertencias)}):")

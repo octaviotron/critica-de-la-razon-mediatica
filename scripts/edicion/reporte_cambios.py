@@ -6,7 +6,8 @@ y el respaldo inmutable de la 1.ª edición (`respaldo_v1.0/libro.yaml` y `respa
 detectando tanto cambios estructurales (índice, orden, capítulos añadidos/eliminados/movidos)
 como cambios textuales por capítulo (diferencia de palabras y líneas).
 
-También soporta comparar contra cualquier tag o commit de Git mediante `--desde-git <ref>`.
+Soporta comparar un solo capítulo (`--capitulo <id|archivo>`) para facilitar el resumen de
+cambios que acompaña cada entrega al autor, o comparar contra cualquier commit de Git (`--desde-git`).
 """
 
 import argparse
@@ -15,7 +16,7 @@ import difflib
 from pathlib import Path
 import subprocess
 import sys
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from manifiesto import (  # noqa: E402
@@ -23,9 +24,66 @@ from manifiesto import (  # noqa: E402
     DEFAULT_MANIFIESTO,
     REPO_ROOT,
     RESPALDO_MANIFIESTO,
+    buscar_capitulo,
     cargar_manifiesto,
     es_ruta_dentro_de_respaldo,
 )
+
+
+def comparar_capitulo_unico(ruta_base: str, ruta_actual: str, selector: str, incluir_diffs: bool) -> str:
+    m_base = cargar_manifiesto(ruta_base)
+    m_act = cargar_manifiesto(ruta_actual)
+    cap_act = buscar_capitulo(m_act, selector)
+
+    base_por_archivo = {c.archivo: c for c in m_base.capitulos}
+    cap_base = base_por_archivo.get(cap_act.archivo)
+
+    txt_act = cap_act.ruta.read_text(encoding="utf-8") if cap_act.ruta.exists() else ""
+    pal_act = len(txt_act.split())
+
+    fecha = datetime.now().strftime("%Y-%m-%d %H:%M")
+    estado_txt = cap_act.estado or "sin estado"
+
+    if cap_base is None:
+        return (
+            f"# Cambios del Capítulo `{cap_act.archivo}` (Capítulo Nuevo)\n\n"
+            f"**Fecha:** {fecha}  \n"
+            f"**Título:** {cap_act.titulo}  \n"
+            f"**Estado:** `{estado_txt}`  \n"
+            f"**Palabras actuales:** {pal_act:,} (no existía en `respaldo_v1.0/`)\n"
+        )
+
+    txt_base = cap_base.ruta.read_text(encoding="utf-8") if cap_base.ruta.exists() else ""
+    pal_base = len(txt_base.split())
+    delta = pal_act - pal_base
+    signo = "+" if delta >= 0 else ""
+
+    out = [
+        f"# Cambios del Capítulo `{cap_act.archivo}` vs. Primera Edición (2006)",
+        "",
+        f"**Fecha:** {fecha}  ",
+        f"**Título:** {cap_act.titulo}  ",
+        f"**Estado:** `{estado_txt}`  ",
+        f"**Palabras:** {pal_base:,} → {pal_act:,} ({signo}{delta:,})  ",
+        f"**¿Modificado?:** {'No (idéntico a 2006)' if txt_base == txt_act else 'Sí'}",
+        "",
+    ]
+
+    if txt_base != txt_act and incluir_diffs:
+        diff_lines = list(
+            difflib.unified_diff(
+                txt_base.splitlines(),
+                txt_act.splitlines(),
+                fromfile=f"respaldo_v1.0/md/{cap_act.archivo}",
+                tofile=f"libro/{cap_act.archivo}",
+                lineterm="",
+                n=2,
+            )
+        )
+        out.append("## Detalle de diferencias (`unified diff`)\n")
+        out.append("```diff\n" + "\n".join(diff_lines) + "\n```\n")
+
+    return "\n".join(out)
 
 
 def comparar_contra_respaldo(ruta_base: str, ruta_actual: str, incluir_diffs: bool) -> str:
@@ -204,9 +262,14 @@ def main() -> int:
         help="Manifiesto actual a comparar (por defecto: libro.yaml)",
     )
     parser.add_argument(
+        "--capitulo",
+        default=None,
+        help="Compara únicamente un capítulo por id o nombre de archivo (ej. 19 o 19_parte4_ensayo_3.md)",
+    )
+    parser.add_argument(
         "--desde-git",
         default=None,
-        help="Si se indica (ej. v1.0.0), genera el reporte usando git diff --word-diff desde esa referencia",
+        help="Opcional: genera el reporte usando git diff --word-diff desde un commit o referencia de Git",
     )
     parser.add_argument(
         "--incluir-diffs",
@@ -216,21 +279,29 @@ def main() -> int:
     parser.add_argument(
         "--salida",
         default=None,
-        help="Ruta del archivo de salida (por defecto: dist/reporte_cambios.md)",
+        help="Ruta del archivo de salida (por defecto: dist/reporte_cambios.md o dist/cambios_cap_<archivo>.md)",
     )
     args = parser.parse_args()
 
     if args.desde_git:
         contenido = comparar_desde_git(args.desde_git)
+        default_name = "reporte_cambios_git.md"
+    elif args.capitulo:
+        contenido = comparar_capitulo_unico(
+            args.base, args.actual, args.capitulo, incluir_diffs=args.incluir_diffs
+        )
+        cap_ref = buscar_capitulo(cargar_manifiesto(args.actual), args.capitulo)
+        default_name = f"cambios_cap_{Path(cap_ref.archivo).stem}.md"
     else:
         contenido = comparar_contra_respaldo(args.base, args.actual, incluir_diffs=args.incluir_diffs)
+        default_name = "reporte_cambios.md"
 
     if args.salida:
         destino = Path(args.salida)
         if not destino.is_absolute():
             destino = (REPO_ROOT / destino).resolve()
     else:
-        destino = (DEFAULT_DIST_DIR / "reporte_cambios.md").resolve()
+        destino = (DEFAULT_DIST_DIR / default_name).resolve()
 
     if es_ruta_dentro_de_respaldo(destino):
         raise PermissionError(f"Operación bloqueada: no se puede escribir dentro de respaldo_v1.0/ ({destino}).")
