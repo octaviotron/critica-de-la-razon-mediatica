@@ -25,7 +25,7 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
 1. Elegir un archivo .md en libro/
         │
         ▼
-2. Editar y actualizar el contenido con la IA (siguiendo SSOT/guia_estilo_ia.md)
+2. Editar y actualizar el contenido con la IA (siguiendo SSOT/guia_estilo_editorial.md)
         │
         ▼
 3. La IA valida ese capítulo y prepara la entrega al autor (PDF o Word .docx en dist/ + resumen breve)
@@ -46,7 +46,7 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
 
 ### Cómo operar en lenguaje natural con la IA (sin comandos manuales)
 En cada etapa basta pedirle a la IA:
-* **Al empezar un capítulo:** *"Lee `SSOT/guia_estilo_ia.md` y actualiza `libro/19_parte4_ensayo_3.md` con estas orientaciones..."*
+* **Al empezar un capítulo:** *"Lee `SSOT/guia_estilo_editorial.md` y actualiza `libro/19_parte4_ensayo_3.md` con estas orientaciones..."*
 * **Para enviarlo al autor:** *"Valida el capítulo 19, genera su PDF (o DOCX) en `dist/` para el autor y dame un resumen breve de los cambios."*
 * **Al recibir comentarios del autor:** *"Aplica estas observaciones del autor sobre `libro/19_parte4_ensayo_3.md` y vuelve a generar el PDF del capítulo."*
 * **Al aprobarse el capítulo:** *"El autor aprobó el capítulo 19; márcalo como aprobado en `libro.yaml` y regístralo en `CHANGELOG.md`."*
@@ -60,11 +60,11 @@ Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
 
 1. **Añadir un capítulo nuevo (ej. *Prefacio a la Segunda Edición*):**
    * Se crea un archivo con nombre descriptivo en [`libro/`](../libro/) sin necesidad de prefijo numérico (ej. `libro/prefacio_segunda_edicion.md`).
-   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado: "pendiente"`.
+   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado: "pendiente"`, y se añade al catálogo navegable [`libro/README.md`](../libro/README.md).
    * Pasa exactamente por el mismo ciclo de la Sección 2 (edición con IA → revisión del autor → aprobación → commit/push).
 2. **Cambiar el orden del índice o agrupar distinto las Partes:**
    * **No se renombran los archivos `.md` existentes** en `libro/` (así las comparaciones contra `respaldo_v1.0/md/` siguen funcionando sin fricción).
-   * Se reordenan las entradas o secciones únicamente en [`libro.yaml`](../libro.yaml).
+   * Se reordenan las entradas o secciones únicamente en [`libro.yaml`](../libro.yaml) y se refleja el orden vigente en [`libro/README.md`](../libro/README.md).
    * Se le pide a la IA: *"Regenera `libro/01_indice.md` desde `libro.yaml` y compila el libro completo en `dist/` para revisión."*
 
 ---

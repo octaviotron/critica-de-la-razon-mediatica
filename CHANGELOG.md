@@ -15,7 +15,7 @@ El estado de cada capítulo (`pendiente` | `en_revision` | `aprobado`) se consul
 
 ### Arquitectura editorial
 * Definición del flujo simplificado capítulo por capítulo: edición directa de cada `.md` en `libro/` con IA → revisión e iteración con el autor (entrega por capítulo en PDF o Word `.docx`) → aprobación en `libro.yaml` (`estado: aprobado`) → commit y push simple en `main`.
-* Incorporación de [`SSOT/guia_estilo_ia.md`](SSOT/guia_estilo_ia.md) con las reglas de voz filosófica, vocabulario protegido y protocolo operativo por capítulo para la IA.
+* Incorporación de [`SSOT/guia_estilo_editorial.md`](SSOT/guia_estilo_editorial.md) con las reglas de voz filosófica, vocabulario protegido y protocolo operativo por capítulo.
 * Incorporación del manifiesto declarativo [`libro.yaml`](libro.yaml) (**Opción A**: nombres de archivo estables, orden flexible del índice y seguimiento de `estado` por capítulo).
 * Creación del respaldo inmutable [`respaldo_v1.0/`](respaldo_v1.0/) con copia testigo de los 33 capítulos originales, manifiesto congelado (`respaldo_v1.0/libro.yaml`), huellas SHA-256 (`respaldo_v1.0/manifiesto_v1.0.md`) y guía propia (`respaldo_v1.0/README.md`).
 * Separación de scripts en `scripts/extraccion_v1/` (pipeline histórico congelado de 2006, protegido contra sobrescritura) y `scripts/edicion/` (herramientas internas ejecutadas por la IA bajo demanda, con soporte por capítulo en PDF/DOCX).

@@ -213,10 +213,12 @@ def main() -> int:
         for roto in enlaces_rotos:
             errores.append(f"[{cap.id}] {cap.archivo}: enlace local roto -> '{roto}'")
 
-    # Detectar archivos .md huérfanos solo cuando se valida el libro completo
+    # Detectar archivos .md huérfanos solo cuando se valida el libro completo (ignorando README.md)
     if not args.capitulo and manifiesto.carpeta_base.is_dir():
         en_disco = sorted(p.resolve() for p in manifiesto.carpeta_base.rglob("*.md"))
         for p in en_disco:
+            if p.name.lower() == "readme.md":
+                continue
             if p not in rutas_vistas:
                 rel = p.relative_to(manifiesto.carpeta_base)
                 advertencias.append(f"Archivo .md no registrado en manifiesto: '{rel}'")
