@@ -118,57 +118,17 @@ Todos estos dispares lineamientos de la estética posmoderna están apoyados en 
 
 Precisando, son seis los principios rizomáticos que establecen Deleuze y Guattari:
 
-1. *La posibilidad de conexión múltiple de cada punto*. Este prin-
+1. *La posibilidad de conexión múltiple de cada punto*. Este principio refleja el efecto de recorrido de los discursos que el texto genera. Convierte a los eventos culturales en eventos aleatorios.
 
-cipio refleja el efecto de recorrido de los discursos que el
+2. *La heterogeneidad de los componentes del sistema*. En este punto, cada componente del sistema es, a su vez, un subsistema. Por esta razón, un texto cultural se rellena constantemente de nuevos contenidos que convierten a los procesos en mutantes y dinámicos, y a las explicaciones, en provisionales.
 
-texto genera. Convierte a los eventos culturales en even-
+3. *La multiplicidad sin unidad generadora*. Aquí se parte de la subjetividad como proceso generador y autogenerador de la conciencia de los sujetos: la idea de centralidad queda desplazada, ahora la naturaleza es la determinación y la unidad generadora es un concepto.
 
-tos aleatorios.
+4. *La ruptura asignificante*. Este principio parte de que el significante consta de materias interiores, de rupturas y de cambios. Por consiguiente, un evento puede traducirse en distintos significados, en concordancia con los distintos niveles de significación del signo.
 
-2. *La heterogeneidad de los componentes del sistema*. En este
+5. *La cartograficidad*. Representa el mapa del mundo interior de un personaje dado: las multisubjetividades.
 
-punto, cada componente del sistema es, a su vez, un sub-
-
-sistema. Por esta razón, un texto cultural se rellena cons-
-
-tantemente de nuevos contenidos que convierten a los
-
-procesos en mutantes y dinámicos, y a las explicaciones,
-
-en provisionales.
-
-3. *La multiplicidad sin unidad generadora*. Aquí se parte de la
-
-subjetividad como proceso generador y autogenerador
-
-de la conciencia de los sujetos: la idea de centralidad
-
-queda desplazada, ahora la naturaleza es la determinación
-
-y la unidad generadora es un concepto.
-
-4. *La ruptura asignificante*. Este principio parte de que el
-
-significante consta de materias interiores, de rupturas y
-
-de cambios. Por consiguiente, un evento puede traducir-
-
-se en distintos significados, en concordancia con los dis-
-
-tintos niveles de significación del signo.
-
-5. *La cartograficidad*. Representa el mapa del mundo inte-
-
-rior de un personaje dado: las multisubjetividades.
-
-6. *La decalcomanía*. Este principio hace hincapié en cómo
-
-se pueden manejar dos o más situaciones a la vez. En
-
-tanto el efecto de superficie sea o no efímero, va un plie-
-
-gue o un rostro, etc. [^28]
+6. *La decalcomanía*. Este principio hace hincapié en cómo se pueden manejar dos o más situaciones a la vez. En tanto el efecto de superficie sea o no efímero, va un pliegue o un rostro, etc. [^28]
 
 Estos diversos principios constitutivos de una estética neobarroca, retomados por Calabrese, son figuras expresivas de la cultura posmoderna enraizada en la llamada cultura massmediática, que nos permiten establecer un mínimo de criterios de análisis para subsiguientes consideraciones, bien sea desde su concepción estética, desde sus formas, hasta estructuras más profundas correspondientes al nivel de contenidos.
 

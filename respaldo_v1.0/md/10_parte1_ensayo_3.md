@@ -8,9 +8,7 @@
 
 > — J. Swift.
 
-Los cambios ocurridos en el globo son , para algunos entendidos, anunciadores del fin de los paradigmas sintéticos con los
-
-que nos acostumbramos a pensar el mundo, por lo que pareciera que ya no hay lugares desde donde fundar lo que pensamos y decimos, ni siquiera en la especulación a muerte, que propone Baudrillard. Desde la caída de Europa del Este, hace casi tres décadas, se ha abierto la compuerta a represados charlatanes y oportunistas de oficio, para el ejercicio de su jerigonza optimista.
+Los cambios ocurridos en el globo son , para algunos entendidos, anunciadores del fin de los paradigmas sintéticos con los que nos acostumbramos a pensar el mundo, por lo que pareciera que ya no hay lugares desde donde fundar lo que pensamos y decimos, ni siquiera en la especulación a muerte, que propone Baudrillard. Desde la caída de Europa del Este, hace casi tres décadas, se ha abierto la compuerta a represados charlatanes y oportunistas de oficio, para el ejercicio de su jerigonza optimista.
 
 Discursos optimistas o la ironía de un escepticismo militante y conservador, invaden el mapa político y las propuestas teóricas, paralizando la búsqueda de alternativas críticas, escamoteando los problemas y sepultando interrogantes nuevas y viejas que han quedado sin responder. Su resultado es el mismo: todo esfuerzo queda tapiado bajo el pragmatismo.
 

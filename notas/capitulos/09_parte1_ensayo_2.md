@@ -16,7 +16,8 @@ Ensayo breve de fuerte carga metafórica (*Un ejercicio sobre materia oscura y a
 - [ ] Evaluar un puente breve con **Yuval Noah Harari** (convergencia entre biotecnología e infotecnología: algoritmo + ADN) manteniendo el enfoque crítico y ensayístico del texto.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Unificar el encabezado partido `# II` / `## UN EJERCICIO SOBRE` / `### MATERIA OSCURA...` y verificar el corte `teó-` en el primer párrafo si quedó un guion residual.
+- [x] Corregir el corte de párrafo y palabra `teó-` / `ricos` en el primer párrafo.
+- [ ] Unificar el encabezado partido `# II` / `## UN EJERCICIO SOBRE` / `### MATERIA OSCURA...`.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

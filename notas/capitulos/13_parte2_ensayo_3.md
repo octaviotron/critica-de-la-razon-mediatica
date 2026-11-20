@@ -16,6 +16,7 @@
 - [ ] Ampliar el epígrafe y referencia a **Slavoj Žižek** y considerar un contraste con **Byung-Chul Han** (*La salvación de lo bello* / estética de lo pulido y sin aristas).
 
 ## Erratas y detalles técnicos heredados de 2006
+- [x] Reconstruir el formato de la lista de los 6 principios rizomáticos (`1.`–`6.`) y unir las 8 palabras cortadas por guion entre párrafos.
 - [ ] Corregir el glifo roto de imprenta de 2006 en el epígrafe: `> — S. i ek.` → `> — S. Žižek.`.
 - [ ] Revisar advertencias heredadas de notas al pie: llamadas `[^15]`, `[^20]` sin definición y definiciones `[^18]:`, `[^22]:`, `[^24]:` sin llamada.
 

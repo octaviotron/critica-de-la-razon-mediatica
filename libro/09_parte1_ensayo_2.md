@@ -8,9 +8,7 @@
 
 > — S. Hawking
 
-Para comprender qué es lo que, en fin de cuentas, es la (re)producción, necesitamos de nuevos repertorios teó-
-
-ricos y de audaces modelos que nos permitan construir *metáforas interpretativas* (Derrida), para la aproximación a los eventos. En ese sentido, hemos escogido la polémica idea de la *materia oscura* o *éter* para explicar el fenómeno de funcionamiento de expansión del dispositivo información-comunicación y su contingente gravedad-antigravedad como lógica de la reproducción.
+Para comprender qué es lo que, en fin de cuentas, es la (re)producción, necesitamos de nuevos repertorios teóricos y de audaces modelos que nos permitan construir *metáforas interpretativas* (Derrida), para la aproximación a los eventos. En ese sentido, hemos escogido la polémica idea de la *materia oscura* o *éter* para explicar el fenómeno de funcionamiento de expansión del dispositivo información-comunicación y su contingente gravedad-antigravedad como lógica de la reproducción.
 
 La idea de actualidad como eterno presente, como *futuro actual desplazado o tiempo actual descentrado*, forma parte del universo mediático y es pieza clave en el dispositivo información-comunicación, lugar-tiempo que crea el concepto de opinión pública y todo su régimen derivado, el cual se comporta como campo de fuerza en expansión, al que llamaremos *gel mediático*. Veamos a qué epistemología nos referimos en esta aproximación por analogía.
 

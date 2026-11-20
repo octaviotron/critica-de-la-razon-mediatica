@@ -5,7 +5,7 @@
 
 ## Propósito
 
-Este directorio conserva de forma congelada e íntegra el estado inicial de la obra correspondiente a la **Primera Edición (2006)** de ***Crítica de la Razón Mediática*** (Juan Barreto Cipriani), verificada al **100.000%** contra el PDF maestro (`1,008,962` caracteres alfanuméricos, `197,741` palabras, `513` notas al pie, `0` pérdidas).
+Este directorio conserva de forma congelada e íntegra el estado inicial de la obra correspondiente a la **Primera Edición (2006)** de ***Crítica de la Razón Mediática*** (Juan Barreto Cipriani), verificada al **100.000%** contra el PDF maestro (`1,008,962` caracteres alfanuméricos, `197,690` palabras, `517` notas al pie, `0` pérdidas).
 
 Sus tres funciones permanentes son:
 

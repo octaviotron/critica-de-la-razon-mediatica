@@ -15,8 +15,8 @@
 - [ ] Conectar *Tejiendo ciertas inquietudes* con **Kingsley L. Dennis** (cartografías de un entorno mediático en mutación permanente) y con **Yuval Noah Harari** (los mapas de información que terminan sustituyendo al territorio).
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Corregir el título mal ordenado por extracción `# EPÍLOGO ¿SE PUEDEN CARTOGRAFIAR ? LOS MASS-MEDIA` → `# Epílogo: ¿Se pueden cartografiar los mass-media?`.
-- [ ] Corregir la letra `K` del alfabeto que quedó marcada como encabezado `# K.- ¿Qué hace la mediática con la energía de las esfe-` con corte silábico.
+- [x] Corregir el título `# EPÍLOGO ¿SE PUEDEN CARTOGRAFIAR ? LOS MASS-MEDIA` → `# Epílogo: ¿Se pueden cartografiar los mass-media?`.
+- [x] Reconstruir todas las entradas del alfabeto `A`–`Z` (incluyendo `# K.-` y las palabras cortadas por guion) y restaurar en la nota `[^7]` el fragmento `*"Democracia o consenso"*)` que se había mezclado en la letra `I`.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*
