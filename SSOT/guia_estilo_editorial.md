@@ -27,7 +27,7 @@
 Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por sesión** (sin leer el resto de `libro/` ni `respaldo_v1.0/md/` salvo para comparar el mismo capítulo contra 2006).
 
 1. **Al recibir instrucciones de edición sobre un capítulo (`libro/<archivo>.md`):**
-   * Leer únicamente el archivo `.md` objetivo (y esta guía).
+   * Leer únicamente el archivo `.md` objetivo, su ficha espejo en [`notas/capitulos/`](../notas/capitulos/) (`notas/capitulos/<archivo>.md`), las referencias pertinentes de [`notas/NOTAS.md`](../notas/NOTAS.md) y esta guía.
    * Aplicar las modificaciones solicitadas directamente en `libro/<archivo>.md`.
    * Actualizar su `estado` a `"en_revision"` en [`libro.yaml`](../libro.yaml) si estaba en `"pendiente"`.
    * Ejecutar silenciosamente la validación del capítulo:
@@ -38,8 +38,9 @@ Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por ses
      * Word: `python3 -B scripts/edicion/compilar_pdf.py --capitulo <id> --formato docx`
    * Comparar ese capítulo contra 2006 (`python3 -B scripts/edicion/reporte_cambios.py --capitulo <id>`) y entregar al usuario un **resumen breve (5–10 viñetas)** de qué se actualizó para acompañar el envío al autor.
 3. **Al recibir observaciones del autor:**
-   * Aplicar las correcciones indicadas sobre el mismo `libro/<archivo>.md`, volver a validar el capítulo y generar un nuevo PDF/DOCX de revisión si hace falta.
+   * Registrar las observaciones en `notas/capitulos/<archivo>.md`, aplicar las correcciones indicadas sobre el mismo `libro/<archivo>.md`, volver a validar el capítulo y generar un nuevo PDF/DOCX de revisión si hace falta.
 4. **Al recibir la aprobación del autor:**
+   * Marcar como completadas (`- [x]`) las tareas incorporadas en `notas/capitulos/<archivo>.md` y en [`notas/NOTAS.md`](../notas/NOTAS.md).
    * Cambiar `estado: "aprobado"` en [`libro.yaml`](../libro.yaml).
    * Registrar el capítulo aprobado (y cualquier término nuevo para Glosario o referencia nueva para Bibliografía) en [`CHANGELOG.md`](../CHANGELOG.md).
    * Dejar el archivo listo para un único `commit` + `push`.

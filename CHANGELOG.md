@@ -14,6 +14,7 @@ El estado de cada capítulo (`pendiente` | `en_revision` | `aprobado`) se consul
 * *(Anotar aquí, a medida que se aprueban capítulos, los términos nuevos para `31_glosario.md`, referencias nuevas para `30_bibliografia.md` o ideas de reordenamiento de `libro.yaml`.)*
 
 ### Arquitectura editorial
+* Creación de la carpeta escalable [`notas/`](notas/) con [`notas/NOTAS.md`](notas/NOTAS.md) (ideas globales y autores por incorporar) y 33 fichas personalizadas en [`notas/capitulos/`](notas/capitulos/) con sugerencias basadas en el contenido de cada capítulo.
 * Definición del flujo simplificado capítulo por capítulo: edición directa de cada `.md` en `libro/` con IA → revisión e iteración con el autor (entrega por capítulo en PDF o Word `.docx`) → aprobación en `libro.yaml` (`estado: aprobado`) → commit y push simple en `main`.
 * Incorporación de [`SSOT/guia_estilo_editorial.md`](SSOT/guia_estilo_editorial.md) con las reglas de voz filosófica, vocabulario protegido y protocolo operativo por capítulo.
 * Incorporación del manifiesto declarativo [`libro.yaml`](libro.yaml) (**Opción A**: nombres de archivo estables, orden flexible del índice y seguimiento de `estado` por capítulo).

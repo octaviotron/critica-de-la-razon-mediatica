@@ -35,11 +35,11 @@ Repositorio oficial del proyecto de procesamiento digital, estructuración en fo
 
 ## Estructura del Proyecto
 
-El repositorio está organizado alrededor de cinco directorios versionados ([`fuente/`](fuente/), [`libro/`](libro/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), el manifiesto estructural y de avance [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para entregas compiladas (PDF o Word `.docx`).
+El repositorio está organizado alrededor de seis directorios versionados ([`fuente/`](fuente/), [`libro/`](libro/), [`notas/`](notas/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), el manifiesto estructural y de avance [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para entregas compiladas (PDF o Word `.docx`).
 
 ```text
 critica-de-la-razon-mediatica/
-├── README.md                  # Documentación general, créditos, flujo editorial e índice navegable
+├── README.md                  # Documentación general, créditos, flujo editorial y resumen de la obra
 ├── CHANGELOG.md               # Bitácora editorial de capítulos aprobados y pendientes para el cierre
 ├── libro.yaml                 # Manifiesto maestro: orden flexible del índice y estado por capítulo (Opción A)
 ├── .gitignore                 # Excluye dist/ (PDFs/DOCX/reportes compilados) y temporales
@@ -52,6 +52,10 @@ critica-de-la-razon-mediatica/
 ├── libro/                     # Única fuente viva de edición en Markdown (se edita 1 capítulo .md a la vez)
 │   ├── README.md              # Catálogo navegable detallado de todos los capítulos de la edición actual
 │   └── *.md                   # Capítulos de la obra (33 iniciales como IDs estables)
+├── notas/                     # Anotaciones de trabajo (ideas, autores, sugerencias y notas del autor)
+│   ├── README.md              # Guía breve de uso de la carpeta de anotaciones
+│   ├── NOTAS.md               # Ideas globales del libro, autores por incluir, frases, glosario e índice
+│   └── capitulos/             # Una ficha de notas y sugerencias por capítulo (mismo nombre que en libro/)
 ├── respaldo_v1.0/             # [Inmutable] Respaldo congelado de estructura y contenido inicial (1.ª edición 2006)
 │   ├── README.md              # Guía, política de inmutabilidad y catálogo congelado con folios de 2006
 │   ├── libro.yaml             # Manifiesto estructural congelado de la 1.ª edición (v1.0.0)
@@ -86,12 +90,16 @@ critica-de-la-razon-mediatica/
 2. **[`libro/`](libro/) y [`libro.yaml`](libro.yaml) — Manuscrito Vivo de la Segunda Edición (Opción A):**
    * [`libro/`](libro/) aloja los **33 archivos Markdown** iniciales extraídos con **100% de integridad textual** (`197,741` palabras, `513` notas al pie y `1,008,962` caracteres alfanuméricos) y se trabaja mediante **edición asistida capítulo por capítulo** (un archivo `.md` a la vez). Su índice detallado de archivos vive en **[`libro/README.md`](libro/README.md)**.
    * [`libro.yaml`](libro.yaml) gobierna el orden de lectura, la agrupación en partes y el `estado` de avance de cada capítulo (`pendiente` | `en_revision` | `aprobado`). Los nombres actuales en `libro/` permanecen como **IDs estables**; cualquier capítulo nuevo o reordenamiento futuro del índice se declara únicamente en `libro.yaml`.
-3. **[`respaldo_v1.0/`](respaldo_v1.0/) — Respaldo Inmutable de Estructura y Contenido Inicial (2006):**
+3. **[`notas/`](notas/) — Anotaciones Editoriales, Autores e Ideas por Desarrollar:**
+   * **[`notas/NOTAS.md`](notas/NOTAS.md):** Bandeja global con ideas transversales, lista de autores por incorporar, frases para ampliar, términos candidatos para el Glosario y propuestas sobre el índice.
+   * **[`notas/capitulos/`](notas/capitulos/):** Una ficha independiente por cada capítulo (con el mismo nombre de archivo que en `libro/`), incluyendo sugerencias basadas en su contenido, erratas técnicas heredadas de 2006 y espacio para las observaciones del autor.
+   * **[`notas/README.md`](notas/README.md):** Convención rápida de uso con casillas de seguimiento (`- [ ]` / `- [x]`), manteniendo `libro/` limpio de notas internas.
+4. **[`respaldo_v1.0/`](respaldo_v1.0/) — Respaldo Inmutable de Estructura y Contenido Inicial (2006):**
    * **[`respaldo_v1.0/README.md`](respaldo_v1.0/README.md):** Política de inmutabilidad y comandos para auditar o compilar la Primera Edición.
    * **[`respaldo_v1.0/libro.yaml`](respaldo_v1.0/libro.yaml):** Manifiesto estructural congelado de la 1.ª edición (`v1.0.0`), independiente de [`libro.yaml`](libro.yaml).
    * **[`respaldo_v1.0/manifiesto_v1.0.md`](respaldo_v1.0/manifiesto_v1.0.md):** Huellas criptográficas SHA-256 de los 33 archivos originales.
    * **[`respaldo_v1.0/md/`](respaldo_v1.0/md/):** Copia testigo intacta de los 33 capítulos de 2006, que permite **compilar siempre la primera versión (`v1.0.0`)** aunque cambien los archivos dentro de [`libro/`](libro/).
-4. **[`scripts/`](scripts/) — Herramientas Internas de Edición y Pipeline Histórico:**
+5. **[`scripts/`](scripts/) — Herramientas Internas de Edición y Pipeline Histórico:**
    * **`scripts/edicion/` (ejecución asistida de scripts bajo demanda):**
      * **[`scripts/edicion/manifiesto.py`](scripts/edicion/manifiesto.py):** Cargador compartido para `libro.yaml` y `respaldo_v1.0/libro.yaml`.
      * **[`scripts/edicion/validar_libro.py`](scripts/edicion/validar_libro.py):** Valida un capítulo (`--capitulo`) o el libro completo (notas al pie, enlaces locales, tablero de `estado` y SHA-256 de `respaldo_v1.0/md/` con `--verificar-respaldo`).
@@ -102,7 +110,7 @@ critica-de-la-razon-mediatica/
      * **[`scripts/extraccion_v1/01_extraer_xml.py`](scripts/extraccion_v1/01_extraer_xml.py):** Extrae la capa vectorial XML de las 666 páginas del PDF mediante `pdftohtml -xml -i` y filtra determinísticamente el ruido de QuarkXPress.
      * **[`scripts/extraccion_v1/02_convertir_a_md.py`](scripts/extraccion_v1/02_convertir_a_md.py):** Reconstruye los 33 archivos Markdown (protegido: escribe por defecto en `dist/extraccion_v1_md/` y bloquea sobrescrituras accidentales sobre `respaldo_v1.0/` o `libro/`).
      * **[`scripts/extraccion_v1/03_auditar_integridad.py`](scripts/extraccion_v1/03_auditar_integridad.py):** Ejecuta la auditoría contable al 100.000% contra el PDF original (por defecto sobre `respaldo_v1.0/md/`).
-5. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría, Flujo y Estilo):**
+6. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría, Flujo y Estilo):**
    * **[`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md):** Flujo oficial simplificado de edición asistida capítulo por capítulo, revisión/aprobación del autor, gestión de nuevos capítulos e índice en `libro.yaml`, y operación de `respaldo_v1.0/`.
    * **[`SSOT/guia_estilo_editorial.md`](SSOT/guia_estilo_editorial.md):** Reglas de fidelidad estilística, vocabulario filosófico protegido y protocolo operativo de edición asistida por capítulo.
    * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica histórica del Método 1 (2006) y política del respaldo inmutable `respaldo_v1.0/`.
@@ -135,7 +143,7 @@ La obra se organiza en **8 grandes bloques** (33 archivos `.md` iniciales):
 
 El proceso está diseñado para **reducir al mínimo los comandos manuales** y centrarse exclusivamente en la edición asistida de los capítulos `.md` de [`libro/`](libro/):
 
-1. **Elegir un capítulo `.md`** en [`libro/`](libro/) y actualizarlo mediante edición asistida siguiendo [`SSOT/guia_estilo_editorial.md`](SSOT/guia_estilo_editorial.md).
+1. **Elegir un capítulo `.md`** en [`libro/`](libro/), revisar sus anotaciones en [`notas/capitulos/`](notas/capitulos/) (y [`notas/NOTAS.md`](notas/NOTAS.md)) y actualizarlo mediante edición asistida siguiendo [`SSOT/guia_estilo_editorial.md`](SSOT/guia_estilo_editorial.md).
 2. **Entregar ese capítulo al autor:** Mediante ejecución asistida de scripts, se valida el archivo, se compila solo ese capítulo en PDF o Word (`.docx`) dentro de `dist/` y se prepara un resumen breve de los cambios realizados.
 3. **Iterar hasta aprobación:** Se aplican sobre el mismo `.md` las orientaciones del autor hasta obtener su visto bueno.
 4. **Cerrar capítulo y avanzar:** Se marca `estado: "aprobado"` en [`libro.yaml`](libro.yaml), se anota en [`CHANGELOG.md`](CHANGELOG.md), se hace un commit + push simple en `main` y se pasa al siguiente `.md`.

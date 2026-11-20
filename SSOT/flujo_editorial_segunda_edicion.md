@@ -12,8 +12,9 @@
 2. **Mínima fricción técnica (cero burocracia CLI):** El usuario no necesita memorizar comandos, scripts, `Makefile`, ramas complejas ni *tags* obligatorios. Los scripts de [`scripts/edicion/`](../scripts/edicion/) actúan como **herramientas internas que la IA ejecuta bajo demanda** cuando se le pide en lenguaje natural (validar notas, compilar un capítulo en PDF/Word para el autor, ver avance o actualizar el índice).
 3. **Git simple y lineal:** Se trabaja directamente sobre `main`. Al aprobarse cada capítulo se realiza **un commit + push** claro (por ejemplo `cap 08 aprobado`). Las etiquetas (*tags*) o ramas adicionales son estrictamente opcionales.
 4. **Orden y avance centralizados en [`libro.yaml`](../libro.yaml) (Opción A):** Los nombres de archivo existentes en `libro/` (`00_preliminares.md` … `32_indice_onomastico.md`) se conservan como **identificadores estables**; el orden del índice, las partes y el `estado` de cada capítulo (`pendiente` | `en_revision` | `aprobado`) viven en [`libro.yaml`](../libro.yaml).
-5. **Respaldo inmutable de la 1.ª edición ([`respaldo_v1.0/`](../respaldo_v1.0/)):** Conserva congelados los 33 archivos originales de 2006 y su manifiesto estructural (`respaldo_v1.0/libro.yaml`) para tener siempre una referencia exacta y poder compilar la 1.ª edición (`v1.0.0`) aunque cambien los archivos de `libro/` o la estructura del índice.
-6. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs y archivos Word (`.docx`) generados para lectura/revisión del autor se escriben en `dist/`, carpeta excluida en [`.gitignore`](../.gitignore).
+5. **Anotaciones separadas del texto publicable ([`notas/`](../notas/)):** Las ideas globales, lista de autores por incorporar y términos candidatos viven en [`notas/NOTAS.md`](../notas/NOTAS.md), y cada capítulo cuenta con su ficha propia en [`notas/capitulos/`](../notas/capitulos/) (con el mismo nombre que en `libro/`). Esto evita que las notas contaminen los PDF/DOCX compilados y permite cargar solo las notas del capítulo activo.
+6. **Respaldo inmutable de la 1.ª edición ([`respaldo_v1.0/`](../respaldo_v1.0/)):** Conserva congelados los 33 archivos originales de 2006 y su manifiesto estructural (`respaldo_v1.0/libro.yaml`) para tener siempre una referencia exacta y poder compilar la 1.ª edición (`v1.0.0`) aunque cambien los archivos de `libro/` o la estructura del índice.
+7. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs y archivos Word (`.docx`) generados para lectura/revisión del autor se escriben en `dist/`, carpeta excluida en [`.gitignore`](../.gitignore).
 
 ---
 
@@ -22,7 +23,7 @@
 Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
 
 ```text
-1. Elegir un archivo .md en libro/
+1. Elegir un archivo .md en libro/ y revisar sus notas en notas/capitulos/ (y notas/NOTAS.md)
         │
         ▼
 2. Editar y actualizar el contenido con la IA (siguiendo SSOT/guia_estilo_editorial.md)
@@ -31,11 +32,12 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
 3. La IA valida ese capítulo y prepara la entrega al autor (PDF o Word .docx en dist/ + resumen breve)
         │
         ▼
-4. Revisión del autor ──► ¿Solicita cambios? ──► Sí ──► Pasar orientaciones a la IA
+4. Revisión del autor ──► ¿Solicita cambios? ──► Sí ──► Registrar observaciones en notas/capitulos/
         │                                                 y volver al paso 2
         │ No (Capítulo aprobado)
         ▼
 5. Cierre del capítulo:
+   • Marcar como resueltas (- [x]) las notas aplicadas en notas/capitulos/ y notas/NOTAS.md
    • Marcar estado: "aprobado" en libro.yaml
    • Anotar en CHANGELOG.md el capítulo aprobado (y pendientes de glosario/bibliografía si surgieron)
    • 1 commit + push (ej. "cap 08 aprobado")
@@ -60,7 +62,7 @@ Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
 
 1. **Añadir un capítulo nuevo (ej. *Prefacio a la Segunda Edición*):**
    * Se crea un archivo con nombre descriptivo en [`libro/`](../libro/) sin necesidad de prefijo numérico (ej. `libro/prefacio_segunda_edicion.md`).
-   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado: "pendiente"`, y se añade al catálogo navegable [`libro/README.md`](../libro/README.md).
+   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado: "pendiente"`, se añade al catálogo navegable [`libro/README.md`](../libro/README.md) y, si aplica, se crea su ficha en `notas/capitulos/<mismo_nombre>.md`.
    * Pasa exactamente por el mismo ciclo de la Sección 2 (edición con IA → revisión del autor → aprobación → commit/push).
 2. **Cambiar el orden del índice o agrupar distinto las Partes:**
    * **No se renombran los archivos `.md` existentes** en `libro/` (así las comparaciones contra `respaldo_v1.0/md/` siguen funcionando sin fricción).

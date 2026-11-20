@@ -3,6 +3,7 @@
 Este directorio aloja los archivos Markdown (`.md`) vivos de la **Segunda Edición** de ***Crítica de la Razón Mediática*** (Juan Barreto Cipriani).
 
 * **Orden del índice y estado de avance por capítulo (`pendiente` | `en_revision` | `aprobado`):** véase [`libro.yaml`](../libro.yaml).
+* **Anotaciones, autores por incorporar y sugerencias por capítulo:** véanse [`notas/NOTAS.md`](../notas/NOTAS.md) y [`notas/capitulos/`](../notas/capitulos/).
 * **Referencia congelada de la Primera Edición (2006) con folios y páginas PDF originales:** véase [`respaldo_v1.0/README.md`](../respaldo_v1.0/README.md).
 * **Flujo de edición asistida y guía de estilo editorial:** véanse [`SSOT/flujo_editorial_segunda_edicion.md`](../SSOT/flujo_editorial_segunda_edicion.md) y [`SSOT/guia_estilo_editorial.md`](../SSOT/guia_estilo_editorial.md).
 
