@@ -18,6 +18,7 @@ Gran ensayo introductorio del autor (*Profecías y realidades tecnológicas*, *L
 
 ## Erratas y detalles técnicos heredados de 2006
 - [x] Corregir advertencias de notas al pie de conversión: separada `[^25]:` (antes pegada en `[^24]:`) y restaurada la llamada `[^22]` en `*El gusto*[^22],`.
+- [ ] Revisar espacio antes de coma en la cita de línea 327 y añadir punto final a las notas sin puntuación de cierre (L357, L367).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

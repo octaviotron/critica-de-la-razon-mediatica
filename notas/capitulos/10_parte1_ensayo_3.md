@@ -18,7 +18,8 @@ Recorrido teórico extenso (~17,000 palabras, 75 notas) por las tradiciones de l
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Corregir el glifo roto de imprenta de 2006 en el epígrafe: `> — S. i ek` → `> — S. Žižek`.
 - [x] Corregir advertencias de notas al pie de conversión: separada `[^46]:` (antes pegada en `[^45]:`) y verificada la llamada `[^41]:` existente en el cuerpo.
-- [ ] Revisar puntuación en la primera oración (`son , para algunos` con espacio antes de coma).
+- [ ] Revisar puntuación en la primera oración (`son , para algunos` con espacio antes de coma) y palabra pegada en el epígrafe de J. Swift (`grandesy` → `grandes y`, L7).
+- [ ] Corregir erratas de nombres de autores (`Lippman` → `Lippmann`, `Goubern` → `Gubern`) y añadir punto final a las notas sin puntuación de cierre (L353, L369, L373, L439, L457, L465).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

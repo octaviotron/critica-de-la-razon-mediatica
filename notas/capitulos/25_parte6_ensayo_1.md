@@ -18,6 +18,7 @@ Apertura de la Sexta Parte (*Subjetividad y política: del consenso a la volunta
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Revisar la primera frase (`nuevas formas la pasión política` → posible falta de `de`: `nuevas formas de la pasión política`).
 - [ ] Limpiar los encabezados partidos de apertura de la Sexta Parte.
+- [ ] Añadir punto final y revisar la grafía del título francés en la nota de L153 (`*La désir el cite*`).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

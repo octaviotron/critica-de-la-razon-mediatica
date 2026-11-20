@@ -18,6 +18,7 @@
 ## Erratas y detalles técnicos heredados de 2006
 - [x] Separar `[^13]:` (antes pegada al final de `[^12]:`).
 - [ ] Verificar ortografía del nombre en el epígrafe: `N. Katerine Hayles` → `N. Katherine Hayles`.
+- [ ] Corregir comillas `«»` desbalanceadas (L11 y L63), asteriscos dentro de palabra en L59 (`incorpora*l`), L79 (`*videopensa*r`) y L163 (`L*a máquina de la visión,*`), y notas sin punto final (L143, L157, L159).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

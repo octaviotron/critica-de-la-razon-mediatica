@@ -17,7 +17,9 @@ Apertura de la Cuarta Parte (*Massmediática y construcción de subjetividad*; e
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Corregir la errata en el subtítulo `### Masmediática: una lógica de sentido` → `Massmediática` (doble `s`).
-- [ ] Revisar advertencia heredada de nota al pie: definición `[^28]:` sin llamada en el texto.
+- [ ] Revisar omisión confirmada del impreso de 2006: definición `[^28]:` (`I. Colina, La comunicación humana, UCV, Caracas, 1986, pp. 59-60`) sin llamada en el texto.
+- [ ] Corregir cursiva sin cerrar (`*` impar) y errata `Merlau-Ponty` → `Merleau-Ponty` en el epígrafe de Virilio (L19).
+- [ ] Corregir asteriscos de cursiva desplazados dentro de palabra en L35 (`cultur*a*`) y L179 (`E*n torno al sentido,*`), y revisar comillas `‹›` en `[^3]` (L155).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

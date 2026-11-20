@@ -68,3 +68,24 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 - [ ] Evaluar la creación de un **Prefacio a la Segunda Edición (Veinte Años Después)** (`libro/prefacio_segunda_edicion.md`) antes del *Preámbulo*.
 - [ ] Evaluar si el *Manual para ver TV* (`20_parte4_ensayo_4.md`) se amplía a un *Manual para habitar pantallas y algoritmos* o se acompaña de una adenda contemporánea.
 - [ ] Revisar al final de la edición si conviene reagrupar algún ensayo en [`libro.yaml`](../libro.yaml) antes de regenerar `libro/01_indice.md`.
+
+---
+
+## 6. Asuntos Técnicos y de Uniformidad Global (Pre-Edición)
+
+Hallazgos transversales detectados en la auditoría previa de los 33 archivos de [`libro/`](../libro/) (el detalle puntual por archivo vive en cada ficha de [`notas/capitulos/`](capitulos/)):
+
+### Consultas prioritarias al autor (omisiones confirmadas del impreso de 2006)
+- [ ] Resolver las **7 omisiones reales de notas al pie** de la 1.ª edición:
+  * **Falta definición al pie (2):** `[^3]` en [`20_parte4_ensayo_4.md`](capitulos/20_parte4_ensayo_4.md) y `[^4]` en [`24_parte5_ensayo_4.md`](capitulos/24_parte5_ensayo_4.md).
+  * **Falta llamada en el cuerpo (5):** `[^15]` y `[^19]` (más salto del `17`) en [`11_parte2_ensayo_1.md`](capitulos/11_parte2_ensayo_1.md), `[^28]` en [`17_parte4_ensayo_1.md`](capitulos/17_parte4_ensayo_1.md), `[^2]` en [`24_parte5_ensayo_4.md`](capitulos/24_parte5_ensayo_4.md) y `[^3]` en [`27_parte6_ensayo_3.md`](capitulos/27_parte6_ensayo_3.md).
+- [ ] Completar datos faltantes (lugar y año) de la nota truncada `[^6]` en [`14_parte3_ensayo_1.md`](capitulos/14_parte3_ensayo_1.md).
+
+### Criterios de uniformidad para toda la obra
+- [ ] **Notas al pie:** Acordar criterio único para `Ibíd.` / `Ibid.`, `Op. cit.` / `Op cit.` y cerrar con punto final las ~25 notas que carecen de puntuación de cierre.
+- [ ] **Comillas:** Unificar criterio entre comillas latinas (`«»`), inglesas (`""`) y revisar las comillas angulares simples (`‹›`, presentes en `11`, `14`, `16`, `17`, `21`, `27` y `28`).
+- [ ] **Grafía consistente de términos y autores recurrentes:**
+  * Unificar `Masmediática` (una sola `s` en `01`, `17`, `23`, `28`) → `Massmediática`.
+  * Unificar nombres propios errados en varios archivos: `Gumis` → `Gomis` (`20`, `30`, `32`), `Foweler` → `Fowler` (`20`, `30`, `32`), `Lippman` → `Lippmann` (`10`, `20`), `S. i ek` → `S. Žižek` (`10`, `13`, más separación de `ŽIŽEK` respecto a `ZIBECHI` en `30` y `32`).
+- [ ] **Encabezados de apertura:** Al editar cada capítulo (`03`–`19`, `21`–`27` y `29`), unificar en un solo encabezado limpio los títulos que quedaron partidos en 2–3 líneas desde QuarkXPress (incluyendo guiones sueltos `## -` / `### -` en `14`, `16`, `22` y `27`).
+- [ ] **Formato del Glosario ([`31_glosario.md`](capitulos/31_glosario.md)):** Decidir al cierre si conservar el formato actual `· Término:` en sus 93+ entradas o convertirlas a subtítulos `### Término`.

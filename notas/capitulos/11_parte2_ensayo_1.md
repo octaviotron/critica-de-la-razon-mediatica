@@ -19,6 +19,7 @@ Apertura de la Segunda Parte (*Campos híbridos y lecturas transversales*; epíg
 - [x] Separar `[^7]:` (antes pegada al final de `[^6]:`).
 - [ ] Revisar omisiones reales del impreso de 2006: definiciones `[^15]:` y `[^19]:` sin llamada en el cuerpo (y salto del número `17` en la numeración original).
 - [ ] Unificar el encabezado partido `# I CAMPOS HÍBRIDOS` / `## Y LECTURAS TRANSVERSALES`.
+- [ ] Revisar comillas angulares simples (`‹›`) en línea 51 y añadir punto final a la nota `[^20]` (L119).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

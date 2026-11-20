@@ -15,7 +15,8 @@
 - [ ] Evaluar junto al autor si se añade un *Prefacio a la Segunda Edición* antes del Preámbulo o si alguna parte requiere reagrupación.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Al regenerarlo al cierre, revisar la corrección de erratas originales en títulos heredados del índice de 2006 (por ejemplo `preformativo` → `performativo`, `Democracia` → `Democracias`).
+- [ ] Al regenerarlo al cierre, revisar la corrección de erratas originales en títulos heredados del índice de 2006 (`preformativo` → `performativo` x2, `Masmediática` → `Massmediática`, `Democracia` → `Democracias`).
+- [ ] Corregir la cursiva/negrita mal cerrada en línea 110 (`- *Post-scriptum***. Por el socialismo**`) al regenerar el índice.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

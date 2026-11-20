@@ -17,6 +17,7 @@
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Unificar el encabezado partido `# II DE LA REVUELTA A` / `## LA REINVENCIÓN DEL PUEBLO`.
+- [ ] Corregir la errata `Buneos Aires` → `Buenos Aires` en la nota de L189 y añadir punto final a las notas sin puntuación de cierre (L187, L189, L223, L235).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

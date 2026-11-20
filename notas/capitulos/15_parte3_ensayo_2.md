@@ -18,6 +18,7 @@
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Revisar el epígrafe partido en líneas `> —` en la apertura del ensayo para formatearlo correctamente como cita + autor.
 - [x] Corregir advertencias de notas al pie de conversión: separada `[^29]:` (de `[^28]:`) y restaurada la llamada `[^14]` en `*Ser y Tiempo*[^14],`.
+- [ ] Corregir el apellido `Pierce` → `Peirce` (L17) y añadir punto final a las notas sin puntuación de cierre (L177, L197, L199, L205, L209).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

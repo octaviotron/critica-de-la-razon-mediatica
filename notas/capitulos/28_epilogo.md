@@ -17,6 +17,8 @@
 ## Erratas y detalles técnicos heredados de 2006
 - [x] Corregir el título `# EPÍLOGO ¿SE PUEDEN CARTOGRAFIAR ? LOS MASS-MEDIA` → `# Epílogo: ¿Se pueden cartografiar los mass-media?`.
 - [x] Reconstruir todas las entradas del alfabeto `A`–`Z` (incluyendo `# K.-` y las palabras cortadas por guion) y restaurar en la nota `[^7]` el fragmento `*"Democracia o consenso"*)` que se había mezclado en la letra `I`.
+- [ ] Corregir erratas menores heredadas de 2006: `Masmediática` → `Massmediática`, `meqamáquina` → `megamáquina`, `visiónmirada` → `visión-mirada`, `disgresión` → `digresión`, `Paúl Virilio` → `Paul Virilio` y `Monod Jacques` → `Jacques Monod`.
+- [ ] Revisar comillas angulares simples (`‹›`) en la nota `[^3]` (L143).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

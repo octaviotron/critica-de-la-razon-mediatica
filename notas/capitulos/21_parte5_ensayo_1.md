@@ -17,6 +17,7 @@ Apertura de la Quinta Parte (*La mediática en la hegemonía de la producción i
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Corregir la errata en el título de la Quinta Parte: `A LAS DEMOCRACIA MASS-MEDIÁTICAS` → `A LAS DEMOCRACIAS MASS-MEDIÁTICAS`.
+- [ ] Revisar comillas angulares simples (`‹›`) en `[^17]` (L201) y añadir punto final a las notas sin puntuación de cierre (L199, L201, L205).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

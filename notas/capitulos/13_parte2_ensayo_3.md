@@ -19,6 +19,7 @@
 - [x] Reconstruir el formato de la lista de los 6 principios rizomáticos (`1.`–`6.`) y unir las 8 palabras cortadas por guion entre párrafos.
 - [ ] Corregir el glifo roto de imprenta de 2006 en el epígrafe: `> — S. i ek.` → `> — S. Žižek.`.
 - [x] Corregir advertencias de notas al pie de conversión: separada `[^15]:` (de `[^14]:`), extraída `[^20]:` del cuerpo de la línea 93 a su posición al pie, y restauradas las llamadas `[^18]`, `[^22]` y `[^24]`.
+- [ ] Corregir asterisco dentro de palabra en línea 71 (`densidad del se*r*`) y verificar si `(Sastre)` corresponde a `(Sartre)`.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

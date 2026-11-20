@@ -17,6 +17,7 @@ Apertura de la Primera Parte (*Crisis de la teoría del valor y nuevo dispositiv
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Limpiar la jerarquía de encabezados de apertura (`# Primera Parte ...` / `# I` / `## CRISIS DE LA TEORÍA DEL VALOR...` / `### INFORMACIÓN-COMUNICACIÓN`) para evitar saltos de nivel en el índice generado.
+- [ ] Corregir el asterisco de cursiva desplazado dentro de palabra en línea 75 (`*un* p*lano de consistencia*` → `*un plano de consistencia*`).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

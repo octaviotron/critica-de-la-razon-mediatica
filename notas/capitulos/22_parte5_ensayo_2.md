@@ -17,6 +17,7 @@
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Limpiar el guion suelto en el subtítulo `### El predominio del significante en la forma signo -` → `### El predominio del significante en la forma-signo`.
+- [ ] Corregir asterisco dentro de palabra en L43 (`*automatism*o` → `*automatismo*`) y añadir punto final a las notas sin puntuación de cierre (L129, L133, L141, L153).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

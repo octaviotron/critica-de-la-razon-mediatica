@@ -15,7 +15,9 @@ Bibliografía general de la 1.ª edición (~4,480 palabras en formato de lista e
 - [ ] Unificar el formato bibliográfico (orden alfabético, cursivas de títulos, editorial, lugar y año) cuando ya no queden capítulos pendientes.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar las entradas de **Žižek** existentes para verificar que su apellido no tenga glifos faltantes heredados de 2006 y que respete el orden alfabético en la `Z`.
+- [ ] Separar la entrada **`ŽIŽEK, Slavoj`** que quedó pegada al final de la línea de **`ZIBECHI, Raúl`** (y verificar que respete el orden alfabético en la `Z`).
+- [ ] Corregir nombres propios errados en 2006: `FOWELER, Roger` → `FOWLER, Roger` y `GUMIS, Lorenzo` → `GOMIS, Lorenzo`.
+- [ ] Corregir asterisco desplazado dentro de palabra en L397 (`New *Y*ork` → `New York`) y revisar la uniformidad de las 148 rayas de autor repetido (`____`).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

@@ -15,7 +15,7 @@ Glosario conceptual (*La caja de herramientas conceptual*, ~13,690 palabras, 94 
 - [ ] Conservar el estilo filosófico denso y propio del autor en cada definición nueva.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Mantener el orden alfabético estricto al insertar los términos nuevos (se puede reordenar automáticamente al cierre).
+- [ ] Definir al cierre si se conserva el formato actual de las 93 entradas (`· Término:`) o si se migra a subtítulos `### Término`, manteniendo el orden alfabético estricto al insertar los conceptos nuevos.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

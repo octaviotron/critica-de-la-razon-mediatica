@@ -15,7 +15,8 @@
 - [ ] En *Líneas de fuga a la máquina total del sentido hegemónico*: abrir una reflexión contemporánea sobre qué formas concretas adoptan hoy las líneas de fuga comunicacionales (medios comunitarios digitales, soberanía tecnológica, software libre, contranarrativas territoriales frente al cerco algorítmico).
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar advertencias heredadas de notas al pie: llamada `[^4]` sin definición y definición `[^2]:` sin llamada.
+- [ ] Revisar con el autor las **2 omisiones confirmadas del impreso de 2006**: llamada `[^4]` (Maffesoli) cuya definición faltó al pie del folio 467, y definición `[^2]:` (A. M. Fernández, *Política y Subjetividad*, p. 249) sin llamada en el cuerpo.
+- [ ] Corregir palabra pegada `tiemposmovimientos` → `tiempos-movimientos` (nota `[^6]`) y errata `instersticiales` → `intersticiales` (L99).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

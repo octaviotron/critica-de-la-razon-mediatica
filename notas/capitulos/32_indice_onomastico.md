@@ -15,7 +15,8 @@
 - [ ] Reconstruir al cierre definitivo del libro incorporando los nuevos autores citados (**Varoufakis**, **Dennis**, **Fisher**, **Harari**, **Han**, nuevas referencias a **Žižek** y otros) con la paginación final maquetada.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Verificar que el apellido **Žižek** aparezca correctamente escrito sin caracteres faltantes.
+- [ ] Separar la entrada **`ŽIŽEK, Slavoj`** que quedó pegada al final de la línea de **`ZIBECHI, Raúl`**.
+- [ ] Corregir apellidos errados de 2006: `FOWELER, Roger` → `FOWLER, Roger` y `GUMIS, Lorenzo` → `GOMIS, Lorenzo`.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

@@ -17,6 +17,7 @@
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Unificar el encabezado partido `# III LA` / `## MASSMEDIATIZACIÓN` / `# DE LA POLÍTICA: SU DEVENIR HOY`.
+- [ ] Corregir `Masmediática` (una sola `s`) → `Massmediática` y añadir punto final a la nota `[^8]` (L215).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

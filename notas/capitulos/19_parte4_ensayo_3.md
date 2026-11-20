@@ -17,6 +17,7 @@
 
 ## Erratas y detalles técnicos heredados de 2006
 - [x] Separar `[^13]:`, `[^14]:`, `[^16]:`, `[^22]:` y `[^23]:` (antes pegadas al final de `[^12]:`, `[^15]:` y `[^21]:`).
+- [ ] Unificar el encabezado partido `# III TV:` / `## ¿DISPOSITIVO O APARATO?` y añadir punto final a la nota en L255 (*La transparencia del mal*).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

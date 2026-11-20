@@ -16,7 +16,8 @@
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Limpiar el encabezado roto de QuarkXPress (`## LA TELA ARÁCNIDA AL HILO DEL CUERPO POTENCIA` / `### -`) para que lea `CUERPO-POTENCIA`.
-- [ ] Revisar advertencia heredada de nota al pie: definición `[^3]:` sin llamada en el texto.
+- [ ] Revisar con el autor la omisión confirmada del impreso de 2006: definición `[^3]:` (T. Negri y F. Guattari, *Las Verdades Nómadas*) sin llamada en el texto.
+- [ ] Revisar comillas angulares simples (`‹›`) en L169 y añadir punto final a las notas sin puntuación de cierre (L221, L235).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

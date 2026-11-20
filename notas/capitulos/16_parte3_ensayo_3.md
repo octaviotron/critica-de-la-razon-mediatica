@@ -17,6 +17,7 @@
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Limpiar el encabezado roto de QuarkXPress (`## del significante signo` / `### -` / `## al SÍMBOLO`).
 - [x] Corregir advertencias de notas al pie de conversión: extraída `[^8]:` (antes incrustada en el cuerpo) a su posición al pie y separada `[^25]:` (antes pegada en `[^24]:`).
+- [ ] Revisar comillas angulares simples (`‹›`) en la nota `[^6]` (L145).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*
