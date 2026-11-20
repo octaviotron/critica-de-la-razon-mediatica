@@ -8,10 +8,7 @@ El estado de cada capítulo (`pendiente` | `en_revision` | `aprobado`) se consul
 ## Segunda Edición — En proceso (`libro/`)
 
 ### Capítulos aprobados por el autor
-* *(Ninguno aún — todos los capítulos en [`libro/`](libro/) se encuentran en su estado base de 2006, `estado: pendiente` en [`libro.yaml`](libro.yaml).)*
-
-### Pendientes para el cierre editorial (Glosario / Bibliografía / Índice)
-* *(Anotar aquí, a medida que se aprueban capítulos, los términos nuevos para `31_glosario.md`, referencias nuevas para `30_bibliografia.md` o ideas de reordenamiento de `libro.yaml`.)*
+* *(Ninguno aún — todos los capítulos en [`libro/`](libro/) se encuentran en su estado base de 2006, `estado: pendiente` en [`libro.yaml`](libro.yaml). Los pendientes de Glosario, Bibliografía, autores e índice se centralizan en [`notas/NOTAS.md`](notas/NOTAS.md).)*
 
 ### Arquitectura editorial
 * Creación de la carpeta escalable [`notas/`](notas/) con [`notas/NOTAS.md`](notas/NOTAS.md) (ideas globales y autores por incorporar) y 33 fichas personalizadas en [`notas/capitulos/`](notas/capitulos/) con sugerencias basadas en el contenido de cada capítulo.

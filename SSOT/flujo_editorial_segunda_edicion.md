@@ -4,15 +4,17 @@
 **Asesor Informático:** Octavio Rossell Tabet (<octavio.rossell@gmail.com> — https://github.com/octaviotron)  
 **Propósito:** Establecer el flujo editorial simple, centrado en editar los archivos `.md` de [`libro/`](../libro/) con asistencia de IA, someter cada capítulo a revisión y aprobación del autor, minimizar el uso manual de comandos CLI y preservar un respaldo inmutable de la primera edición en [`respaldo_v1.0/`](../respaldo_v1.0/).
 
+> **Inicio rápido para agentes nuevos:** Consulta primero [`SSOT/README.md`](README.md) para ver qué archivos leer (y cuáles NO cargar) y revisa las reglas inviolables en [`SSOT/guia_estilo_editorial.md`](guia_estilo_editorial.md) (incluyendo la prohibición de mencionar «IA» en los `README.md`, la protección de textos de autores invitados y la política de Git).
+
 ---
 
 ## 1. Principios del Flujo de Trabajo
 
 1. **Edición directa y secuencial (`libro/`):** Los capítulos Markdown en [`libro/`](../libro/) son la única copia viva del texto. Se trabaja **un capítulo `.md` a la vez** (o máximo dos mientras se espera respuesta del autor).
 2. **Mínima fricción técnica (cero burocracia CLI):** El usuario no necesita memorizar comandos, scripts, `Makefile`, ramas complejas ni *tags* obligatorios. Los scripts de [`scripts/edicion/`](../scripts/edicion/) actúan como **herramientas internas que la IA ejecuta bajo demanda** cuando se le pide en lenguaje natural (validar notas, compilar un capítulo en PDF/Word para el autor, ver avance o actualizar el índice).
-3. **Git simple y lineal:** Se trabaja directamente sobre `main`. Al aprobarse cada capítulo se realiza **un commit + push** claro (por ejemplo `cap 08 aprobado`). Las etiquetas (*tags*) o ramas adicionales son estrictamente opcionales.
-4. **Orden y avance centralizados en [`libro.yaml`](../libro.yaml) (Opción A):** Los nombres de archivo existentes en `libro/` (`00_preliminares.md` … `32_indice_onomastico.md`) se conservan como **identificadores estables**; el orden del índice, las partes y el `estado` de cada capítulo (`pendiente` | `en_revision` | `aprobado`) viven en [`libro.yaml`](../libro.yaml).
-5. **Anotaciones separadas del texto publicable ([`notas/`](../notas/)):** Las ideas globales, lista de autores por incorporar y términos candidatos viven en [`notas/NOTAS.md`](../notas/NOTAS.md), y cada capítulo cuenta con su ficha propia en [`notas/capitulos/`](../notas/capitulos/) (con el mismo nombre que en `libro/`). Esto evita que las notas contaminen los PDF/DOCX compilados y permite cargar solo las notas del capítulo activo.
+3. **Git simple y lineal:** Se trabaja directamente sobre `main`. Al aprobarse cada capítulo el usuario realiza **un commit + push** claro (por ejemplo `cap 08 aprobado`). Las etiquetas (*tags*) y ramas adicionales son opcionales; el agente **no** crea ramas ni tags y **no** ejecuta `git commit` ni `git push` sin instrucción expresa.
+4. **Orden y avance centralizados en [`libro.yaml`](../libro.yaml) (Opción A):** Los nombres de archivo existentes en `libro/` (`00_preliminares.md` … `32_indice_onomastico.md`) se conservan como **identificadores estables**; el orden del índice, las partes y el `estado` de cada capítulo (`pendiente` | `en_revision` | `aprobado`) viven en [`libro.yaml`](../libro.yaml). Un capítulo solo pasa a `"aprobado"` tras confirmación explícita del usuario.
+5. **Separación clara entre pendientes ([`notas/`](../notas/)) e historial cerrado ([`CHANGELOG.md`](../CHANGELOG.md)):** Todo lo *pendiente* (ideas globales, autores por incluir, términos para el Glosario, bibliografía futura y cambios de índice) vive exclusivamente en [`notas/NOTAS.md`](../notas/NOTAS.md), y las notas específicas de cada ensayo viven en [`notas/capitulos/`](../notas/capitulos/) (con el mismo nombre que en `libro/`). [`CHANGELOG.md`](../CHANGELOG.md) registra únicamente capítulos ya *aprobados* e hitos completados.
 6. **Respaldo inmutable de la 1.ª edición ([`respaldo_v1.0/`](../respaldo_v1.0/)):** Conserva congelados los 33 archivos originales de 2006 y su manifiesto estructural (`respaldo_v1.0/libro.yaml`) para tener siempre una referencia exacta y poder compilar la 1.ª edición (`v1.0.0`) aunque cambien los archivos de `libro/` o la estructura del índice.
 7. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs y archivos Word (`.docx`) generados para lectura/revisión del autor se escriben en `dist/`, carpeta excluida en [`.gitignore`](../.gitignore).
 
@@ -36,11 +38,11 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
         │                                                 y volver al paso 2
         │ No (Capítulo aprobado)
         ▼
-5. Cierre del capítulo:
+5. Cierre del capítulo (solo tras confirmación de aprobación del autor):
    • Marcar como resueltas (- [x]) las notas aplicadas en notas/capitulos/ y notas/NOTAS.md
-   • Marcar estado: "aprobado" en libro.yaml
-   • Anotar en CHANGELOG.md el capítulo aprobado (y pendientes de glosario/bibliografía si surgieron)
-   • 1 commit + push (ej. "cap 08 aprobado")
+   • Anotar nuevos pendientes de glosario/bibliografía en notas/NOTAS.md
+   • Marcar estado: "aprobado" en libro.yaml y registrar el capítulo aprobado en CHANGELOG.md
+   • 1 commit + push por el usuario (ej. "cap 08 aprobado")
         │
         ▼
 6. Pasar al siguiente archivo .md
@@ -74,7 +76,7 @@ Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
 ## 4. Fase Final de Cierre Editorial (Una Sola Vez)
 
 Mientras se editan los capítulos individuales **no** conviene tocar todavía el Índice General ni el Índice Onomástico. Una vez aprobados todos los capítulos:
-1. **Bibliografía y Glosario:** Consolidar en [`libro/30_bibliografia.md`](../libro/30_bibliografia.md) y [`libro/31_glosario.md`](../libro/31_glosario.md) las obras y conceptos anotados en la sección de pendientes de [`CHANGELOG.md`](../CHANGELOG.md).
+1. **Bibliografía y Glosario:** Consolidar en [`libro/30_bibliografia.md`](../libro/30_bibliografia.md) y [`libro/31_glosario.md`](../libro/31_glosario.md) las obras y conceptos acumulados en [`notas/NOTAS.md`](../notas/NOTAS.md).
 2. **Índice General y validación global:** Pedir a la IA regenerar `libro/01_indice.md` desde `libro.yaml`, validar notas al pie y enlaces en todo el libro, y compilar el manuscrito completo en `dist/`.
 3. **Revisión final e Índice Onomástico:** Tras el visto bueno final del autor sobre el manuscrito completo, actualizar [`libro/32_indice_onomastico.md`](../libro/32_indice_onomastico.md) con la paginación definitiva.
 

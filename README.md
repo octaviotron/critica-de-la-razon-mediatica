@@ -73,7 +73,8 @@ critica-de-la-razon-mediatica/
 │       ├── compilar_pdf.py    # Compilador de un capítulo o libro completo a PDF o Word (.docx) en dist/
 │       ├── reporte_cambios.py # Resumen comparativo por capítulo o libro completo contra respaldo_v1.0/
 │       └── generar_indice.py  # Regeneración automática de libro/01_indice.md desde libro.yaml
-└── SSOT/                      # Single Source of Truth (Especificación, Auditoría, Flujo y Guía de Estilo)
+└── SSOT/                      # Single Source of Truth (Índice, Especificación, Auditoría, Flujo y Guía de Estilo)
+    ├── README.md              # Guía de inicio rápido y mapa de responsabilidades del repositorio
     ├── proceso_conversion_pdf_a_md.md
     ├── detalle_ejecucion_y_auditoria_conversion.md
     ├── flujo_editorial_segunda_edicion.md
