@@ -56,7 +56,7 @@ Por eso, la invitación del pensamiento deconstructivo es a romper con la preten
 
 > … en una lengua hay varias lenguas, y en los contenidos emitidos todo tipo de flujos, conjugados, prolongados... que uno puede tartamudear en su propia lengua, ser extranjero en su propia lengua, es decir, llevar cada vez más lejos las puntas de desterritorialización de los agenciamientos.[^13]
 
-De ahí que toda obra sea, por ende, un reto a la interpretación, pues, como dijera Breton, cada vez que trazamos unas líneas, ellas escapan de nosotros y ya no somos autores de las mismas. El texto opone resistencia a la interpretación y el signo se opone a la reducción del concepto. La plena posesión y auto conciencia sólo es posible desde lo que Heidegger llamara *arrojamiento* (El Heidegger de *Ser y Tiempo*14, el del *estar allí* preguntándose por el hombre y el ser), es decir, por la confrontación del adentro y el afuera de la obra y de su relación con el otro, en la que el intérprete es parte del proceso como horizonte tercero.
+De ahí que toda obra sea, por ende, un reto a la interpretación, pues, como dijera Breton, cada vez que trazamos unas líneas, ellas escapan de nosotros y ya no somos autores de las mismas. El texto opone resistencia a la interpretación y el signo se opone a la reducción del concepto. La plena posesión y auto conciencia sólo es posible desde lo que Heidegger llamara *arrojamiento* (El Heidegger de *Ser y Tiempo*[^14], el del *estar allí* preguntándose por el hombre y el ser), es decir, por la confrontación del adentro y el afuera de la obra y de su relación con el otro, en la que el intérprete es parte del proceso como horizonte tercero.
 
 Por esto, siguiendo a Vattimo, la hermenéutica va situándose en contra de la pretensión (aunque sólo sea implícita) de neutralidad positivista y estructuralista, reivindicando la pertenencia del sujeto al juego de la comprensión y al evento de la verdad. Más allá de cualquier metafísica del diálogo, como en el caso de Benjamin o el último Habermas, a decir de Vattimo, no podemos aferrarnos a la literalidad misma del texto o al discurso en su superficie, pues esto produce un efecto mitificante que sustituye el diálogo por las condiciones de producción del plano de consistencia o cuerpo sin órganos de la verdad. Ya que al «no pensar el ser como evento sino como estructura» quedan atrapados en la red del fenómeno inmediato.
 
@@ -228,7 +228,9 @@ Al respecto, hay que tener presente la reflexión de J. Derrida[^36] sobre los b
 
 [^27]: *Ibid.,* p. 372.
 
-[^28]: G. Durand, *La imaginación simbólica,* Anthropos, Barcelona, 1990, p. 152. 29 E. Cassirer, *Filosofía de las formas simbólicas,* Tomo I, Gedisa, Madrid, 1987, p. 110.
+[^28]: G. Durand, *La imaginación simbólica,* Anthropos, Barcelona, 1990, p. 152.
+
+[^29]: E. Cassirer, *Filosofía de las formas simbólicas,* Tomo I, Gedisa, Madrid, 1987, p. 110.
 
 [^30]: L. Garagalza, *La interpretación de los símbolos,* Anthropos, Barcelona, 1990, p. 110.
 

@@ -16,7 +16,7 @@
 - [ ] En *La superabundancia del signo mediático*: dialogar con **Byung-Chul Han** (*Infocracia* / saturación informativa y colapso de la atención) sobre el paso del zapping televisivo al *scroll* infinito.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar advertencias heredadas de notas al pie: llamadas `[^13]`, `[^14]`, `[^16]`, `[^22]`, `[^23]` sin definición.
+- [x] Separar `[^13]:`, `[^14]:`, `[^16]:`, `[^22]:` y `[^23]:` (antes pegadas al final de `[^12]:`, `[^15]:` y `[^21]:`).
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

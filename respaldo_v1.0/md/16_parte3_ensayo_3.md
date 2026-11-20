@@ -40,7 +40,7 @@ El segundo postulado es el de la *apertura en profundidad*, en donde la signific
 
 Según Durand, es sólo desde un metalenguaje que se podría tomar alguna perspectiva que aborde el sentido del lenguaje, pues el sentido simbólico tiene primacía sobre el literal. El lenguaje, mientras interpreta al hombre, lleva el análisis de la realidad en sus formas simbólicas, por ello la simbolización es constitutiva de la propia experiencia, entendida también como construcción mítica.[^6]
 
-Desde la hermenéutica corbiniana, analizada por Garagalza, la comprensión del sentido es implicativa, «con lo cual, la penetración en el sentido místico del texto, viene a coincidir con la profundización en el aspecto de la propia vida del hermeneuta (o la exégesis del texto como exégesis del alma)»[^7]. Toda diferencia entre el conocedor y aquello que se conoce, queda abolida y deviene en común realidad, pues como dice Corbin, «una vez allanada la montaña de la individualidad cerrada, ya no hay más un único Sujeto Absoluto que se conoce a sí mismo -Sujeto absoluto y trascendental que, al conocerse, conoce o reconoce una realidad arquetípica común».[^8] 8 Citado en L. Garagalza, *Op. cit.,* p. 111.
+Desde la hermenéutica corbiniana, analizada por Garagalza, la comprensión del sentido es implicativa, «con lo cual, la penetración en el sentido místico del texto, viene a coincidir con la profundización en el aspecto de la propia vida del hermeneuta (o la exégesis del texto como exégesis del alma)»[^7]. Toda diferencia entre el conocedor y aquello que se conoce, queda abolida y deviene en común realidad, pues como dice Corbin, «una vez allanada la montaña de la individualidad cerrada, ya no hay más un único Sujeto Absoluto que se conoce a sí mismo -Sujeto absoluto y trascendental que, al conocerse, conoce o reconoce una realidad arquetípica común».[^8]
 
 ### la interpretación, o la comprensión de un significante-signo que se hace símbolo
 
@@ -146,6 +146,8 @@ En este punto, Guattari muestra como se mezclan las semióticas en la interpreta
 
 [^7]: L. Garagalza. *Op. cit.,* p. 110.
 
+[^8]: Citado en L. Garagalza, *Op. cit.,* p. 111.
+
 [^9]: *Ibid.,* p. 53.
 
 [^10]: *Ibid.,* p. 56.
@@ -176,7 +178,9 @@ En este punto, Guattari muestra como se mezclan las semióticas en la interpreta
 
 [^23]: L. Garagalza, *La interpretación de los símbolos,* pp. 143-144.
 
-[^24]: "La reflexión hermenéutica ha elaborado así una teoría de los prejuicios que, sin menoscabar el sentido de crítica de todos los prejuicios que amenazan al conocimiento, hace justicia al sentido productivo de la pre-comprensión, que es premisa de toda comprensión". H.G. Gadamer. *Verdad y método,* p. 371. Así, el sabio fija los parámetros desde los cuales es posible una toma de partido desde la posibilidad de la comprensión desprejuiciada, es decir, la fundación del juicio sin la carga argumentativa de la descalificación. 25 L. Garagalza, *Op. cit.,* p. 146.
+[^24]: "La reflexión hermenéutica ha elaborado así una teoría de los prejuicios que, sin menoscabar el sentido de crítica de todos los prejuicios que amenazan al conocimiento, hace justicia al sentido productivo de la pre-comprensión, que es premisa de toda comprensión". H.G. Gadamer. *Verdad y método,* p. 371. Así, el sabio fija los parámetros desde los cuales es posible una toma de partido desde la posibilidad de la comprensión desprejuiciada, es decir, la fundación del juicio sin la carga argumentativa de la descalificación.
+
+[^25]: L. Garagalza, *Op. cit.,* p. 146.
 
 [^26]: G. Deleuze y F. Guattari, *¿Qué es la filosofía?,* Anagrama, Barcelona, 1993, p. 23.
 

@@ -17,7 +17,7 @@ Recorrido teórico extenso (~17,000 palabras, 75 notas) por las tradiciones de l
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Corregir el glifo roto de imprenta de 2006 en el epígrafe: `> — S. i ek` → `> — S. Žižek`.
-- [ ] Revisar advertencias heredadas de notas al pie: llamada `[^46]` sin definición y definición `[^41]:` sin llamada en el texto.
+- [x] Corregir advertencias de notas al pie de conversión: separada `[^46]:` (antes pegada en `[^45]:`) y verificada la llamada `[^41]:` existente en el cuerpo.
 - [ ] Revisar puntuación en la primera oración (`son , para algunos` con espacio antes de coma).
 
 ## Autores, citas o frases adicionales por incluir

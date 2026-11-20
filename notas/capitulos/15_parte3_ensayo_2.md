@@ -17,7 +17,7 @@
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Revisar el epígrafe partido en líneas `> —` en la apertura del ensayo para formatearlo correctamente como cita + autor.
-- [ ] Revisar advertencias heredadas de notas al pie: llamada `[^29]` sin definición y definición `[^14]:` sin llamada (verificar también `[^36]` al cierre).
+- [x] Corregir advertencias de notas al pie de conversión: separada `[^29]:` (de `[^28]:`) y restaurada la llamada `[^14]` en `*Ser y Tiempo*[^14],`.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

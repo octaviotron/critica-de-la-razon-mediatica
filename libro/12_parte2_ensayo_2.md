@@ -48,9 +48,9 @@ Pero aclara:
 
 Tal óptica ya no separa los productos culturales de los medios de producción folklórica. Todo forma parte del torrente de estratificación del mercado simbólico, lo que cambia es la contextualización de la obra. Pero, como analizaremos más adelante, cada signo que se produce, lo hace en un sistema de significación, así como cada texto propone unas intenciones propias de su tiempo, pero a su vez invita a una nueva semantización en donde tiene lugar la subjetividad/objetividad del sujeto en relación a lo que percibe. Una relación abstracto-concreta cifra al objeto y lo significa, pero a su vez el proceso social lo recupera y lo resemantiza, dándole posibilidades multívocas.
 
-«El incremento de procesos de hibridación vuelve evidente que captamos muy poco del poder si sólo registráramos los enfrentamientos y las acciones verticales»7. De ahí la importancia de tener presente que las relaciones que se entretejen y superponen, generan zonas de alta interculturalidad entre campo y campo, es decir, que «hoy todas las culturas son de frontera»
+«El incremento de procesos de hibridación vuelve evidente que captamos muy poco del poder si sólo registráramos los enfrentamientos y las acciones verticales»[^7]. De ahí la importancia de tener presente que las relaciones que se entretejen y superponen, generan zonas de alta interculturalidad entre campo y campo, es decir, que «hoy todas las culturas son de frontera»
 
-Con esta contribución, quedan atrás especulaciones mecánicas como las de Herbert I. Schiller, de la Universidad de California, cuando aseguraba que la sociedad capitalista desarrollada se sustenta en un sistema cultural que genera a la clase dominante y «una estructura de valores, cuya finalidad es conseguir que la población mantenga un sistema de expectativas en sintonía con el status quo dominante»8. Como se ve, el asunto no es tan sencillo.
+Con esta contribución, quedan atrás especulaciones mecánicas como las de Herbert I. Schiller, de la Universidad de California, cuando aseguraba que la sociedad capitalista desarrollada se sustenta en un sistema cultural que genera a la clase dominante y «una estructura de valores, cuya finalidad es conseguir que la población mantenga un sistema de expectativas en sintonía con el status quo dominante»[^8]. Como se ve, el asunto no es tan sencillo.
 
 Retomando a Bourdieu, encontramos el desarrollo de una teoría de los símbolos que ve al poder simbólico como «un poder de construcción de la realidad que tiende a establecer un orden gnoseológico»[^9]. Tendencia y tensión, dirá, para enfatizar ciertas predisposiciones de lo cultural. Por ser superconductores de conocimiento y comunicación, los símbolos hacen posible el lugar del consenso, el sentido del mundo y la aparición de campos integrados. Así, los sistemas simbólicos culturales tendrían tres funciones primordiales: a) la integración real de la clase dominante, asegurando la comunicación entre todos sus miembros y distinguiéndolos de las otras clases; b) la interpretación ficticia de la sociedad en su conjunto; c) la legitimación del orden establecido por los distintos registros de distinciones o jerarquías, y por la legitimación de esas distinciones.
 
@@ -152,9 +152,17 @@ Precisamente por ello es necesario insistir en la subversión de la forma comuni
 
 [^14]: *Ibid.,* p. 118.
 
-[^15]: *Ibid.,* p. 47. 16 N. García Canclini, *Culturas híbridas.*, p. 15. 17 *Ibid.* 18 N. García-Canclini, *Imaginarios urbanos*, Editorial Universitaria, Buenos Aires, 1997.
+[^15]: *Ibid.,* p. 47.
 
-[^19]: J. Martín-Barbero, "Comunicación y ciudad, entre medios y miedos", en revista *Comunicación,* Nº 82. Caracas, 1993, p. 74. 20 N. García Canclini, *Culturas híbridas,* p. 244.
+[^16]: N. García Canclini, *Culturas híbridas.*, p. 15.
+
+[^17]: *Ibid.*
+
+[^18]: N. García-Canclini, *Imaginarios urbanos*, Editorial Universitaria, Buenos Aires, 1997.
+
+[^19]: J. Martín-Barbero, "Comunicación y ciudad, entre medios y miedos", en revista *Comunicación,* Nº 82. Caracas, 1993, p. 74.
+
+[^20]: N. García Canclini, *Culturas híbridas,* p. 244.
 
 [^21]: P. Virilio, *La máquina de visión,* Cátedra, Madrid, 1989.
 

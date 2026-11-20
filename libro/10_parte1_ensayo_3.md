@@ -438,7 +438,9 @@ Un nuevo acceso teórico, que descubre a las multitudes como matriz de producci�
 
 [^44]: S. Hall, *La cultura de los medios de comunicación,* Fondo de Cultura Económica, Madrid, 1982, p. 46
 
-[^45]: M. Bisbal, *Televisión, pan nuestro de cada día*, Alfadil, Caracas, 2005. 46 R. Roda, *Medios de comunicación de masas*, Siglo XXI, Madrid, 1989.
+[^45]: M. Bisbal, *Televisión, pan nuestro de cada día*, Alfadil, Caracas, 2005.
+
+[^46]: R. Roda, *Medios de comunicación de masas*, Siglo XXI, Madrid, 1989.
 
 [^47]: C. I. Hovland, *The generalization of conditioned responses*, Yale University Press, 1948, pp. 63-78.
 

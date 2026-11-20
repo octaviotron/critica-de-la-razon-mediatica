@@ -16,7 +16,8 @@ Apertura de la Segunda Parte (*Campos híbridos y lecturas transversales*; epíg
 - [ ] Revisar si conviene añadir ejemplos contemporáneos de hibridación cultural latinoamericana en entornos digitales.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar advertencias heredadas de notas al pie: llamada `[^7]` sin definición y definiciones `[^15]:`, `[^19]:` sin llamada en el cuerpo.
+- [x] Separar `[^7]:` (antes pegada al final de `[^6]:`).
+- [ ] Revisar omisiones reales del impreso de 2006: definiciones `[^15]:` y `[^19]:` sin llamada en el cuerpo (y salto del número `17` en la numeración original).
 - [ ] Unificar el encabezado partido `# I CAMPOS HÍBRIDOS` / `## Y LECTURAS TRANSVERSALES`.
 
 ## Autores, citas o frases adicionales por incluir

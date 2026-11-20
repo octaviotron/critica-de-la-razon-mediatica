@@ -236,9 +236,15 @@ Sin embargo, siempre surge, de pronto, la desmesura cualitativa e intangible del
 
 [^11]: "El escozor de lo cotidiano ya no se mitiga en la emisión de una colectividad participante, sino que se normaliza en la rutina de un espectáculo de consumo individualista: la masificación ahoga cualquier instancia de sociabilidad. Pese a las apariencias, el sistema de los mass-media (y el televisivo sobre todo) constituye una de las más grandes fuentes de opaca estabilización del contexto social. aboliendo la realidad, sustituyéndola con su discurso homogeneizante, proponiendo una continua espectacularización de lo sucesos, termina por satisfacer una vaga necesidad de información superficial y por distribuir características (y falsas) 'vivencias' de poder y dominio". *Ibid.,* p. 208.
 
-[^12]: *Ibid.,* p. 203. 13 J. M. Ferry, D. Wolton y Otros, *El nuevo espacio público,* Gedisa, Barcelona, 1992. 14 *Ibid,* p. 129.
+[^12]: *Ibid.,* p. 203.
 
-[^15]: F. Jameson, *The political unconscious,* Ithaca, Cornell University, 1991. 16 E Mandel, *Tratado de economía marxista,* Tomo III, Era, México, 1995.
+[^13]: J. M. Ferry, D. Wolton y Otros, *El nuevo espacio público,* Gedisa, Barcelona, 1992.
+
+[^14]: *Ibid,* p. 129.
+
+[^15]: F. Jameson, *The political unconscious,* Ithaca, Cornell University, 1991.
+
+[^16]: E Mandel, *Tratado de economía marxista,* Tomo III, Era, México, 1995.
 
 [^17]: "[…] es decir, sociedades en que las prácticas sociales (modalidades de funcionamiento institucional, mecanismos de toma de decisión, hábitos de consumo, conductas más o menos ritualizadas, etc.) se transforman por el hecho de que hay medios". E. Verón, "Interfaces, sobre la democracia audiovisual avanzada" en J. M. Ferry, D. Wolton y Otros, *Op. cit.*, p. 124.
 
@@ -248,7 +254,11 @@ Sin embargo, siempre surge, de pronto, la desmesura cualitativa e intangible del
 
 [^20]: J. Baudrillard, *La transparencia del mal,* Anagrama, Barcelona, 1991, p. 62
 
-[^21]: K. Hayles, *La evolución del caos,* Límites, Barcelona, 1993, p. 334. 22 J. González Requena, *El discurso televisivo,* Cátedra, Barcelona, 1993, p. 123. 23 "Con lo que la información 'en tiempo real' se sitúa en un espacio completamente irreal, y no por ello no verdadero. Que muestra por fin la imagen de la TV pura, inútil, instantánea, en el que se pone de manifiesto su función primordial, que consiste en llenar el vacío, el colmar el agujero de la pantalla a través del cual se esfuma la ausencia de acontecimiento". J. Baudrillard, *La guerra del golfo no ha tenido lugar,* Anagrama, Barcelona, 1991, p. 22.
+[^21]: K. Hayles, *La evolución del caos,* Límites, Barcelona, 1993, p. 334.
+
+[^22]: J. González Requena, *El discurso televisivo,* Cátedra, Barcelona, 1993, p. 123.
+
+[^23]: "Con lo que la información 'en tiempo real' se sitúa en un espacio completamente irreal, y no por ello no verdadero. Que muestra por fin la imagen de la TV pura, inútil, instantánea, en el que se pone de manifiesto su función primordial, que consiste en llenar el vacío, el colmar el agujero de la pantalla a través del cual se esfuma la ausencia de acontecimiento". J. Baudrillard, *La guerra del golfo no ha tenido lugar,* Anagrama, Barcelona, 1991, p. 22.
 
 [^24]: *Ibid.,* p. 32.
 

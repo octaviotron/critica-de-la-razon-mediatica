@@ -158,7 +158,9 @@ Somos ya, la red, el gran Otro lacaniano, escribe S. Žižek, en su libro *La su
 
 [^11]: P. Virilio, "Un cambio de civilización", en Suplemento de *El País,* Babelia, Madrid, noviembre, 1994, p. 32. Y esto lo observa particularmente refiriéndose a la TV: "La TV simula un deseo que ella misma se encarga de colmar. Y de esa forma crea muertos vivos. Un devenir sombi. La cuestión de la televisión está en el corazón mismo de la democracia. Vemos definirse la política a partir de su relación con las imágenes...Hablo de la hipnosis de la pantalla, de las imágenes sintéticas, que pueden seducir sin necesidad de ningún razonamiento coherente obtenido por un proceso de sideralización emocional que se apoya en la periferia de las sensaciones capaces de reemplazar a la opinión por un impacto publicitario convertido en espacio público... El problema estriba en que a una imagen no se le puede combatir con otra. Estas tienen su autonomía. De una imagen no podemos decir que sea blanca o negra. Una imagen es una imagen. Todo queda reducido a un poder ciego, vacío e irrepresentable". *Ibid.,* p. 33
 
-[^12]: R. Bendix, *Max Weber,* Amorrortu, Buenos Aires, 1966. 13 Sugerimos, al respecto, la lectura de P. Virilio, *Un paisaje de acontecimientos,* Paidós, Barcelona, 1998, p. 34. También L*a máquina de la visión,* Madrid, Cátedra, 1989, de este mismo autor, en donde establece con mucha más amplitud el concepto de Visiónica. Además, el texto de A. Renaud. *Video Culturas de fin de Siglo,* Cátedra, Madrid, 1990.
+[^12]: R. Bendix, *Max Weber,* Amorrortu, Buenos Aires, 1966.
+
+[^13]: Sugerimos, al respecto, la lectura de P. Virilio, *Un paisaje de acontecimientos,* Paidós, Barcelona, 1998, p. 34. También L*a máquina de la visión,* Madrid, Cátedra, 1989, de este mismo autor, en donde establece con mucha más amplitud el concepto de Visiónica. Además, el texto de A. Renaud. *Video Culturas de fin de Siglo,* Cátedra, Madrid, 1990.
 
 [^14]: I. Ramonet, *La golosina audiovisual,* Fácil, Caracas, 1993, p. 16.
 

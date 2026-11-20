@@ -17,7 +17,7 @@ Apertura de la Tercera Parte (*Caminos de la semiótica*; epígrafes de Ludovico
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Limpiar el encabezado roto de QuarkXPress (`# Tercera Parte UNA VISIÓN DEL significante signo` / `## -` / `# y del lenguaje`) para que quede `significante-signo` limpio en un solo título.
-- [ ] Revisar advertencias heredadas de notas al pie: definiciones `[^4]:` y `[^14]:` sin llamada en el texto.
+- [x] Corregir advertencias de notas al pie de conversión: restaurada la llamada `[^14]` y verificada la llamada `[^4]:` existente en el texto.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

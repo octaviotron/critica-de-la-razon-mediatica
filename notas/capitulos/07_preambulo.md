@@ -17,7 +17,7 @@ Gran ensayo introductorio del autor (*Profecías y realidades tecnológicas*, *L
 - [ ] Mantener intacta la potencia estilística de *Cuestión de Método* y *El drama de la escritura* (y el cierre irónico de *Algo sobre nosotros mismos*).
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar advertencias heredadas de notas al pie detectadas por `validar_libro.py`: llamada `[^25]` sin definición y definición `[^22]:` sin llamada en el cuerpo.
+- [x] Corregir advertencias de notas al pie de conversión: separada `[^25]:` (antes pegada en `[^24]:`) y restaurada la llamada `[^22]` en `*El gusto*[^22],`.
 
 ## Autores, citas o frases adicionales por incluir
 - [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*

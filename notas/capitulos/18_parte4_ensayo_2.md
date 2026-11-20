@@ -16,7 +16,7 @@
 - [ ] Poner en diálogo el epígrafe de N. Katherine Hayles (poshumanismo) con los debates contemporáneos de **Yuval Noah Harari** sobre subjetividad y automatización cognitiva.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar advertencia heredada de nota al pie: llamada `[^13]` sin definición.
+- [x] Separar `[^13]:` (antes pegada al final de `[^12]:`).
 - [ ] Verificar ortografía del nombre en el epígrafe: `N. Katerine Hayles` → `N. Katherine Hayles`.
 
 ## Autores, citas o frases adicionales por incluir

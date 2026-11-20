@@ -16,7 +16,7 @@
 - [ ] Profundizar cómo el «poder oblicuo y metafórico» opera hoy mediante tendencias, etiquetas (*hashtags*) y encuadres virales.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Revisar advertencias heredadas de notas al pie: llamadas `[^16]`, `[^17]`, `[^18]`, `[^20]` sin definición y definiciones `[^7]:`, `[^8]:` sin llamada en texto.
+- [x] Corregir advertencias de notas al pie de conversión: separadas `[^16]:`, `[^17]:`, `[^18]:` y `[^20]:` (antes pegadas en `[^15]:` y `[^19]:`) y restauradas las llamadas `[^7]` y `[^8]`.
 - [ ] Unificar el encabezado partido `# II ¿UNA` / `## TEORÍA LINGÜÍSTICA` / `# DEL VALOR?`.
 
 ## Autores, citas o frases adicionales por incluir

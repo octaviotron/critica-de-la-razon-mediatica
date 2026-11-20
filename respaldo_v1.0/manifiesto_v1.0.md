@@ -1,6 +1,6 @@
 # Manifiesto Criptográfico del Respaldo Inmutable (`respaldo_v1.0`)
 
-**Descripción:** Huellas SHA-256 de los 33 archivos Markdown originales de la 1.ª edición (2006), auditados al 100.000% contra el PDF maestro (`1,008,962` caracteres alfanuméricos, `0` pérdidas, `0` mezclas) tras depurar 6 defectos de formato de conversión sin alterar contenido.  
+**Descripción:** Huellas SHA-256 de los 33 archivos Markdown originales de la 1.ª edición (2006), auditados al 100.000% contra el PDF maestro (`1,008,962` caracteres alfanuméricos, `0` pérdidas, `0` mezclas) tras depurar exclusivamente artefactos técnicos de formato y notas al pie de la conversión sin alterar el contenido.  
 **Política:** Este directorio es **inmutable**. No editar manualmente ninguno de los archivos listados.  
 **Verificación automática:** `python3 scripts/edicion/validar_libro.py --manifiesto respaldo_v1.0/libro.yaml --verificar-respaldo`  
 
@@ -13,19 +13,19 @@
 | 04 | `04_prologo_1_rigoberto_lanz.md` | 12,393 | `be8cb635642efcd7decd74b1b2f2b11bda22915a58879ae9d7391e72eee07f5a` |
 | 05 | `05_prologo_2_nelson_guzman.md` | 11,488 | `8f5ba90a6f178101b787b06455d069c49fd6f8f8253cfd5ea9169d889f21f472` |
 | 06 | `06_prologo_3_magaldy_tellez.md` | 16,239 | `f4c9867c2f466aa486cef72c70b21fc98d90ea53286591bb8f2eb1fe9d7ed9bc` |
-| 07 | `07_preambulo.md` | 82,999 | `6790e62555220c441817814dfb07e065c6350ca9a56be3875a00a60bc454731e` |
+| 07 | `07_preambulo.md` | 83,007 | `79bc0336e3b0cc9937c6c9eae6c11e45cf42adbff1a69ed90e109f925ef575bd` |
 | 08 | `08_parte1_ensayo_1.md` | 46,453 | `fc34a620ed034b5a43e7e81d6a0b8f7ebd3ef0931aca52fa1829411151b55981` |
 | 09 | `09_parte1_ensayo_2.md` | 22,996 | `d31cdde6d1c5da95313fd2c9f159ff5fcb58992e613439b7ccea7a5d09d030ec` |
-| 10 | `10_parte1_ensayo_3.md` | 110,956 | `56ccce7e9e869b15086ab4f9aba95f7e47e8b6e0b882fb5dd11137da220c0d80` |
-| 11 | `11_parte2_ensayo_1.md` | 33,294 | `a04757c4d35c7c2b02af36288a574ef3f3601443d43f6b9c49d0c75646c9e913` |
-| 12 | `12_parte2_ensayo_2.md` | 29,963 | `3aa4c1573fab66775f8d8ecc540b63f3e00202015e1beeac9d2660f64e485bdb` |
-| 13 | `13_parte2_ensayo_3.md` | 38,770 | `ac847f00fa9a7b4d3e555c2a56841b1da6a47cf0bf329bd017a7c7cc140bd80f` |
-| 14 | `14_parte3_ensayo_1.md` | 50,630 | `3a802719e79d382db9169f0e24c53be09eb8b15b2866281b4d3f5338ef79a3ee` |
-| 15 | `15_parte3_ensayo_2.md` | 39,390 | `40236021e2854525c26770713f2408e2a369434ee0b72b66cdc2f61fa73f3ec5` |
-| 16 | `16_parte3_ensayo_3.md` | 32,033 | `64e85bcd3f64b285abd9b34ab3feeb358cbca5a1dc013ce73d627143866e591a` |
+| 10 | `10_parte1_ensayo_3.md` | 110,961 | `a93060a5553e73b55a5535a748a8a824a323438f519f7587766e6290a1aae79a` |
+| 11 | `11_parte2_ensayo_1.md` | 33,299 | `f026a3640d94b4bb9f4a9ed02c1e07fc9b336319bd8c387830a5679750df8cb1` |
+| 12 | `12_parte2_ensayo_2.md` | 29,989 | `c9157ed4479b3d7518a2dc53528750dd0f0fc7e9d01ae4d52f14257da8c2f00e` |
+| 13 | `13_parte2_ensayo_3.md` | 38,789 | `44bb490bb0d59c755322ec09b3d92c83ba404a58312efca83af050eb2041febf` |
+| 14 | `14_parte3_ensayo_1.md` | 50,633 | `b93722c648366ca42f346c5453b5968420a9bbf2e234c6c5512cc0708b147359` |
+| 15 | `15_parte3_ensayo_2.md` | 39,398 | `652e6ce119077ada7280dca4d4d1348ef69883be6c54418ddc07dd1e880d7bee` |
+| 16 | `16_parte3_ensayo_3.md` | 32,043 | `638f1dcfe13dcb038bb91f8a098246325f829a249fe3231a372e653822a483b0` |
 | 17 | `17_parte4_ensayo_1.md` | 49,438 | `483b4dd6c2facda135934d63b1b251f7ac218fb62dc19a824d3457dcbad4abc4` |
-| 18 | `18_parte4_ensayo_2.md` | 39,935 | `90bf6e977fe14baa26a2d71e7ffefdd86d002467873ed24e360b4241dc0c1677` |
-| 19 | `19_parte4_ensayo_3.md` | 63,450 | `df40a81edee3af71d2489efca38c2c8f21c09673ceea68bad9442c6f3adf88cb` |
+| 18 | `18_parte4_ensayo_2.md` | 39,940 | `4741978950781e402ef88e14ae11597d8bcbbdd94334aaf725998b2a1df7b822` |
+| 19 | `19_parte4_ensayo_3.md` | 63,475 | `9db146192ca2bb42556fc4a1a5484147cd14b78c6d669943f181e8c1a7d0847a` |
 | 20 | `20_parte4_ensayo_4.md` | 7,049 | `a896ebcf18c3bbe574f338063eb8cde1673bcd96c20ceefbbee4f7d669cd6830` |
 | 21 | `21_parte5_ensayo_1.md` | 45,954 | `31fc6665336d7b01b39052f43ea78cccbaec2205310fc4c90f2a94514f7e2c9a` |
 | 22 | `22_parte5_ensayo_2.md` | 36,153 | `ef347fe5daa1a88755426af32a2311866cb67dc8a95c5b3b718cc7423eff9ca3` |
@@ -39,4 +39,4 @@
 | 30 | `30_bibliografia.md` | 33,183 | `3bee2d9fa61f2b9a108961f78117cd532cc49d3fedcfe91b9621cb6aa39692c0` |
 | 31 | `31_glosario.md` | 87,898 | `0f63691b0b50647b12732b7f59773a6352b07e375ec41b6fec463cfa721e3640` |
 | 32 | `32_indice_onomastico.md` | 9,672 | `6161b96cde0b7a8bfa8a565ee4d15f931c4c304f0fc13ccb76b0129b27265b2f` |
-| **TOTAL** | **33 archivos** | **1,283,249** | **Verificable determinísticamente** |
+| **TOTAL** | **33 archivos** | **1,283,363** | **Verificable determinísticamente** |

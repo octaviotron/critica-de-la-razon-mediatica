@@ -42,10 +42,10 @@ def analizar_notas_al_pie(md_text: str) -> Tuple[Set[str], Set[str], List[str]]:
         if m_def:
             definiciones.add(m_def.group(1))
             resto = line[m_def.end() :]
-            for ref in re.findall(r"\[\^([^\]]+)\](?!:)", resto):
+            for ref in re.findall(r"\[\^([^\]]+)\]", resto):
                 llamadas.add(ref)
         else:
-            for ref in re.findall(r"\[\^([^\]]+)\](?!:)", line):
+            for ref in re.findall(r"\[\^([^\]]+)\]", line):
                 llamadas.add(ref)
 
     return llamadas, definiciones, invalidas

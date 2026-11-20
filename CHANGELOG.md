@@ -28,5 +28,5 @@ El estado de cada capítulo (`pendiente` | `en_revision` | `aprobado`) se consul
 
 ### Extracción y verificación
 * Extracción determinista desde `fuente/Libro Crítica de La Razon Mediatica.pdf` (666 páginas físicas) a 33 archivos Markdown en `libro/` y copia inmutable en `respaldo_v1.0/md/`.
-* Depuración única de formato de conversión (sin cambios de contenido) en 6 archivos (`09`, `10`, `11`, `13`, `20` y `28`), sincronizada en `respaldo_v1.0/md/` con regeneración de huellas SHA-256 en `respaldo_v1.0/manifiesto_v1.0.md` antes de iniciar ediciones de la 2.ª edición.
-* Auditoría contable matemática al **100.000%**: `1,008,962 / 1,008,962` caracteres alfanuméricos, `197,690` palabras, `517` notas al pie enlazadas (`0` pérdidas, `0` mezclas entre capítulos).
+* Depuración única de artefactos técnicos de conversión (sin cambios de contenido): corrección de formato/cortes de párrafo en 6 archivos (`09`, `10`, `11`, `13`, `20` y `28`) y recuperación de 27 enlaces/definiciones de notas al pie (`07`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `18` y `19`), sincronizada en `respaldo_v1.0/md/` con regeneración de huellas SHA-256 antes de iniciar ediciones de la 2.ª edición.
+* Auditoría contable matemática al **100.000%**: `1,008,962 / 1,008,962` caracteres alfanuméricos, `197,690` palabras, `535` notas al pie enlazadas (`0` pérdidas, `0` mezclas entre capítulos).

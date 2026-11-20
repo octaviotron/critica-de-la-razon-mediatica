@@ -190,7 +190,7 @@ Lo que llamamos producción, consumo y tráfico en el universo de los massmedia 
 
 Para nosotros, lo massmediático no es sólo la industria del ocio (efecto de superficie), entendida como los lugares conocidos institucionalmente como medios de comunicación de masas. Es, en cambio, una dimensión de lo real regodeada en las técnicas relacionales de los sujetos, en sus discursividades y en sus prácticas. Lo mediático está implícito de manera consustancial al nuevo modelo asumido por la reconfiguración del modo de producción de la civilización del capital.
 
-*El gusto*22, por ejemplo, en la subjetividad, es la fase terminal, el efecto de superficie de un dinamismo energético de naturaleza nueva: *la mediación*, de la producción de realidad-actualidad-instantaneidad, como forma continua de la circulación[^23]. La mediación es un interfaz, un instante-acontecimiento que determina *el gusto*, efecto de superficie del gesto, expresión materializada de la relación mítica entre el objeto y el consumo, asumidos en un mismo movimiento de fusión y simultaneidad.
+*El gusto*[^22], por ejemplo, en la subjetividad, es la fase terminal, el efecto de superficie de un dinamismo energético de naturaleza nueva: *la mediación*, de la producción de realidad-actualidad-instantaneidad, como forma continua de la circulación[^23]. La mediación es un interfaz, un instante-acontecimiento que determina *el gusto*, efecto de superficie del gesto, expresión materializada de la relación mítica entre el objeto y el consumo, asumidos en un mismo movimiento de fusión y simultaneidad.
 
 Es un ejercicio, una práctica de la voluntad de la subjetividad, una puesta en escena. El gusto de los tiempos que corren, acelerado también por el dispositivo información-comunicación, es definido por Omar Calabrese[^24] como confuso y fragmentario: un “aire de tiempo” que invade a los fenómenos culturales y compromete la existencialidad material de los campos de saber de manera diferente a como ocurría antes, y sólo comprensible desde la catástrofe, lo fractal, los eventos rizomáticos y las estructuras disipadoras no lineales o complejas.
 
@@ -376,7 +376,9 @@ Ahora bien, si con esto no es suficiente, junto al asesinato moral del autor, ta
 
 [^23]: “La mediación se impone ahora como realidad absoluta del sistema informativo. Tal mediación aspira incorporar al individuo a una reedición de los procesos primordiales de apropiación de sentido“. J. Martín-Barbero, *Pretextos*, Gedisa, Barcelona, 1999, p. 83.
 
-[^24]: O. Calabrese, *La era neobarroca*, Cátedra, Madrid, 1993. 25 *Ibid*., p. 26.
+[^24]: O. Calabrese, *La era neobarroca*, Cátedra, Madrid, 1993.
+
+[^25]: *Ibid*., p. 26.
 
 [^26]: B. De Spinoza, *Ética demostrada según el orden geométrico,* Orbis, Madrid, 1980.
 
