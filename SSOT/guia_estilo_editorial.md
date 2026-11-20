@@ -15,10 +15,17 @@
    * Encabezados: `#` título principal del capítulo, `##` subtítulos internos, `###` sub-subtítulos (o entradas de Glosario).
    * Epígrafes: `> *Texto del epígrafe*` seguido de `> — Autor`.
    * Citas extensas a bando: bloque `> ...` conservando cursivas originales.
-   * Notas al pie: llamadas `[^id]` en el cuerpo y definiciones `[^id]: texto` al final del archivo tras `---`.
-5. **Notas al pie sin renumeración manual:**
+   * **Listas numeradas extensas (`1.`, `2.`, …):** Dejar siempre **una línea en blanco entre cada ítem numerado** (como en `libro/13_parte2_ensayo_3.md` y `libro/20_parte4_ensayo_4.md`) para que `compilar_pdf.py` renderice cada punto como bloque independiente y no los agrupe en un solo párrafo.
+   * Notas al pie: llamadas `[^id]` en el cuerpo y definiciones `[^id]: texto` al final del archivo tras `---`. Las llamadas inline seguidas de dos puntos (ej. `cultura de masas[^41]:`) son sintaxis válida reconocida por `validar_libro.py` y `compilar_pdf.py`.
+5. **Notas al pie sin renumeración manual y omisiones conocidas de 2006:**
    * Nunca borres ni desconectes una llamada `[^n]` ni su definición `[^n]:` existente sin autorización expresa.
    * Si agregas una nota nueva en medio de un capítulo que ya tiene numeración de 2006, **no renumeres manualmente** las notas posteriores: usa un identificador temporal claro (por ejemplo `[^14b]` o `[^algoritmo]`). La renumeración secuencial se realiza solo al cierre editorial.
+   * **Omisiones confirmadas del libro impreso de 2006 (NO son errores de conversión):** Todos los artefactos mecánicos de conversión (saltos de línea, listas partidas y 27 notas al pie) ya fueron depurados y sellados en `libro/` y `respaldo_v1.0/`. Las únicas **6 advertencias residuales** que reporta `validar_libro.py` corresponden a omisiones reales de la edición impresa original de 2006 y deben consultarse con el autor al editar cada capítulo afectado:
+     * `11_parte2_ensayo_1.md`: definiciones `[^15]:` y `[^19]:` sin llamada en el impreso (y salto del número `17`).
+     * `17_parte4_ensayo_1.md`: definición `[^28]:` sin llamada en el impreso.
+     * `20_parte4_ensayo_4.md`: llamada `[^3]` (punto 34) cuya definición nunca se imprimió en el folio 377.
+     * `24_parte5_ensayo_4.md`: llamada `[^4]` cuya definición nunca se imprimió en el folio 467, y definición `[^2]:` sin llamada en el impreso.
+     * `27_parte6_ensayo_3.md`: definición `[^3]:` sin llamada en el impreso.
 
 ---
 

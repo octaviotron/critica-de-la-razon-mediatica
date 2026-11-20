@@ -91,6 +91,7 @@ respaldo_v1.0/
 ```
 
 * **Inmutabilidad estricta:** Ningún script permite escribir dentro de `respaldo_v1.0/`, y jamás debe editarse manualmente.
+* **Base depurada y sellada (`535` notas al pie, `0` cortes de formato):** Antes de iniciar cambios de contenido de la 2.ª edición, `respaldo_v1.0/md/` fue sellado tras depurar únicamente artefactos técnicos de conversión (saltos de línea, listas numeradas en caps. 13/20/28 y 27 enlaces/definiciones de notas al pie), preservando el **100.000% de integridad alfanumérica** frente al PDF de 2006 (`SSOT/proceso_conversion_pdf_a_md.md`, Sección 5.1). Las únicas 6 advertencias de notas restantes en `validar_libro.py` son omisiones confirmadas del impreso original de 2006 (detalladas en `SSOT/guia_estilo_editorial.md`).
 * **Reproducibilidad garantizada:** Aunque cambien todos los archivos de `libro/` y el orden de `libro.yaml`, siempre se puede compilar la 1.ª edición intacta en `dist/` o auditarla al 100.000% contra el PDF original de 2006 (ver [`respaldo_v1.0/README.md`](../respaldo_v1.0/README.md)).
 
 ---

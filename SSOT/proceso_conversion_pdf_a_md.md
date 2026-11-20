@@ -170,3 +170,20 @@ Para garantizar que la estructura y el contenido inicial de la 1.ª edición (20
 * **`respaldo_v1.0/md/`**: Copia testigo intacta de los 33 archivos Markdown extraídos del PDF de 2006.
 
 Con este respaldo es posible compilar la Primera Edición en cualquier momento mediante `python3 scripts/edicion/compilar_pdf.py --manifiesto respaldo_v1.0/libro.yaml` y verificar su integridad criptográfica con `python3 scripts/edicion/validar_libro.py --manifiesto respaldo_v1.0/libro.yaml --verificar-respaldo`. Para el flujo activo de edición de la Segunda Edición, véase `SSOT/flujo_editorial_segunda_edicion.md`.
+
+### 5.1. Depuración Post-Extracción Sellada en `respaldo_v1.0/` (Sin Modificar el Conversor)
+
+Tras completar la extracción automática, se realizó **una única pasada de depuración mecánica de formato y notas al pie** (preservando el **100.000% de los caracteres alfanuméricos** originales: `1,008,962 / 1,008,962`, `0` pérdidas, `0` cambios de contenido) que se sincronizó en `respaldo_v1.0/md/` y `respaldo_v1.0/manifiesto_v1.0.md` antes de iniciar las ediciones de la Segunda Edición. **Los scripts de `scripts/extraccion_v1/` permanecen congelados y NO deben modificarse.**
+
+Resumen de artefactos mecánicos ya depurados (para conocimiento de futuros agentes):
+1. **Saltos de línea artificiales y palabras partidas por guion:** Corregidos los cortes de primer párrafo junto a capitulares en `09_parte1_ensayo_2.md`, `10_parte1_ensayo_3.md` y `11_parte2_ensayo_1.md`.
+2. **Listas numeradas y alfabeto reconstruidos:**
+   * `13_parte2_ensayo_3.md`: reconstruida la lista numerada de los **6 principios rizomáticos** (`1.`–`6.`) y sus 8 palabras partidas por guion.
+   * `20_parte4_ensayo_4.md`: separados los **40 puntos numerados** (`1.`–`40.`) con línea en blanco entre ítems, corregido `desplaza-mientos` y trasladadas las notas `[^1]`, `[^2]`, `[^4]` y `[^5]` desde citas `>` al pie del archivo.
+   * `28_epilogo.md`: limpiado el título, reconstruidas todas las entradas del alfabeto **`A.-`** a **`Z.-`** (incluyendo `# K.-` y palabras partidas) y restaurado en la nota `[^7]` el fragmento `*"Democracia o consenso"*)` que se había incrustado en la letra `I`.
+3. **Recuperación de 27 artefactos de notas al pie (`513` → `535` notas enlazadas):**
+   * **16 notas separadas** que habían quedado pegadas al final de la nota anterior (`07`: `25`; `10`: `46`; `11`: `7`; `12`: `16, 17, 18, 20`; `13`: `15`; `15`: `29`; `16`: `25`; `18`: `13`; `19`: `13, 14, 16, 22, 23`).
+   * **2 notas extraídas del cuerpo de párrafos** hacia su posición al pie (`13`: `[^20]`; `16`: `[^8]`).
+   * **9 llamadas normalizadas/validadas** (`07`: `[^22]`; `12`: `[^7]`, `[^8]`; `13`: `[^18]`, `[^22]`, `[^24]`; `14`: `[^14]`; `15`: `[^14]`, además del ajuste en `validar_libro.py` para llamadas seguidas de dos puntos como `10:[^41]:` y `14:[^4]:`).
+
+> **Advertencia para futuros agentes:** Debido a esta depuración post-extracción, una re-ejecución cruda de `scripts/extraccion_v1/02_convertir_a_md.py` producirá diferencias de formato (no de contenido alfanumérico) frente a `respaldo_v1.0/md/`. **No se debe re-ejecutar el conversor sobre `libro/` ni alterar `respaldo_v1.0/`.** Las únicas **6 advertencias de notas al pie** que siguen apareciendo en `validar_libro.py` (`11`: `[^15]`, `[^19]`; `17`: `[^28]`; `20`: `[^3]`; `24`: `[^2]`, `[^4]`; `27`: `[^3]`) fueron verificadas en el XML crudo y son **omisiones reales del libro impreso de 2006**, no fallos de conversión.
