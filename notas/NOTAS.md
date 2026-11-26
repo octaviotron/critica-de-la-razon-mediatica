@@ -40,6 +40,8 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 - [ ] **Biopolítica + Psicopolítica:** Mantener el eje central del libro (*biopolítica y potencia política del cuerpo*), poniéndolo en tensión productiva con la captura psíquica, emocional y atencional descrita por Han, Fisher y Varoufakis.
 - [ ] **Actualización de datos y ejemplos de 2006:** Revisar cifras fechadas (ej. horas de TV y «500 canales» en el cap. 19) para decidir en cada caso si se contextualizan históricamente («hace dos décadas…») o se actualizan con métricas contemporáneas.
 - [ ] **Respeto a textos de terceros:** Definir con el autor cómo tratar los textos invitados de 2006 (*Liminar* de Michel Maffesoli, *Pro(Logos)* de Rigoberto Lanz, Nelson Guzmán y Magaldy Téllez, y el ensayo de Javier Biardeau en el *Post-scriptum*): conservarlos intactos como memoria de la 1.ª edición y, si se desea, añadir un nuevo prefacio o estudio introductorio para la 2.ª edición.
+- [ ] **Formato preferido para rondas de revisión con el autor:** Acordar si las entregas por capítulo en `dist/` se enviarán como PDF limpio, PDF con etiquetas de párrafo (`--etiquetar-parrafos`, `[ID.PPP]`) o Word (`.docx`) para comentarios/control de cambios.
+- [ ] **Elección de capítulo piloto para validar el flujo completo:** Definir por cuál capítulo iniciar el ciclo completo (edición → validación → entrega → revisión → aprobación). Candidato piloto breve: [`20_parte4_ensayo_4.md`](capitulos/20_parte4_ensayo_4.md) (`1,080` palabras, 40 puntos); candidatos de alto impacto temático: [`19_parte4_ensayo_3.md`](capitulos/19_parte4_ensayo_3.md) o [`07_preambulo.md`](capitulos/07_preambulo.md).
 
 ---
 
@@ -65,7 +67,7 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 
 ## 5. Propuestas sobre Nuevos Capítulos o Cambios de Índice (`libro.yaml`)
 
-- [ ] Evaluar la creación de un **Prefacio a la Segunda Edición (Veinte Años Después)** (`libro/prefacio_segunda_edicion.md`) antes del *Preámbulo*.
+- [ ] **Prefacio a la Segunda Edición (definido a futuro — solo en notas por ahora):** Se incorporará un nuevo capítulo independiente (`libro/prefacio_segunda_edicion.md`, aún **no** creado en `libro/` ni registrado en [`libro.yaml`](../libro.yaml)) ubicado antes de [`07_preambulo.md`](capitulos/07_preambulo.md). Su definición, ejes temáticos y requisitos de alta viven por lo pronto en su ficha de planificación previa: [`notas/capitulos/prefacio_segunda_edicion.md`](capitulos/prefacio_segunda_edicion.md).
 - [ ] Evaluar si el *Manual para ver TV* (`20_parte4_ensayo_4.md`) se amplía a un *Manual para habitar pantallas y algoritmos* o se acompaña de una adenda contemporánea.
 - [ ] Revisar al final de la edición si conviene reagrupar algún ensayo en [`libro.yaml`](../libro.yaml) antes de regenerar `libro/01_indice.md`.
 
@@ -89,3 +91,9 @@ Hallazgos transversales detectados en la auditoría previa de los 33 archivos de
   * Unificar nombres propios errados en varios archivos: `Gumis` → `Gomis` (`20`, `30`, `32`), `Foweler` → `Fowler` (`20`, `30`, `32`), `Lippman` → `Lippmann` (`10`, `20`), `S. i ek` → `S. Žižek` (`10`, `13`, más separación de `ŽIŽEK` respecto a `ZIBECHI` en `30` y `32`).
 - [ ] **Encabezados de apertura:** Al editar cada capítulo (`03`–`19`, `21`–`27` y `29`), unificar en un solo encabezado limpio los títulos que quedaron partidos en 2–3 líneas desde QuarkXPress (incluyendo guiones sueltos `## -` / `### -` en `14`, `16`, `22` y `27`).
 - [ ] **Formato del Glosario ([`31_glosario.md`](capitulos/31_glosario.md)):** Decidir al cierre si conservar el formato actual `· Término:` en sus 93+ entradas o convertirlas a subtítulos `### Término`.
+
+### Hallazgos técnicos y mejoras pendientes en herramientas (`scripts/edicion/`)
+- [ ] **Colisión de notas al pie en compilación `.docx` multi-capítulo (`scripts/edicion/compilar_pdf.py`):** En `compilar_docx()`, la exportación de un solo capítulo (`--capitulo <id> --formato docx`) funciona sin problemas, pero al compilar el libro completo a Word se concatenan todos los `.md` en un único archivo temporal y los identificadores repetidos (`[^1]`, `[^2]`, …) entre capítulos colisionarán en Pandoc. Antes de compilar un `.docx` completo, prefijar los IDs de notas por capítulo al concatenar (ej. `[^cap07_1]`).
+- [ ] **Validación de sintaxis Markdown no soportada por PangoCairo (`scripts/edicion/validar_libro.py`):** Ampliar el validador para detectar automáticamente construcciones prohibidas en `SSOT/guia_estilo_editorial.md` que `compilar_pdf.py` imprimiría en crudo (`####`, tablas Markdown `|...|`, bloques de código `` ``` ``, imágenes `![...]`, notas al pie partidas en múltiples párrafos y asteriscos `*` desbalanceados).
+- [ ] **Dependencia de `scripts/edicion/generar_indice.py` respecto a encabezados partidos:** `extraer_encabezados()` recoge todos los `##` reales de cada archivo; no ejecutar `generar_indice.py --escribir` hasta haber unificado los encabezados partidos en 2–3 líneas (`03`–`19`, `21`–`27`, `29`) y eliminado los guiones sueltos (`## -` / `### -` en `14`, `16`, `22`, `27`) heredados de QuarkXPress.
+- [ ] **Maquetación final de imprenta / publicación (cierre editorial):** `compilar_pdf.py` usa fuentes genéricas (`Serif`/`Sans`) pensadas para rondas de revisión. Para la edición definitiva (impresa o digital), planificar la maquetación final evaluando el reaprovechamiento de los insumos originales conservados en `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`.

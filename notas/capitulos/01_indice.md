@@ -12,9 +12,10 @@
 
 ## Sugerencias de actualización y ampliación
 - [ ] No editar manualmente durante la revisión capítulo por capítulo: este archivo se regenerará automáticamente desde `libro.yaml` al finalizar los cambios de estructura o al cierre editorial.
-- [ ] Evaluar junto al autor si se añade un *Prefacio a la Segunda Edición* antes del Preámbulo o si alguna parte requiere reagrupación.
+- [ ] Incorporar en su momento la entrada del futuro *Prefacio a la Segunda Edición* (definido preliminarmente en [`prefacio_segunda_edicion.md`](prefacio_segunda_edicion.md)) antes del Preámbulo una vez se cree en `libro/` y se declare en `libro.yaml`, y evaluar si alguna parte requiere reagrupación.
 
 ## Erratas y detalles técnicos heredados de 2006
+- [ ] **Prerrequisito técnico de `scripts/edicion/generar_indice.py`:** No ejecutar `--escribir` hasta haber saneado los encabezados partidos en 2–3 líneas (`03`–`19`, `21`–`27`, `29`) y los guiones sueltos (`## -` / `### -` en `14`, `16`, `22`, `27`) heredados de QuarkXPress, ya que `extraer_encabezados()` los arrastraría como subtítulos fragmentados al índice generado.
 - [ ] Al regenerarlo al cierre, revisar la corrección de erratas originales en títulos heredados del índice de 2006 (`preformativo` → `performativo` x2, `Masmediática` → `Massmediática`, `Democracia` → `Democracias`).
 - [ ] Corregir la cursiva/negrita mal cerrada en línea 110 (`- *Post-scriptum***. Por el socialismo**`) al regenerar el índice.
 
