@@ -1,7 +1,7 @@
 # Notas — `prefacio_segunda_edicion.md` *(Capítulo futuro — solo planificación)*
 
 **Capítulo:** *(Pendiente de asignación de `id` en `libro.yaml`)* — Prefacio a la Segunda Edición  
-**Sección prevista:** Preliminares, Índice, Prólogos y Preámbulo *(ubicado tras los textos invitados de 2006 y antes de [`07_preambulo.md`](07_preambulo.md))*  
+**Sección prevista:** Apertura y Preámbulo (`apertura`, ubicado tras los cuatro *Pro(Logos)* de 2006 y antes de [`07_preambulo.md`](07_preambulo.md))  
 **Estado actual:** **Solo definido en notas** — archivo aún **no** creado en `libro/` ni registrado en [`libro.yaml`](../../libro.yaml)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 

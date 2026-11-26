@@ -11,15 +11,23 @@ Este directorio aloja los archivos Markdown (`.md`) vivos de la **Segunda Edici�
 
 ---
 
-## Preliminares, Índice, Prólogos y Preámbulo
+## Preliminares, Índice y Agradecimientos
 * **[`00_preliminares.md`](00_preliminares.md)** — Créditos editoriales, Portadilla interior y Epígrafe general (*G. Deleuze y F. Guattari*)
 * **[`01_indice.md`](01_indice.md)** — **Índice General de la Obra** *(regenerable desde `libro.yaml`)*
 * **[`02_agradecimientos.md`](02_agradecimientos.md)** — **Agradecimientos**
-* **[`03_liminar.md`](03_liminar.md)** — **Liminar:** *La belleza con agudeza y rigor* — **Michel Maffesoli**
-* **PRO(LOGOS):**
-  * **[`04_prologo_1_rigoberto_lanz.md`](04_prologo_1_rigoberto_lanz.md)** — *Comunicación: El clímax de la era posmoderna* — **Rigoberto Lanz**
-  * **[`05_prologo_2_nelson_guzman.md`](05_prologo_2_nelson_guzman.md)** — *Los nuevos mundos simbólicos* — **Nelson Guzmán**
-  * **[`06_prologo_3_magaldy_tellez.md`](06_prologo_3_magaldy_tellez.md)** — *Trayectos claves para pensar el socialismo como pasión* — **Magaldy Téllez**
+
+---
+
+## Pro(Logos) (Primera Edición, 2006)
+* **[`03_liminar.md`](03_liminar.md)** — **Pro(Logos) I:** *La belleza con agudeza y rigor* — **Michel Maffesoli** *(intercalado originalmente como «Liminar» sin foliar en 2006; integrado como primer prólogo bajo ID de archivo estable)*
+* **[`04_prologo_1_rigoberto_lanz.md`](04_prologo_1_rigoberto_lanz.md)** — **Pro(Logos) II:** *Comunicación: El clímax de la era posmoderna* — **Rigoberto Lanz**
+* **[`05_prologo_2_nelson_guzman.md`](05_prologo_2_nelson_guzman.md)** — **Pro(Logos) III:** *Los nuevos mundos simbólicos* — **Nelson Guzmán**
+* **[`06_prologo_3_magaldy_tellez.md`](06_prologo_3_magaldy_tellez.md)** — **Pro(Logos) IV:** *Trayectos claves para pensar el socialismo como pasión* — **Magaldy Téllez**
+
+---
+
+## Apertura y Preámbulo
+*(Espacio previsto para el futuro Prefacio a la Segunda Edición antes del Preámbulo.)*
 * **[`07_preambulo.md`](07_preambulo.md)** — **Un intento para hacerse cargo de la massmediática. A modo de preámbulo**
   * *Apartados:* Profecías y realidades tecnológicas · La era de las conexiones · Las urgencias de la teoría · Cuestión de Método: La aventura de hablar y escribir sobre lo múltiple (O cómo dar con el problema) · El drama de la escritura (El cómo de la forma o estilo) · Algo sobre nosotros mismos.
 

@@ -19,11 +19,13 @@ Este repositorio cumple dos propósitos complementarios:
 
 ## Estructura del Libro
 
-La obra se organiza en **8 grandes bloques** (33 archivos Markdown base):
+La obra se organiza en **10 secciones editoriales** (33 archivos Markdown base):
 
 | Bloque | Contenido principal | Capítulos base |
 | :--- | :--- | :---: |
-| **Preliminares y Apertura** | Créditos, Índice, Agradecimientos, *Liminar* (M. Maffesoli), *Pro(Logos)* I–III y *Preámbulo* | `00` – `07` |
+| **Preliminares** | Créditos, Índice General y Agradecimientos | `00` – `02` |
+| **Pro(Logos) (1.ª ed., 2006)** | Cuatro prólogos invitados: M. Maffesoli *(antes «Liminar»)*, R. Lanz, N. Guzmán y M. Téllez | `03` – `06` |
+| **Apertura y Preámbulo** | *Preámbulo* del autor *(y futuro Prefacio a la Segunda Edición)* | `07` |
 | **Primera Parte** | *Aproximación a una caja de herramientas* (Ensayos I–III) | `08` – `10` |
 | **Segunda Parte** | *Cultura(s), campos y massmediática* (Ensayos I–III) | `11` – `13` |
 | **Tercera Parte** | *Una visión del significante-signo y del lenguaje* (Ensayos I–III) | `14` – `16` |
@@ -43,10 +45,10 @@ La obra se organiza en **8 grandes bloques** (33 archivos Markdown base):
 * **Autor:** **Juan Barreto Cipriani**
 * **Título original:** *Crítica de la Razón Mediática. Ensayos sobre biopolítica y potencia política del cuerpo (Pre-textos para un debate por el socialismo)*
 * **Textos de apertura y ensayos invitados incluidos en la obra:**
-  * **Liminar** (*La belleza con agudeza y rigor*): **Michel Maffesoli** (Profesor de la Universidad La Sorbona) — [`libro/03_liminar.md`](libro/03_liminar.md)
-  * **Pro(Logos) I** (*Comunicación: El clímax de la era posmoderna*): **Rigoberto Lanz** — [`libro/04_prologo_1_rigoberto_lanz.md`](libro/04_prologo_1_rigoberto_lanz.md)
-  * **Pro(Logos) II** (*Los nuevos mundos simbólicos*): **Nelson Guzmán** — [`libro/05_prologo_2_nelson_guzman.md`](libro/05_prologo_2_nelson_guzman.md)
-  * **Pro(Logos) III** (*Trayectos claves para pensar el socialismo como pasión*): **Magaldy Téllez** — [`libro/06_prologo_3_magaldy_tellez.md`](libro/06_prologo_3_magaldy_tellez.md)
+  * **Pro(Logos) I** (*La belleza con agudeza y rigor*, publicado como *Liminar* en 2006): **Michel Maffesoli** (Profesor de la Universidad La Sorbona) — [`libro/03_liminar.md`](libro/03_liminar.md)
+  * **Pro(Logos) II** (*Comunicación: El clímax de la era posmoderna*): **Rigoberto Lanz** — [`libro/04_prologo_1_rigoberto_lanz.md`](libro/04_prologo_1_rigoberto_lanz.md)
+  * **Pro(Logos) III** (*Los nuevos mundos simbólicos*): **Nelson Guzmán** — [`libro/05_prologo_2_nelson_guzman.md`](libro/05_prologo_2_nelson_guzman.md)
+  * **Pro(Logos) IV** (*Trayectos claves para pensar el socialismo como pasión*): **Magaldy Téllez** — [`libro/06_prologo_3_magaldy_tellez.md`](libro/06_prologo_3_magaldy_tellez.md)
   * **Post-scriptum — Tercer movimiento** (*Entre dinosaurios y unicornios*): **Javier Biardeau** — [`libro/29_post_scriptum.md`](libro/29_post_scriptum.md)
 
 ### Datos Editoriales de la Primera Edición (2006)

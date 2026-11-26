@@ -78,6 +78,7 @@ Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
 2. **Cambiar el orden del índice o agrupar distinto las Partes:**
    * **No se renombran los archivos `.md` existentes** en `libro/` (así las comparaciones contra `respaldo_v1.0/md/` siguen funcionando sin fricción).
    * Se reordenan las entradas o secciones únicamente en [`libro.yaml`](../libro.yaml) y se refleja el orden vigente en [`libro/README.md`](../libro/README.md).
+   * *Caso ya aplicado en la 2.ª edición:* el texto de Michel Maffesoli (`libro/03_liminar.md`, intercalado originalmente como «Liminar» sin foliar ni figurar en el Índice de 2006) se integró en [`libro.yaml`](../libro.yaml) dentro de la sección `prologos_2006` como **Pro(Logos) I** junto a Rigoberto Lanz (`II`), Nelson Guzmán (`III`) y Magaldy Téllez (`IV`), separando además la sección `apertura` para el futuro Prefacio y el Preámbulo (`07_preambulo.md`), sin renombrar ningún archivo.
    * Se le pide a la IA: *"Regenera `libro/01_indice.md` desde `libro.yaml` y compila el libro completo en `dist/` para revisión."*
 
 ---

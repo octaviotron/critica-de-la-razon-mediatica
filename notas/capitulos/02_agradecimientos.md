@@ -1,7 +1,7 @@
 # Notas — `02_agradecimientos.md`
 
 **Capítulo:** `02` — Agradecimientos  
-**Sección:** Preliminares, Índice, Prólogos y Preámbulo  
+**Sección:** Preliminares, Índice y Agradecimientos  
 **Archivo editable:** [`libro/02_agradecimientos.md`](../../libro/02_agradecimientos.md) | **Extensión base (2006):** 544 palabras (folios 11–12)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 

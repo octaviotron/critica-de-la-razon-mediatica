@@ -1,7 +1,7 @@
 # Notas — `01_indice.md`
 
 **Capítulo:** `01` — Índice General  
-**Sección:** Preliminares, Índice, Prólogos y Preámbulo  
+**Sección:** Preliminares, Índice y Agradecimientos  
 **Archivo editable:** [`libro/01_indice.md`](../../libro/01_indice.md) | **Extensión base (2006):** 930 palabras (folios 7–10)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 

@@ -1,7 +1,7 @@
 # Notas — `07_preambulo.md`
 
 **Capítulo:** `07` — Un intento para hacerse cargo de la massmediática. A modo de preámbulo  
-**Sección:** Preliminares, Índice, Prólogos y Preámbulo  
+**Sección:** Apertura y Preámbulo  
 **Archivo editable:** [`libro/07_preambulo.md`](../../libro/07_preambulo.md) | **Extensión base (2006):** 12,784 palabras (folios 43–84)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 

@@ -7,15 +7,21 @@ Panorámica condensada de los **33 capítulos base** (más el futuro Prefacio) d
 
 ---
 
-## Bloque 0 — Preliminares, Índice, Prólogos y Preámbulo
+## Preliminares, Índice y Agradecimientos (`preliminares`)
 
 * **`00` [`00_preliminares.md`](../libro/00_preliminares.md)** (`254` pal.) — Créditos de la 1.ª ed. (UCV/CIPOST, Caracas, 2006), portadilla y epígrafe general de Deleuze y Guattari. *2.ª ed.:* pendiente.
 * **`01` [`01_indice.md`](../libro/01_indice.md)** (`930` pal.) — Índice General. **No editar manualmente**; regenerar con `generar_indice.py --escribir` al cierre. *2.ª ed.:* pendiente.
 * **`02` [`02_agradecimientos.md`](../libro/02_agradecimientos.md)** (`544` pal.) — Agradecimientos del autor; cierre político en clave de «cuerpo común del poder constituyente» y «rostro-proceso». *2.ª ed.:* pendiente.
-* **`03` [`03_liminar.md`](../libro/03_liminar.md)** (`881` pal. · **🔒 Invitado: Michel Maffesoli**) — *La belleza con agudeza y rigor*. Lee la obra desde Weber y la «fuerza impugnadora de lo concreto». *2.ª ed.:* conservar intacto salvo orden expresa.
-* **`04` [`04_prologo_1_rigoberto_lanz.md`](../libro/04_prologo_1_rigoberto_lanz.md)** (`1,907` pal. · **🔒 Invitado: Rigoberto Lanz**) — *Comunicación: El clímax de la era posmoderna*. *2.ª ed.:* conservar intacto salvo orden expresa.
-* **`05` [`05_prologo_2_nelson_guzman.md`](../libro/05_prologo_2_nelson_guzman.md)** (`1,866` pal. · **🔒 Invitado: Nelson Guzmán**) — *Los nuevos mundos simbólicos*. *2.ª ed.:* conservar intacto salvo orden expresa.
-* **`06` [`06_prologo_3_magaldy_tellez.md`](../libro/06_prologo_3_magaldy_tellez.md)** (`2,580` pal. · **🔒 Invitado: Magaldy Téllez**) — *Trayectos claves para pensar el socialismo como pasión*. *2.ª ed.:* conservar intacto salvo orden expresa.
+
+## Pro(Logos) — Primera Edición, 2006 (`prologos_2006`)
+
+* **`03` [`03_liminar.md`](../libro/03_liminar.md)** (`881` pal. · **🔒 Invitado: Michel Maffesoli**) — **Pro(Logos) I:** *La belleza con agudeza y rigor* *(publicado sin foliar como «Liminar» en 2006; integrado como primer prólogo en `libro.yaml` manteniendo su ID de archivo estable)*. Lee la obra desde Weber y la «fuerza impugnadora de lo concreto». *2.ª ed.:* conservar intacto salvo orden expresa.
+* **`04` [`04_prologo_1_rigoberto_lanz.md`](../libro/04_prologo_1_rigoberto_lanz.md)** (`1,907` pal. · **🔒 Invitado: Rigoberto Lanz**) — **Pro(Logos) II:** *Comunicación: El clímax de la era posmoderna*. *2.ª ed.:* conservar intacto salvo orden expresa.
+* **`05` [`05_prologo_2_nelson_guzman.md`](../libro/05_prologo_2_nelson_guzman.md)** (`1,866` pal. · **🔒 Invitado: Nelson Guzmán**) — **Pro(Logos) III:** *Los nuevos mundos simbólicos*. *2.ª ed.:* conservar intacto salvo orden expresa.
+* **`06` [`06_prologo_3_magaldy_tellez.md`](../libro/06_prologo_3_magaldy_tellez.md)** (`2,580` pal. · **🔒 Invitado: Magaldy Téllez**) — **Pro(Logos) IV:** *Trayectos claves para pensar el socialismo como pasión*. *2.ª ed.:* conservar intacto salvo orden expresa.
+
+## Apertura y Preámbulo (`apertura`)
+
 * **`[futuro]` [`prefacio_segunda_edicion.md`](capitulos/prefacio_segunda_edicion.md)** *(solo definido en notas — aún no creado en `libro/`)* — Balance 2006 → actualidad, puente biopolítica/psicopolítica/IA y clave de lectura de la 2.ª edición.
 * **`07` [`07_preambulo.md`](../libro/07_preambulo.md)** (`12,784` pal. · **Prioritario**) — Gran apertura metodológica y estilística (*Profecías y realidades tecnológicas*, *La era de las conexiones*, *Urgencias de la teoría*, *Cuestión de Método*, *El drama de la escritura*, *Algo sobre nosotros mismos*). *Fuentes mapeadas:* Cortina, Sadin (×2), Harari (*Nexus*), Bostrom, Reyes Matute, UNESCO. *2.ª ed.:* pendiente.
 

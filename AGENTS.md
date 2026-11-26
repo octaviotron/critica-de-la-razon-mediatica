@@ -33,7 +33,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y protocol
 | `AGENTS.md` | Editable (mantener `< 18 KB`) | Regla universal siempre activa del workspace. |
 | `.agents/skills/` | Editable (carga bajo demanda) | Skills procedimentales: `editar-capitulo`, `procesar-externos` y `cierre-editorial`. |
 | `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas). Los 33 nombres originales son IDs estables (**Opción A**). |
-| `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, 8 secciones y `estado` por capítulo. |
+| `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, 10 secciones (`preliminares`, `prologos_2006`, `apertura`, Partes I–VI, `cierre`) y `estado` por capítulo. |
 | `notas/` | Editable | `NOTAS.md` (pendientes globales y preferencias del autor), `mapa_obra.md` (panorámica de 33 caps. y registro 2.ª ed.), `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`) y `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`). |
 | `externos/` | **Solo lectura (en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar. |
 | `CHANGELOG.md` | Editable (hechos cerrados) | Exclusivo para capítulos aprobados e hitos ya completados. |
@@ -57,7 +57,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y protocol
 
 1. **Directorios prohibidos para escritura:** Nunca modificar, renombrar ni escribir en `respaldo_v1.0/`, `fuente/`, `scripts/extraccion_v1/` ni `externos/`.
 2. **Textos de autores invitados protegidos (NO reescribir sin orden expresa; verificados por `validar_libro.py`):**
-   * Íntegros: `03_liminar.md` (Michel Maffesoli), `04_prologo_1_rigoberto_lanz.md` (Rigoberto Lanz), `05_prologo_2_nelson_guzman.md` (Nelson Guzmán), `06_prologo_3_magaldy_tellez.md` (Magaldy Téllez).
+   * Íntegros (`prologos_2006`): `03_liminar.md` (*Pro(Logos) I*, Michel Maffesoli; antes «Liminar» en 2006), `04_prologo_1_rigoberto_lanz.md` (*Pro(Logos) II*, Rigoberto Lanz), `05_prologo_2_nelson_guzman.md` (*Pro(Logos) III*, Nelson Guzmán), `06_prologo_3_magaldy_tellez.md` (*Pro(Logos) IV*, Magaldy Téllez).
    * Parcial: `29_post_scriptum.md` — líneas `1–100` (Juan Barreto, editables); desde **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios`) es de **Javier Biardeau** (protegido).
 3. **Prohibición absoluta en todos los `README.md` públicos:** Nunca mencionar «IA» ni «Inteligencia Artificial» en `README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md`, `scripts/README.md` ni `SSOT/README.md` (verificado automáticamente por `validar_libro.py`). Usar *edición asistida* o *ejecución asistida de scripts*.
 4. **Git lineal y aprobaciones:** Trabajar solo en `main`; **no crear ramas ni tags**; **nunca ejecutar `git commit` ni `git push`** sin instrucción expresa; **nunca marcar `estado: "aprobado"` en `libro.yaml`** sin confirmación explícita del usuario.

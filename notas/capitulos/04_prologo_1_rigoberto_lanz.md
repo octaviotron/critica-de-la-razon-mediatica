@@ -1,14 +1,14 @@
 # Notas — `04_prologo_1_rigoberto_lanz.md`
 
-**Capítulo:** `04` — Pro(Logos) I — Comunicación: El clímax de la era posmoderna (Rigoberto Lanz)  
-**Sección:** Preliminares, Índice, Prólogos y Preámbulo  
+**Capítulo:** `04` — Pro(Logos) II — Comunicación: El clímax de la era posmoderna (Rigoberto Lanz)  
+**Sección:** Pro(Logos) (Primera Edición, 2006)  
 **Archivo editable:** [`libro/04_prologo_1_rigoberto_lanz.md`](../../libro/04_prologo_1_rigoberto_lanz.md) | **Extensión base (2006):** 1,907 palabras (folios 15–23)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 
 ---
 
 ## Enfoque actual del capítulo (base 2006)
-Primer texto de *Pro(Logos)* firmado por **Rigoberto Lanz** (*Comunicación: El clímax de la era posmoderna*), centrado en la tensión crítica de pensar la comunicación y la cultura posmoderna.
+Segundo texto de *Pro(Logos)* en la 2.ª edición (primero en la foliación de 2006, tras integrarse a Maffesoli como `Pro(Logos) I`), firmado por **Rigoberto Lanz** (*Comunicación: El clímax de la era posmoderna*), centrado en la tensión crítica de pensar la comunicación y la cultura posmoderna.
 
 ## Sugerencias de actualización y ampliación
 - [ ] **Precaución editorial (texto de autor invitado):** Mantener intacto el prólogo original de Rigoberto Lanz, preservando su valor histórico y testimonial de 2006.

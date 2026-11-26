@@ -1,14 +1,14 @@
 # Notas — `05_prologo_2_nelson_guzman.md`
 
-**Capítulo:** `05` — Pro(Logos) II — Los nuevos mundos simbólicos (Nelson Guzmán)  
-**Sección:** Preliminares, Índice, Prólogos y Preámbulo  
+**Capítulo:** `05` — Pro(Logos) III — Los nuevos mundos simbólicos (Nelson Guzmán)  
+**Sección:** Pro(Logos) (Primera Edición, 2006)  
 **Archivo editable:** [`libro/05_prologo_2_nelson_guzman.md`](../../libro/05_prologo_2_nelson_guzman.md) | **Extensión base (2006):** 1,866 palabras (folios 25–31)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 
 ---
 
 ## Enfoque actual del capítulo (base 2006)
-Segundo texto de *Pro(Logos)* firmado por **Nelson Guzmán** (*Los nuevos mundos simbólicos*), que sitúa la investigación de Barreto en las redes vivenciales de la cultura moderna y la disputa por una nueva utopía.
+Tercer texto de *Pro(Logos)* en la 2.ª edición (segundo en la foliación de 2006), firmado por **Nelson Guzmán** (*Los nuevos mundos simbólicos*), que sitúa la investigación de Barreto en las redes vivenciales de la cultura moderna y la disputa por una nueva utopía.
 
 ## Sugerencias de actualización y ampliación
 - [ ] **Precaución editorial (texto de autor invitado):** Conservar intacto el prólogo original de Nelson Guzmán como parte de la memoria de la 1.ª edición (2006).

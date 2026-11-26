@@ -20,7 +20,7 @@ carpeta_base: "libro"
 
 secciones:
   - id: "preliminares"
-    titulo: "Preliminares, Índice, Prólogos y Preámbulo"
+    titulo: "Preliminares, Índice y Agradecimientos"
     mostrar_en_indice: true
     capitulos:
       - id: "00"
@@ -41,30 +41,41 @@ secciones:
         tipo: "cuerpo"
         folios_2006: "11–12"
         estado: "pendiente"
+
+  - id: "prologos_2006"
+    titulo: "Pro(Logos) (Primera Edición, 2006)"
+    mostrar_en_indice: true
+    capitulos:
       - id: "03"
         archivo: "03_liminar.md"
-        titulo: "Liminar: La belleza con agudeza y rigor (Michel Maffesoli)"
+        titulo: "Pro(Logos) I — La belleza con agudeza y rigor (Michel Maffesoli)"
         tipo: "cuerpo"
         folios_2006: "s/n 1–5"
         estado: "pendiente"
+        nota: "Intercalado originalmente como 'Liminar' sin foliar entre págs. 12 y 13 en 2006; integrado como primer prólogo en la 2.ª edición (ID de archivo estable)."
       - id: "04"
         archivo: "04_prologo_1_rigoberto_lanz.md"
-        titulo: "Pro(Logos) I — Comunicación: El clímax de la era posmoderna (Rigoberto Lanz)"
+        titulo: "Pro(Logos) II — Comunicación: El clímax de la era posmoderna (Rigoberto Lanz)"
         tipo: "cuerpo"
         folios_2006: "15–23"
         estado: "pendiente"
       - id: "05"
         archivo: "05_prologo_2_nelson_guzman.md"
-        titulo: "Pro(Logos) II — Los nuevos mundos simbólicos (Nelson Guzmán)"
+        titulo: "Pro(Logos) III — Los nuevos mundos simbólicos (Nelson Guzmán)"
         tipo: "cuerpo"
         folios_2006: "25–31"
         estado: "pendiente"
       - id: "06"
         archivo: "06_prologo_3_magaldy_tellez.md"
-        titulo: "Pro(Logos) III — Trayectos claves para pensar el socialismo como pasión (Magaldy Téllez)"
+        titulo: "Pro(Logos) IV — Trayectos claves para pensar el socialismo como pasión (Magaldy Téllez)"
         tipo: "cuerpo"
         folios_2006: "33–41"
         estado: "pendiente"
+
+  - id: "apertura"
+    titulo: "Apertura y Preámbulo"
+    mostrar_en_indice: true
+    capitulos:
       - id: "07"
         archivo: "07_preambulo.md"
         titulo: "Un intento para hacerse cargo de la massmediática. A modo de preámbulo"

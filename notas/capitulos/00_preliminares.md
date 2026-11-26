@@ -1,7 +1,7 @@
 # Notas — `00_preliminares.md`
 
 **Capítulo:** `00` — Preliminares (Créditos, Portadilla y Epígrafe)  
-**Sección:** Preliminares, Índice, Prólogos y Preámbulo  
+**Sección:** Preliminares, Índice y Agradecimientos  
 **Archivo editable:** [`libro/00_preliminares.md`](../../libro/00_preliminares.md) | **Extensión base (2006):** 254 palabras (folios 2–5)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 
