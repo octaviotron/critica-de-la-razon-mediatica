@@ -13,12 +13,15 @@ notas/
 ├── capitulos/                   # Una ficha de notas por cada capítulo (mismo nombre exacto que en libro/)
 │   ├── 00_preliminares.md
 │   ├── ...
-│   ├── prefacio_segunda_edicion.md  # Planificación previa (capítulo futuro)
-│   └── 32_indice_onomastico.md
-└── fuentes/           # Catálogo y fichas de lectura curadas de la bibliografía en externos/
-    ├── catalogo.yaml  # Manifiesto bibliográfico maestro (citas europeas, temas, capítulos destino)
-    └── <slug>.md      # Ficha resumida y banco de citas verificadas por cada fuente externa
+│   ├── 32_indice_onomastico.md
+│   ├── anexo_cambios_segunda_edicion.md  # Ficha del anexo editorial de cierre (id: A1)
+│   └── prefacio_segunda_edicion.md       # Planificación previa (capítulo futuro)
+└── fuentes/                     # Catálogo y fichas de lectura curadas de la bibliografía en externos/
+    ├── catalogo.yaml            # Manifiesto bibliográfico maestro (citas europeas, temas, capítulos destino)
+    └── <slug>.md                # Ficha resumida y banco de citas verificadas por cada fuente externa
 ```
+
+> **Separación `notas/registro_cambios_edicion.md` vs. `libro/anexo_cambios_segunda_edicion.md`:** `notas/registro_cambios_edicion.md` es la bitácora detallada de trabajo (códigos `[E-01]`, notas técnicas y seguimiento), mientras que [`libro/anexo_cambios_segunda_edicion.md`](../libro/anexo_cambios_segunda_edicion.md) (`id: A1`) aloja la síntesis publicable destinada al lector al cierre del libro.
 
 ## Cómo usar estas notas
 

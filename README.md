@@ -5,6 +5,8 @@
 
 Repositorio oficial de digitalización íntegra y preparación de la **Segunda Edición** del libro ***Crítica de la Razón Mediática*** de **Juan Barreto Cipriani** (1.ª edición: UCV / CIPOST, Caracas, 2006).
 
+> **Estado actual del proyecto:** Base digital de la Primera Edición (2006) verificada al `100%` en [`respaldo_v1.0/`](respaldo_v1.0/) · **Segunda Edición en preparación** — progreso capítulo por capítulo en [`libro.yaml`](libro.yaml) y bitácora en [`CHANGELOG.md`](CHANGELOG.md).
+
 ---
 
 ## Sobre la Obra y este Proyecto
@@ -14,6 +16,8 @@ Publicada originalmente en Caracas en 2006, ***Crítica de la Razón Mediática*
 Este repositorio cumple dos propósitos complementarios:
 1. **Preservación íntegra de la Primera Edición (2006):** El texto completo de las 666 páginas originales (`197,690` palabras, `535` notas al pie y `1,008,962` caracteres alfanuméricos) fue convertido a Markdown con **100% de integridad textual** y resguardado de forma inmutable en [`respaldo_v1.0/`](respaldo_v1.0/).
 2. **Preparación abierta y trazable de la Segunda Edición:** Sobre la copia viva en [`libro/`](libro/), se trabaja capítulo por capítulo para actualizar el diálogo teórico y político desde el ecosistema mediático de 2006 hacia el horizonte contemporáneo (plataformas digitales, algoritmos, hiperconectividad y nuevas disputas biopolíticas), manteniendo la voz del autor y la memoria íntegra de los textos invitados de 2006.
+
+* **Cómo leer la obra directamente aquí (sin instalar nada):** abre el catálogo navegable de la edición en curso en [`libro/README.md`](libro/README.md) o consulta el texto congelado de 2006 en [`respaldo_v1.0/README.md`](respaldo_v1.0/README.md).
 
 ---
 
@@ -75,7 +79,7 @@ La obra se organiza en **10 secciones editoriales** (`33` capítulos base de 200
 | [`CHANGELOG.md`](CHANGELOG.md) | Bitácora editorial de capítulos aprobados por el autor e hitos completados. | [`CHANGELOG.md`](CHANGELOG.md) |
 | [`scripts/`](scripts/) | Herramientas internas de validación, compilación (PDF/Word), búsqueda e indexación, más el pipeline histórico de 2006. | [`scripts/README.md`](scripts/README.md) |
 | [`SSOT/`](SSOT/) | Documentación rectora del proyecto: flujo editorial, guía de estilo, perfil de voz del autor y auditoría histórica. | [`SSOT/README.md`](SSOT/README.md) |
-| [`AGENTS.md`](AGENTS.md) y [`.agents/skills/`](.agents/skills/) | Reglas universales del workspace y 3 guías modulares bajo demanda (`editar-capitulo`, `procesar-externos` y `cierre-editorial`) para la edición asistida. | [`AGENTS.md`](AGENTS.md) |
+| [`AGENTS.md`](AGENTS.md) y [`.agents/skills/`](.agents/skills/) | Reglas universales del workspace y 4 guías modulares bajo demanda (`editar-capitulo`, `procesar-externos`, `cierre-editorial` y `mantenimiento-proyecto`) para la edición asistida. | [`AGENTS.md`](AGENTS.md) |
 
 ---
 

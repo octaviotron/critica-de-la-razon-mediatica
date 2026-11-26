@@ -12,7 +12,7 @@ Documentación técnica de las herramientas internas de validación, compilació
 | :--- | :--- |
 | [`manifiesto.py`](edicion/manifiesto.py) | Módulo compartido que carga [`libro.yaml`](../libro.yaml) o [`respaldo_v1.0/libro.yaml`](../respaldo_v1.0/libro.yaml), resuelve capítulos por `id`/archivo y bloquea cualquier escritura sobre `respaldo_v1.0/`. |
 | [`contexto_capitulo.py`](edicion/contexto_capitulo.py) | Consolida en una sola salida el briefing editorial de un capítulo (metadatos, alerta de textos invitados protegidos, diagnóstico técnico en vivo, ficha espejo en `notas/capitulos/`, fuentes externas mapeadas y menciones en `notas/NOTAS.md`). |
-| [`validar_libro.py`](edicion/validar_libro.py) | Valida un capítulo (`--capitulo`) o el libro completo: archivos, notas al pie, enlaces locales, sintaxis compatible con PangoCairo, asteriscos impares, marcadores `[VERIFICAR]`, protección de textos invitados (`03`–`06` y `29` desde L101), higiene de `README.md` y huellas SHA-256 de `respaldo_v1.0/md/` (`--verificar-respaldo`). |
+| [`validar_libro.py`](edicion/validar_libro.py) | Valida un capítulo (`--capitulo`) o el libro completo: archivos, notas al pie, enlaces locales, sintaxis compatible con PangoCairo, asteriscos impares, marcadores `[VERIFICAR]`, protección de textos invitados (`03`–`06` y `29` desde L101), higiene de los 6 `README.md`, tamaño de `AGENTS.md`, fichas espejo en `notas/capitulos/` y huellas SHA-256 de `respaldo_v1.0/md/` (`--verificar-respaldo`). |
 | [`compilar_pdf.py`](edicion/compilar_pdf.py) | Compila un capítulo (`--capitulo`) o el libro completo en `dist/` en formato **PDF** (por defecto, o con etiquetas `[ID.PPP]` mediante `--etiquetar-parrafos`) o **Word (`.docx`)** (`--formato docx`, con prefijado automático de notas por capítulo). También compila la 1.ª edición intacta desde `--manifiesto respaldo_v1.0/libro.yaml`. |
 | [`reporte_cambios.py`](edicion/reporte_cambios.py) | Genera en `dist/` un reporte comparativo estructural y textual de un capítulo (`--capitulo`) o del libro completo contra `respaldo_v1.0/` (o contra cualquier referencia de Git mediante `--desde-git`). |
 | [`generar_indice.py`](edicion/generar_indice.py) | Regenera el Índice General desde `libro.yaml` y los encabezados reales (`#`, `##`). Por defecto previsualiza en `dist/indice_generado.md`; con `--escribir` actualiza `libro/01_indice.md` (usar solo tras sanear encabezados partidos). |
@@ -79,5 +79,11 @@ python3 -B scripts/extraccion_v1/03_auditar_integridad.py
 * **[`01_extraer_xml.py`](extraccion_v1/01_extraer_xml.py):** Extrae la capa vectorial XML de las 666 páginas del PDF mediante `pdftohtml -xml -i` y filtra determinísticamente el ruido de QuarkXPress.
 * **[`02_convertir_a_md.py`](extraccion_v1/02_convertir_a_md.py):** Reconstruye los 33 archivos Markdown (protegido: escribe por defecto en `dist/extraccion_v1_md/` y bloquea sobrescrituras accidentales sobre `respaldo_v1.0/` o `libro/`).
 * **[`03_auditar_integridad.py`](extraccion_v1/03_auditar_integridad.py):** Ejecuta la auditoría contable al `100.000%` contra el PDF original (por defecto sobre `respaldo_v1.0/md/`).
+
+## 4. Requisitos del Entorno Local
+
+Para ejecutar los scripts en un equipo nuevo (entorno Linux / Python 3):
+* **Herramientas de sistema:** `python3`, Poppler (`pdftotext` y `pdftohtml`) y `pandoc` (exportación a Word `.docx` y lectura de `.docx`/`.epub` en `externos/`).
+* **Librerías Python:** `PyYAML`, `pycairo` y `PyGObject` (`Pango` / `PangoCairo` para generación de PDF), `pypdf` y `beautifulsoup4` (indexación de `externos/`). `sqlite3` con FTS5 viene incluido en la biblioteca estándar de Python.
 
 Para el flujo editorial completo, véanse [`SSOT/README.md`](../SSOT/README.md) y [`SSOT/flujo_editorial_segunda_edicion.md`](../SSOT/flujo_editorial_segunda_edicion.md).

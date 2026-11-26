@@ -167,6 +167,33 @@ def verificar_readmes_publicos() -> List[str]:
     return errores
 
 
+def verificar_salud_workspace(capitulos: List) -> Tuple[List[str], List[str]]:
+    """
+    Comprobaciones globales de higiene del workspace:
+    - Tamaño de `AGENTS.md` (aviso > 20,000 B; error > 24,000 B).
+    - Existencia de ficha espejo en `notas/capitulos/<archivo>` para cada capítulo del manifiesto.
+    """
+    errores: List[str] = []
+    advertencias: List[str] = []
+
+    agents_path = REPO_ROOT / "AGENTS.md"
+    if agents_path.exists():
+        n_bytes = agents_path.stat().st_size
+        if n_bytes > 24000:
+            errores.append(f"AGENTS.md supera el límite estricto de 24,000 bytes ({n_bytes:,} B)")
+        elif n_bytes > 20000:
+            advertencias.append(f"AGENTS.md supera los 20,000 bytes ({n_bytes:,} B); conviene aligerarlo hacia .agents/skills/")
+
+    notas_caps_dir = REPO_ROOT / "notas" / "capitulos"
+    if notas_caps_dir.is_dir():
+        for cap in capitulos:
+            ficha = notas_caps_dir / cap.archivo
+            if not ficha.exists():
+                advertencias.append(f"[{cap.id}] Falta ficha espejo en notas/capitulos/{cap.archivo}")
+
+    return errores, advertencias
+
+
 def verificar_enlaces_locales(md_text: str, archivo_actual: Path) -> List[str]:
     rotos: List[str] = []
     for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", md_text):
@@ -345,7 +372,7 @@ def main() -> int:
             if alerta_inv:
                 advertencias.append(f"[{cap.id}] {cap.archivo}: [PROTEGIDO] {alerta_inv}")
 
-    # Detectar archivos .md huérfanos y verificar higiene de README.md en validación global
+    # Detectar archivos .md huérfanos, higiene de README.md y salud del workspace en validación global
     if not args.capitulo and manifiesto.carpeta_base.is_dir():
         en_disco = sorted(p.resolve() for p in manifiesto.carpeta_base.rglob("*.md"))
         for p in en_disco:
@@ -355,6 +382,10 @@ def main() -> int:
                 rel = p.relative_to(manifiesto.carpeta_base)
                 advertencias.append(f"Archivo .md no registrado en manifiesto: '{rel}'")
         errores.extend(verificar_readmes_publicos())
+        if not manifiesto.obra.inmutable:
+            err_ws, adv_ws = verificar_salud_workspace(capitulos_a_validar)
+            errores.extend(err_ws)
+            advertencias.extend(adv_ws)
 
     if args.verificar_respaldo:
         n_sha, err_sha = verificar_respaldo_sha256()

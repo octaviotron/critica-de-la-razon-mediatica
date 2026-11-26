@@ -20,10 +20,13 @@ python3 -B scripts/edicion/indexar_externos.py
 ```
 Esto detecta únicamente archivos nuevos, modificados o ausentes por SHA-256 (soportando PDF, HTML/HTM, TXT, MD, DOCX y EPUB), actualiza `dist/indice_externos/corpus.db` (SQLite FTS5) + `dist/indice_externos/txt/`, y da de alta las fuentes nuevas en `notas/fuentes/catalogo.yaml` con `estado: "pendiente_ficha"` sin sobrescribir campos curados.
 
-Listar el estado actual:
+Listar el estado actual y comprobar calidad de extracción:
 ```bash
 python3 -B scripts/edicion/buscar_externos.py --listar
 ```
+* **Control de calidad inmediato:**
+  * Si algún PDF aparece con `[OCR!]` (`requiere_ocr: true`), advertirlo al usuario porque no tiene capa de texto usable sin OCR previo.
+  * Si un archivo `.html`/`.htm` extrajo menos de `1,000` caracteres pese a ser un artículo extenso, inspeccionar su estructura HTML (posible falso positivo de una tarjeta `<article>` lateral) y ajustar `extraer_html()` en `indexar_externos.py` si hace falta.
 
 ---
 

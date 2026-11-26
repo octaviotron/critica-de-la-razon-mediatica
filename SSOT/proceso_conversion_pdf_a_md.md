@@ -1,5 +1,8 @@
 # SSOT: Proceso Detallado de Extracción y Conversión de PDF a Markdown (Método 1)
 
+> **⚠️ DOCUMENTO HISTÓRICO DE 2006 — NO CARGAR EN SESIONES NORMALES DE EDICIÓN.**  
+> Consultar únicamente ante dudas técnicas sobre la extracción original del PDF maestro de 2006 o el sellado de `respaldo_v1.0/`. Para la edición activa de la Segunda Edición, consultar [`SSOT/README.md`](README.md).
+
 **Proyecto:** Segunda Edición — *Crítica de la Razón Mediática* (Juan Barreto Cipriani, 2006)  
 **Documento Fuente:** `fuente/Libro Crítica de La Razon Mediatica.pdf`  
 **Método Seleccionado:** Método 1 — Extracción Estructural por Coordenadas, Fuentes y Color (`pdftohtml -xml` + Parser Determinista en Python + Auditoría Contable 100%)  

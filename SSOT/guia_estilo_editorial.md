@@ -7,7 +7,7 @@
 
 ## 1. Reglas de Fidelidad Textual y Estilo
 
-1. **Conservar la voz filosófica y académica del autor:** No aplanar, simplificar ni vulgarizar el registro ensayístico del profesor Juan Barreto Cipriani. Consultar siempre [`SSOT/perfil_voz_autor.md`](perfil_voz_autor.md) (párrafos modelo, anti-patrones de prosa sintética prohibidos e inventario de los 92 términos del Glosario).
+1. **Conservar la voz filosófica y académica del autor:** No aplanar, simplificar ni vulgarizar el registro ensayístico del profesor Juan Barreto Cipriani. Consultar siempre [`SSOT/perfil_voz_autor.md`](perfil_voz_autor.md) (párrafos modelo, anti-patrones de prosa sintética prohibidos e inventario de los 93 términos del Glosario).
 2. **Nunca resumir ni recortar argumentos** salvo instrucción explícita del usuario o del autor.
 3. **Vocabulario conceptual protegido (no reemplazar por sinónimos ni eliminar guiones conceptuales):**
    * `massmediática`, `mass-media`, `biopolítica`, `biopoder`, `agenciamiento`, `significante-signo`, `cuerpo-potencia`, `rostro-proceso`, `hecha-en-común`, `trabajo-valor`, `ético-política`, `post-scriptum`, `rizoma`, `pliegue`, `líneas de fuga`, `subjetividad`, `performativo`, `habitus`, `multitud`, `dispositivo`, `aura`.
@@ -27,9 +27,9 @@
 6. **Notas al pie sin renumeración manual y omisiones conocidas de 2006:**
    * Nunca borres ni desconectes una llamada `[^n]` ni su definición `[^n]:` existente sin autorización expresa.
    * Si agregas una nota nueva en medio de un capítulo que ya tiene numeración de 2006, **no renumeres manualmente** las notas posteriores: usa un identificador temporal claro (por ejemplo `[^14b]` o `[^algoritmo]`). La renumeración secuencial se realiza solo al cierre editorial.
-   * **Omisiones confirmadas del libro impreso de 2006 (NO son errores de conversión):** Todos los artefactos mecánicos de conversión (saltos de línea, listas partidas y 27 notas al pie) ya fueron depurados y sellados en `libro/` y `respaldo_v1.0/`. Las únicas **6 advertencias residuales** que reporta `validar_libro.py` corresponden a omisiones reales de la edición impresa original de 2006 y deben consultarse con el autor al editar cada capítulo afectado:
+   * **Advertencias heredadas del libro impreso de 2006 (NO son errores de conversión):** Todos los artefactos mecánicos de conversión (saltos de línea, listas partidas y 27 notas al pie) ya fueron depurados y sellados en `libro/` y `respaldo_v1.0/`. Las **7 advertencias heredadas** que reporta `validar_libro.py` en la base inicial corresponden a **6 advertencias de notas al pie** (7 omisiones reales del impreso original de 2006) más **1 cursiva con asterisco impar** en `17_parte4_ensayo_1.md:L19`, y deben revisarse con el autor al editar cada capítulo afectado:
      * `11_parte2_ensayo_1.md`: definiciones `[^15]:` y `[^19]:` sin llamada en el impreso (y salto del número `17`).
-     * `17_parte4_ensayo_1.md`: definición `[^28]:` sin llamada en el impreso.
+     * `17_parte4_ensayo_1.md`: definición `[^28]:` sin llamada en el impreso (y línea `L19` con número impar de asteriscos `*`).
      * `20_parte4_ensayo_4.md`: llamada `[^3]` (punto 34) cuya definición nunca se imprimió en el folio 377.
      * `24_parte5_ensayo_4.md`: llamada `[^4]` cuya definición nunca se imprimió en el folio 467, y definición `[^2]:` sin llamada en el impreso.
      * `27_parte6_ensayo_3.md`: definición `[^3]:` sin llamada en el impreso.
@@ -43,6 +43,16 @@ Estas 7 pautas ya fueron definidas con el proyecto y rigen por defecto en todas 
 5. **Formato de entrega por defecto para rondas de revisión del autor:** *PDF limpio de lectura* (`compilar_pdf.py --capitulo <id>` en `dist/`) acompañado de resumen breve de 5–10 viñetas. Word `.docx` (`--formato docx`) y PDF etiquetado (`--etiquetar-parrafos`) quedan disponibles solo bajo pedido puntual.
 6. **Uniformidad tipográfica y de aparato crítico (aplicación progresiva por capítulo):** Comillas latinas `«»` para citas textuales, `""` para énfasis/citas internas y sustitución de las 40 comillas `‹›`; notas al pie estandarizadas con `Ibíd.`, `Op. cit.` y punto final; corrección automática al paso de `Masmediática` → `Massmediática`, `S. i ek` → `S. Žižek`, `Gumis` → `Gomis`, `Foweler` → `Fowler`, `Lippman` → `Lippmann` y unificación de encabezados partidos; conservar `· Término:` en `31_glosario.md` y decidir recién al cierre si pasa a `### Término`.
 7. **Anexo editorial de cierre (`libro/anexo_cambios_segunda_edicion.md`, `id: "A1"`):** La obra cierra tras el *Índice Onomástico* con el capítulo ***Anexo editorial: Relación de cambios respecto a la Primera Edición (2006)*** (`tipo: "anexo"` en `libro.yaml`), alimentado progresivamente desde [`notas/registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md) con cada cambio estructural y cada capítulo aprobado, y sometido a aprobación final del autor al cierre editorial.
+
+### 1.2. Ejemplo Ilustrativo de Integración Híbrida (Decisiones 1, 2 y 3 en práctica)
+
+* **Texto base de 2006 (conservar argumento y voz):**
+  > El televisor opera como el medio de los medios: concentra una oferta de quinientos canales que ritualizan el tiempo doméstico bajo la ilusión de la libre elección.
+* **Integración híbrida esperada en 2.ª edición (anclaje temporal + cita verificada con `[trad. propia]` + nota temporal sin renumerar):**
+  > Si a comienzos del siglo XXI el televisor operaba como el medio de los medios —concentrando una oferta de quinientos canales que ritualizaba el tiempo doméstico bajo la ilusión de la libre elección—, dos décadas después ese mismo dispositivo de captura se ha desplazado hacia la pantalla móvil conectada y los sistemas de recomendación algorítmica. Es, pues, lo que É. Sadin describe al examinar el «capitalismo de la fijación de los cuerpos»[^14b]: la pantalla ya no aguarda en la sala familiar, sino que acompaña la proximidad del cuerpo y administra su atención en flujo continuo.
+  >
+  > *(Al pie del capítulo, tras `---`, en un solo párrafo sin renumerar notas existentes:)*  
+  > `[^14b]: É. Sadin, *La vie spectrale. Penser l'ère du métavers et des IA génératives*, Grasset, París, 2023, p. 58 [trad. propia].`
 
 ---
 

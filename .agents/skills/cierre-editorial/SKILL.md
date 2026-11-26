@@ -60,16 +60,17 @@ Este flujo se ejecuta **una sola vez al cierre de la Segunda Edición** (o por b
 
 ## 5. Compilación Completa, Índice Onomástico y Revisión Final
 
-1. Ejecutar validación estricta global y reporte completo contra 2006:
+1. **Verificar orden final de `libro.yaml` y limpiar `dist/`:** Confirmar que todos los capítulos nuevos (como el futuro `prefacio_segunda_edicion.md`, si se creó) y `A1` (`anexo_cambios_segunda_edicion.md`) estén en su posición definitiva en `libro.yaml`, y retirar borradores antiguos de `dist/` antes de la compilación final.
+2. Ejecutar validación estricta global y reporte completo contra 2006:
    ```bash
    python3 -B scripts/edicion/validar_libro.py --verificar-respaldo --estricto
    python3 -B scripts/edicion/reporte_cambios.py
    ```
-2. Compilar el manuscrito completo en `dist/` (PDF limpio y, si se solicita, Word `.docx` con prefijado automático de notas):
+3. Compilar el manuscrito completo en `dist/` (PDF limpio y, si se solicita, Word `.docx` con prefijado automático de notas):
    ```bash
    python3 -B scripts/edicion/compilar_pdf.py
    python3 -B scripts/edicion/compilar_pdf.py --formato docx
    ```
-3. **Cierre del Anexo editorial (`libro/anexo_cambios_segunda_edicion.md`, `id: A1`):** Consolidar desde `notas/registro_cambios_edicion.md` la relación definitiva de cambios estructurales, actualizaciones por capítulo y aparato crítico (retirando cualquier nota provisional de avance), compilar su PDF limpio para revisión del autor y marcar `estado: "aprobado"` en `libro.yaml` únicamente tras su visto bueno explícito.
-4. **Índice Onomástico (`libro/32_indice_onomastico.md`):** Actualizarlo únicamente una vez definida la maquetación y paginación final definitiva (evaluando el reaprovechamiento de `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`).
-5. Actualizar `obra.edicion` y `obra.version` en `libro.yaml`, registrar el cierre en `CHANGELOG.md` y dejar listo para el `commit`/`push` del usuario.
+4. **Cierre del Anexo editorial (`libro/anexo_cambios_segunda_edicion.md`, `id: A1`):** Consolidar desde `notas/registro_cambios_edicion.md` la relación definitiva de cambios estructurales, actualizaciones por capítulo y aparato crítico (retirando cualquier nota provisional de avance), compilar su PDF limpio para revisión del autor y marcar `estado: "aprobado"` en `libro.yaml` únicamente tras su visto bueno explícito.
+5. **Índice Onomástico (`libro/32_indice_onomastico.md`):** Actualizarlo únicamente una vez definida la maquetación y paginación final definitiva (evaluando el reaprovechamiento de `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`).
+6. Actualizar `obra.edicion` y `obra.version` en `libro.yaml`, registrar el cierre en `CHANGELOG.md` y dejar listo para el `commit`/`push` del usuario.

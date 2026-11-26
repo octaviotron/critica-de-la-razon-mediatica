@@ -1,7 +1,7 @@
 # SSOT: Perfil Empírico de Voz del Autor y Léxico Conceptual
 
 **Obra:** *Crítica de la Razón Mediática* — **Juan Barreto Cipriani**  
-**Propósito:** Proveer a cualquier agente de IA una referencia concreta del registro ensayístico real del autor, los anti-patrones de prosa sintética a evitar y el inventario completo de los **92 términos definidos en el Glosario** (`libro/31_glosario.md`). Complementa [`SSOT/guia_estilo_editorial.md`](guia_estilo_editorial.md).
+**Propósito:** Proveer a cualquier agente de IA una referencia concreta del registro ensayístico real del autor, los anti-patrones de prosa sintética a evitar y el inventario completo de los **93 términos definidos en el Glosario** (`libro/31_glosario.md`). Complementa [`SSOT/guia_estilo_editorial.md`](guia_estilo_editorial.md).
 
 ---
 
@@ -47,12 +47,12 @@ Al redactar adiciones, transiciones 2006 → actualidad o comentarios sobre nuev
 
 ---
 
-## 4. Inventario Completo de los 92 Términos del Glosario (`libro/31_glosario.md`)
+## 4. Inventario Completo de los 93 Términos del Glosario (`libro/31_glosario.md`)
 
-Antes de usar, redefinir o añadir variantes de cualquiera de estos 92 conceptos ya definidos por Juan Barreto en `libro/31_glosario.md`, consultar su acepción exacta mediante `python3 -B scripts/edicion/buscar_libro.py --glosario <término>`:
+Antes de usar, redefinir o añadir variantes de cualquiera de estos 93 conceptos ya definidos por Juan Barreto en `libro/31_glosario.md`, consultar su acepción exacta mediante `python3 -B scripts/edicion/buscar_libro.py --glosario <término>`:
 
 > **A–C:** Acontecimiento · Actualidad · Afección · Agenciamientos · Agujeros negros · Amo · Arte · Aura · Banalización · Biopoder · Biopolítica · Campo · Campo Cultural · Campo semiótico · Capital · Capitalismo · Cibercultura · Condición epocal · Consenso · Cuerpo · Cuerpo sin órganos · Cultura de masas  
-> **D–H:** Deconstrucción · Democracia · Descentramiento · Deseo · Devenir · Diferencia · Discurso · Dispositivo · Estado · Estriado · Ética · Fractal · Gel mediático · Gusto · Hegemonía · Hermenéutica · Hiperrealidad  
+> **D–H:** Deconstrucción · Democracia · Descentramiento · Deseo · Devenir · Diferencia · Discurso · Dispositivo · Estado · Estriado · Ética · Fractal · Gel mediático · Gusto · Habitus · Hegemonía · Hermenéutica · Hiperrealidad  
 > **I–M:** Imagen · Imaginario · Imperialismo · Imperio · Industria Cultural · Información-Comunicación · Internet · Lenguaje · Límite y exceso · Líneas de fuga · Lógica de sentido · Máquina · Máquina mediática · Mediación mediática · Mercado · Mercancía · Mito · Modo · Múltiple · Multitud  
 > **O–R:** Opacidad · Opinión pública · Performatividad · Poder · Poder constituyente · Pliegue · Plusvalía · Política · Posmodernidad · Pueblo · Randomizar · Razón instrumental · Resistencia · Rizoma  
 > **S–V:** Saber · Semiosis social · Semiótica · Sensibilidad · Signo · Símbolo · Simulacro · Sobrepliegue · Socialismo · Sociedad de control · Subjetividad · Sustancia · Teoría del valor · Totalización · Trabajo · Trabajo inmaterial · Tribus urbanas · Virtual · Voluntad de poder

@@ -25,7 +25,7 @@ Sigue este flujo de principio a fin trabajando siempre **un solo capítulo `.md`
 2. **Leer el contexto mínimo obligatorio:**
    * `libro/<archivo>.md` (solo el capítulo objetivo).
    * `notas/mapa_obra.md` (evitar repetir autores/conceptos ya introducidos en otros capítulos).
-   * `SSOT/perfil_voz_autor.md` (cadencia de Juan Barreto, anti-patrones prohibidos y los 92 términos del Glosario).
+   * `SSOT/perfil_voz_autor.md` (cadencia de Juan Barreto, anti-patrones prohibidos y los 93 términos del Glosario).
    * Las fichas de `notas/fuentes/<slug>.md` pertinentes al capítulo.
 3. **Consultas quirúrgicas bajo demanda (sin cargar otros capítulos ni PDFs completos):**
    * Otros capítulos, Glosario o Bibliografía de 2006:
@@ -43,14 +43,20 @@ Sigue este flujo de principio a fin trabajando siempre **un solo capítulo `.md`
 
 ## Fase 2 — Edición en `libro/<archivo>.md`
 
-Aplicar las **6 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editorial.md` §1.1):
+Aplicar las **7 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editorial.md` §1.1):
 1. **Integración híbrida:** tejer los aportes nuevos orgánicamente dentro del ensayo sin borrar argumentos de 2006; abrir subapartados nuevos (`##` o `###`) solo ante giros históricos mayores.
 2. **Anclaje temporal:** contextualizar cifras y ejemplos de 2006 históricamente (*«hace dos décadas…»*) y tender puente inmediato al presente verificado.
 3. **Citas verificadas y anti-alucinación:** nunca inventar citas ni páginas. Usar estilo europeo (`Inicial. Apellido, *Título*, Editorial, Ciudad, Año, p. X.`). Para fuentes en otro idioma (p. ej. francés), traducir al español en el cuerpo e indicar `[trad. propia]` al pie. Si falta verificar algo, anotar `[VERIFICAR CITA/PÁG.]` en `notas/capitulos/<archivo>.md`.
 4. **Notas al pie:** no borrar notas existentes ni renumerar manualmente; usar IDs temporales (`[^14b]`, `[^sadin]`) en un solo párrafo tras `---`.
 5. **Uniformidad al paso:** `«»` para citas textuales, `""` para énfasis/citas internas, eliminar `‹›`; estandarizar `Ibíd.`, `Op. cit.` y punto final; corregir `Masmediática`, `S. i ek`, `Gumis`, `Foweler`, `Lippman` y encabezados partidos en 2–3 líneas.
 6. **Sintaxis PangoCairo:** prohibidos `####`, tablas `|...|`, bloques `` ``` ``, imágenes `![...]`, asteriscos impares y notas multipárrafo. En listas numeradas extensas, dejar una línea en blanco entre ítems.
-7. **Actualizar estado:** si el capítulo estaba en `estado: "pendiente"` en `libro.yaml`, pasarlo a `estado: "en_revision"`.
+7. **Casos especiales:**
+   * **`29_post_scriptum.md`:** editar únicamente las líneas `1–100` (Juan Barreto); **nunca** modificar desde la línea `101` (`### Tercer movimiento:`, Javier Biardeau) sin orden expresa.
+   * **Capítulos nuevos sin base en `respaldo_v1.0/`** (ej. `A1` `anexo_cambios_segunda_edicion.md` o el futuro `prefacio_segunda_edicion.md`): `reporte_cambios.py` los reportará como capítulos nuevos; seguir el mismo flujo de validación y entrega.
+8. **Auto-revisión de voz y limpieza OCR (antes de compilar):**
+   * Releer los párrafos nuevos frente a `SSOT/perfil_voz_autor.md` para asegurar que **no contienen ninguno de los 5 anti-patrones de prosa sintética** ni redefinen sin consultar los 93 términos del Glosario.
+   * Si se citaron PDFs con capa OCR previa (p. ej. `Sadin-Eric-La-Inteligencia-Artificial...pdf`), verificar y limpiar cualquier errata OCR en la cita literal.
+9. **Actualizar estado:** si el capítulo estaba en `estado: "pendiente"` en `libro.yaml`, pasarlo a `estado: "en_revision"`.
 
 ---
 

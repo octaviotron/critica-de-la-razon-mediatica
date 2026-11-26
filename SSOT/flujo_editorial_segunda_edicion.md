@@ -31,7 +31,7 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
 2. Editar y actualizar el contenido con la IA (siguiendo SSOT/guia_estilo_editorial.md)
         │
         ▼
-3. La IA valida ese capítulo y prepara la entrega al autor (PDF o Word .docx en dist/ + resumen breve)
+3. La IA valida ese capítulo y prepara la entrega al autor (PDF limpio en dist/ por defecto + resumen breve)
         │
         ▼
 4. Revisión del autor ──► ¿Solicita cambios? ──► Sí ──► Registrar observaciones en notas/capitulos/
@@ -52,7 +52,7 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
 ### Cómo operar en lenguaje natural con la IA (sin comandos manuales)
 En cada etapa basta pedirle a la IA:
 * **Al empezar un capítulo:** *"Lee `SSOT/guia_estilo_editorial.md` y actualiza `libro/19_parte4_ensayo_3.md` con estas orientaciones..."*
-* **Para enviarlo al autor:** *"Valida el capítulo 19, genera su PDF (o DOCX) en `dist/` para el autor y dame un resumen breve de los cambios."*
+* **Para enviarlo al autor:** *"Valida el capítulo 19, genera su PDF limpio en `dist/` para el autor y dame un resumen breve de los cambios."* *(Si el autor pide Word `.docx` o PDF etiquetado `[ID.PPP]`, indícalo expresamente.)*
 * **Al recibir comentarios del autor:** *"Aplica estas observaciones del autor sobre `libro/19_parte4_ensayo_3.md` y vuelve a generar el PDF del capítulo."*
 * **Al aprobarse el capítulo:** *"El autor aprobó el capítulo 19; márcalo como aprobado en `libro.yaml` y regístralo en `CHANGELOG.md`."*
 * **Para consultar avance:** *"Muéstrame el avance de los capítulos según `libro.yaml`."*
@@ -104,7 +104,7 @@ respaldo_v1.0/
 ```
 
 * **Inmutabilidad estricta:** Ningún script permite escribir dentro de `respaldo_v1.0/`, y jamás debe editarse manualmente.
-* **Base depurada y sellada (`535` notas al pie, `0` cortes de formato):** Antes de iniciar cambios de contenido de la 2.ª edición, `respaldo_v1.0/md/` fue sellado tras depurar únicamente artefactos técnicos de conversión (saltos de línea, listas numeradas en caps. 13/20/28 y 27 enlaces/definiciones de notas al pie), preservando el **100.000% de integridad alfanumérica** frente al PDF de 2006 (`SSOT/proceso_conversion_pdf_a_md.md`, Sección 5.1). Las únicas 6 advertencias de notas restantes en `validar_libro.py` son omisiones confirmadas del impreso original de 2006 (detalladas en `SSOT/guia_estilo_editorial.md`).
+* **Base depurada y sellada (`535` notas al pie, `0` cortes de formato):** Antes de iniciar cambios de contenido de la 2.ª edición, `respaldo_v1.0/md/` fue sellado tras depurar únicamente artefactos técnicos de conversión (saltos de línea, listas numeradas en caps. 13/20/28 y 27 enlaces/definiciones de notas al pie), preservando el **100.000% de integridad alfanumérica** frente al PDF de 2006 (`SSOT/proceso_conversion_pdf_a_md.md`, Sección 5.1). Las **7 advertencias heredadas** que reporta `validar_libro.py` en la base inicial corresponden a las 6 advertencias de notas al pie del impreso original de 2006 (7 omisiones reales) más 1 asterisco impar en `17_parte4_ensayo_1.md:L19` (detalladas en `SSOT/guia_estilo_editorial.md`).
 * **Reproducibilidad garantizada:** Aunque cambien todos los archivos de `libro/` y el orden de `libro.yaml`, siempre se puede compilar la 1.ª edición intacta en `dist/` o auditarla al 100.000% contra el PDF original de 2006 (ver [`respaldo_v1.0/README.md`](../respaldo_v1.0/README.md)).
 
 ---
@@ -127,7 +127,8 @@ respaldo_v1.0/
 | [`buscar_libro.py`](../scripts/edicion/buscar_libro.py) | Búsqueda interna insensible a tildes sobre `libro/`, el Glosario (`--glosario`) y la Bibliografía (`--bibliografia`) con distribución de ocurrencias por capítulo. | `python3 -B scripts/edicion/buscar_libro.py --glosario "cuerpo"` |
 | [`contexto_capitulo.py`](../scripts/edicion/contexto_capitulo.py) | Genera en un solo comando el briefing editorial de un capítulo (metadatos, alerta de autoría protegida, diagnóstico técnico en vivo, ficha espejo, fuentes externas y menciones globales). | `python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19` |
 
-> **Sincronización ante cambios del proyecto:** Siempre que se añada o modifique un script, directorio, función, Skill o paso del flujo editorial, seguir el **Protocolo de Mantenimiento y Evolución** definido en [`AGENTS.md`](../AGENTS.md) (Sección 8) para mantener alineados `AGENTS.md`, `.agents/skills/`, `SSOT/` y los `README.md` sin contradicciones. Los procedimientos paso a paso bajo demanda viven en [`.agents/skills/`](../.agents/skills/) (`editar-capitulo`, `procesar-externos` y `cierre-editorial`).
+> **Referencia CLI completa:** Para todos los ejemplos de comandos y requisitos del entorno, véase [`scripts/README.md`](../scripts/README.md).  
+> **Sincronización ante cambios del proyecto:** Siempre que se añada o modifique un script, directorio, función, Skill o paso del flujo editorial, activar la Skill [`.agents/skills/mantenimiento-proyecto/SKILL.md`](../.agents/skills/mantenimiento-proyecto/SKILL.md) (y [`AGENTS.md`](../AGENTS.md)) para mantener alineados `AGENTS.md`, las 4 Skills (`editar-capitulo`, `procesar-externos`, `cierre-editorial`, `mantenimiento-proyecto`), `SSOT/` y los 6 `README.md` sin contradicciones.
 
 ### 6.2. Pipeline Histórico de Extracción 2006 (`scripts/extraccion_v1/`)
 Congelado para trazabilidad y auditoría reproducible de la 1.ª edición:

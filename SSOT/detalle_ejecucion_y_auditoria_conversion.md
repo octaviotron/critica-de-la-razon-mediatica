@@ -1,5 +1,8 @@
 # Detalle Completo del Proceso Ejecutado y Auditoría de Conversión (PDF a Markdown — v1.0)
 
+> **⚠️ DOCUMENTO HISTÓRICO DE 2006 — NO CARGAR EN SESIONES NORMALES DE EDICIÓN.**  
+> Memoria de auditoría contable 100% de la 1.ª edición (`respaldo_v1.0/`). Para la edición activa de la Segunda Edición, consultar [`SSOT/README.md`](README.md).
+
 **Proyecto:** Segunda Edición — *Crítica de la Razón Mediática* (Juan Barreto Cipriani)  
 **Archivo Fuente:** `fuente/Libro Crítica de La Razon Mediatica.pdf` (`21,078,531 bytes`, `666 páginas físicas`)  
 **Respaldo Inmutable Verificado:** `respaldo_v1.0/md/` (copia testigo intacta de los 33 archivos originales; ver `respaldo_v1.0/README.md`)  

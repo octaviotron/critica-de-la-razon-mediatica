@@ -64,14 +64,20 @@ def extraer_entradas_glosario(glosario_path: Path) -> List[Tuple[str, str]]:
     buffer: List[str] = []
 
     for line in txt.splitlines():
-        m = re.match(r"^·\s*\*?\*?([^:\n]+?)\*?\*?:\s*(.*)$", line.strip())
+        s = line.strip()
+        m = re.match(r"^·\s*\*?\*?([^:\n]+?)\*?\*?:\s*(.*)$", s)
+        if not m and s.startswith("· "):
+            # Caso heredado de 2006 sin dos puntos (ej. "· Habitus Es la concreción...")
+            m_sin_dp = re.match(r"^·\s+([A-ZÁÉÍÓÚÜÑ][^\s]+)\s+(.*)$", s)
+            if m_sin_dp:
+                m = m_sin_dp
         if m:
             if termino_actual is not None:
                 entradas.append((termino_actual, "\n".join(buffer).strip()))
             termino_actual = m.group(1).strip().strip("*")
-            buffer = [line.strip()]
+            buffer = [s]
         elif termino_actual is not None:
-            if line.strip().startswith("#"):
+            if s.startswith("#"):
                 continue
             buffer.append(line)
 

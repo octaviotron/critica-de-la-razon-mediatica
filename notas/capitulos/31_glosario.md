@@ -8,13 +8,14 @@
 ---
 
 ## Enfoque actual del capítulo (base 2006)
-Glosario conceptual (*La caja de herramientas conceptual*, ~13,690 palabras, 94 términos de *Acontecimiento* a *Voluntad de poder*).
+Glosario conceptual (*La caja de herramientas conceptual*, ~13,690 palabras, **93 términos** de *Acontecimiento* a *Voluntad de poder*).
 
 ## Sugerencias de actualización y ampliación
 - [ ] Ampliar la caja de herramientas al cierre editorial con entradas contemporáneas dialogadas en la Segunda Edición: *Algoritmo*, *Capital-nube / Tecnofeudalismo* (Varoufakis), *Dataísmo* (Harari), *Enjambre digital* (Han), *Extractivismo atencional*, *Infocracia* (Han), *Plataforma*, *Psicopolítica* (Han), *Realismo capitalista / Hauntología* (Fisher).
 - [ ] Conservar el estilo filosófico denso y propio del autor en cada definición nueva.
 
 ## Erratas y detalles técnicos heredados de 2006
+- [ ] Añadir los dos puntos faltantes en la entrada `· Habitus Es la concreción…` → `· Habitus: Es la concreción…` (única entrada de las 93 sin dos puntos en 2006).
 - [ ] Definir al cierre si se conserva el formato actual de las 93 entradas (`· Término:`) o si se migra a subtítulos `### Término`, manteniendo el orden alfabético estricto al insertar los conceptos nuevos.
 
 ## Autores, citas o frases adicionales por incluir
