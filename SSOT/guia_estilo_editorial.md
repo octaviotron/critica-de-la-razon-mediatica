@@ -23,7 +23,7 @@
 5. **Estándar editorial de citas, comillas y política anti-alucinación bibliográfica:**
    * **Sistema de citas:** Usar notas al pie de tradición clásica europea (no formato APA en el cuerpo): `Inicial. Apellido, *Título del libro*, Editorial, Ciudad, Año, p. X.` (con *Ibíd.*, *Op. cit.* y punto final).
    * **Comillas:** Preferir comillas latinas (`«»`) para citas textuales, comillas dobles (`""`) para énfasis o citas internas y evitar comillas angulares simples (`‹›`).
-   * **Prohibición estricta de inventar citas o páginas:** Al incorporar nuevos autores (Varoufakis, Han, Fisher, Harari, Dennis, Žižek, Sadin, Cortina, Bostrom, Reyes u otros), **nunca inventar citas textuales entrecomilladas ni números de página**. Si la obra existe en [`externos/`](../externos/), verificar el fragmento literal y la página exacta mediante `python3 -B scripts/edicion/buscar_externos.py` (y su ficha en `notas/fuentes/`). Si la fuente está en otro idioma (p. ej. francés en `La vie spectrale.pdf`), indicar `[trad. propia]` o contrastar con edición publicada en castellano. Si no se dispone de la fuente literal verificada, redactar en paráfrasis analítica rigurosa o anotar `[VERIFICAR CITA/PÁG.]` en `notas/capitulos/<archivo>.md`.
+   * **Prohibición estricta de inventar citas o páginas (y verificación de folio impreso):** Al incorporar nuevos autores (Varoufakis, Han, Fisher, Harari, Dennis, Žižek, Sadin, Cortina, Bostrom, Reyes u otros), **nunca inventar citas textuales entrecomilladas ni números de página**. Si la obra existe en [`externos/`](../externos/), verificar el fragmento literal y la página exacta mediante `python3 -B scripts/edicion/buscar_externos.py` (y su ficha en `notas/fuentes/`). **Atención (`Pág. PDF` ≠ folio impreso):** antes de escribir `p. X` en una nota al pie, comprobar el **folio impreso visible dentro del texto** devuelto por `--leer` (los PDFs suelen tener un desfase de 2–10 páginas por portada/preliminares; solo usar `p. X [PDF]` si el archivo carece de foliación impresa). Si la fuente está en otro idioma (p. ej. francés en `La vie spectrale.pdf`), indicar `[trad. propia]` o contrastar con edición publicada en castellano. Si no se dispone de la fuente literal verificada, redactar en paráfrasis analítica rigurosa o anotar `[VERIFICAR CITA/PÁG.]` en `notas/capitulos/<archivo>.md`.
 6. **Notas al pie sin renumeración manual y omisiones conocidas de 2006:**
    * Nunca borres ni desconectes una llamada `[^n]` ni su definición `[^n]:` existente sin autorización expresa.
    * Si agregas una nota nueva en medio de un capítulo que ya tiene numeración de 2006, **no renumeres manualmente** las notas posteriores: usa un identificador temporal claro (por ejemplo `[^14b]` o `[^algoritmo]`). La renumeración secuencial se realiza solo al cierre editorial.
@@ -56,35 +56,14 @@ Estas 7 pautas ya fueron definidas con el proyecto y rigen por defecto en todas 
 
 ---
 
-## 2. Protocolo Operativo de la IA por Capítulo
+## 2. Puente hacia los Procedimientos Operativos (Skills y Flujo)
 
-Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por sesión** (sin leer el resto de `libro/` ni `respaldo_v1.0/md/` salvo para comparar el mismo capítulo contra 2006).
+Para evitar duplicaciones, esta guía concentra la **normativa editorial** (§1 y §3), mientras los procedimientos detallados paso a paso viven en las **4 Skills modulares** (y en [`SSOT/flujo_editorial_segunda_edicion.md`](flujo_editorial_segunda_edicion.md) como referencia general):
 
-1. **Al recibir instrucciones de edición sobre un capítulo (`libro/<archivo>.md`):**
-   * Ejecutar `python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>` para obtener en un solo paso el briefing completo (estado en `libro.yaml`, alerta de autoría protegida, diagnóstico técnico en vivo, ficha de `notas/capitulos/`, fuentes externas asignadas y menciones en `notas/NOTAS.md`), y consultar [`notas/mapa_obra.md`](../notas/mapa_obra.md) y [`SSOT/perfil_voz_autor.md`](perfil_voz_autor.md).
-   * Para verificar citas o conceptos dentro del propio libro o del Glosario sin cargar otros capítulos, usar `python3 -B scripts/edicion/buscar_libro.py`; para citas literales de `externos/`, usar `python3 -B scripts/edicion/buscar_externos.py`.
-   * Aplicar las modificaciones solicitadas directamente en `libro/<archivo>.md`.
-   * Actualizar su `estado` a `"en_revision"` en [`libro.yaml`](../libro.yaml) si estaba en `"pendiente"`.
-   * Ejecutar silenciosamente la validación del capítulo:
-     `python3 -B scripts/edicion/validar_libro.py --capitulo <id>`
-2. **Al avisar el usuario que añadió o actualizó archivos en `externos/`:**
-   * Ejecutar silenciosamente `python3 -B scripts/edicion/indexar_externos.py` (indexación incremental en `dist/indice_externos/corpus.db` y alta en `notas/fuentes/catalogo.yaml`).
-   * Inspeccionar metadatos, colofón y TOC de las fuentes nuevas mediante `buscar_externos.py --info` y `--leer <slug> --paginas 1-6` (más créditos finales si hace falta).
-   * Completar los campos editoriales en `notas/fuentes/catalogo.yaml` (cita europea, postura de diálogo, temas, capítulos destino, `estado: "fichado"`), redactar `notas/fuentes/<slug>.md`, enlazar en `notas/NOTAS.md` y entregar un resumen breve al usuario.
-3. **Al preparar una entrega para revisión del autor:**
-   * Generar el archivo limpio **solo de ese capítulo** en `dist/` (PDF por defecto o Word `.docx` si el autor revisa en Word/Google Docs):
-     * PDF: `python3 -B scripts/edicion/compilar_pdf.py --capitulo <id>`
-     * Word: `python3 -B scripts/edicion/compilar_pdf.py --capitulo <id> --formato docx`
-   * Comparar ese capítulo contra 2006 (`python3 -B scripts/edicion/reporte_cambios.py --capitulo <id>`) y entregar al usuario un **resumen breve (5–10 viñetas)** de qué se actualizó para acompañar el envío al autor.
-4. **Al recibir observaciones del autor:**
-   * Registrar las observaciones en `notas/capitulos/<archivo>.md`, aplicar las correcciones indicadas sobre el mismo `libro/<archivo>.md`, volver a validar el capítulo y generar un nuevo PDF/DOCX de revisión si hace falta.
-5. **Al recibir la aprobación explícita del autor (confirmada por el usuario):**
-   * Marcar como completadas (`- [x]`) las tareas incorporadas en `notas/capitulos/<archivo>.md`, en `notas/fuentes/<slug>.md` (si se integraron fuentes externas) y en [`notas/NOTAS.md`](../notas/NOTAS.md).
-   * Actualizar el resumen de 2.ª edición y el registro de autores/conceptos ya introducidos en [`notas/mapa_obra.md`](../notas/mapa_obra.md), documentar el detalle editorial en [`notas/registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md) y añadir su síntesis publicable en [`libro/anexo_cambios_segunda_edicion.md`](../libro/anexo_cambios_segunda_edicion.md).
-   * Anotar cualquier término nuevo de Glosario o referencia nueva para Bibliografía en [`notas/NOTAS.md`](../notas/NOTAS.md) (no en `CHANGELOG.md`).
-   * Cambiar `estado: "aprobado"` en [`libro.yaml`](../libro.yaml).
-   * Registrar el capítulo aprobado en [`CHANGELOG.md`](../CHANGELOG.md).
-   * Dejar los cambios listos para que el usuario haga su `commit` + `push` (o ejecutarlo solo si el usuario lo pide expresamente).
+* **Edición, validación, entrega en PDF limpio y cierre de un capítulo:** [`.agents/skills/editar-capitulo/SKILL.md`](../.agents/skills/editar-capitulo/SKILL.md) *(trabajar siempre un solo archivo `.md` por sesión; usar `contexto_capitulo.py`, `buscar_libro.py`, `buscar_externos.py`, `validar_libro.py`, `compilar_pdf.py` y `reporte_cambios.py`)*.
+* **Incorporación, indexación y fichado de archivos nuevos en `externos/`:** [`.agents/skills/procesar-externos/SKILL.md`](../.agents/skills/procesar-externos/SKILL.md).
+* **Consolidación final (Bibliografía, Glosario, notas, Índice General, Anexo `A1` y Onomástico):** [`.agents/skills/cierre-editorial/SKILL.md`](../.agents/skills/cierre-editorial/SKILL.md).
+* **Cambios de scripts, directorios, Skills, reglas o estructura de `libro.yaml`:** [`.agents/skills/mantenimiento-proyecto/SKILL.md`](../.agents/skills/mantenimiento-proyecto/SKILL.md).
 
 ---
 

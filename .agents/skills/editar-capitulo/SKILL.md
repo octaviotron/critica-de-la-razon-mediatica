@@ -38,6 +38,9 @@ Sigue este flujo de principio a fin trabajando siempre **un solo capítulo `.md`
      python3 -B scripts/edicion/buscar_externos.py "<consulta>" --limite 8
      python3 -B scripts/edicion/buscar_externos.py --leer <slug> --paginas A-B
      ```
+4. **Plan previo de intervención y densidad de fuentes (antes de modificar `libro/`):**
+   * En capítulos extensos (`> 3,000` palabras) y cuando el usuario no haya dado instrucciones puntuales párrafo por párrafo, proponer primero un **plan breve (5–8 viñetas)**: qué apartados se intervendrán, qué **2–3 fuentes** entrarán en diálogo profundo y qué erratas/omisiones de 2006 se consultarán.
+   * **Repertorio, no cuota obligatoria:** las fuentes mapeadas en `notas/fuentes/catalogo.yaml` son insumos disponibles; priorizar **2–3 diálogos sustantivos** antes que forzar menciones superficiales de todos los autores listados.
 
 ---
 
@@ -46,7 +49,7 @@ Sigue este flujo de principio a fin trabajando siempre **un solo capítulo `.md`
 Aplicar las **7 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editorial.md` §1.1):
 1. **Integración híbrida:** tejer los aportes nuevos orgánicamente dentro del ensayo sin borrar argumentos de 2006; abrir subapartados nuevos (`##` o `###`) solo ante giros históricos mayores.
 2. **Anclaje temporal:** contextualizar cifras y ejemplos de 2006 históricamente (*«hace dos décadas…»*) y tender puente inmediato al presente verificado.
-3. **Citas verificadas y anti-alucinación:** nunca inventar citas ni páginas. Usar estilo europeo (`Inicial. Apellido, *Título*, Editorial, Ciudad, Año, p. X.`). Para fuentes en otro idioma (p. ej. francés), traducir al español en el cuerpo e indicar `[trad. propia]` al pie. Si falta verificar algo, anotar `[VERIFICAR CITA/PÁG.]` en `notas/capitulos/<archivo>.md`.
+3. **Citas verificadas y anti-alucinación (`Pág. PDF` ≠ folio impreso):** nunca inventar citas ni páginas. Usar estilo europeo (`Inicial. Apellido, *Título*, Editorial, Ciudad, Año, p. X.`). Al citar obras de `externos/`, verificar siempre el **folio impreso visible dentro del texto** devuelto por `--leer` (no copiar mecánicamente `Pág. PDF N` si existe desfase por portada/preliminares; usar `p. X [PDF]` solo si carece de paginación impresa). Para fuentes en otro idioma (p. ej. francés), traducir al español en el cuerpo e indicar `[trad. propia]` al pie. Si falta verificar algo, anotar `[VERIFICAR CITA/PÁG.]` en `notas/capitulos/<archivo>.md`.
 4. **Notas al pie:** no borrar notas existentes ni renumerar manualmente; usar IDs temporales (`[^14b]`, `[^sadin]`) en un solo párrafo tras `---`.
 5. **Uniformidad al paso:** `«»` para citas textuales, `""` para énfasis/citas internas, eliminar `‹›`; estandarizar `Ibíd.`, `Op. cit.` y punto final; corregir `Masmediática`, `S. i ek`, `Gumis`, `Foweler`, `Lippman` y encabezados partidos en 2–3 líneas.
 6. **Sintaxis PangoCairo:** prohibidos `####`, tablas `|...|`, bloques `` ``` ``, imágenes `![...]`, asteriscos impares y notas multipárrafo. En listas numeradas extensas, dejar una línea en blanco entre ítems.
@@ -83,6 +86,7 @@ Aplicar las **7 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editoria
 ## Fase 4 — Iteración y Cierre (solo tras aprobación explícita)
 
 * **Si el autor envía observaciones:** registrarlas en `notas/capitulos/<archivo>.md` (y cualquier pauta general en `notas/NOTAS.md` Sección 7), aplicar ajustes en `libro/<archivo>.md`, revalidar y recompilar.
+* **Si el autor descarta un borrador completo:** revertir limpiamente el archivo al último estado confirmado (`git checkout -- libro/<archivo>.md` o restaurando desde `respaldo_v1.0/md/<archivo>.md` solo bajo confirmación del usuario) y anotar en `notas/capitulos/<archivo>.md` qué enfoque evitar.
 * **Cuando el usuario confirme explícitamente que el autor aprobó el capítulo:**
   1. Marcar `- [x]` en `notas/capitulos/<archivo>.md`, `notas/fuentes/<slug>.md` (si se integraron fuentes) y `notas/NOTAS.md`.
   2. Actualizar la entrada del capítulo y el registro de autores/conceptos introducidos en `notas/mapa_obra.md`, documentar los cambios sustantivos en `notas/registro_cambios_edicion.md` y añadir su síntesis publicable en `libro/anexo_cambios_segunda_edicion.md` (`id: A1`).

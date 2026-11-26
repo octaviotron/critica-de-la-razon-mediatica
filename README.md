@@ -5,7 +5,7 @@
 
 Repositorio oficial de digitalización íntegra y preparación de la **Segunda Edición** del libro ***Crítica de la Razón Mediática*** de **Juan Barreto Cipriani** (1.ª edición: UCV / CIPOST, Caracas, 2006).
 
-> **Estado actual del proyecto:** Base digital de la Primera Edición (2006) verificada al `100%` en [`respaldo_v1.0/`](respaldo_v1.0/) · **Segunda Edición en preparación** — progreso capítulo por capítulo en [`libro.yaml`](libro.yaml) y bitácora en [`CHANGELOG.md`](CHANGELOG.md).
+> **Estado actual del proyecto:** Base digital de la Primera Edición (2006) verificada al `100%` en [`respaldo_v1.0/`](respaldo_v1.0/) · **Segunda Edición en preparación** — progreso en [`libro.yaml`](libro.yaml), relación pública de cambios en [`libro/anexo_cambios_segunda_edicion.md`](libro/anexo_cambios_segunda_edicion.md) y bitácora en [`CHANGELOG.md`](CHANGELOG.md).
 
 ---
 
@@ -92,3 +92,7 @@ El trabajo editorial se realiza de forma incremental y transparente:
 4. **Cierre editorial:** Al completarse los ensayos, se consolidan la Bibliografía, el Glosario, el Índice General y el Índice Onomástico.
 
 Para la documentación técnica completa, comandos de uso de scripts y especificaciones editoriales, consúltense [`SSOT/README.md`](SSOT/README.md) y [`scripts/README.md`](scripts/README.md).
+
+---
+
+*Derechos de autor: obra intelectual de **Juan Barreto Cipriani** y de los autores invitados firmantes de los textos de apertura y cierre (Michel Maffesoli, Rigoberto Lanz, Nelson Guzmán, Magaldy Téllez y Javier Biardeau). Este repositorio está destinado a la preservación digital y a la preparación editorial de la Segunda Edición.*
