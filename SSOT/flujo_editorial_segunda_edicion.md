@@ -125,7 +125,7 @@ respaldo_v1.0/
 | [`buscar_libro.py`](../scripts/edicion/buscar_libro.py) | Búsqueda interna insensible a tildes sobre `libro/`, el Glosario (`--glosario`) y la Bibliografía (`--bibliografia`) con distribución de ocurrencias por capítulo. | `python3 -B scripts/edicion/buscar_libro.py --glosario "cuerpo"` |
 | [`contexto_capitulo.py`](../scripts/edicion/contexto_capitulo.py) | Genera en un solo comando el briefing editorial de un capítulo (metadatos, alerta de autoría protegida, diagnóstico técnico en vivo, ficha espejo, fuentes externas y menciones globales). | `python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19` |
 
-> **Sincronización ante cambios del proyecto:** Siempre que se añada o modifique un script, directorio, función o paso del flujo editorial, seguir el **Protocolo de Mantenimiento y Evolución** definido en [`AGENTS.md`](../AGENTS.md) para mantener alineados `AGENTS.md`, `SSOT/` y los `README.md` sin contradicciones.
+> **Sincronización ante cambios del proyecto:** Siempre que se añada o modifique un script, directorio, función, Skill o paso del flujo editorial, seguir el **Protocolo de Mantenimiento y Evolución** definido en [`AGENTS.md`](../AGENTS.md) (Sección 8) para mantener alineados `AGENTS.md`, `.agents/skills/`, `SSOT/` y los `README.md` sin contradicciones. Los procedimientos paso a paso bajo demanda viven en [`.agents/skills/`](../.agents/skills/) (`editar-capitulo`, `procesar-externos` y `cierre-editorial`).
 
 ### 6.2. Pipeline Histórico de Extracción 2006 (`scripts/extraccion_v1/`)
 Congelado para trazabilidad y auditoría reproducible de la 1.ª edición:

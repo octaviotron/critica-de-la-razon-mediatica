@@ -35,12 +35,17 @@ Repositorio oficial del proyecto de procesamiento digital, estructuración en fo
 
 ## Estructura del Proyecto
 
-El repositorio está organizado alrededor de siete directorios versionados ([`externos/`](externos/), [`fuente/`](fuente/), [`libro/`](libro/), [`notas/`](notas/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), las reglas operativas del workspace [`AGENTS.md`](AGENTS.md), el manifiesto estructural y de avance [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para entregas compiladas (PDF o Word `.docx`) e índices locales de búsqueda.
+El repositorio está organizado alrededor de siete directorios versionados ([`externos/`](externos/), [`fuente/`](fuente/), [`libro/`](libro/), [`notas/`](notas/), [`respaldo_v1.0/`](respaldo_v1.0/), [`scripts/`](scripts/) y [`SSOT/`](SSOT/)), las reglas operativas del workspace [`AGENTS.md`](AGENTS.md) con sus guías modulares en [`.agents/skills/`](.agents/skills/), el manifiesto estructural y de avance [`libro.yaml`](libro.yaml), la bitácora [`CHANGELOG.md`](CHANGELOG.md) y una carpeta local `dist/` (ignorada por Git) para entregas compiladas (PDF o Word `.docx`) e índices locales de búsqueda.
 
 ```text
 critica-de-la-razon-mediatica/
 ├── README.md                  # Documentación general, créditos, flujo editorial y resumen de la obra
 ├── AGENTS.md                  # Reglas universales del workspace, mapa completo y protocolo de mantenimiento
+├── .agents/
+│   └── skills/                # Guías procedimentales modulares bajo demanda (edición asistida)
+│       ├── editar-capitulo/   # Flujo paso a paso para editar, validar, compilar y cerrar un capítulo
+│       ├── procesar-externos/ # Procedimiento de indexación, fichado y mapeo de bibliografía en externos/
+│       └── cierre-editorial/  # Guía final: bibliografía, glosario, notas, índice general y onomástico
 ├── CHANGELOG.md               # Bitácora editorial de capítulos aprobados e hitos completados
 ├── libro.yaml                 # Manifiesto maestro: orden flexible del índice y estado por capítulo (Opción A)
 ├── .gitignore                 # Excluye dist/ (PDFs/DOCX/reportes/índice local) y temporales
@@ -133,6 +138,12 @@ critica-de-la-razon-mediatica/
    * **[`SSOT/perfil_voz_autor.md`](SSOT/perfil_voz_autor.md):** Referencia empírica de cadencia ensayística del autor, anti-patrones a evitar e inventario completo de los 92 términos del Glosario.
    * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica histórica del Método 1 (2006) y política del respaldo inmutable `respaldo_v1.0/`.
    * **[`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md):** Memoria técnica de la conversión ejecutada y tabla de auditoría contable capítulo por capítulo.
+8. **[`AGENTS.md`](AGENTS.md) y [`.agents/skills/`](.agents/skills/) — Reglas del Workspace y Skills Procedimentales Modulares:**
+   * **[`AGENTS.md`](AGENTS.md):** Punto de entrada universal con el mapa completo del repositorio, las reglas inviolables, las decisiones editoriales cerradas, el catálogo de herramientas internas y el protocolo de sincronización ante cambios estructurales.
+   * **[`.agents/skills/`](.agents/skills/):** Guías operativas modulares de carga bajo demanda que encapsulan los procedimientos paso a paso sin sobrecargar la regla raíz:
+     * **[`editar-capitulo/SKILL.md`](.agents/skills/editar-capitulo/SKILL.md):** Procedimiento completo por capítulo (briefing, edición híbrida, validación, compilación de entrega en PDF y cierre tras aprobación).
+     * **[`procesar-externos/SKILL.md`](.agents/skills/procesar-externos/SKILL.md):** Procedimiento automático de indexación incremental, verificación de colofones, curado de `notas/fuentes/catalogo.yaml` y fichado cuando se añade bibliografía en `externos/`.
+     * **[`cierre-editorial/SKILL.md`](.agents/skills/cierre-editorial/SKILL.md):** Guía exclusiva para la fase final (renumeración de notas, consolidación de Bibliografía y Glosario, saneamiento de encabezados, regeneración del Índice General y actualización del Índice Onomástico).
 
 ---
 

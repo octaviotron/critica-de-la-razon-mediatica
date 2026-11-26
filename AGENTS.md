@@ -1,172 +1,123 @@
 # Reglas Universales del Workspace — *Crítica de la Razón Mediática* (2.ª Edición)
 
-Este archivo proporciona el contexto completo, las reglas inviolables, los flujos de trabajo y el protocolo de mantenimiento del repositorio para cualquier agente de IA que opere en este proyecto.
+Contexto raíz, límites inviolables, decisiones editoriales cerradas y protocolo de mantenimiento del proyecto para cualquier agente de IA. Los procedimientos paso a paso viven en las **Skills modulares** de `.agents/skills/` (carga bajo demanda).
 
 ---
 
 ## 1. Identidad y Objetivo del Proyecto
 
 * **Obra:** *Crítica de la Razón Mediática. Ensayos sobre biopolítica y potencia política del cuerpo (Pre-textos para un debate por el socialismo)*
-* **Autor:** Juan Barreto Cipriani (1.ª edición: UCV / CIPOST, Caracas, 2006; ISBN `980-12-1936-X`)
-* **Asesoría informática:** Octavio Rossell Tabet (`octavio.rossell@gmail.com`)
-* **Objetivo activo:** Preparar la **Segunda Edición** revisada y actualizada, trabajando **un capítulo `.md` a la vez** en `libro/`, con mínima fricción técnica para el usuario (el usuario opera en lenguaje natural y el agente ejecuta silenciosamente los scripts internos bajo demanda).
-* **Base digital verificada:** 33 archivos Markdown (`197,690` palabras, `2,685` bloques, `535` notas al pie, `1,008,962 / 1,008,962` caracteres alfanuméricos, exactitud `100.000%` frente al PDF de 2006).
+* **Autor:** Juan Barreto Cipriani (1.ª ed.: UCV / CIPOST, Caracas, 2006; ISBN `980-12-1936-X`) | **Asesoría informática:** Octavio Rossell Tabet (`octavio.rossell@gmail.com`)
+* **Objetivo activo:** Preparar la **Segunda Edición** trabajando **un capítulo `.md` a la vez** en `libro/`, con cero fricción CLI para el usuario (el usuario opera en lenguaje natural; el agente ejecuta silenciosamente `scripts/edicion/`).
+* **Base digital verificada (2006):** `33` archivos `.md`, `197,690` palabras, `2,685` bloques, `535` notas al pie, `1,008,962 / 1,008,962` caracteres alfanuméricos (`100.000%` de integridad).
 
 ---
 
 ## 2. Jerarquía de Verdad (Prevención de Contradicciones)
 
-Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
-1. **`AGENTS.md` (este archivo):** Punto de entrada universal, mapa completo del repositorio, límites de seguridad y protocolo de sincronización ante cambios estructurales.
-2. **`SSOT/guia_estilo_editorial.md` y `SSOT/flujo_editorial_segunda_edicion.md`:** Fuente única de verdad operativa para estilo, citas, sintaxis y flujo editorial.
-3. **`libro.yaml`:** Manifiesto maestro del orden de partes/capítulos y tablero de `estado` (`pendiente` | `en_revision` | `aprobado`).
-4. **`notas/` (`NOTAS.md`, `capitulos/`, `fuentes/`):** Único espacio para todo lo pendiente, observaciones del autor y fichas de bibliografía externa.
-5. **`CHANGELOG.md`:** Único registro de hechos cerrados (capítulos ya aprobados e hitos completados).
+1. **`AGENTS.md` (este archivo):** Reglas siempre activas, seguridad, mapa del repositorio y protocolo de sincronización.
+2. **`SSOT/` (`guia_estilo_editorial.md`, `perfil_voz_autor.md`, `flujo_editorial_segunda_edicion.md`):** Fuente única de verdad operativa para estilo, voz, citas y flujo.
+3. **`.agents/skills/` (`editar-capitulo`, `procesar-externos`, `cierre-editorial`):** Procedimientos detallados bajo demanda subordinados al `SSOT/` (nunca duplican ni contradicen el `SSOT/`).
+4. **`libro.yaml`:** Manifiesto maestro del orden de partes/capítulos y `estado` (`pendiente` | `en_revision` | `aprobado`).
+5. **`notas/` (`NOTAS.md`, `mapa_obra.md`, `capitulos/`, `fuentes/`):** Único espacio para pendientes, panorámica de la obra, observaciones del autor y fichas de `externos/`.
+6. **`CHANGELOG.md`:** Único registro de hechos ya cerrados y capítulos aprobados.
 
-> Si detectas una contradicción entre `AGENTS.md`, `SSOT/`, un `README.md` o un script en `scripts/edicion/`, **detente, repórtala al usuario** y aplica el Protocolo de Mantenimiento (Sección 9) antes de continuar editando capítulos.
+> Si detectas una contradicción entre cualquiera de estos archivos o un script, **detente, repórtala al usuario** y sincroniza aplicando la Sección 8.
 
 ---
 
-## 3. Mapa Completo del Repositorio (Responsabilidades sin Solapamientos)
+## 3. Mapa del Repositorio (Responsabilidades sin Solapamientos)
 
 | Ruta | Naturaleza | Responsabilidad exacta |
 | :--- | :--- | :--- |
-| `AGENTS.md` | Editable (mantener sincronizado) | Regla universal del workspace para agentes de IA. |
-| `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas ni borradores). Los 33 nombres originales actúan como IDs estables (**Opción A**). |
-| `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, agrupación en 8 secciones y `estado` de cada capítulo. |
-| `notas/NOTAS.md` | Editable | Bandeja global de pendientes, autores, candidatos al Glosario, preferencias confirmadas del autor y hallazgos técnicos. |
-| `notas/mapa_obra.md` | Editable | Panorámica argumental condensada de los 33 capítulos y registro vivo de autores/conceptos ya introducidos en la 2.ª edición. |
-| `notas/capitulos/` | Editable | Ficha espejo por capítulo (`<mismo_nombre>.md` que en `libro/`, más planificación futura como `prefacio_segunda_edicion.md`). |
-| `notas/fuentes/` | Editable | Catálogo maestro (`catalogo.yaml`) y fichas de lectura curadas (`<slug>.md`) de la bibliografía depositada en `externos/`. |
-| `externos/` | **Solo lectura (versionado en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar archivos aquí. |
-| `CHANGELOG.md` | Editable (solo hechos cerrados) | Registro exclusivo de capítulos ya aprobados por el autor e hitos completados. |
-| `scripts/edicion/` | Editable (herramientas internas) | Scripts Python ejecutados por el agente bajo demanda (briefing, validación, búsqueda en libro/externos, PDF/DOCX, diffs e índice). |
-| `SSOT/` | Editable (documentación rectora) | `README.md`, `flujo_editorial_segunda_edicion.md`, `guia_estilo_editorial.md`, `perfil_voz_autor.md` (activos); `proceso_conversion_pdf_a_md.md` y `detalle_ejecucion_y_auditoria_conversion.md` (consulta histórica). |
-| `fuente/` | **INTOCABLE (solo lectura)** | PDF maestro de 2006, maquetación QuarkXPress (`.qxp`), tipografías (`FUENTES/`), portadas (`PORTADA/`) y portadillas (`RAZON/images/`). |
-| `respaldo_v1.0/` | **INTOCABLE (solo lectura)** | Copia congelada e inmutable de los 33 `.md` de 2006, `libro.yaml` de v1.0 y huellas SHA-256 (`manifiesto_v1.0.md`). |
-| `scripts/extraccion_v1/` | **CONGELADO (solo lectura)** | Pipeline histórico de extracción y auditoría 100% de 2006. Nunca modificar ni re-ejecutar sobre `libro/`. |
-| `dist/` | **Temporal (ignorado por Git)** | Salidas desechables: entregas PDF/DOCX, reportes comparativos e índice local `dist/indice_externos/corpus.db` (SQLite FTS5) + `txt/`. |
+| `AGENTS.md` | Editable (mantener `< 18 KB`) | Regla universal siempre activa del workspace. |
+| `.agents/skills/` | Editable (carga bajo demanda) | Skills procedimentales: `editar-capitulo`, `procesar-externos` y `cierre-editorial`. |
+| `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas). Los 33 nombres originales son IDs estables (**Opción A**). |
+| `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, 8 secciones y `estado` por capítulo. |
+| `notas/` | Editable | `NOTAS.md` (pendientes globales y preferencias del autor), `mapa_obra.md` (panorámica de 33 caps. y registro 2.ª ed.), `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`) y `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`). |
+| `externos/` | **Solo lectura (en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar. |
+| `CHANGELOG.md` | Editable (hechos cerrados) | Exclusivo para capítulos aprobados e hitos ya completados. |
+| `scripts/edicion/` | Editable (herramientas internas) | Scripts Python ejecutados con `python3 -B` bajo demanda por el agente. |
+| `SSOT/` | Editable (documentación rectora) | Activos: `README.md`, `flujo_editorial_segunda_edicion.md`, `guia_estilo_editorial.md`, `perfil_voz_autor.md`. Históricos (no cargar en sesiones normales): `proceso_conversion_pdf_a_md.md` y `detalle_ejecucion_y_auditoria_conversion.md`. |
+| `fuente/` | **INTOCABLE (solo lectura)** | PDF maestro de 2006, QuarkXPress (`.qxp`), `FUENTES/`, `PORTADA/`, `RAZON/images/`. |
+| `respaldo_v1.0/` | **INTOCABLE (solo lectura)** | Copia testigo congelada de los 33 `.md` de 2006, `libro.yaml` v1.0 y SHA-256 (`manifiesto_v1.0.md`). |
+| `scripts/extraccion_v1/` | **CONGELADO (solo lectura)** | Pipeline histórico de 2006. Nunca modificar ni re-ejecutar sobre `libro/`. |
+| `dist/` | **Temporal (ignorado por Git)** | Entregas PDF/DOCX, reportes diff e índice local `dist/indice_externos/corpus.db` (SQLite FTS5) + `txt/`. |
 
 ---
 
 ## 4. Política de Lectura Progresiva (Ahorro de Contexto)
 
-* **Al editar un capítulo:** ejecuta `python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>` y lee únicamente `SSOT/guia_estilo_editorial.md`, `SSOT/perfil_voz_autor.md`, `notas/mapa_obra.md`, `libro/<archivo>.md` y las fichas asignadas en `notas/fuentes/`. Para consultar otros capítulos o el Glosario sin cargarlos completos, usa `buscar_libro.py`.
-* **NO cargar en sesiones normales:**
-  * Múltiples capítulos de `libro/` ni el directorio `respaldo_v1.0/md/` (salvo comparación puntual del mismo capítulo vía `reporte_cambios.py`).
-  * Libros o PDFs completos de `externos/` (consultar siempre mediante `buscar_externos.py` por búsqueda FTS5 o rangos cortos de páginas `--leer <slug> --paginas A-B`).
-  * `SSOT/proceso_conversion_pdf_a_md.md`, `SSOT/detalle_ejecucion_y_auditoria_conversion.md` y `scripts/extraccion_v1/` (solo ante dudas históricas sobre 2006).
+* **Al editar un capítulo:** activar la skill `editar-capitulo` (ejecuta `contexto_capitulo.py --capitulo <id>` y lee solo `libro/<archivo>.md`, `notas/mapa_obra.md`, `SSOT/perfil_voz_autor.md` y las fichas asignadas en `notas/fuentes/`). Usar `buscar_libro.py` y `buscar_externos.py` para consultas puntuales.
+* **NO cargar completos en sesiones normales:** múltiples capítulos de `libro/`, `respaldo_v1.0/md/`, libros/PDFs enteros de `externos/` ni la documentación histórica de conversión (`SSOT/proceso_conversion_pdf_a_md.md`, `SSOT/detalle_ejecucion_y_auditoria_conversion.md`, `scripts/extraccion_v1/`).
 
 ---
 
 ## 5. Reglas Inviolables de Seguridad, Autoría y Git
 
-1. **Directorios prohibidos para escritura:** Nunca modificar, renombrar, mover ni escribir dentro de `respaldo_v1.0/`, `fuente/`, `scripts/extraccion_v1/` ni `externos/`.
-2. **Textos de autores invitados protegidos (NO reescribir contenido sin orden expresa del usuario/autor):**
-   * `libro/03_liminar.md` — Michel Maffesoli.
-   * `libro/04_prologo_1_rigoberto_lanz.md` — Rigoberto Lanz.
-   * `libro/05_prologo_2_nelson_guzman.md` — Nelson Guzmán.
-   * `libro/06_prologo_3_magaldy_tellez.md` — Magaldy Téllez.
-   * `libro/29_post_scriptum.md` — **Frontera exacta:** líneas `1–100` (*Primer* y *Segundo movimiento*) son de Juan Barreto (editables); desde la **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios`) es ensayo de Javier Biardeau (protegido automáticamente por `validar_libro.py`).
-3. **Prohibición absoluta en todos los `README.md` públicos:** Nunca mencionar «IA» ni «Inteligencia Artificial» en `README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md` ni `SSOT/README.md`. Usar siempre *edición asistida* o *ejecución asistida de scripts*.
-4. **Git lineal y aprobaciones:**
-   * Trabajar siempre en `main`; **no crear ramas ni tags**.
-   * **Nunca ejecutar `git commit` ni `git push`** sin instrucción explícita del usuario.
-   * **Nunca cambiar `estado: "aprobado"` en `libro.yaml`** por iniciativa propia: solo tras confirmación explícita del usuario de que el autor aprobó el capítulo.
-5. **Separación `notas/` vs. `CHANGELOG.md`:** Todo lo pendiente va en `notas/`; `CHANGELOG.md` registra solo capítulos aprobados e hitos ya cerrados.
-6. **Índices protegidos hasta el cierre:** No editar `libro/01_indice.md` manualmente ni modificar `libro/32_indice_onomastico.md` hasta el cierre editorial.
+1. **Directorios prohibidos para escritura:** Nunca modificar, renombrar ni escribir en `respaldo_v1.0/`, `fuente/`, `scripts/extraccion_v1/` ni `externos/`.
+2. **Textos de autores invitados protegidos (NO reescribir sin orden expresa; verificados por `validar_libro.py`):**
+   * Íntegros: `03_liminar.md` (Michel Maffesoli), `04_prologo_1_rigoberto_lanz.md` (Rigoberto Lanz), `05_prologo_2_nelson_guzman.md` (Nelson Guzmán), `06_prologo_3_magaldy_tellez.md` (Magaldy Téllez).
+   * Parcial: `29_post_scriptum.md` — líneas `1–100` (Juan Barreto, editables); desde **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios`) es de **Javier Biardeau** (protegido).
+3. **Prohibición absoluta en todos los `README.md` públicos:** Nunca mencionar «IA» ni «Inteligencia Artificial» en `README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md` ni `SSOT/README.md` (verificado automáticamente por `validar_libro.py`). Usar *edición asistida* o *ejecución asistida de scripts*.
+4. **Git lineal y aprobaciones:** Trabajar solo en `main`; **no crear ramas ni tags**; **nunca ejecutar `git commit` ni `git push`** sin instrucción expresa; **nunca marcar `estado: "aprobado"` en `libro.yaml`** sin confirmación explícita del usuario.
+5. **Índices protegidos hasta el cierre:** No editar `libro/01_indice.md` manualmente ni tocar `libro/32_indice_onomastico.md` hasta el cierre editorial.
 
 ---
 
-## 6. Reglas Editoriales, de Estilo y Límites de Compilación
+## 6. Reglas Editoriales Esenciales y Decisiones Confirmadas
 
-1. **Fidelidad de voz y argumentos:** Conservar el registro filosófico-ensayístico de Juan Barreto Cipriani (`SSOT/perfil_voz_autor.md`: párrafos modelo, anti-patrones de IA prohibidos y los 92 términos del Glosario); nunca resumir ni recortar argumentos sin instrucción expresa.
-2. **Vocabulario conceptual protegido (no sustituir ni quitar guiones):** `massmediática`, `mass-media`, `biopolítica`, `biopoder`, `agenciamiento`, `significante-signo`, `cuerpo-potencia`, `rostro-proceso`, `hecha-en-común`, `trabajo-valor`, `ético-política`, `post-scriptum`, `rizoma`, `pliegue`, `líneas de fuga`, `subjetividad`, `performativo`, `habitus`, `multitud`, `dispositivo`, `aura`.
-3. **Sintaxis Markdown en `libro/*.md` (compatibilidad con PangoCairo en `compilar_pdf.py`):**
-   * **Permitida:** `#`, `##`, `###`, epígrafes (`> *...*` + `> — Autor`), citas a bando (`> ...`), listas `- `, listas numeradas `1.`, `2.` **con una línea en blanco entre cada ítem**, inline `***...***`, `**...**`, `*...*`, llamadas `[^id]` y definiciones `[^id]: texto` en un solo párrafo al final tras `---`.
-   * **PROHIBIDA en `libro/*.md`:** `####`, tablas Markdown (`|...|`), bloques de código (`` ``` ``), imágenes (`![...]`), asteriscos impares/cruzando líneas y notas al pie divididas en varios párrafos.
-   * No reformatear `libro/31_glosario.md` (`· Término:`) sin decisión expresa al cierre.
-4. **Citas europeas y política anti-alucinación bibliográfica:**
-   * Formato obligatorio en notas al pie: `Inicial. Apellido, *Título del libro*, Editorial, Ciudad, Año, p. X.` (*Ibíd.*, *Op. cit.* y punto final). Preferir comillas latinas `«»` para citas textuales y `""` para citas internas/énfasis; evitar `‹›`.
-   * **Nunca inventar citas textuales ni números de página.** Si la obra está en `externos/`, verificar el texto exacto y la página mediante `buscar_externos.py`. Si está en otro idioma (p. ej. francés), indicar `[trad. propia]` o contrastar con edición publicada en español. Si no hay fuente literal verificada, usar paráfrasis analítica o anotar `[VERIFICAR CITA/PÁG.]` en `notas/capitulos/<archivo>.md`.
-5. **Notas al pie:** Nunca borrar ni desconectar notas existentes sin autorización. Al insertar una nota nueva en medio de un capítulo ya numerado, **no renumerar manualmente**: usar identificador temporal (`[^14b]`, `[^algoritmo]`) hasta el cierre.
-6. **6 advertencias / 7 omisiones confirmadas del impreso de 2006 (NO son fallos de conversión; consultar con el autor al editar cada archivo):**
-   * `11_parte2_ensayo_1.md`: definiciones `[^15]:` y `[^19]:` sin llamada (y salto del `17`).
-   * `17_parte4_ensayo_1.md`: definición `[^28]:` sin llamada.
-   * `20_parte4_ensayo_4.md`: llamada `[^3]` sin definición al pie (folio 377).
-   * `24_parte5_ensayo_4.md`: llamada `[^4]` sin definición (folio 467) y definición `[^2]:` sin llamada.
-   * `27_parte6_ensayo_3.md`: definición `[^3]:` sin llamada.
-7. **Decisiones editoriales confirmadas (fijas para todas las sesiones; detalle en `SSOT/guia_estilo_editorial.md` §1.1):**
-   * **Actualizaciones:** integración híbrida (tejido orgánico sin borrar 2006 + subapartados nuevos ante giros históricos mayores).
-   * **Anclaje temporal:** contextualizar cifras/ejemplos de 2006 históricamente y tender puente inmediato al presente.
-   * **Fuentes en otro idioma:** traducir cita al español en el cuerpo y citar edición original con `[trad. propia]` al pie.
-   * **Autores invitados (`03`–`06`, `29` L101+):** conservar íntegros como memoria de 2006 (explicado en el futuro Prefacio).
-   * **Entrega por defecto al autor:** **PDF limpio** (`compilar_pdf.py --capitulo <id>`) + resumen de 5–10 viñetas (`.docx` o `--etiquetar-parrafos` solo si se piden).
-   * **Uniformidad al paso:** `«»` citas / `""` énfasis / eliminar `‹›`; `Ibíd.`, `Op. cit.` y punto final; corregir `Masmediática`, `S. i ek`, `Gumis`, `Foweler`, `Lippman` y encabezados partidos; mantener `· Término:` en `31_glosario.md` hasta el cierre.
+Detalle completo en `SSOT/guia_estilo_editorial.md` (§1 y §1.1) y `SSOT/perfil_voz_autor.md`:
+* **Voz y léxico protegido:** Conservar el registro filosófico-ensayístico de Juan Barreto, evitar anti-patrones de prosa sintética y respetar los 21 compuestos protegidos (`massmediática`, `mass-media`, `biopolítica`, `biopoder`, `agenciamiento`, `significante-signo`, `cuerpo-potencia`, `rostro-proceso`, `hecha-en-común`, `trabajo-valor`, `ético-política`, `post-scriptum`, `rizoma`, `pliegue`, `líneas de fuga`, `subjetividad`, `performativo`, `habitus`, `multitud`, `dispositivo`, `aura`) más los 92 términos de `31_glosario.md`.
+* **Sintaxis PangoCairo (`libro/*.md`):** Permitido `#`/`##`/`###`, `>`, `- `, listas numeradas con línea en blanco entre ítems, `*`/`**`/`***`, `[^id]` y definiciones en 1 párrafo tras `---`. **Prohibido:** `####`, tablas `|...|`, bloques `` ``` ``, imágenes `![...]`, asteriscos impares y notas multipárrafo.
+* **Citas europeas y política anti-alucinación:** Formato `Inicial. Apellido, *Título*, Editorial, Ciudad, Año, p. X.` **Nunca inventar citas ni páginas** (verificar siempre vía `buscar_externos.py` o marcar `[VERIFICAR CITA/PÁG.]`). No borrar notas existentes ni renumerar manualmente (usar IDs temporales `[^14b]`, `[^sadin]`).
+* **7 omisiones confirmadas del impreso 2006 (consultar al autor al editar):** `11` (`[^15]`, `[^19]` sin llamada + salto `17`), `17` (`[^28]` sin llamada), `20` (`[^3]` sin definición), `24` (`[^4]` sin definición, `[^2]` sin llamada), `27` (`[^3]` sin llamada).
+* **6 decisiones editoriales fijas (no volver a preguntar):**
+  1. **Actualizaciones:** integración híbrida (tejido orgánico sin borrar 2006 + subapartados nuevos ante giros históricos mayores).
+  2. **Anclaje temporal:** contextualizar cifras/ejemplos de 2006 históricamente y tender puente al presente verificado.
+  3. **Fuentes en otro idioma:** traducir cita al español en el cuerpo + nota europea a la edición original con `[trad. propia]`.
+  4. **Autores invitados (`03`–`06`, `29` L101+):** conservar íntegros como memoria de 2006 (explicado en el futuro Prefacio).
+  5. **Entrega por defecto al autor:** **PDF limpio** (`compilar_pdf.py --capitulo <id>`) + resumen de 5–10 viñetas (`.docx` o `--etiquetar-parrafos` solo bajo pedido).
+  6. **Uniformidad al paso:** `«»` citas / `""` énfasis / sustituir `‹›`; `Ibíd.`, `Op. cit.` y punto final; corregir `Masmediática`, `S. i ek`, `Gumis`, `Foweler`, `Lippman` y encabezados partidos; conservar `· Término:` en `31_glosario.md` hasta el cierre.
 
 ---
 
-## 7. Flujos Operativos en Lenguaje Natural (Cero Comandos Manuales para el Usuario)
+## 7. Flujos en Lenguaje Natural (Skills) y Herramientas (`scripts/edicion/`)
 
-El usuario nunca necesita invocar scripts manualmente. El agente ejecuta los comandos de `scripts/edicion/` de forma silenciosa y transparente según la intención del usuario:
+El usuario opera en lenguaje natural; según su solicitud, activar la Skill correspondiente:
+* **Editar / validar / entregar / aprobar un capítulo:** `.agents/skills/editar-capitulo/SKILL.md`
+* **Añadir, indexar o fichar bibliografía en `externos/`:** `.agents/skills/procesar-externos/SKILL.md`
+* **Cierre editorial final (bibliografía, glosario, índice, onomástico):** `.agents/skills/cierre-editorial/SKILL.md`
 
-### Flujo A — Edición capítulo por capítulo (`libro/`)
-1. **Inicio / edición:** Ejecutar `python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>` (briefing completo con ficha, fuentes externas y diagnóstico); consultar `notas/mapa_obra.md`, `SSOT/perfil_voz_autor.md`, `buscar_libro.py` y `buscar_externos.py`. Aplicar cambios en `libro/<archivo>.md`, pasar `estado` a `"en_revision"` en `libro.yaml` (si estaba en `"pendiente"`) y validar con `python3 -B scripts/edicion/validar_libro.py --capitulo <id>`.
-2. **Entrega al autor:** Compilar solo ese capítulo en `dist/` (`compilar_pdf.py --capitulo <id>`, añadiendo `--formato docx` si el autor pide Word, o `--etiquetar-parrafos` para PDF etiquetado `[ID.PPP]`), ejecutar `reporte_cambios.py --capitulo <id>` y redactar un resumen breve (5–10 viñetas) para acompañar el envío.
-3. **Observaciones del autor:** Registrarlas en `notas/capitulos/<archivo>.md` (y cualquier pauta transversal en `notas/NOTAS.md` Sección 7), aplicar los ajustes en `libro/<archivo>.md`, revalidar y recompilar.
-4. **Cierre (solo tras confirmación explícita de aprobación):** Marcar `- [x]` en `notas/capitulos/<archivo>.md`, `notas/fuentes/<slug>.md` y `notas/NOTAS.md`; actualizar `notas/mapa_obra.md`; anotar nuevos términos de Glosario/Bibliografía en `notas/NOTAS.md`; marcar `estado: "aprobado"` en `libro.yaml`; registrar el capítulo en `CHANGELOG.md`. Dejar listo para `commit`/`push` del usuario.
+### Catálogo de scripts internos (ejecutar siempre con `python3 -B`)
 
-### Flujo B — Incorporación y consulta de bibliografía externa (`externos/` → `notas/fuentes/`)
-Cuando el usuario diga que añadió, modificó o quitó archivos en `externos/` (ej. *"Añadí nueva bibliografía en `externos/`"*):
-1. Ejecutar `python3 -B scripts/edicion/indexar_externos.py` (escaneo incremental por SHA-256 → actualiza `dist/indice_externos/corpus.db` en SQLite FTS5, genera textos paginados en `dist/indice_externos/txt/` y da de alta las fuentes nuevas en `notas/fuentes/catalogo.yaml` sin sobrescribir campos ya curados).
-2. Para cada fuente nueva (`estado: pendiente_ficha`), inspeccionar metadatos, colofón y TOC mediante `buscar_externos.py --info <slug>` y `--leer <slug> --paginas 1-6` (más páginas de créditos finales si aplica), sin volcar el documento completo al contexto.
-3. Completar en `notas/fuentes/catalogo.yaml`: título, autor, año, editorial, ciudad, URL, idioma, `cita_europea`, `postura_dialogo` (`afin` | `dialogo_critico` | `critica` | `insumo_empirico`), `temas`, `capitulos_destino` y `estado: "fichado"`.
-4. Crear/actualizar la ficha curada `notas/fuentes/<slug>.md` (tesis, estructura, ejes de diálogo con el libro, advertencias técnicas/idioma y checklist de capítulos) y enlazar la obra en `notas/NOTAS.md`.
-5. Entregar al usuario un resumen breve de las fuentes incorporadas y su mapeo sugerido por capítulo.
-* **Auto-sincronización silenciosa:** `buscar_externos.py` comprueba automáticamente si hay archivos nuevos o modificados en `externos/` (o si `corpus.db` falta tras un `git clone`) y reindexa en segundo plano antes de responder cualquier consulta.
-
-### Flujo C — Nuevos capítulos, índice y cierre editorial
-* **Añadir capítulo nuevo** (ej. futuro `libro/prefacio_segunda_edicion.md`, hoy solo planificado en `notas/capitulos/prefacio_segunda_edicion.md`): crear el `.md` en `libro/` con nombre descriptivo, declararlo en `libro.yaml` (`id` único, `estado: "pendiente"`), añadirlo a `libro/README.md` y enlazar/crear su ficha en `notas/capitulos/`.
-* **Reordenar partes o capítulos:** Nunca renombrar archivos existentes en `libro/`; reordenar únicamente en `libro.yaml` y reflejarlo en `libro/README.md`.
-* **Cierre editorial (una sola vez, al aprobar todos los capítulos):** Consolidar `30_bibliografia.md` (apoyándose en `notas/fuentes/catalogo.yaml` y `notas/NOTAS.md`) y `31_glosario.md`; sanear encabezados partidos y regenerar `01_indice.md` con `generar_indice.py --escribir`; validar todo el libro; compilar borrador completo; actualizar `32_indice_onomastico.md` con la paginación definitiva.
-
----
-
-## 8. Catálogo de Herramientas Internas (`scripts/edicion/`)
-
-Ejecutar siempre con `python3 -B` para evitar cachés `__pycache__`:
-
-| Script | Propósito | Ejemplo de invocación interna |
+| Script | Propósito | Ejemplo |
 | :--- | :--- | :--- |
-| `manifiesto.py` | Módulo compartido que carga `libro.yaml` o `respaldo_v1.0/libro.yaml` y bloquea escrituras en `respaldo_v1.0/`. | *(importado por los demás scripts)* |
-| `validar_libro.py` | Valida estructura, notas al pie, sintaxis PangoCairo, asteriscos, `[VERIFICAR]`, textos invitados (`03`–`06` y `29` desde L101), `README.md` y SHA-256 (`--verificar-respaldo`). | `python3 -B scripts/edicion/validar_libro.py --capitulo 19` |
-| `compilar_pdf.py` | Compila 1 capítulo (`--capitulo`) o el libro completo en `dist/` en PDF o Word (`--formato docx`, con prefijado automático de notas por capítulo). | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
-| `reporte_cambios.py` | Compara 1 capítulo o el libro completo contra `respaldo_v1.0/` (o `--desde-git`) generando informe en `dist/`. | `python3 -B scripts/edicion/reporte_cambios.py --capitulo 19 --incluir-diffs` |
-| `generar_indice.py` | Genera el Índice General desde `libro.yaml` y encabezados `#`/`##` (en `dist/` por defecto; `--escribir` actualiza `libro/01_indice.md`). | `python3 -B scripts/edicion/generar_indice.py --escribir` |
-| `indexar_externos.py` | Indexa incrementalmente `externos/` (PDF, HTML, TXT, MD, DOCX, EPUB) en SQLite FTS5 (`dist/indice_externos/corpus.db`) y sincroniza `notas/fuentes/catalogo.yaml`. | `python3 -B scripts/edicion/indexar_externos.py` |
-| `buscar_externos.py` | Consulta FTS5 BM25, lee rangos exactos (`--leer <slug> --paginas A-B`), inspecciona TOC (`--info`) y lista fuentes por capítulo (`--para-capitulo <id>`) con auto-sync silencioso. | `python3 -B scripts/edicion/buscar_externos.py "regimen de verdad" --limite 8` |
-| `buscar_libro.py` | Búsqueda insensible a tildes sobre `libro/`, Glosario (`--glosario`) y Bibliografía (`--bibliografia`) con distribución de ocurrencias por capítulo. | `python3 -B scripts/edicion/buscar_libro.py --glosario "cuerpo"` |
-| `contexto_capitulo.py` | Genera el briefing completo de un capítulo en un paso (metadatos, protección, diagnóstico técnico, ficha espejo, fuentes externas y menciones globales). | `python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19` |
-
-**Limitación técnica pendiente (ver `notas/NOTAS.md`):**
-* `generar_indice.py --escribir` no debe ejecutarse hasta unificar los encabezados partidos en 2–3 líneas y los guiones sueltos (`## -` / `### -`) heredados de 2006.
+| `manifiesto.py` | Carga `libro.yaml` / `respaldo_v1.0/libro.yaml` y bloquea escrituras en `respaldo_v1.0/`. | *(módulo compartido)* |
+| `contexto_capitulo.py` | Briefing completo en 1 paso (metadatos, protección, diagnóstico, ficha, fuentes y notas). | `python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19` |
+| `validar_libro.py` | Valida estructura, notas, PangoCairo, asteriscos, `[VERIFICAR]`, invitados, `README.md` y SHA-256. | `python3 -B scripts/edicion/validar_libro.py --capitulo 19` |
+| `compilar_pdf.py` | Compila 1 capítulo (`--capitulo`) o el libro completo en `dist/` en PDF o Word (`--formato docx`). | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
+| `reporte_cambios.py` | Compara 1 capítulo o el libro completo contra `respaldo_v1.0/` (o `--desde-git`) en `dist/`. | `python3 -B scripts/edicion/reporte_cambios.py --capitulo 19` |
+| `generar_indice.py` | Genera el Índice General desde `libro.yaml` (`--escribir` solo tras sanear encabezados partidos). | `python3 -B scripts/edicion/generar_indice.py --escribir` |
+| `indexar_externos.py` | Indexa incrementalmente `externos/` en SQLite FTS5 (`dist/indice_externos/corpus.db`) y `catalogo.yaml`. | `python3 -B scripts/edicion/indexar_externos.py` |
+| `buscar_externos.py` | Consulta FTS5 BM25, lee rangos (`--leer`), TOC (`--info`) y fuentes por capítulo (`--para-capitulo`) con auto-sync. | `python3 -B scripts/edicion/buscar_externos.py "regimen de verdad"` |
+| `buscar_libro.py` | Busca en `libro/`, Glosario (`--glosario`) y Bibliografía (`--bibliografia`) con distribución por capítulo. | `python3 -B scripts/edicion/buscar_libro.py --glosario "cuerpo"` |
 
 ---
 
-## 9. Protocolo de Mantenimiento y Evolución del Proyecto
+## 8. Protocolo de Mantenimiento y Evolución del Proyecto
 
-Cuando el usuario solicite modificar la arquitectura del repositorio (añadir o cambiar scripts, directorios, funciones, reglas o pasos del flujo de trabajo), **mantener sincronizada toda la documentación rectora** según esta matriz para impedir derivas o contradicciones:
+Ante cualquier cambio arquitectónico (scripts, directorios, funciones, reglas, Skills o capítulos), mantener sincronizada la documentación **en el mismo turno**:
 
-| Tipo de cambio realizado | Archivos que DEBEN actualizarse en el mismo turno | Verificación obligatoria |
+| Tipo de cambio | Archivos a actualizar obligatoriamente | Verificación obligatoria |
 | :--- | :--- | :--- |
-| **Añadir, renombrar o cambiar interfaz/comportamiento de un script en `scripts/edicion/`** | 1. El script correspondiente (protegiendo siempre `respaldo_v1.0/` vía `es_ruta_dentro_de_respaldo`).<br>2. Tabla de herramientas en `AGENTS.md` (Sección 8).<br>3. Tabla de herramientas en `SSOT/flujo_editorial_segunda_edicion.md` (Sección 6.1).<br>4. Árbol y lista de scripts en `README.md` (sin mencionar «IA»). | Ejecutar el script modificado con casos reales + `validar_libro.py --verificar-respaldo`. |
-| **Crear, mover o redefinir un directorio del proyecto** | 1. Mapa de responsabilidades en `AGENTS.md` (Sección 3) y `SSOT/README.md`.<br>2. Árbol y descripciones en `README.md` (sin mencionar «IA»).<br>3. `README.md` interno del directorio afectado (si existe) y `.gitignore` (solo si el nuevo directorio genera artefactos desechables). | Comprobar enlaces locales rotos en todos los `.md` editados + `validar_libro.py --verificar-respaldo`. |
-| **Cambiar el flujo editorial, reglas de estilo, citas o seguridad** | 1. Documento rector en `SSOT/` (`flujo_editorial_segunda_edicion.md` y/o `guia_estilo_editorial.md`).<br>2. Resumen operativo correspondiente en `AGENTS.md` (Secciones 5, 6 o 7).<br>3. Si afecta decisiones/pendientes globales, reflejarlo en `notas/NOTAS.md`. | Revisar manualmente que no exista contradicción entre `AGENTS.md` y `SSOT/`. |
-| **Añadir o reordenar capítulos / partes** | 1. Archivo en `libro/` (si es nuevo).<br>2. `libro.yaml` (orden, sección, `id`, `estado`).<br>3. `libro/README.md` y ficha espejo en `notas/capitulos/`. | Ejecutar `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo`. |
-| **Resolver un hallazgo técnico listado en `notas/NOTAS.md`** | 1. Marcar `- [x]` en `notas/NOTAS.md`.<br>2. Retirar la advertencia de la Sección 8 de `AGENTS.md` (si aplicaba).<br>3. Registrar el hito técnico cerrado en `CHANGELOG.md` si corresponde. | Ejecutar pruebas del componente corregido + `validar_libro.py`. |
+| **Script en `scripts/edicion/`** | Script (con `es_ruta_dentro_de_respaldo`) + `AGENTS.md` (§7) + `SSOT/flujo_editorial_segunda_edicion.md` (§6.1) + `.agents/skills/` afectada + `README.md` (sin «IA»). | Probar el script con casos reales + `validar_libro.py --verificar-respaldo`. |
+| **Directorio o Skill nueva/modificada** | `AGENTS.md` (§3 y §7) + `SSOT/README.md` + `README.md` (sin «IA») + `README.md` interno / `.gitignore` si aplica. | Comprobar enlaces locales rotos + `validar_libro.py --verificar-respaldo`. |
+| **Regla editorial, estilo o flujo** | `SSOT/guia_estilo_editorial.md` y/o `flujo_editorial_segunda_edicion.md` + `AGENTS.md` (§5–§6) + `.agents/skills/` afectada + `notas/NOTAS.md` si corresponde. | Revisar ausencia de contradicciones entre `AGENTS.md`, `SSOT/` y `.agents/skills/`. |
+| **Añadir o reordenar capítulos** | `libro/` (si es nuevo) + `libro.yaml` + `libro/README.md` + `notas/capitulos/` + `notas/mapa_obra.md`. | `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo`. |
+| **Cerrar hallazgo técnico de `notas/NOTAS.md`** | Marcar `- [x]` en `notas/NOTAS.md` + actualizar `AGENTS.md` (si aplicaba) + registrar hito en `CHANGELOG.md`. | Probar corrección + `validar_libro.py --verificar-respaldo`. |
 
-### Checklist obligatorio antes de cerrar cualquier cambio estructural o documental
-1. `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo` pasa sin errores (`33/33` SHA-256 intactos en `respaldo_v1.0/md/`).
-2. `grep -rnE '\b(IA|Inteligencia Artificial)\b' README.md libro/README.md notas/README.md respaldo_v1.0/README.md SSOT/README.md` devuelve **0 coincidencias**.
-3. `AGENTS.md` permanece por debajo del límite estricto de `24,000` bytes (idealmente `< 22,000` bytes) para garantizar carga íntegra sin truncamiento.
-4. No se modificó ningún archivo dentro de `fuente/`, `respaldo_v1.0/`, `scripts/extraccion_v1/` ni `externos/`, y no se ejecutó `git commit` ni `git push` sin orden expresa.
+### Checklist obligatorio tras cambios estructurales
+1. `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo` pasa con **0 errores** (incluye `33/33` SHA-256 e higiene de los 5 `README.md`).
+2. `AGENTS.md` permanece cómodamente por debajo de `24,000` bytes (objetivo `< 18,000` bytes).
+3. Ningún archivo modificado en `fuente/`, `respaldo_v1.0/`, `scripts/extraccion_v1/` ni `externos/`, y ningún `git commit`/`git push` ejecutado sin orden expresa.
