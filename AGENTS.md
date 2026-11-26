@@ -59,7 +59,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y protocol
 2. **Textos de autores invitados protegidos (NO reescribir sin orden expresa; verificados por `validar_libro.py`):**
    * Íntegros: `03_liminar.md` (Michel Maffesoli), `04_prologo_1_rigoberto_lanz.md` (Rigoberto Lanz), `05_prologo_2_nelson_guzman.md` (Nelson Guzmán), `06_prologo_3_magaldy_tellez.md` (Magaldy Téllez).
    * Parcial: `29_post_scriptum.md` — líneas `1–100` (Juan Barreto, editables); desde **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios`) es de **Javier Biardeau** (protegido).
-3. **Prohibición absoluta en todos los `README.md` públicos:** Nunca mencionar «IA» ni «Inteligencia Artificial» en `README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md` ni `SSOT/README.md` (verificado automáticamente por `validar_libro.py`). Usar *edición asistida* o *ejecución asistida de scripts*.
+3. **Prohibición absoluta en todos los `README.md` públicos:** Nunca mencionar «IA» ni «Inteligencia Artificial» en `README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md`, `scripts/README.md` ni `SSOT/README.md` (verificado automáticamente por `validar_libro.py`). Usar *edición asistida* o *ejecución asistida de scripts*.
 4. **Git lineal y aprobaciones:** Trabajar solo en `main`; **no crear ramas ni tags**; **nunca ejecutar `git commit` ni `git push`** sin instrucción expresa; **nunca marcar `estado: "aprobado"` en `libro.yaml`** sin confirmación explícita del usuario.
 5. **Índices protegidos hasta el cierre:** No editar `libro/01_indice.md` manualmente ni tocar `libro/32_indice_onomastico.md` hasta el cierre editorial.
 
@@ -111,13 +111,13 @@ Ante cualquier cambio arquitectónico (scripts, directorios, funciones, reglas, 
 
 | Tipo de cambio | Archivos a actualizar obligatoriamente | Verificación obligatoria |
 | :--- | :--- | :--- |
-| **Script en `scripts/edicion/`** | Script (con `es_ruta_dentro_de_respaldo`) + `AGENTS.md` (§7) + `SSOT/flujo_editorial_segunda_edicion.md` (§6.1) + `.agents/skills/` afectada + `README.md` (sin «IA»). | Probar el script con casos reales + `validar_libro.py --verificar-respaldo`. |
-| **Directorio o Skill nueva/modificada** | `AGENTS.md` (§3 y §7) + `SSOT/README.md` + `README.md` (sin «IA») + `README.md` interno / `.gitignore` si aplica. | Comprobar enlaces locales rotos + `validar_libro.py --verificar-respaldo`. |
+| **Script en `scripts/edicion/`** | Script (con `es_ruta_dentro_de_respaldo`) + `AGENTS.md` (§7) + `SSOT/flujo_editorial_segunda_edicion.md` (§6.1) + `.agents/skills/` afectada + `scripts/README.md` (sin «IA»). | Probar el script con casos reales + `validar_libro.py --verificar-respaldo`. |
+| **Directorio o Skill nueva/modificada** | `AGENTS.md` (§3 y §7) + `SSOT/README.md` + `README.md` (resumen público, sin «IA») + `README.md` interno / `.gitignore` si aplica. | Comprobar enlaces locales rotos + `validar_libro.py --verificar-respaldo`. |
 | **Regla editorial, estilo o flujo** | `SSOT/guia_estilo_editorial.md` y/o `flujo_editorial_segunda_edicion.md` + `AGENTS.md` (§5–§6) + `.agents/skills/` afectada + `notas/NOTAS.md` si corresponde. | Revisar ausencia de contradicciones entre `AGENTS.md`, `SSOT/` y `.agents/skills/`. |
 | **Añadir o reordenar capítulos** | `libro/` (si es nuevo) + `libro.yaml` + `libro/README.md` + `notas/capitulos/` + `notas/mapa_obra.md`. | `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo`. |
 | **Cerrar hallazgo técnico de `notas/NOTAS.md`** | Marcar `- [x]` en `notas/NOTAS.md` + actualizar `AGENTS.md` (si aplicaba) + registrar hito en `CHANGELOG.md`. | Probar corrección + `validar_libro.py --verificar-respaldo`. |
 
 ### Checklist obligatorio tras cambios estructurales
-1. `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo` pasa con **0 errores** (incluye `33/33` SHA-256 e higiene de los 5 `README.md`).
+1. `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo` pasa con **0 errores** (incluye `33/33` SHA-256 e higiene de los 6 `README.md`).
 2. `AGENTS.md` permanece cómodamente por debajo de `24,000` bytes (objetivo `< 18,000` bytes).
 3. Ningún archivo modificado en `fuente/`, `respaldo_v1.0/`, `scripts/extraccion_v1/` ni `externos/`, y ningún `git commit`/`git push` ejecutado sin orden expresa.

@@ -46,6 +46,7 @@ READMES_PUBLICOS = [
     "libro/README.md",
     "notas/README.md",
     "respaldo_v1.0/README.md",
+    "scripts/README.md",
     "SSOT/README.md",
 ]
 
