@@ -66,11 +66,20 @@ Este flujo se ejecuta **una sola vez al cierre de la Segunda Edición** (o por b
    python3 -B scripts/edicion/validar_libro.py --verificar-respaldo --estricto
    python3 -B scripts/edicion/reporte_cambios.py
    ```
-3. Compilar el manuscrito completo en `dist/` (PDF limpio y, si se solicita, Word `.docx` con prefijado automático de notas):
+3. Compilar el manuscrito completo en `dist/` (entregas de lectura PDF/DOCX y **maqueta editorial `LuaLaTeX`** siguiendo [`SSOT/guia_maquetacion_segunda_edicion.md`](../../../SSOT/guia_maquetacion_segunda_edicion.md)):
    ```bash
    python3 -B scripts/edicion/compilar_pdf.py
    python3 -B scripts/edicion/compilar_pdf.py --formato docx
+   python3 -B scripts/edicion/compilar_maqueta.py --modo digital
+   python3 -B scripts/edicion/compilar_maqueta.py --modo imprenta
    ```
+   Verificar en `dist/maqueta/reporte_libro_2ed_*.json` que `missing_characters == 0`, `latex_warnings == 0` y que no existan `overfull_hbox > 2 pt` sin revisar.
 4. **Cierre del Anexo editorial (`libro/anexo_cambios_segunda_edicion.md`, `id: A1`):** Consolidar desde `notas/registro_cambios_edicion.md` la relación definitiva de cambios estructurales, actualizaciones por capítulo y aparato crítico (retirando cualquier nota provisional de avance), compilar su PDF limpio para revisión del autor y marcar `estado: "aprobado"` en `libro.yaml` únicamente tras su visto bueno explícito.
-5. **Índice Onomástico (`libro/32_indice_onomastico.md`):** Actualizarlo únicamente una vez definida la maquetación y paginación final definitiva (evaluando el reaprovechamiento de `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`).
+5. **Índice Onomástico (`libro/32_indice_onomastico.md`) y pre-prensa:** Una vez cerrada la paginación de la maqueta `LuaLaTeX`, previsualizar el recálculo sobre el PDF final, auditar entradas sin coincidencias, aplicar con `--escribir` y recompilar el PDF definitivo:
+   ```bash
+   python3 -B scripts/edicion/recalcular_onomastico.py
+   python3 -B scripts/edicion/recalcular_onomastico.py --escribir
+   python3 -B scripts/edicion/compilar_maqueta.py --modo imprenta
+   ```
+   Confirmar fuentes 100 % embebidas (`pdffonts`) y preparar la cubierta/lomo en PDF separado (`maquetacion/cubierta/especificaciones_lomo.md`).
 6. Actualizar `obra.edicion` y `obra.version` en `libro.yaml`, registrar el cierre en `CHANGELOG.md` y dejar listo para el `commit`/`push` del usuario.

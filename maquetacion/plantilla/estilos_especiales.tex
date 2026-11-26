@@ -1,0 +1,130 @@
+% =============================================================================
+% Estilos Especiales de Maquetación — Crítica de la Razón Mediática (2.ª Ed.)
+% Archivo separado para ajustar fácilmente epígrafes, citas, capitulares,
+% notas al pie, portadillas y el layout del Índice General sin tocar Python.
+% =============================================================================
+
+% Capitular: evita versalitas falsas en GARA.TTF (resuelve los 3 Overfull hbox)
+%%CONFIG_CAPITULAR_TEXTO%%
+
+% Epígrafe indivisible (evita atribución huérfana en página siguiente)
+\newenvironment{epigrafe2006}{%
+  \par\vspace{6pt}%
+  \noindent\hfill
+  \begin{minipage}{0.76\textwidth}%
+  \raggedleft\fontsize{8.8}{11}\selectfont
+}{%
+  \end{minipage}%
+  \par\vspace{10pt}%
+}
+
+% Cita extensa a bando
+\newenvironment{citabando2006}{%
+  \par\vspace{5pt}%
+  \list{}{\leftmargin=8.5mm\rightmargin=2mm\parsep=2pt\topsep=0pt}%
+  \item\relax\fontsize{8.8}{11}\selectfont
+}{%
+  \endlist
+  \par\vspace{5pt}%
+}
+
+% Separador ornamental interno
+\newcommand{\separadorInterno}{%
+  \par\vspace{6pt}\begin{center}\rule{0.35\textwidth}{0.4pt}\end{center}\vspace{6pt}%
+}
+
+% Notas al pie (estilo 2006 configurable desde diseno_2ed.yaml)
+\renewcommand{\footnoterule}{\kern-3pt \hrule width %%ANCHO_FILETE_NOTA%%\textwidth height 0.4pt \kern 3pt}
+\renewcommand{\footnotesize}{\fontsize{%%NOTA_PT%%}{%%NOTA_INTERLINEADO_PT%%}\selectfont}
+%%ESTILO_NOTAS_AL_PIE%%
+
+% Portadilla ilustrada (.tif original de 2006 centrado a tamaño real 125x185 mm)
+\newcommand{\portadillaGrafica}[1]{%
+  %%SALTO_PORTADILLA_GRAFICA%%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[inner sep=0pt,anchor=center] at (current page.center) {%
+      \includegraphics[width=%%PORTADILLA_ANCHO_MM%%mm,height=%%PORTADILLA_ALTO_MM%%mm,keepaspectratio]{#1}%
+    };
+  \end{tikzpicture}%
+  \null\clearpage
+}
+
+% Portadilla tipográfica para secciones nuevas (ej. Anexo editorial A1)
+\newcommand{\portadillaTipografica}[2]{%
+  %%SALTO_PORTADILLA_TIPOGRAFICA%%
+  \thispagestyle{empty}%
+  \vspace*{48mm}%
+  \begin{center}
+    {\fontsize{11}{14}\selectfont #1\par}\vspace{8mm}%
+    {\bauhausfont\fontsize{18}{22}\selectfont #2\par}
+  \end{center}
+  \clearpage
+}
+
+% =============================================================================
+% Índice General automático (layout limpio y fácilmente editable)
+% =============================================================================
+\setcounter{tocdepth}{%%TOC_DEPTH%%}
+\makeatletter
+\renewcommand{\@pnumwidth}{2.2em}
+\renewcommand{\@tocrmarg}{2.8em}
+
+% Nivel Parte en el Índice
+\renewcommand*\l@part[2]{%
+  \addpenalty{-\@highpenalty}%
+  \addvspace{%%TOC_ESPACIO_PARTE_PT%%pt}%
+  \begingroup
+    \parindent \z@ \leftskip \z@ \rightskip \@pnumwidth
+    \parfillskip -\@pnumwidth
+    \leavevmode
+    {\bfseries\fontsize{%%TOC_PARTE_PT%%}{%%TOC_INTERLINEADO_PT%%}\selectfont #1}\hfill
+    \hb@xt@\@pnumwidth{\hss{\bauhausfont\fontsize{%%TOC_CAP_PT%%}{%%TOC_INTERLINEADO_PT%%}\selectfont #2}}\par
+    \nobreak
+  \endgroup
+}
+
+% Nivel Capítulo / Ensayo en el Índice
+\renewcommand*\l@chapter[2]{%
+  \addpenalty{-\@highpenalty}%
+  \addvspace{%%TOC_ESPACIO_CAP_PT%%pt}%
+  \begingroup
+    \parindent \z@ \leftskip 0.8em \rightskip \@tocrmarg
+    \parfillskip -\@tocrmarg
+    \leavevmode
+    {\fontsize{%%TOC_CAP_PT%%}{%%TOC_INTERLINEADO_PT%%}\selectfont #1}%
+    %%TOC_RELLENO_CAP%%
+    \hb@xt@\@pnumwidth{\hss{\fontsize{%%TOC_CAP_PT%%}{%%TOC_INTERLINEADO_PT%%}\selectfont #2}}\par
+  \endgroup
+}
+
+% Nivel Subsección (##) en el Índice (si incluir_subsecciones: true)
+\renewcommand*\l@section[2]{%
+  \begingroup
+    \parindent \z@ \leftskip 1.6em \rightskip \@tocrmarg
+    \parfillskip -\@tocrmarg
+    \leavevmode
+    {\itshape\fontsize{%%TOC_SEC_PT%%}{%%TOC_INTERLINEADO_PT%%}\selectfont #1}%
+    %%TOC_RELLENO_CAP%%
+    \hb@xt@\@pnumwidth{\hss{\fontsize{%%TOC_SEC_PT%%}{%%TOC_INTERLINEADO_PT%%}\selectfont #2}}\par
+  \endgroup
+}
+
+\renewcommand{\tableofcontents}{%
+  %%SALTO_INDICE_GENERAL%%
+  \thispagestyle{plain2006}%
+  \renewcommand{\runningpart}{Índice}%
+  \renewcommand{\runningessay}{%%SUBTITULO_INDICE%%}%
+  \vspace*{3mm}%
+  \begin{center}
+    {\bauhausfont\fontsize{16}{20}\selectfont %%TITULO_INDICE%%\par}
+  \end{center}
+  \vspace{4mm}%
+  \begingroup
+    \raggedbottom
+    \linespread{1.0}\selectfont
+    \setlength{\parskip}{0pt}%
+    \@starttoc{toc}%
+  \endgroup
+}
+\makeatother

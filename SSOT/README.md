@@ -24,8 +24,9 @@
 * **[`externos/`](../externos/):** Biblioteca bibliográfica de consulta (solo lectura) con PDFs, artículos HTML y textos de apoyo para la 2.ª edición; se indexa localmente en `dist/indice_externos/` y se ficha en `notas/fuentes/`.
 * **[`CHANGELOG.md`](../CHANGELOG.md):** Único registro de **hechos cerrados** (capítulos ya aprobados por el autor e hitos completados).
 * **[`scripts/`](../scripts/):** Herramientas internas de edición (`scripts/edicion/`) y pipeline histórico congelado (`scripts/extraccion_v1/`); documentación completa y comandos en [`scripts/README.md`](../scripts/README.md).
+* **[`maquetacion/`](../maquetacion/):** Configuración declarativa (`diseno_2ed.yaml`), plantillas modulares `LuaLaTeX` (`plantilla/`), activos nuevos de 2.ª edición (`activos/`) y especificaciones de cubierta/lomo (`cubierta/`).
 * **[`respaldo_v1.0/`](../respaldo_v1.0/):** Respaldo inmutable de la 1.ª edición (2006) para comparaciones y compilación garantizada de `v1.0.0` ([`respaldo_v1.0/README.md`](../respaldo_v1.0/README.md)).
-* **`dist/`:** Carpeta local ignorada por Git para entregas temporales (PDF/Word `.docx`), reportes comparativos y el índice reconstruible `dist/indice_externos/`; es desechable y puede limpiarse libremente.
+* **`dist/`:** Carpeta local ignorada por Git para entregas temporales (PDF/Word `.docx`), maquetas compiladas (`dist/maqueta/`), reportes comparativos y el índice reconstruible `dist/indice_externos/`; es desechable y puede limpiarse libremente.
 
 ---
 
@@ -52,11 +53,12 @@ critica-de-la-razon-mediatica/
 │       ├── UBICACION DE liminar.txt             # nota editorial original de ubicación del Liminar
 │       └── images/            # 14 portadillas gráficas separadoras (.tif / .jpg)
 ├── libro/                     # Única fuente viva en Markdown (33 archivos base + anexo_cambios_segunda_edicion.md + libro/README.md)
+├── maquetacion/               # Diseño editorial LuaLaTeX (diseno_2ed.yaml, plantilla/, activos/, cubierta/ y README.md)
 ├── notas/                     # NOTAS.md, mapa_obra.md, registro_cambios_edicion.md, capitulos/, fuentes/ y README.md
 ├── respaldo_v1.0/             # [Inmutable] README.md, libro.yaml v1.0, manifiesto_v1.0.md (SHA-256) y md/ (33 archivos)
-├── dist/                      # [Ignorado por Git] Entregas PDF/DOCX, reportes diff e índice local de externos/
-├── scripts/                   # README.md + edicion/ (9 scripts activos) + extraccion_v1/ (3 scripts congelados)
-└── SSOT/                      # Documentación rectora (este índice + 5 documentos normativos/históricos)
+├── dist/                      # [Ignorado por Git] Entregas PDF/DOCX, maquetas (maqueta/), reportes diff e índice local de externos/
+├── scripts/                   # README.md + edicion/ (11 scripts activos) + extraccion_v1/ (3 scripts congelados)
+└── SSOT/                      # Documentación rectora (este índice + 6 documentos normativos/históricos)
 ```
 
 ---
@@ -66,5 +68,6 @@ critica-de-la-razon-mediatica/
 * **[`flujo_editorial_segunda_edicion.md`](flujo_editorial_segunda_edicion.md):** Flujo oficial simplificado de edición asistida capítulo por capítulo, incorporación de `externos/`, gestión de nuevos capítulos e índice en `libro.yaml`, y operación de `respaldo_v1.0/`.
 * **[`guia_estilo_editorial.md`](guia_estilo_editorial.md):** Reglas de fidelidad estilística, vocabulario conceptual protegido, 7 decisiones editoriales confirmadas, ejemplo práctico de integración híbrida, citas europeas, política anti-alucinación y reglas de seguridad.
 * **[`perfil_voz_autor.md`](perfil_voz_autor.md):** Referencia empírica de la cadencia ensayística del autor, anti-patrones a evitar e inventario completo de los 93 términos del Glosario.
+* **[`guia_maquetacion_segunda_edicion.md`](guia_maquetacion_segunda_edicion.md):** Receta oficial, parámetros ajustables (`maquetacion/diseno_2ed.yaml` y `plantilla/`), auditoría de glifos de 2006, comandos de compilación `LuaLaTeX`, recálculo del Índice Onomástico y checklist pre-imprenta.
 * **[`proceso_conversion_pdf_a_md.md`](proceso_conversion_pdf_a_md.md):** *(Histórico)* Especificación técnica del Método 1 (2006) y política del respaldo inmutable `respaldo_v1.0/`.
 * **[`detalle_ejecucion_y_auditoria_conversion.md`](detalle_ejecucion_y_auditoria_conversion.md):** *(Histórico)* Memoria técnica de la conversión ejecutada y tabla de auditoría contable al `100.000%` capítulo por capítulo.

@@ -1,0 +1,176 @@
+# =============================================================================
+# Configuración Declarativa de Maquetación Editorial — Segunda Edición
+# Obra: Crítica de la Razón Mediática (Juan Barreto Cipriani)
+#
+# Este archivo centraliza todos los parámetros modificables del diseño visual,
+# saltos de página, tipografías, índice general, notas al pie y portadillas.
+# Las plantillas LaTeX viven en `maquetacion/plantilla/` y el compilador en
+# `scripts/edicion/compilar_maqueta.py`.
+# =============================================================================
+
+edicion:
+  etiqueta_portada: "SEGUNDA EDICIÓN"
+  subtitulo_indice: "Segunda Edición"
+  mostrar_portada_interior: true
+  titulo_linea_1: "CRÍTICA DE LA RAZÓN"
+  titulo_linea_2: "MEDIÁTICA"
+  subtitulo_obra: "Ensayos sobre biopolítica y potencia política del cuerpo\\\\(Pre-textos para un debate por el socialismo)"
+  autor_portada: "JUAN BARRETO CIPRIANI"
+
+pagina:
+  # Formato real de recorte (trim) extraído del PDF maestro de 2006
+  ancho_mm: 126.4
+  alto_mm: 191.1
+  # Margen de sangrado y marcas de corte (se activa solo con `--modo imprenta`)
+  sangrado_mm: 3.0
+  margen_superior_mm: 21.0
+  margen_inferior_mm: 18.0
+  margen_interior_mm: 16.5
+  margen_exterior_mm: 20.5
+  headheight_pt: 12.0
+  headsep_mm: 6.0
+  footskip_mm: 8.0
+  # `arabiga_continua` (fiel a 2006) | `romana_preliminares`
+  numeracion: "arabiga_continua"
+
+# Control fino de saltos de página (clave para eliminar o ajustar páginas en blanco)
+paginacion_saltos:
+  # `cleardoublepage` (fuerza página impar derecha) | `clearpage` (sin página en blanco)
+  portadillas_graficas: "cleardoublepage"
+  portadillas_tipograficas: "cleardoublepage"
+  pagina_titular_parte_separada: true
+  salto_tras_portada_interior: "cleardoublepage"
+  salto_indice_general: "cleardoublepage"
+  salto_primero_de_parte: "clearpage"
+  salto_entre_ensayos: "clearpage"
+  salto_capitulos_cierre: "clearpage"
+  salto_anexo: "clearpage"
+  salto_preliminares: "clearpage"
+  # Si es true, las páginas en blanco insertadas por \cleardoublepage van sin cabecera ni folio
+  limpiar_paginas_blancas: true
+
+tipografia:
+  carpeta_fuentes: "fuente/FUENTES"
+  principal:
+    familia: "Garamond"
+    regular: "GARA.TTF"
+    negrita: "GARABD.TTF"
+    cursiva: "GARAIT.TTF"
+    negrita_cursiva: "GARABD.TTF"
+  amiga: "amiga4ever pro2.ttf"
+  bauhaus: "BAUHS93.TTF"
+  swis: "SWZCONBI.TTF"
+  cuerpo_pt: 10.0
+  interlineado_factor: 1.14
+  sangria_mm: 7.0
+  espacio_parrafos_pt: 0.0
+  emergencystretch_em: 1.5
+  widowpenalty: 10000
+  clubpenalty: 10000
+  # Reemplazos de glifos ausentes en `amiga4ever pro2.ttf` (para encabezados)
+  sanitizacion_amiga:
+    "—": "-"
+    "–": "-"
+    "“": '"'
+    "”": '"'
+    "‘": "'"
+    "’": "'"
+    "°": "o"
+    "…": "..."
+    "Ž": "Z"
+    "ž": "z"
+    "Ć": "C"
+    "ć": "c"
+    "Č": "C"
+    "č": "c"
+
+capitular:
+  activa: true
+  lineas: 3
+  lhang: 0.05
+  findent_pt: 1.5
+  nindent_pt: 0.0
+  # `amiga` | `swis` | `bauhaus`
+  fuente: "amiga"
+  # true = texto siguiente en redonda normal (evita versalitas falsas y Overfull hbox)
+  texto_normal: true
+  excluir_tipos:
+    - "preliminares"
+    - "indice"
+    - "bibliografia"
+    - "glosario"
+    - "onomastico"
+    - "anexo"
+
+marco_externo:
+  activo: true
+  x_offset_mm: 8.5
+  linea_superior_largo_mm: 16.5
+  folio_y_mm: 17.2
+  folio_pt: 9.0
+  linea_inferior_alto_mm: 42.0
+  hoyo_y_mm: 41.5
+  hoyo_ancho_mm: 5.5
+  rotulo_y_mm: 10.0
+  texto_superior_bauhaus: "Crítica de la "
+  texto_superior_amiga: "Razón Mediática"
+  firma_autor: "Juan Barreto"
+
+cabecera:
+  activa: true
+  tamano_pt: 7.8
+  ancho_filete_ratio: 0.42
+  grosor_filete_pt: 0.35
+  color_gris: "0.55"
+  color_filete: "0.45"
+
+indice_general:
+  titulo: "ÍNDICE GENERAL"
+  incluir_subsecciones: false
+  profundidad_toc: 0
+  puntos_guia: true
+  tamano_parte_pt: 8.0
+  tamano_capitulo_pt: 7.5
+  tamano_seccion_pt: 7.0
+  interlineado_pt: 9.2
+  espacio_antes_parte_pt: 4.5
+  espacio_antes_capitulo_pt: 0.0
+
+notas_al_pie:
+  # `plano_2006` (número plano con sangría colgante, fiel a 2006) | `superindice`
+  estilo: "plano_2006"
+  tamano_pt: 8.2
+  interlineado_pt: 10.0
+  sangria_colgante_em: 1.4
+  ancho_filete_ratio: 0.36
+  reiniciar_por_capitulo: true
+
+portadillas:
+  carpeta_origen: "fuente/RAZON/images"
+  carpeta_activos_2ed: "maquetacion/activos"
+  # Tamaño real de los 14 .tif de 2006 (1476x2185 px a 300 DPI = 125x185 mm)
+  ancho_mm: 125.0
+  alto_mm: 185.0
+  formato_digital: "jpg"
+  calidad_jpg: 92
+  formato_imprenta: "png"
+  imagen_hoyo: "hoyo.jpg"
+  por_seccion:
+    prologos_2006: "ProLogos.tif"
+    apertura: "preambulo.tif"
+    parte_1: "parte I.tif"
+    parte_2: "parte II.tif"
+    parte_3: "parte III.tif"
+    parte_4: "parte IV.tif"
+    parte_5: "parte V.tif"
+    parte_6: "parte VI.tif"
+  por_capitulo:
+    "28": "epilogo.tif"
+    "29": "post scriptum.tif"
+    "30": "bibliografia.tif"
+    "31": "glosario.tif"
+    "32": "onomastico.tif"
+  tipograficas_por_tipo:
+    anexo:
+      antetitulo: "Segunda Edición"
+      titulo: "ANEXO EDITORIAL"

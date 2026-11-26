@@ -77,8 +77,9 @@ La obra se organiza en **10 secciones editoriales** (`33` capítulos base de 200
 | [`notas/`](notas/) | Anotaciones editoriales, panorámica (`mapa_obra.md`), registro de cambios de la 2.ª edición (`registro_cambios_edicion.md`), fichas por capítulo y catálogo de fuentes externas. | [`notas/README.md`](notas/README.md) |
 | [`externos/`](externos/) | Biblioteca bibliográfica de apoyo (solo lectura) con libros, artículos y documentos para la Segunda Edición. | [`notas/fuentes/catalogo.yaml`](notas/fuentes/catalogo.yaml) |
 | [`CHANGELOG.md`](CHANGELOG.md) | Bitácora editorial de capítulos aprobados por el autor e hitos completados. | [`CHANGELOG.md`](CHANGELOG.md) |
-| [`scripts/`](scripts/) | Herramientas internas de validación, compilación (PDF/Word), búsqueda e indexación, más el pipeline histórico de 2006. | [`scripts/README.md`](scripts/README.md) |
-| [`SSOT/`](SSOT/) | Documentación rectora del proyecto: flujo editorial, guía de estilo, perfil de voz del autor y auditoría histórica. | [`SSOT/README.md`](SSOT/README.md) |
+| [`scripts/`](scripts/) | Herramientas internas de validación, compilación (PDF/Word y maquetación `LuaLaTeX`), búsqueda e indexación, más el pipeline histórico de 2006. | [`scripts/README.md`](scripts/README.md) |
+| [`maquetacion/`](maquetacion/) | Configuración declarativa y plantillas `LuaLaTeX` para compilar la maqueta editorial fiel al diseño de 2006 (digital y de imprenta). | [`maquetacion/README.md`](maquetacion/README.md) |
+| [`SSOT/`](SSOT/) | Documentación rectora del proyecto: flujo editorial, guía de estilo, perfil de voz del autor, guía de maquetación y auditoría histórica. | [`SSOT/README.md`](SSOT/README.md) |
 | [`AGENTS.md`](AGENTS.md) y [`.agents/skills/`](.agents/skills/) | Reglas universales del workspace y 4 guías modulares bajo demanda (`editar-capitulo`, `procesar-externos`, `cierre-editorial` y `mantenimiento-proyecto`) para la edición asistida. | [`AGENTS.md`](AGENTS.md) |
 
 ---

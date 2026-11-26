@@ -17,7 +17,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y arranque
 ## 2. Jerarquía de Verdad (Prevención de Contradicciones)
 
 1. **`AGENTS.md` (este archivo):** Reglas siempre activas, seguridad, mapa del repositorio y disparador de mantenimiento.
-2. **`SSOT/` (`guia_estilo_editorial.md`, `perfil_voz_autor.md`, `flujo_editorial_segunda_edicion.md`):** Fuente única de verdad operativa para estilo, voz, citas, vocabulario y flujo.
+2. **`SSOT/` (`guia_estilo_editorial.md`, `perfil_voz_autor.md`, `flujo_editorial_segunda_edicion.md`, `guia_maquetacion_segunda_edicion.md`):** Fuente única de verdad operativa para estilo, voz, citas, vocabulario, flujo y maquetación editorial.
 3. **`.agents/skills/` (`editar-capitulo`, `procesar-externos`, `cierre-editorial`, `mantenimiento-proyecto`):** Procedimientos paso a paso bajo demanda subordinados al `SSOT/`.
 4. **`libro.yaml`:** Manifiesto maestro del orden de partes/capítulos (`10` secciones, `34` entradas) y `estado` (`pendiente` | `en_revision` | `aprobado`).
 5. **`notas/` (`NOTAS.md`, `mapa_obra.md`, `registro_cambios_edicion.md`, `capitulos/`, `fuentes/`):** Pendientes, panorámica, bitácora de cambios al libro, observaciones del autor y fichas de `externos/`.
@@ -38,12 +38,13 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y arranque
 | `notas/` | Editable | `NOTAS.md`, `mapa_obra.md`, `registro_cambios_edicion.md`, `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`) y `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`). |
 | `externos/` | **Solo lectura (en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar. |
 | `CHANGELOG.md` | Editable (hechos cerrados) | Exclusivo para capítulos aprobados e hitos ya completados. |
-| `scripts/edicion/` | Editable (herramientas internas) | 9 scripts Python ejecutados con `python3 -B` (detalle CLI y requisitos en `scripts/README.md`). |
-| `SSOT/` | Editable (documentación rectora) | Activos: `README.md`, `flujo_editorial_segunda_edicion.md`, `guia_estilo_editorial.md`, `perfil_voz_autor.md`. Históricos (NO cargar en sesiones normales): `proceso_conversion_pdf_a_md.md` y `detalle_ejecucion_y_auditoria_conversion.md`. |
+| `scripts/edicion/` | Editable (herramientas internas) | 11 scripts Python ejecutados con `python3 -B` (detalle CLI y requisitos en `scripts/README.md`). |
+| `maquetacion/` | Editable (diseño editorial) | Configuración YAML (`diseno_2ed.yaml`), plantillas `LuaLaTeX` (`plantilla/`), activos nuevos (`activos/`) y especificaciones de cubierta/lomo (`cubierta/`). |
+| `SSOT/` | Editable (documentación rectora) | Activos: `README.md`, `flujo_editorial_segunda_edicion.md`, `guia_estilo_editorial.md`, `perfil_voz_autor.md`, `guia_maquetacion_segunda_edicion.md`. Históricos (NO cargar en sesiones normales): `proceso_conversion_pdf_a_md.md` y `detalle_ejecucion_y_auditoria_conversion.md`. |
 | `fuente/` | **INTOCABLE (solo lectura)** | PDF maestro de 2006, QuarkXPress (`.qxp`), `FUENTES/`, `PORTADA/`, `RAZON/images/`. |
 | `respaldo_v1.0/` | **INTOCABLE (solo lectura)** | Copia congelada de los 33 `.md` de 2006, `libro.yaml` v1.0 y SHA-256 (`manifiesto_v1.0.md`). |
 | `scripts/extraccion_v1/` | **CONGELADO (solo lectura)** | Pipeline histórico de 2006. Nunca modificar ni re-ejecutar sobre `libro/`. |
-| `dist/` | **Temporal (ignorado por Git)** | Entregas PDF/DOCX, reportes diff e índice local `dist/indice_externos/corpus.db` (SQLite FTS5) + `txt/`. |
+| `dist/` | **Temporal (ignorado por Git)** | Entregas PDF/DOCX, maquetas `LuaLaTeX` (`dist/maqueta/`), reportes diff e índice local `dist/indice_externos/corpus.db` (SQLite FTS5) + `txt/`. |
 
 ---
 
@@ -99,6 +100,8 @@ Activar la Skill correspondiente según la solicitud del usuario:
 | `contexto_capitulo.py` | Briefing completo en 1 paso (metadatos, protección, diagnóstico, ficha, fuentes y notas). | `python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19` |
 | `validar_libro.py` | Valida estructura, notas, PangoCairo, asteriscos, `[VERIFICAR]`, invitados, 6 `README.md`, `AGENTS.md`, fichas espejo y SHA-256. | `python3 -B scripts/edicion/validar_libro.py --verificar-respaldo` |
 | `compilar_pdf.py` | Compila 1 capítulo (`--capitulo`) o el libro completo en `dist/` en PDF limpio (por defecto) o Word (`--formato docx`). | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
+| `compilar_maqueta.py` | Compila la maqueta editorial `LuaLaTeX` (estilo 2006) desde `maquetacion/` en `dist/maqueta/` (`--capitulo`, `--modo digital\|imprenta`). | `python3 -B scripts/edicion/compilar_maqueta.py --capitulo 08` |
+| `recalcular_onomastico.py` | Recalcula páginas de `32_indice_onomastico.md` contra el PDF maquetado (vista previa por defecto; `--escribir` solo al cierre). | `python3 -B scripts/edicion/recalcular_onomastico.py` |
 | `reporte_cambios.py` | Compara 1 capítulo o el libro completo contra `respaldo_v1.0/` (o `--desde-git`) en `dist/`. | `python3 -B scripts/edicion/reporte_cambios.py --capitulo 19` |
 | `generar_indice.py` | Genera el Índice General desde `libro.yaml` (`--escribir` solo tras sanear encabezados partidos). | `python3 -B scripts/edicion/generar_indice.py --escribir` |
 | `indexar_externos.py` | Indexa incrementalmente `externos/` en SQLite FTS5 (`dist/indice_externos/corpus.db`) y `catalogo.yaml`. | `python3 -B scripts/edicion/indexar_externos.py` |

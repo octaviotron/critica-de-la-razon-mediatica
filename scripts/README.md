@@ -14,6 +14,8 @@ Documentación técnica de las herramientas internas de validación, compilació
 | [`contexto_capitulo.py`](edicion/contexto_capitulo.py) | Consolida en una sola salida el briefing editorial de un capítulo (metadatos, alerta de textos invitados protegidos, diagnóstico técnico en vivo, ficha espejo en `notas/capitulos/`, fuentes externas mapeadas y menciones en `notas/NOTAS.md`). |
 | [`validar_libro.py`](edicion/validar_libro.py) | Valida un capítulo (`--capitulo`) o el libro completo: archivos, notas al pie, enlaces locales, sintaxis compatible con PangoCairo, asteriscos impares, marcadores `[VERIFICAR]`, protección de textos invitados (`03`–`06` y `29` desde L101), higiene de los 6 `README.md`, tamaño de `AGENTS.md`, fichas espejo en `notas/capitulos/` y huellas SHA-256 de `respaldo_v1.0/md/` (`--verificar-respaldo`). |
 | [`compilar_pdf.py`](edicion/compilar_pdf.py) | Compila un capítulo (`--capitulo`) o el libro completo en `dist/` en formato **PDF** (por defecto, o con etiquetas `[ID.PPP]` mediante `--etiquetar-parrafos`) o **Word (`.docx`)** (`--formato docx`, con prefijado automático de notas por capítulo). También compila la 1.ª edición intacta desde `--manifiesto respaldo_v1.0/libro.yaml`. |
+| [`compilar_maqueta.py`](edicion/compilar_maqueta.py) | Compila la **maqueta editorial `LuaLaTeX`** (tipografías, caja espejo `126.4 × 191.1 mm`, sello lateral y portadillas de 2006) desde [`maquetacion/diseno_2ed.yaml`](../maquetacion/diseno_2ed.yaml) y [`maquetacion/plantilla/`](../maquetacion/plantilla/) en `dist/maqueta/`. Soporta `--capitulo <id>`, `--modo digital\|imprenta`, `--solo-tex` y genera un reporte JSON de calidad tipográfica. |
+| [`recalcular_onomastico.py`](edicion/recalcular_onomastico.py) | Recalcula los números de página de [`libro/32_indice_onomastico.md`](../libro/32_indice_onomastico.md) analizando el PDF maquetado con `pdftotext`. Genera vista previa segura en `dist/maqueta/onomastico_recalculado.md` por defecto (`--escribir` solo en el cierre editorial). |
 | [`reporte_cambios.py`](edicion/reporte_cambios.py) | Genera en `dist/` un reporte comparativo estructural y textual de un capítulo (`--capitulo`) o del libro completo contra `respaldo_v1.0/` (o contra cualquier referencia de Git mediante `--desde-git`). |
 | [`generar_indice.py`](edicion/generar_indice.py) | Regenera el Índice General desde `libro.yaml` y los encabezados reales (`#`, `##`). Por defecto previsualiza en `dist/indice_generado.md`; con `--escribir` actualiza `libro/01_indice.md` (usar solo tras sanear encabezados partidos). |
 | [`indexar_externos.py`](edicion/indexar_externos.py) | Indexa incrementalmente (por SHA-256) los archivos de [`externos/`](../externos/) (PDF, HTML, TXT, MD, DOCX, EPUB) en SQLite FTS5 (`dist/indice_externos/corpus.db`) y sincroniza [`notas/fuentes/catalogo.yaml`](../notas/fuentes/catalogo.yaml) preservando campos curados. |
@@ -45,6 +47,19 @@ python3 -B scripts/edicion/reporte_cambios.py
 # Compilar el libro completo actual o regenerar el Índice General desde libro.yaml
 python3 -B scripts/edicion/compilar_pdf.py
 python3 -B scripts/edicion/generar_indice.py --escribir
+```
+
+### Maquetación editorial de libro (`maquetacion/` → `dist/maqueta/`)
+```bash
+# Prueba rápida de un capítulo en maqueta editorial (~4-5 s)
+python3 -B scripts/edicion/compilar_maqueta.py --capitulo 08
+
+# Maqueta completa del libro (modo digital o imprenta con marcas de corte y PNG 300 DPI)
+python3 -B scripts/edicion/compilar_maqueta.py
+python3 -B scripts/edicion/compilar_maqueta.py --modo imprenta
+
+# Previsualizar recálculo del Índice Onomástico sobre el PDF maquetado
+python3 -B scripts/edicion/recalcular_onomastico.py
 ```
 
 ### Búsqueda interna en el libro y en bibliografía externa (`externos/`)
@@ -83,7 +98,7 @@ python3 -B scripts/extraccion_v1/03_auditar_integridad.py
 ## 4. Requisitos del Entorno Local
 
 Para ejecutar los scripts en un equipo nuevo (entorno Linux / Python 3):
-* **Herramientas de sistema:** `python3`, Poppler (`pdftotext` y `pdftohtml`) y `pandoc` (exportación a Word `.docx` y lectura de `.docx`/`.epub` en `externos/`).
-* **Librerías Python:** `PyYAML`, `pycairo` y `PyGObject` (`Pango` / `PangoCairo` para generación de PDF), `pypdf` y `beautifulsoup4` (indexación de `externos/`). `sqlite3` con FTS5 viene incluido en la biblioteca estándar de Python.
+* **Herramientas de sistema:** `python3`, Poppler (`pdftotext`, `pdftohtml`, `pdfinfo`, `pdffonts`, `pdftoppm`), `pandoc` (exportación a Word `.docx` y lectura de `.docx`/`.epub` en `externos/`), TeX Live con **`lualatex`** (`fontspec`, `geometry`, `fancyhdr`, `lettrine`, `tikz`, `microtype`, `babel-spanish`, `needspace`, `enumitem`, `hyperref`) e **ImageMagick** (`magick`/`convert`, conversión de portadillas `.tif`).
+* **Librerías Python:** `PyYAML`, `pycairo` y `PyGObject` (`Pango` / `PangoCairo` para generación de PDF de revisión), `pypdf` y `beautifulsoup4` (indexación de `externos/`). `sqlite3` con FTS5 viene incluido en la biblioteca estándar de Python.
 
 Para el flujo editorial completo, véanse [`SSOT/README.md`](../SSOT/README.md) y [`SSOT/flujo_editorial_segunda_edicion.md`](../SSOT/flujo_editorial_segunda_edicion.md).
