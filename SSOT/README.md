@@ -20,7 +20,7 @@
 * **[`AGENTS.md`](../AGENTS.md) y [`.agents/skills/`](../.agents/skills/):** Regla universal siempre activa del workspace y guías procedimentales modulares bajo demanda (`editar-capitulo`, `procesar-externos`, `cierre-editorial`).
 * **[`libro/`](../libro/):** Única copia viva del texto publicable (sin anotaciones internas ni borradores); su índice navegable vive en [`libro/README.md`](../libro/README.md).
 * **[`libro.yaml`](../libro.yaml):** Manifiesto maestro del orden de partes/capítulos y tablero de `estado` (`pendiente` | `en_revision` | `aprobado`) bajo la **Opción A** (los nombres actuales de `libro/` funcionan como IDs estables).
-* **[`notas/`](../notas/):** Único espacio para **todo lo pendiente** ([`notas/NOTAS.md`](../notas/NOTAS.md), [`notas/mapa_obra.md`](../notas/mapa_obra.md), [`notas/capitulos/`](../notas/capitulos/) y [`notas/fuentes/`](../notas/fuentes/)).
+* **[`notas/`](../notas/):** Espacio para pendientes y seguimiento editorial ([`notas/NOTAS.md`](../notas/NOTAS.md), [`notas/mapa_obra.md`](../notas/mapa_obra.md), [`notas/registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md), [`notas/capitulos/`](../notas/capitulos/) y [`notas/fuentes/`](../notas/fuentes/)).
 * **[`externos/`](../externos/):** Biblioteca bibliográfica de consulta (solo lectura) con PDFs, artículos HTML y textos de apoyo para la 2.ª edición; se indexa localmente en `dist/indice_externos/` y se ficha en `notas/fuentes/`.
 * **[`CHANGELOG.md`](../CHANGELOG.md):** Único registro de **hechos cerrados** (capítulos ya aprobados por el autor e hitos completados).
 * **[`scripts/`](../scripts/):** Herramientas internas de edición (`scripts/edicion/`) y pipeline histórico congelado (`scripts/extraccion_v1/`); documentación completa y comandos en [`scripts/README.md`](../scripts/README.md).
@@ -51,7 +51,7 @@ critica-de-la-razon-mediatica/
 │       ├── UBICACION DE liminar.txt             # nota editorial original de ubicación del Liminar
 │       └── images/            # 14 portadillas gráficas separadoras (.tif / .jpg)
 ├── libro/                     # Única fuente viva de edición en Markdown (33 archivos base + libro/README.md)
-├── notas/                     # NOTAS.md, mapa_obra.md, capitulos/ (33 + prefacio futuro), fuentes/ (catalogo.yaml + fichas) y README.md
+├── notas/                     # NOTAS.md, mapa_obra.md, registro_cambios_edicion.md, capitulos/, fuentes/ y README.md
 ├── respaldo_v1.0/             # [Inmutable] README.md, libro.yaml v1.0, manifiesto_v1.0.md (SHA-256) y md/ (33 archivos)
 ├── dist/                      # [Ignorado por Git] Entregas PDF/DOCX, reportes diff e índice local de externos/
 ├── scripts/                   # README.md + edicion/ (9 scripts activos) + extraccion_v1/ (3 scripts congelados)

@@ -70,5 +70,6 @@ Este flujo se ejecuta **una sola vez al cierre de la Segunda Edición** (o por b
    python3 -B scripts/edicion/compilar_pdf.py
    python3 -B scripts/edicion/compilar_pdf.py --formato docx
    ```
-3. **Índice Onomástico (`libro/32_indice_onomastico.md`):** Actualizarlo únicamente una vez definida la maquetación y paginación final definitiva (evaluando el reaprovechamiento de `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`).
-4. Actualizar `obra.edicion` y `obra.version` en `libro.yaml`, registrar el cierre en `CHANGELOG.md` y dejar listo para el `commit`/`push` del usuario.
+3. **Cierre del Anexo editorial (`libro/anexo_cambios_segunda_edicion.md`, `id: A1`):** Consolidar desde `notas/registro_cambios_edicion.md` la relación definitiva de cambios estructurales, actualizaciones por capítulo y aparato crítico (retirando cualquier nota provisional de avance), compilar su PDF limpio para revisión del autor y marcar `estado: "aprobado"` en `libro.yaml` únicamente tras su visto bueno explícito.
+4. **Índice Onomástico (`libro/32_indice_onomastico.md`):** Actualizarlo únicamente una vez definida la maquetación y paginación final definitiva (evaluando el reaprovechamiento de `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`).
+5. Actualizar `obra.edicion` y `obra.version` en `libro.yaml`, registrar el cierre en `CHANGELOG.md` y dejar listo para el `commit`/`push` del usuario.

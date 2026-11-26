@@ -19,9 +19,9 @@ Este repositorio cumple dos propósitos complementarios:
 
 ## Estructura del Libro
 
-La obra se organiza en **10 secciones editoriales** (33 archivos Markdown base):
+La obra se organiza en **10 secciones editoriales** (`33` capítulos base de 2006 + `1` anexo editorial de cierre):
 
-| Bloque | Contenido principal | Capítulos base |
+| Bloque | Contenido principal | Capítulos |
 | :--- | :--- | :---: |
 | **Preliminares** | Créditos, Índice General y Agradecimientos | `00` – `02` |
 | **Pro(Logos) (1.ª ed., 2006)** | Cuatro prólogos invitados: M. Maffesoli *(antes «Liminar»)*, R. Lanz, N. Guzmán y M. Téllez | `03` – `06` |
@@ -32,7 +32,7 @@ La obra se organiza en **10 secciones editoriales** (33 archivos Markdown base):
 | **Cuarta Parte** | *Subjetividad, dispositivos y mass-media* (Ensayos I–IV) | `17` – `20` |
 | **Quinta Parte** | *De la opinión pública a las democracias mass-mediáticas* (Ensayos I–IV) | `21` – `24` |
 | **Sexta Parte** | *La apuesta por la distopía de las multitudes: hacia una refundación de la política* (Ensayos I–III) | `25` – `27` |
-| **Cierre y Aparato Crítico** | *Epílogo*, *Post-scriptum* (con ensayo de J. Biardeau), Bibliografía, Glosario e Índice Onomástico | `28` – `32` |
+| **Cierre y Aparato Crítico** | *Epílogo*, *Post-scriptum* (con ensayo de J. Biardeau), Bibliografía, Glosario, Índice Onomástico y *Anexo editorial (cambios 2.ª ed.)* | `28` – `32`, `A1` |
 
 * **Explorar los capítulos de la edición actual:** [`libro/README.md`](libro/README.md) (catálogo navegable) y [`libro.yaml`](libro.yaml) (orden editorial y estado de avance).
 * **Consultar la Primera Edición inmutable (2006):** [`respaldo_v1.0/README.md`](respaldo_v1.0/README.md) (con folios impresos y páginas originales).
@@ -70,7 +70,7 @@ La obra se organiza en **10 secciones editoriales** (33 archivos Markdown base):
 | [`libro/`](libro/) y [`libro.yaml`](libro.yaml) | Manuscrito vivo en Markdown de la Segunda Edición, orden del índice y estado de avance por capítulo. | [`libro/README.md`](libro/README.md) |
 | [`respaldo_v1.0/`](respaldo_v1.0/) | Copia congelada e inmutable de la Primera Edición (2006) verificable mediante huellas SHA-256. | [`respaldo_v1.0/README.md`](respaldo_v1.0/README.md) |
 | [`fuente/`](fuente/) | Archivo histórico original de imprenta (PDF maestro de 2006, maquetación QuarkXPress, tipografías y artes de portada). | [`SSOT/README.md`](SSOT/README.md) |
-| [`notas/`](notas/) | Anotaciones editoriales, panorámica de la obra (`mapa_obra.md`), fichas por capítulo y catálogo de fuentes externas. | [`notas/README.md`](notas/README.md) |
+| [`notas/`](notas/) | Anotaciones editoriales, panorámica (`mapa_obra.md`), registro de cambios de la 2.ª edición (`registro_cambios_edicion.md`), fichas por capítulo y catálogo de fuentes externas. | [`notas/README.md`](notas/README.md) |
 | [`externos/`](externos/) | Biblioteca bibliográfica de apoyo (solo lectura) con libros, artículos y documentos para la Segunda Edición. | [`notas/fuentes/catalogo.yaml`](notas/fuentes/catalogo.yaml) |
 | [`CHANGELOG.md`](CHANGELOG.md) | Bitácora editorial de capítulos aprobados por el autor e hitos completados. | [`CHANGELOG.md`](CHANGELOG.md) |
 | [`scripts/`](scripts/) | Herramientas internas de validación, compilación (PDF/Word), búsqueda e indexación, más el pipeline histórico de 2006. | [`scripts/README.md`](scripts/README.md) |

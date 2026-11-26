@@ -6,10 +6,11 @@ Espacio de trabajo separado de [`libro/`](../libro/) para registrar ideas, autor
 
 ```text
 notas/
-├── README.md          # Esta guía breve
-├── NOTAS.md           # Ideas globales del libro, autores por incluir, frases, glosario e índice
-├── mapa_obra.md       # Panorámica argumental condensada de los 33 capítulos y registro de 2.ª edición
-├── capitulos/         # Una ficha de notas por cada capítulo (mismo nombre exacto que en libro/)
+├── README.md                    # Esta guía breve
+├── NOTAS.md                     # Ideas globales del libro, autores por incluir, frases, glosario e índice
+├── mapa_obra.md                 # Panorámica argumental condensada de los 33 capítulos y registro de 2.ª edición
+├── registro_cambios_edicion.md  # Bitácora editorial de cambios sustantivos al libro (base de futuro reporte/anexo)
+├── capitulos/                   # Una ficha de notas por cada capítulo (mismo nombre exacto que en libro/)
 │   ├── 00_preliminares.md
 │   ├── ...
 │   ├── prefacio_segunda_edicion.md  # Planificación previa (capítulo futuro)

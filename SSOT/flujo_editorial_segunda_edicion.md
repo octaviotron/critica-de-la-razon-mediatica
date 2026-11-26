@@ -40,6 +40,7 @@ Todo el avance de la Segunda Edición se basa en repetir este ciclo simple:
         ▼
 5. Cierre del capítulo (solo tras confirmación de aprobación del autor):
    • Marcar como resueltas (- [x]) las notas aplicadas en notas/capitulos/ y notas/NOTAS.md
+   • Actualizar notas/mapa_obra.md, notas/registro_cambios_edicion.md y libro/anexo_cambios_segunda_edicion.md
    • Anotar nuevos pendientes de glosario/bibliografía en notas/NOTAS.md
    • Marcar estado: "aprobado" en libro.yaml y registrar el capítulo aprobado en CHANGELOG.md
    • 1 commit + push por el usuario (ej. "cap 08 aprobado")
@@ -71,9 +72,9 @@ Para incorporar bibliografía contemporánea (PDFs, artículos HTML, TXT, MD, DO
 
 Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
 
-1. **Añadir un capítulo nuevo (ej. *Prefacio a la Segunda Edición*):**
-   * Se crea un archivo con nombre descriptivo en [`libro/`](../libro/) sin necesidad de prefijo numérico (ej. `libro/prefacio_segunda_edicion.md`).
-   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado: "pendiente"`, se añade al catálogo navegable [`libro/README.md`](../libro/README.md) y, si aplica, se crea su ficha en `notas/capitulos/<mismo_nombre>.md`.
+1. **Añadir un capítulo nuevo (ej. *Anexo editorial* o futuro *Prefacio a la Segunda Edición*):**
+   * Se crea un archivo con nombre descriptivo en [`libro/`](../libro/) sin necesidad de prefijo numérico (ej. `libro/anexo_cambios_segunda_edicion.md` —ya creado con `id: "A1"`, `tipo: "anexo"` al cierre de la obra— o el futuro `libro/prefacio_segunda_edicion.md`).
+   * Se registra en [`libro.yaml`](../libro.yaml) en la sección y posición deseadas con un `id` único y `estado` inicial, se añade al catálogo navegable [`libro/README.md`](../libro/README.md) y se crea su ficha en `notas/capitulos/<mismo_nombre>.md`.
    * Pasa exactamente por el mismo ciclo de la Sección 2 (edición con IA → revisión del autor → aprobación → commit/push).
 2. **Cambiar el orden del índice o agrupar distinto las Partes:**
    * **No se renombran los archivos `.md` existentes** en `libro/` (así las comparaciones contra `respaldo_v1.0/md/` siguen funcionando sin fricción).
@@ -88,7 +89,7 @@ Cuando el proceso requiera incorporar ensayos nuevos o modificar el índice:
 Mientras se editan los capítulos individuales **no** conviene tocar todavía el Índice General ni el Índice Onomástico. Una vez aprobados todos los capítulos:
 1. **Bibliografía y Glosario:** Consolidar en [`libro/30_bibliografia.md`](../libro/30_bibliografia.md) y [`libro/31_glosario.md`](../libro/31_glosario.md) las obras y conceptos acumulados en [`notas/NOTAS.md`](../notas/NOTAS.md).
 2. **Índice General y validación global:** Pedir a la IA regenerar `libro/01_indice.md` desde `libro.yaml`, validar notas al pie y enlaces en todo el libro, y compilar el manuscrito completo en `dist/`.
-3. **Revisión final e Índice Onomástico:** Tras el visto bueno final del autor sobre el manuscrito completo, actualizar [`libro/32_indice_onomastico.md`](../libro/32_indice_onomastico.md) con la paginación definitiva.
+3. **Revisión final, Anexo editorial e Índice Onomástico:** Consolidar y someter a aprobación final del autor el [`libro/anexo_cambios_segunda_edicion.md`](../libro/anexo_cambios_segunda_edicion.md) (desde [`notas/registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md)) y, tras el visto bueno final sobre el manuscrito completo, actualizar [`libro/32_indice_onomastico.md`](../libro/32_indice_onomastico.md) con la paginación definitiva.
 
 ---
 

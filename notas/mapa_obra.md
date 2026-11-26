@@ -70,6 +70,7 @@ Panorámica condensada de los **33 capítulos base** (más el futuro Prefacio) d
 * **`30` [`30_bibliografia.md`](../libro/30_bibliografia.md)** (`4,481` pal.) — Bibliografía general. Consolidar al cierre desde `notas/fuentes/catalogo.yaml` y `notas/NOTAS.md`. *2.ª ed.:* pendiente.
 * **`31` [`31_glosario.md`](../libro/31_glosario.md)** (`13,690` pal.) — Glosario (*La caja de herramientas conceptual*, `92` términos base). Ampliar al cierre con los términos nuevos acordados. *2.ª ed.:* pendiente.
 * **`32` [`32_indice_onomastico.md`](../libro/32_indice_onomastico.md)** (`1,738` pal.) — Índice Onomástico. Actualizar **solo al cierre editorial** con la paginación definitiva. *2.ª ed.:* pendiente.
+* **`A1` [`anexo_cambios_segunda_edicion.md`](../libro/anexo_cambios_segunda_edicion.md)** *(nuevo anexo de cierre)* — *Anexo editorial: Relación de cambios respecto a la Primera Edición (2006)*. Se alimenta progresivamente desde [`notas/registro_cambios_edicion.md`](registro_cambios_edicion.md) con cada cambio estructural y capítulo aprobado. *2.ª ed.:* en revisión continua (incluye `[E-01]` y `[E-02]`).
 
 ---
 

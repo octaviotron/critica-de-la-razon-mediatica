@@ -35,13 +35,14 @@
      * `27_parte6_ensayo_3.md`: definición `[^3]:` sin llamada en el impreso.
 
 ### 1.1. Decisiones Editoriales Confirmadas para la Segunda Edición
-Estas 6 pautas ya fueron definidas con el proyecto y rigen por defecto en todas las sesiones (sin necesidad de volver a preguntarlas):
+Estas 7 pautas ya fueron definidas con el proyecto y rigen por defecto en todas las sesiones (sin necesidad de volver a preguntarlas):
 1. **Inserción de actualizaciones (2006 → actualidad):** *Integración híbrida* — tejer orgánicamente los desarrollos nuevos dentro del flujo del ensayo (sin borrar argumentos de 2006) cuando amplían una tesis ya presente, y abrir subapartados nuevos al cierre de secciones clave cuando se introduce un giro histórico mayor (ej. paso de la TV a plataformas/algoritmos/IA).
 2. **Anclaje temporal de cifras y ejemplos de 2006:** *Contextualización histórica + puente al presente* — conservar las referencias de 2006 como hito genealógico (*«hace dos décadas…»*) y contrastarlas de inmediato con el escenario contemporáneo verificado.
 3. **Citas de fuentes en otro idioma (ej. francés en `La vie spectrale.pdf`):** *Traducción directa al español + nota de edición original* — insertar las citas traducidas en el cuerpo e indicar en la nota al pie europea la edición original seguida de `[trad. propia]` (sustituible si luego ingresa edición publicada en castellano).
 4. **Textos de autores invitados de 2006 (`03`–`06` en `prologos_2006` y Biardeau en `29` desde `L101`):** *Conservación íntegra* como memoria histórica de la 1.ª edición (explicada en el futuro *Prefacio a la Segunda Edición*). En [`libro.yaml`](../libro.yaml), `03_liminar.md` (Michel Maffesoli, intercalado como «Liminar» sin foliar en 2006) queda integrado como **Pro(Logos) I** junto a `04`–`06` (`Pro(Logos)` II–IV) sin renombrar el archivo; solo se unificarían sus encabezados partidos al cierre si el autor lo confirma.
 5. **Formato de entrega por defecto para rondas de revisión del autor:** *PDF limpio de lectura* (`compilar_pdf.py --capitulo <id>` en `dist/`) acompañado de resumen breve de 5–10 viñetas. Word `.docx` (`--formato docx`) y PDF etiquetado (`--etiquetar-parrafos`) quedan disponibles solo bajo pedido puntual.
 6. **Uniformidad tipográfica y de aparato crítico (aplicación progresiva por capítulo):** Comillas latinas `«»` para citas textuales, `""` para énfasis/citas internas y sustitución de las 40 comillas `‹›`; notas al pie estandarizadas con `Ibíd.`, `Op. cit.` y punto final; corrección automática al paso de `Masmediática` → `Massmediática`, `S. i ek` → `S. Žižek`, `Gumis` → `Gomis`, `Foweler` → `Fowler`, `Lippman` → `Lippmann` y unificación de encabezados partidos; conservar `· Término:` en `31_glosario.md` y decidir recién al cierre si pasa a `### Término`.
+7. **Anexo editorial de cierre (`libro/anexo_cambios_segunda_edicion.md`, `id: "A1"`):** La obra cierra tras el *Índice Onomástico* con el capítulo ***Anexo editorial: Relación de cambios respecto a la Primera Edición (2006)*** (`tipo: "anexo"` en `libro.yaml`), alimentado progresivamente desde [`notas/registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md) con cada cambio estructural y cada capítulo aprobado, y sometido a aprobación final del autor al cierre editorial.
 
 ---
 
@@ -69,7 +70,7 @@ Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por ses
    * Registrar las observaciones en `notas/capitulos/<archivo>.md`, aplicar las correcciones indicadas sobre el mismo `libro/<archivo>.md`, volver a validar el capítulo y generar un nuevo PDF/DOCX de revisión si hace falta.
 5. **Al recibir la aprobación explícita del autor (confirmada por el usuario):**
    * Marcar como completadas (`- [x]`) las tareas incorporadas en `notas/capitulos/<archivo>.md`, en `notas/fuentes/<slug>.md` (si se integraron fuentes externas) y en [`notas/NOTAS.md`](../notas/NOTAS.md).
-   * Actualizar el resumen de 2.ª edición y el registro de autores/conceptos ya introducidos en [`notas/mapa_obra.md`](../notas/mapa_obra.md).
+   * Actualizar el resumen de 2.ª edición y el registro de autores/conceptos ya introducidos en [`notas/mapa_obra.md`](../notas/mapa_obra.md), documentar el detalle editorial en [`notas/registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md) y añadir su síntesis publicable en [`libro/anexo_cambios_segunda_edicion.md`](../libro/anexo_cambios_segunda_edicion.md).
    * Anotar cualquier término nuevo de Glosario o referencia nueva para Bibliografía en [`notas/NOTAS.md`](../notas/NOTAS.md) (no en `CHANGELOG.md`).
    * Cambiar `estado: "aprobado"` en [`libro.yaml`](../libro.yaml).
    * Registrar el capítulo aprobado en [`CHANGELOG.md`](../CHANGELOG.md).

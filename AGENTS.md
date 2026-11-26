@@ -32,9 +32,9 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y protocol
 | :--- | :--- | :--- |
 | `AGENTS.md` | Editable (mantener `< 18 KB`) | Regla universal siempre activa del workspace. |
 | `.agents/skills/` | Editable (carga bajo demanda) | Skills procedimentales: `editar-capitulo`, `procesar-externos` y `cierre-editorial`. |
-| `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas). Los 33 nombres originales son IDs estables (**Opción A**). |
-| `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, 10 secciones (`preliminares`, `prologos_2006`, `apertura`, Partes I–VI, `cierre`) y `estado` por capítulo. |
-| `notas/` | Editable | `NOTAS.md` (pendientes globales y preferencias del autor), `mapa_obra.md` (panorámica de 33 caps. y registro 2.ª ed.), `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`) y `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`). |
+| `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas). Los 33 nombres originales son IDs estables (**Opción A**); los nuevos usan nombre descriptivo (ya creado `anexo_cambios_segunda_edicion.md`, `id: A1`). |
+| `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, 10 secciones (`preliminares`, `prologos_2006`, `apertura`, Partes I–VI, `cierre`), `34` entradas actuales (`33` base + `A1`) y `estado` por capítulo. |
+| `notas/` | Editable | `NOTAS.md` (pendientes globales y preferencias del autor), `mapa_obra.md` (panorámica de 33 caps.), `registro_cambios_edicion.md` (cambios sustantivos al libro 2006 → 2.ª ed. para futuro reporte/anexo), `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`) y `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`). |
 | `externos/` | **Solo lectura (en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar. |
 | `CHANGELOG.md` | Editable (hechos cerrados) | Exclusivo para capítulos aprobados e hitos ya completados. |
 | `scripts/edicion/` | Editable (herramientas internas) | Scripts Python ejecutados con `python3 -B` bajo demanda por el agente. |
@@ -72,13 +72,14 @@ Detalle completo en `SSOT/guia_estilo_editorial.md` (§1 y §1.1) y `SSOT/perfil
 * **Sintaxis PangoCairo (`libro/*.md`):** Permitido `#`/`##`/`###`, `>`, `- `, listas numeradas con línea en blanco entre ítems, `*`/`**`/`***`, `[^id]` y definiciones en 1 párrafo tras `---`. **Prohibido:** `####`, tablas `|...|`, bloques `` ``` ``, imágenes `![...]`, asteriscos impares y notas multipárrafo.
 * **Citas europeas y política anti-alucinación:** Formato `Inicial. Apellido, *Título*, Editorial, Ciudad, Año, p. X.` **Nunca inventar citas ni páginas** (verificar siempre vía `buscar_externos.py` o marcar `[VERIFICAR CITA/PÁG.]`). No borrar notas existentes ni renumerar manualmente (usar IDs temporales `[^14b]`, `[^sadin]`).
 * **7 omisiones confirmadas del impreso 2006 (consultar al autor al editar):** `11` (`[^15]`, `[^19]` sin llamada + salto `17`), `17` (`[^28]` sin llamada), `20` (`[^3]` sin definición), `24` (`[^4]` sin definición, `[^2]` sin llamada), `27` (`[^3]` sin llamada).
-* **6 decisiones editoriales fijas (no volver a preguntar):**
+* **7 decisiones editoriales fijas (no volver a preguntar):**
   1. **Actualizaciones:** integración híbrida (tejido orgánico sin borrar 2006 + subapartados nuevos ante giros históricos mayores).
   2. **Anclaje temporal:** contextualizar cifras/ejemplos de 2006 históricamente y tender puente al presente verificado.
   3. **Fuentes en otro idioma:** traducir cita al español en el cuerpo + nota europea a la edición original con `[trad. propia]`.
-  4. **Autores invitados (`03`–`06`, `29` L101+):** conservar íntegros como memoria de 2006 (explicado en el futuro Prefacio).
+  4. **Autores invitados (`03`–`06`, `29` L101+):** conservar íntegros como memoria de 2006 (explicado en el futuro Prefacio y en el Anexo editorial).
   5. **Entrega por defecto al autor:** **PDF limpio** (`compilar_pdf.py --capitulo <id>`) + resumen de 5–10 viñetas (`.docx` o `--etiquetar-parrafos` solo bajo pedido).
   6. **Uniformidad al paso:** `«»` citas / `""` énfasis / sustituir `‹›`; `Ibíd.`, `Op. cit.` y punto final; corregir `Masmediática`, `S. i ek`, `Gumis`, `Foweler`, `Lippman` y encabezados partidos; conservar `· Término:` en `31_glosario.md` hasta el cierre.
+  7. **Anexo editorial de cierre (`libro/anexo_cambios_segunda_edicion.md`, `id: A1`):** *Anexo editorial: Relación de cambios respecto a la Primera Edición (2006)* al final de `cierre`; actualizarlo junto a `notas/registro_cambios_edicion.md` con cada cambio estructural y cada capítulo aprobado, y cerrarlo tras aprobación del autor.
 
 ---
 

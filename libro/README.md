@@ -100,3 +100,4 @@ Este directorio aloja los archivos Markdown (`.md`) vivos de la **Segunda Edici�
 * **[`30_bibliografia.md`](30_bibliografia.md)** — **Bibliografía**
 * **[`31_glosario.md`](31_glosario.md)** — **Glosario** (*La caja de herramientas conceptual*)
 * **[`32_indice_onomastico.md`](32_indice_onomastico.md)** — **Índice Onomástico**
+* **[`anexo_cambios_segunda_edicion.md`](anexo_cambios_segunda_edicion.md)** — **Anexo editorial:** *Relación de cambios respecto a la Primera Edición (2006)* *(nuevo anexo de cierre de la 2.ª edición; `id: A1` en `libro.yaml`)*

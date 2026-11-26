@@ -76,6 +76,7 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 ## 5. Propuestas sobre Nuevos Capítulos o Cambios de Índice (`libro.yaml`)
 
 - [ ] **Prefacio a la Segunda Edición (definido a futuro — solo en notas por ahora):** Se incorporará un nuevo capítulo independiente (`libro/prefacio_segunda_edicion.md`, aún **no** creado en `libro/` ni registrado en [`libro.yaml`](../libro.yaml)) ubicado antes de [`07_preambulo.md`](capitulos/07_preambulo.md). Su definición, ejes temáticos y requisitos de alta viven por lo pronto en su ficha de planificación previa: [`notas/capitulos/prefacio_segunda_edicion.md`](capitulos/prefacio_segunda_edicion.md).
+- [x] **Anexo editorial de cierre incorporado en el libro (`id: A1`):** Creado [`libro/anexo_cambios_segunda_edicion.md`](../libro/anexo_cambios_segunda_edicion.md) (*Anexo editorial: Relación de cambios respecto a la Primera Edición (2006)*) al cierre de [`libro.yaml`](../libro.yaml), alimentado progresivamente desde [`notas/registro_cambios_edicion.md`](registro_cambios_edicion.md) (ficha espejo: [`notas/capitulos/anexo_cambios_segunda_edicion.md`](capitulos/anexo_cambios_segunda_edicion.md)).
 - [ ] Evaluar si el *Manual para ver TV* (`20_parte4_ensayo_4.md`) se amplía a un *Manual para habitar pantallas y algoritmos* o se acompaña de una adenda contemporánea.
 - [ ] Revisar al final de la edición si conviene reagrupar algún ensayo en [`libro.yaml`](../libro.yaml) antes de regenerar `libro/01_indice.md`.
 

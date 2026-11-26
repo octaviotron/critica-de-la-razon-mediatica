@@ -79,7 +79,7 @@ Aplicar las **6 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editoria
 * **Si el autor envía observaciones:** registrarlas en `notas/capitulos/<archivo>.md` (y cualquier pauta general en `notas/NOTAS.md` Sección 7), aplicar ajustes en `libro/<archivo>.md`, revalidar y recompilar.
 * **Cuando el usuario confirme explícitamente que el autor aprobó el capítulo:**
   1. Marcar `- [x]` en `notas/capitulos/<archivo>.md`, `notas/fuentes/<slug>.md` (si se integraron fuentes) y `notas/NOTAS.md`.
-  2. Actualizar la entrada del capítulo y el registro de autores/conceptos introducidos en `notas/mapa_obra.md`.
+  2. Actualizar la entrada del capítulo y el registro de autores/conceptos introducidos en `notas/mapa_obra.md`, documentar los cambios sustantivos en `notas/registro_cambios_edicion.md` y añadir su síntesis publicable en `libro/anexo_cambios_segunda_edicion.md` (`id: A1`).
   3. Anotar términos nuevos para Glosario o referencias para Bibliografía en `notas/NOTAS.md`.
   4. Verificar que no queden marcadores `[VERIFICAR` sin resolver y cambiar `estado: "aprobado"` en `libro.yaml`.
   5. Registrar el capítulo aprobado en `CHANGELOG.md`.
