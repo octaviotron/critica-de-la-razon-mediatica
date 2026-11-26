@@ -8,17 +8,22 @@ Espacio de trabajo separado de [`libro/`](../libro/) para registrar ideas, autor
 notas/
 ├── README.md          # Esta guía breve
 ├── NOTAS.md           # Ideas globales del libro, autores por incluir, frases, glosario e índice
-└── capitulos/         # Una ficha de notas por cada capítulo (mismo nombre exacto que en libro/)
-    ├── 00_preliminares.md
-    ├── ...
-    └── 32_indice_onomastico.md
+├── capitulos/         # Una ficha de notas por cada capítulo (mismo nombre exacto que en libro/)
+│   ├── 00_preliminares.md
+│   ├── ...
+│   ├── prefacio_segunda_edicion.md  # Planificación previa (capítulo futuro)
+│   └── 32_indice_onomastico.md
+└── fuentes/           # Catálogo y fichas de lectura curadas de la bibliografía en externos/
+    ├── catalogo.yaml  # Manifiesto bibliográfico maestro (citas europeas, temas, capítulos destino)
+    └── <slug>.md      # Ficha resumida y banco de citas verificadas por cada fuente externa
 ```
 
 ## Cómo usar estas notas
 
 1. **Captura rápida de ideas generales:** Añade cualquier autor, cita, frase o idea transversal en [`NOTAS.md`](NOTAS.md) usando casillas `- [ ]`.
 2. **Trabajo por capítulo:** Al abordar un capítulo en [`libro/`](../libro/), revisa su ficha espejo en `notas/capitulos/<mismo_nombre>.md`. Allí se concentran las sugerencias de actualización, erratas técnicas heredadas de 2006 y el espacio para pegar observaciones del autor durante las rondas de revisión.
-3. **Seguimiento limpio:** Conforme cada punto se integra al manuscrito y recibe aprobación del autor, cambia `- [ ]` por `- [x]` para conservar memoria de lo ya resuelto.
-4. **Nuevos capítulos:** Si añades un capítulo nuevo en `libro/` y [`libro.yaml`](../libro.yaml), puedes crear su ficha correspondiente en `notas/capitulos/` con el mismo nombre de archivo.
+3. **Bibliografía externa (`externos/` → `notas/fuentes/`):** Cuando añadas nuevos documentos en [`externos/`](../externos/), solo avisa durante la sesión de edición asistida; el catálogo [`notas/fuentes/catalogo.yaml`](fuentes/catalogo.yaml), el índice local de búsqueda y la ficha de lectura en `notas/fuentes/` se actualizarán automáticamente sin ejecutar comandos manuales.
+4. **Seguimiento limpio:** Conforme cada punto se integra al manuscrito y recibe aprobación del autor, cambia `- [ ]` por `- [x]` para conservar memoria de lo ya resuelto.
+5. **Nuevos capítulos:** Si añades un capítulo nuevo en `libro/` y [`libro.yaml`](../libro.yaml), puedes crear su ficha correspondiente en `notas/capitulos/` con el mismo nombre de archivo.
 
 > Para el flujo completo de edición asistida, véanse [`SSOT/flujo_editorial_segunda_edicion.md`](../SSOT/flujo_editorial_segunda_edicion.md) y [`SSOT/guia_estilo_editorial.md`](../SSOT/guia_estilo_editorial.md).

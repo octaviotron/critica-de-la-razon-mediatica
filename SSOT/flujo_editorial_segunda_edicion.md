@@ -55,6 +55,15 @@ En cada etapa basta pedirle a la IA:
 * **Al recibir comentarios del autor:** *"Aplica estas observaciones del autor sobre `libro/19_parte4_ensayo_3.md` y vuelve a generar el PDF del capítulo."*
 * **Al aprobarse el capítulo:** *"El autor aprobó el capítulo 19; márcalo como aprobado en `libro.yaml` y regístralo en `CHANGELOG.md`."*
 * **Para consultar avance:** *"Muéstrame el avance de los capítulos según `libro.yaml`."*
+* **Al añadir nueva bibliografía en `externos/`:** *"Añadí nuevos archivos en `externos/`, procésalos e indexa todo."*
+* **Al buscar citas verificadas en `externos/`:** *"Busca qué dice Éric Sadin (o Harari / Palantir) sobre el cuerpo-pantalla y verifica las páginas exactas."*
+
+### 2.1. Incorporación y Consulta de Bibliografía Externa (`externos/` → `notas/fuentes/`)
+Para incorporar bibliografía contemporánea (PDFs, artículos HTML, TXT, MD, DOCX, EPUB) sin ejecutar comandos manuales ni saturar el contexto con libros completos:
+1. **El usuario solo deposita los archivos en [`externos/`](../externos/)** (carpeta versionada de solo lectura) y avisa al agente en lenguaje natural.
+2. **El agente ejecuta internamente** `python3 -B scripts/edicion/indexar_externos.py`, que procesa de forma incremental únicamente los archivos nuevos o modificados (por SHA-256), actualiza el índice local SQLite FTS5 en `dist/indice_externos/corpus.db` y agrega las entradas nuevas en [`notas/fuentes/catalogo.yaml`](../notas/fuentes/catalogo.yaml) sin sobrescribir campos ya curados.
+3. **Fichado curado:** El agente inspecciona metadatos, créditos y tabla de contenidos mediante `buscar_externos.py --info` / `--leer`, completa en `notas/fuentes/catalogo.yaml` la cita en estilo europeo, postura de diálogo (`afin` | `dialogo_critico` | `critica` | `insumo_empirico`), temas y capítulos destino, y redacta la ficha resumida `notas/fuentes/<slug>.md` (enlazándola en [`notas/NOTAS.md`](../notas/NOTAS.md) si aplica).
+4. **Auto-sincronización silenciosa en consulta:** `buscar_externos.py` verifica automáticamente si hay novedades en `externos/` (o si `corpus.db` aún no existe tras un `git clone`) y reindexa en segundo plano antes de buscar. Al editar un capítulo, permite extraer citas literales con **página exacta verificada**.
 
 ---
 
@@ -111,6 +120,10 @@ respaldo_v1.0/
 | [`compilar_pdf.py`](../scripts/edicion/compilar_pdf.py) | Compila un capítulo (`--capitulo`) o el libro completo en `dist/` en formato `pdf` (por defecto) o Word `docx` (`--formato docx`). También compila la 1.ª edición desde `--manifiesto respaldo_v1.0/libro.yaml`. | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
 | [`reporte_cambios.py`](../scripts/edicion/reporte_cambios.py) | Compara un capítulo (`--capitulo`) o el libro completo contra `respaldo_v1.0/` y genera un informe en `dist/` (útil para redactar el resumen de cambios al autor). | `python3 -B scripts/edicion/reporte_cambios.py --capitulo 19 --incluir-diffs` |
 | [`generar_indice.py`](../scripts/edicion/generar_indice.py) | Genera el Índice General desde `libro.yaml` y los encabezados reales (`#`, `##`). Previsualiza en `dist/indice_generado.md` o actualiza `libro/01_indice.md` con `--escribir`. | `python3 -B scripts/edicion/generar_indice.py --escribir` |
+| [`indexar_externos.py`](../scripts/edicion/indexar_externos.py) | Indexa incrementalmente (por SHA-256) los archivos de `externos/` (PDF, HTML, TXT, MD, DOCX, EPUB) en SQLite FTS5 (`dist/indice_externos/corpus.db`) y sincroniza `notas/fuentes/catalogo.yaml`. | `python3 -B scripts/edicion/indexar_externos.py` |
+| [`buscar_externos.py`](../scripts/edicion/buscar_externos.py) | Consulta quirúrgica sobre `externos/` con auto-sincronización silenciosa: búsqueda FTS5 BM25, lectura de rangos exactos de páginas (`--leer`), inspección de TOC (`--info`) y fuentes asignadas por capítulo (`--para-capitulo`). | `python3 -B scripts/edicion/buscar_externos.py --para-capitulo 19` |
+
+> **Sincronización ante cambios del proyecto:** Siempre que se añada o modifique un script, directorio, función o paso del flujo editorial, seguir el **Protocolo de Mantenimiento y Evolución** definido en [`AGENTS.md`](../AGENTS.md) para mantener alineados `AGENTS.md`, `SSOT/` y los `README.md` sin contradicciones.
 
 ### 6.2. Pipeline Histórico de Extracción 2006 (`scripts/extraccion_v1/`)
 Congelado para trazabilidad y auditoría reproducible de la 1.ª edición:

@@ -1,0 +1,411 @@
+# Catálogo Maestro de Bibliografía Externa (`notas/fuentes/catalogo.yaml`)
+#
+# Espejo bibliográfico de los archivos depositados en `externos/`.
+# Los campos técnicos (`archivo`, `sha256`, `paginas`, `caracteres`, `requiere_ocr`)
+# se sincronizan automáticamente mediante `scripts/edicion/indexar_externos.py`,
+# preservando siempre los campos editoriales curados (`cita_europea`, `postura_dialogo`,
+# `temas`, `capitulos_destino`, `estado`, `notas`).
+
+carpeta_externos: externos
+indice_local: dist/indice_externos/corpus.db
+fuentes:
+- id: cuaderno_plc_n108
+  archivo: Cuaderno-PLC-N108.pdf
+  formato: pdf
+  sha256: e8faa7aa6539f3f3d0a521225f2d091b10415aa62fdffd978cb5216d5f1618d5
+  titulo: 'La plataformización como objeto de estudio comunicacional: premisas, quimeras y líneas emergentes desde
+    el contexto latinoamericano'
+  autor: Raul Anthony Olmedo Neri
+  anio: '2026'
+  editorial: CLACSO (Cuadernos del Pensamiento Crítico Latinoamericano, N.º 108)
+  ciudad: Buenos Aires
+  url: ''
+  idioma: es
+  tipo: articulo
+  postura_dialogo: afin
+  cita_europea: 'R. A. Olmedo Neri, «La plataformización como objeto de estudio comunicacional: premisas, quimeras
+    y líneas emergentes desde el contexto latinoamericano», Cuadernos del Pensamiento Crítico Latinoamericano, N.º
+    108, CLACSO, Buenos Aires, octubre de 2026.'
+  paginas: 5
+  caracteres: 33781
+  requiere_ocr: false
+  temas:
+  - plataformizacion
+  - comunicacion_latinoamericana
+  - financiarizacion_digital
+  - mediatizacion
+  capitulos_destino:
+  - '10'
+  - '11'
+  - '19'
+  - '21'
+  - '31'
+  estado: fichado
+  ficha: notas/fuentes/cuaderno_plc_n108.md
+  notas: Enfoque comunicacional situado desde América Latina (CLACSO, ISBN 978-631-308-408-1). Ideal para actualizar
+    el apartado latinoamericano del cap. 10 y el concepto de plataforma.
+- id: etica_o_ideologia_de_la_inteligencia_artificial_adel
+  archivo: Ética-o-ideología-de-la-inteligencia-artificial-Adela-Cortina.pdf
+  formato: pdf
+  sha256: 24fd3891d930ded73c5407236bfdcd1e3d68e339140ba11d791a6bb5943697f4
+  titulo: ¿Ética o ideología de la inteligencia artificial?
+  autor: Adela Cortina Orts
+  anio: '2024'
+  editorial: Paidós (Editorial Planeta)
+  ciudad: Barcelona
+  url: ''
+  idioma: es
+  tipo: libro
+  postura_dialogo: dialogo_critico
+  cita_europea: A. Cortina, *¿Ética o ideología de la inteligencia artificial?*, Paidós, Barcelona, 2024.
+  paginas: 227
+  caracteres: 403148
+  requiere_ocr: false
+  temas:
+  - etica_ia
+  - ideologia_tecnologica
+  - transhumanismo
+  - razon_comunicativa
+  - espacio_publico
+  capitulos_destino:
+  - '07'
+  - '17'
+  - '22'
+  - '23'
+  estado: fichado
+  ficha: notas/fuentes/etica_o_ideologia_de_la_inteligencia_artificial_adel.md
+  notas: Contrapunto ético-habermasiano (caps. 3, 8, 9 y 10 sobre transhumanismo, libertad digital y eclipse de
+    la razón comunicativa) frente a la matriz biopolítica del libro.
+- id: libro_geopolitica_hibrida_el_libro
+  archivo: LIbro geopolitica-hibrida-el-libro.pdf
+  formato: pdf
+  sha256: fa6bafbc3e5bc35b2cce8ea7bbbe13380bbcf707a627bd64c2de46ee71720310
+  titulo: 'Geopolítica híbrida: territorio, poder, tecnología, información'
+  autor: Horacio Minotti (comp.)
+  anio: '2026'
+  editorial: BAE Internacional (BAE Negocios S.A.)
+  ciudad: Buenos Aires
+  url: ''
+  idioma: es
+  tipo: libro
+  postura_dialogo: insumo_empirico
+  cita_europea: 'H. Minotti (comp.), *Geopolítica híbrida: territorio, poder, tecnología, información*, BAE Internacional,
+    Buenos Aires, 2026.'
+  paginas: 343
+  caracteres: 824924
+  requiere_ocr: false
+  temas:
+  - geopolitica_hibrida
+  - guerra_comunicacional
+  - redes_sociales
+  - democracia_latinoamericana
+  capitulos_destino:
+  - '23'
+  - '24'
+  - '26'
+  estado: fichado
+  ficha: notas/fuentes/libro_geopolitica_hibrida_el_libro.md
+  notas: Compilación de 43 autores sobre guerras híbridas, operaciones comunicacionales en redes y coyuntura geopolítica
+    contemporánea (ISBN 978-631-92109-0-3). Citar al autor específico de cada ensayo.
+- id: la_vie_spectrale
+  archivo: La vie spectrale.pdf
+  formato: pdf
+  sha256: d5a73654b02a69e02c9b948ea0af2d1481b206e3b84bd2c2df1f510ef438b3ab
+  titulo: La vie spectrale. Penser l'ère du métavers et des IA génératives
+  autor: Éric Sadin
+  anio: '2023'
+  editorial: Grasset [VERIFICAR PÁG. CRÉDITOS]
+  ciudad: París
+  url: ''
+  idioma: fr
+  tipo: libro
+  postura_dialogo: afin
+  cita_europea: É. Sadin, *La vie spectrale. Penser l'ère du métavers et des IA génératives*, Grasset, París, 2023
+    [VERIFICAR ED.].
+  paginas: 189
+  caracteres: 374640
+  requiere_ocr: false
+  temas:
+  - ia_generativa
+  - metaverso
+  - cuerpo_y_pantalla
+  - desubjetivacion
+  - promptismo
+  - critica_harari
+  capitulos_destino:
+  - '07'
+  - '13'
+  - '17'
+  - '18'
+  - '19'
+  - '27'
+  - '28'
+  estado: fichado
+  ficha: notas/fuentes/la_vie_spectrale.md
+  notas: 'En francés: traducir citas con indicación [trad. propia] o verificar edición en castellano. Altísima afinidad
+    con el eje cuerpo-pantalla, desubjetivación y crítica al «hararismo» (p. 153).'
+- id: nexus_una_breve_historia_de_las_redes_de_informacion
+  archivo: Nexus Una breve historia de las redes de información.pdf
+  formato: pdf
+  sha256: a306747f94b14e41dab90732000bed87eadb7ad4747fe7b94f6fa5167ca82e6a
+  titulo: Nexus. Una breve historia de las redes de información desde la Edad de Piedra hasta la IA
+  autor: Yuval Noah Harari
+  anio: '2024'
+  editorial: Debate (Penguin Random House Grupo Editorial)
+  ciudad: Barcelona
+  url: ''
+  idioma: es
+  tipo: libro
+  postura_dialogo: critica
+  cita_europea: Y. N. Harari, *Nexus. Una breve historia de las redes de información desde la Edad de Piedra hasta
+    la IA*, Debate, Barcelona, 2024.
+  paginas: 619
+  caracteres: 1226244
+  requiere_ocr: false
+  temas:
+  - redes_de_informacion
+  - dataismo
+  - ia_inorganica
+  - democracia_y_algoritmos
+  - telon_de_silicio
+  capitulos_destino:
+  - '07'
+  - 08
+  - 09
+  - '17'
+  - '18'
+  - '21'
+  - '22'
+  estado: fichado
+  ficha: notas/fuentes/nexus_una_breve_historia_de_las_redes_de_informacion.md
+  notas: Trad. Joandomènec Ros i Aragonès (ISBN 978-84-19951-03-8). Obra clave ya listada en notas/NOTAS.md para
+    desmontar críticamente el dataísmo y el enfoque liberal-informacional desde la biopolítica.
+- id: nick_bostrom_superinteligencia_caminos_peligros_estr
+  archivo: Nick Bostrom - Superinteligencia_ Caminos, peligros, estrategias - libgen.li.pdf
+  formato: pdf
+  sha256: f9b04dd1081248ea6fb14ab758fdfa6ba3e9bfdaaaf23fc7fbcbccf58ffc7c60
+  titulo: Superinteligencia. Caminos, peligros, estrategias
+  autor: Nick Bostrom
+  anio: '2016'
+  editorial: Teell Editorial (orig. Oxford University Press, 2014)
+  ciudad: Zaragoza
+  url: ''
+  idioma: es
+  tipo: libro
+  postura_dialogo: critica
+  cita_europea: N. Bostrom, *Superinteligencia. Caminos, peligros, estrategias*, Teell Editorial, Zaragoza, 2016.
+  paginas: 419
+  caracteres: 1142130
+  requiere_ocr: false
+  temas:
+  - superinteligencia
+  - riesgo_existencial
+  - alineacion_ia
+  - tecnodeterminismo
+  capitulos_destino:
+  - '07'
+  - 09
+  - '17'
+  estado: fichado
+  ficha: notas/fuentes/nick_bostrom_superinteligencia_caminos_peligros_estr.md
+  notas: Trad. Marcos Alonso (ISBN 978-84-16511-56-3; Dep. Legal Z 70-2016). Referente clásico del discurso del
+    riesgo existencial/alineación para contrastar desde la crítica político-material.
+- id: palantir_por_que_causa_preocupacion_el_creciente_pod
+  archivo: Palantir_ ¿por qué causa preocupación el creciente poder global de la compañía de IA_ - BBC News Mundo.html
+  formato: html
+  sha256: c79b108c4742619c4468565cc432875155d8cec96d96a2b845b477cb96bea368
+  titulo: 'Palantir: ¿por qué causa preocupación el creciente poder global de la compañía de IA?'
+  autor: Rafael Abuchaibe
+  anio: '2026'
+  editorial: BBC News Mundo
+  ciudad: ''
+  url: https://www.bbc.com/mundo/articles/cly6qn2gq07o
+  idioma: es
+  tipo: articulo
+  postura_dialogo: insumo_empirico
+  cita_europea: 'R. Abuchaibe, «Palantir: ¿por qué causa preocupación el creciente poder global de la compañía de
+    IA?», *BBC News Mundo*, 22 de abril de 2026, disponible en https://www.bbc.com/mundo/articles/cly6qn2gq07o.'
+  paginas: 5
+  caracteres: 16179
+  requiere_ocr: false
+  temas:
+  - palantir
+  - vigilancia_masiva
+  - complejo_militar_digital
+  - biopoder_algoritmico
+  capitulos_destino:
+  - '19'
+  - '21'
+  - '23'
+  - '24'
+  estado: fichado
+  ficha: notas/fuentes/palantir_por_que_causa_preocupacion_el_creciente_pod.md
+  notas: Caso empírico contemporáneo sobre infraestructura privada de vigilancia, inteligencia militar y fusión
+    Estado-corporación tecnológica (Peter Thiel / Alex Karp).
+- id: sadin_eric_la_inteligencia_artificial_o_el_desafio_d
+  archivo: Sadin-Eric-La-Inteligencia-Artificial-O-El-Desafio-Del-Siglo-XXI.pdf
+  formato: pdf
+  sha256: d8fa4e36edcd28c4b48584387e388839f52f42b950fb163832cadb5ed6a86b27
+  titulo: La inteligencia artificial o el desafío del siglo. Anatomía de un antihumanismo radical
+  autor: Éric Sadin
+  anio: '2020'
+  editorial: Caja Negra Editora (orig. L''Échappée, París, 2018)
+  ciudad: Buenos Aires
+  url: ''
+  idioma: es
+  tipo: libro
+  postura_dialogo: afin
+  cita_europea: É. Sadin, *La inteligencia artificial o el desafío del siglo. Anatomía de un antihumanismo radical*,
+    Caja Negra Editora, Buenos Aires, 2020.
+  paginas: 314
+  caracteres: 547392
+  requiere_ocr: false
+  temas:
+  - antihumanismo_algoritmico
+  - regimen_de_verdad
+  - giro_conminatorio
+  - tecnoliberalismo
+  - dispositivos_relacionales
+  capitulos_destino:
+  - '07'
+  - 08
+  - '17'
+  - '18'
+  - '19'
+  - '22'
+  - '24'
+  estado: fichado
+  ficha: notas/fuentes/sadin_eric_la_inteligencia_artificial_o_el_desafio_d.md
+  notas: 'Trad. Margarita Martínez (ISBN 978-987-1622-86-3). PDF con capa OCR previa que contiene pequeños errores
+    de reconocimiento: revisar cuidadosamente cualquier cita literal antes de insertarla.'
+- id: tecnologia_digital_y_fantasias_de_un_mundo_administr
+  archivo: Tecnología digital y fantasías de un mundo administrado - Jacobin Revista.html
+  formato: html
+  sha256: d7175c2f5c65e01350f1a57ac9e77b60287178d2524a53dcee8c12cfb91d48bf
+  titulo: Tecnología digital y fantasías de un mundo administrado
+  autor: Jorge Orovitz Sanmartino
+  anio: '2026'
+  editorial: Jacobin América Latina
+  ciudad: ''
+  url: https://jacobinlat.com/2026/03/la-tecnologia-digital-y-la-fantasia-de-un-mundo-administrado/
+  idioma: es
+  tipo: articulo
+  postura_dialogo: afin
+  cita_europea: J. Orovitz Sanmartino, «Tecnología digital y fantasías de un mundo administrado», *Jacobin América
+    Latina*, 8 de marzo de 2026, disponible en https://jacobinlat.com/2026/03/la-tecnologia-digital-y-la-fantasia-de-un-mundo-administrado/.
+  paginas: 10
+  caracteres: 29439
+  requiere_ocr: false
+  temas:
+  - tecnocracia
+  - ciberlibertarismo
+  - despolitizacion
+  - democracia_y_plataformas
+  - peter_thiel
+  capitulos_destino:
+  - '22'
+  - '23'
+  - '24'
+  - '25'
+  estado: fichado
+  ficha: notas/fuentes/tecnologia_digital_y_fantasias_de_un_mundo_administr.md
+  notas: Excelente ensayo político sobre tecnocracia, ilusión de neutralidad técnica (Weber/Rousseau) e imaginario
+    ciberlibertario-hobbesiano (Thiel, Musk, Zuckerberg, desregulación IA).
+- id: iacc_vf
+  archivo: iacc_vf.pdf
+  formato: pdf
+  sha256: 0f76eb8aed0ba75eee3ebdae94e246ebc4ae3ba4da43570b4e5363bcb9abd2c9
+  titulo: Inteligencia artificial y acumulación de capital. Elementos para una crítica de la economía política de
+    la inteligencia artificial
+  autor: Cristóbal Reyes
+  anio: '2026'
+  editorial: Secretaría de Cultura — Centro de Cultura Digital
+  ciudad: Ciudad de México
+  url: ''
+  idioma: es
+  tipo: libro
+  postura_dialogo: afin
+  cita_europea: C. Reyes, *Inteligencia artificial y acumulación de capital. Elementos para una crítica de la economía
+    política de la inteligencia artificial*, Secretaría de Cultura — Centro de Cultura Digital, Ciudad de México,
+    2026.
+  paginas: 173
+  caracteres: 360776
+  requiere_ocr: false
+  temas:
+  - economia_politica_ia
+  - acumulacion_de_capital
+  - teoria_del_valor
+  - materialidad_ia
+  - america_latina
+  capitulos_destino:
+  - 08
+  - '10'
+  - '21'
+  - '29'
+  estado: fichado
+  ficha: notas/fuentes/iacc_vf.md
+  notas: ISBN electrónico 978-607-631-411-1 (licencia CC BY-NC-SA 4.0). Diálogo marxista directo con la teoría del
+    valor (cap. 08), producción inmaterial (cap. 21) y contradicciones en América Latina.
+- id: matute
+  archivo: matute.txt
+  formato: txt
+  sha256: 8890a5cdf211c2333763a32d8d64b0a19488f958a7d934f49be8143593540c13
+  titulo: 'Contrarreloj en Berkeley: en busca de la fórmula matemática para salvar a la humanidad de la IA'
+  autor: Óscar Reyes Matute
+  anio: ''
+  editorial: '[VERIFICAR MEDIO/FECHA DE PUBLICACIÓN]'
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: articulo
+  postura_dialogo: insumo_empirico
+  cita_europea: 'Ó. Reyes Matute, «Contrarreloj en Berkeley: en busca de la fórmula matemática para salvar a la
+    humanidad de la IA» [VERIFICAR MEDIO Y FECHA].'
+  paginas: 2
+  caracteres: 4916
+  requiere_ocr: false
+  temas:
+  - alineacion_ia
+  - opacidad_algoritmica
+  - caja_negra
+  - control_tecnologico
+  capitulos_destino:
+  - '07'
+  - 09
+  - '15'
+  estado: fichado
+  ficha: notas/fuentes/matute.md
+  notas: Crónica divulgativa basada en reportaje de Eli Saslow (The New York Times) sobre el Alignment Research
+    Center (ARC, Paul Christiano, Mike Winer) y la opacidad de los modelos actuales.
+- id: unesco_guia_para_ia_generativa
+  archivo: unesco guia para IA generativa.pdf
+  formato: pdf
+  sha256: 11255ba66cdac5564d95a7c33ab9cb050527a59000b99943ae69c0aa97be8dbf
+  titulo: Guía para el uso de IA generativa en educación e investigación
+  autor: UNESCO
+  anio: '2024'
+  editorial: UNESCO
+  ciudad: París
+  url: ''
+  idioma: es
+  tipo: informe
+  postura_dialogo: insumo_empirico
+  cita_europea: UNESCO, *Guía para el uso de IA generativa en educación e investigación*, UNESCO, París, 2024.
+  paginas: 48
+  caracteres: 192371
+  requiere_ocr: false
+  temas:
+  - ia_generativa
+  - regulacion_global
+  - educacion_e_investigacion
+  - diversidad_linguistica
+  - privacidad_datos
+  capitulos_destino:
+  - '07'
+  - '11'
+  - '14'
+  - '22'
+  estado: fichado
+  ficha: notas/fuentes/unesco_guia_para_ia_generativa.md
+  notas: ISBN 978-92-3-300221-0 (CC-BY-SA 3.0 IGO). Útil para cifras institucionales (ej. 100 millones de usuarios
+    mensuales de ChatGPT en enero de 2023 vs. vacío regulatorio) y debates sobre regulación y diversidad cultural.

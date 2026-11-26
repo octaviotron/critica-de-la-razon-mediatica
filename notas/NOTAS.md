@@ -2,7 +2,7 @@
 
 Bandeja central para ideas transversales de toda la obra, autores por incorporar, argumentos o frases por desarrollar, nuevos términos para el Glosario y posibles cambios en el índice.
 
-Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`](capitulos/).
+Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`](capitulos/), y el catálogo indexado de la bibliografía depositada en `externos/` vive en [`notas/fuentes/catalogo.yaml`](fuentes/catalogo.yaml).
 
 ---
 
@@ -20,7 +20,7 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
   * *Ejes de diálogo con el libro:* clausura mediática del horizonte de futuro («es más fácil imaginar el fin del mundo que el fin del capitalismo»), depresión/malestar como síntoma político-subjetivo, espectralidad del sentido y disputa cultural por imaginar un socialismo otro.
   * *Capítulos sugeridos:* [`13_parte2_ensayo_3.md`](capitulos/13_parte2_ensayo_3.md), [`15_parte3_ensayo_2.md`](capitulos/15_parte3_ensayo_2.md), [`17_parte4_ensayo_1.md`](capitulos/17_parte4_ensayo_1.md), [`23_parte5_ensayo_3.md`](capitulos/23_parte5_ensayo_3.md), [`25_parte6_ensayo_1.md`](capitulos/25_parte6_ensayo_1.md), [`26_parte6_ensayo_2.md`](capitulos/26_parte6_ensayo_2.md), [`29_post_scriptum.md`](capitulos/29_post_scriptum.md).
 
-- [ ] **Yuval Noah Harari** — *Homo Deus*, *21 lecciones para el siglo XXI* y *Nexus* (historia de las redes de información).
+- [ ] **Yuval Noah Harari** — *Homo Deus*, *21 lecciones para el siglo XXI* y *Nexus* *(ya disponible e indexado en [`notas/fuentes/nexus_una_breve_historia_de_las_redes_de_informacion.md`](fuentes/nexus_una_breve_historia_de_las_redes_de_informacion.md))*.
   * *Ejes de diálogo con el libro:* dataísmo como ideología, delegación de decisiones en sistemas algorítmicos, lectura crítica (desde la biopolítica y el materialismo) del tecnodeterminismo y de la «hackeabilidad» del cuerpo-sujeto.
   * *Capítulos sugeridos:* [`07_preambulo.md`](capitulos/07_preambulo.md), [`08_parte1_ensayo_1.md`](capitulos/08_parte1_ensayo_1.md), [`09_parte1_ensayo_2.md`](capitulos/09_parte1_ensayo_2.md), [`17_parte4_ensayo_1.md`](capitulos/17_parte4_ensayo_1.md), [`18_parte4_ensayo_2.md`](capitulos/18_parte4_ensayo_2.md), [`21_parte5_ensayo_1.md`](capitulos/21_parte5_ensayo_1.md), [`22_parte5_ensayo_2.md`](capitulos/22_parte5_ensayo_2.md).
 
@@ -31,6 +31,14 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 - [ ] **Slavoj Žižek** — *(ya citado en la 1.ª edición; corregir glifos rotos `S. i ek` en caps. 10 y 13 y ampliar con obra reciente sobre ideología digital, subjetividad pospolítica y automatización).*
   * *Ejes de diálogo con el libro:* el ciberespacio y las plataformas como «gran Otro» lacaniano (retomando el cierre del cap. 18), fetichismo digital, goce administrado, cinismo ideológico y actualización del debate sobre el comunismo/socialismo en el siglo XXI.
   * *Capítulos sugeridos:* [`10_parte1_ensayo_3.md`](capitulos/10_parte1_ensayo_3.md), [`13_parte2_ensayo_3.md`](capitulos/13_parte2_ensayo_3.md), [`14_parte3_ensayo_1.md`](capitulos/14_parte3_ensayo_1.md), [`15_parte3_ensayo_2.md`](capitulos/15_parte3_ensayo_2.md), [`18_parte4_ensayo_2.md`](capitulos/18_parte4_ensayo_2.md), [`22_parte5_ensayo_2.md`](capitulos/22_parte5_ensayo_2.md), [`23_parte5_ensayo_3.md`](capitulos/23_parte5_ensayo_3.md), [`25_parte6_ensayo_1.md`](capitulos/25_parte6_ensayo_1.md), [`29_post_scriptum.md`](capitulos/29_post_scriptum.md).
+
+### Fuentes adicionales ya incorporadas e indexadas en `externos/` (ver [`notas/fuentes/catalogo.yaml`](fuentes/catalogo.yaml))
+- [ ] **Éric Sadin** — *La inteligencia artificial o el desafío del siglo* ([ficha](fuentes/sadin_eric_la_inteligencia_artificial_o_el_desafio_d.md)) y *La vie spectrale* ([ficha](fuentes/la_vie_spectrale.md), en francés): régimen de verdad algorítmico, capitalismo de la fijación de los cuerpos, *promptismo*, desubjetivación y crítica al «hararismo».
+- [ ] **Cristóbal Reyes** — *Inteligencia artificial y acumulación de capital* ([ficha](fuentes/iacc_vf.md)): crítica marxista de la economía política y la materialidad de la IA (clave para caps. `08`, `10`, `21`, `29`).
+- [ ] **Adela Cortina** — *¿Ética o ideología de la inteligencia artificial?* ([ficha](fuentes/etica_o_ideologia_de_la_inteligencia_artificial_adel.md)): contrapunto ético-habermasiano (transhumanismo, libertad digital, eclipse de la razón comunicativa).
+- [ ] **Nick Bostrom** — *Superinteligencia* ([ficha](fuentes/nick_bostrom_superinteligencia_caminos_peligros_estr.md)) y **Óscar Reyes Matute** ([ficha](fuentes/matute.md)): contrapunto crítico al discurso del riesgo existencial y la «alineación»/opacidad de caja negra.
+- [ ] **Raul Anthony Olmedo Neri (CLACSO)** — *La plataformización como objeto de estudio comunicacional* ([ficha](fuentes/cuaderno_plc_n108.md)): enfoque comunicacional situado desde América Latina.
+- [ ] **Jorge Orovitz Sanmartino (Jacobin)** ([ficha](fuentes/tecnologia_digital_y_fantasias_de_un_mundo_administr.md)), **Rafael Abuchaibe (BBC / Palantir)** ([ficha](fuentes/palantir_por_que_causa_preocupacion_el_creciente_pod.md)), **Horacio Minotti comp. (BAE / Geopolítica híbrida)** ([ficha](fuentes/libro_geopolitica_hibrida_el_libro.md)) y **UNESCO** ([ficha](fuentes/unesco_guia_para_ia_generativa.md)): tecnocracia ciberlibertaria, vigilancia corporativo-militar, guerras híbridas y datos globales sobre IA generativa.
 
 ---
 
