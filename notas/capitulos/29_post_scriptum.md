@@ -13,7 +13,7 @@
 ## Sugerencias de actualización y ampliación
 - [ ] En *Primer movimiento* y *Segundo movimiento* (textos de Juan Barreto): evaluar si se añade una breve coda o *Cuarto movimiento* («Veinte años después») para revisar las tesis sobre el socialismo desde el presente.
 - [ ] En el diálogo contemporáneo sobre el horizonte socialista, se puede tender un puente con **Mark Fisher** (romper el realismo capitalista) y **Slavoj Žižek** (repensar la idea emancipatoria en la era digital).
-- [ ] **Precaución editorial (Tercer movimiento — Javier Biardeau):** Conservar íntegro el ensayo invitado *Entre dinosaurios y unicornios* como texto firmado de la 1.ª edición (2006), salvo corrección de erratas tipográficas evidentes.
+- [ ] **Precaución editorial (Tercer movimiento — Javier Biardeau, frontera exacta en línea `101`):** Las líneas `1–100` (*Primer* y *Segundo movimiento*) son de Juan Barreto y pueden editarse; a partir de la **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios. Un ensayo de Javier Biardeau`) el texto está protegido por `validar_libro.py` y debe conservarse íntegro como ensayo firmado de la 1.ª edición (2006), salvo orden expresa del autor.
 
 ## Erratas y detalles técnicos heredados de 2006
 - [ ] Revisar el orden de encabezados iniciales (`## Post-scriptum` antes de `# Por el socialismo`) y el inicio `(Con un ensayo de Javier Biardeau:` para dejar la jerarquía limpia.

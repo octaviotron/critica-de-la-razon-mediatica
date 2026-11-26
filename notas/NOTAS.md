@@ -2,7 +2,7 @@
 
 Bandeja central para ideas transversales de toda la obra, autores por incorporar, argumentos o frases por desarrollar, nuevos términos para el Glosario y posibles cambios en el índice.
 
-Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`](capitulos/), y el catálogo indexado de la bibliografía depositada en `externos/` vive en [`notas/fuentes/catalogo.yaml`](fuentes/catalogo.yaml).
+Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`](capitulos/), la panorámica argumental de los 33 capítulos vive en [`notas/mapa_obra.md`](mapa_obra.md) y el catálogo indexado de la bibliografía depositada en `externos/` vive en [`notas/fuentes/catalogo.yaml`](fuentes/catalogo.yaml).
 
 ---
 
@@ -46,9 +46,9 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 
 - [ ] **Tránsito 2006 → actualidad:** Articular en los capítulos estratégicos el salto desde el régimen *mass-mediático* centrado en la TV (broadcasting unidireccional) hacia el régimen de plataformas, teléfonos inteligentes, redes sociales, algoritmos de recomendación y sistemas generativos.
 - [ ] **Biopolítica + Psicopolítica:** Mantener el eje central del libro (*biopolítica y potencia política del cuerpo*), poniéndolo en tensión productiva con la captura psíquica, emocional y atencional descrita por Han, Fisher y Varoufakis.
-- [ ] **Actualización de datos y ejemplos de 2006:** Revisar cifras fechadas (ej. horas de TV y «500 canales» en el cap. 19) para decidir en cada caso si se contextualizan históricamente («hace dos décadas…») o se actualizan con métricas contemporáneas.
-- [ ] **Respeto a textos de terceros:** Definir con el autor cómo tratar los textos invitados de 2006 (*Liminar* de Michel Maffesoli, *Pro(Logos)* de Rigoberto Lanz, Nelson Guzmán y Magaldy Téllez, y el ensayo de Javier Biardeau en el *Post-scriptum*): conservarlos intactos como memoria de la 1.ª edición y, si se desea, añadir un nuevo prefacio o estudio introductorio para la 2.ª edición.
-- [ ] **Formato preferido para rondas de revisión con el autor:** Acordar si las entregas por capítulo en `dist/` se enviarán como PDF limpio, PDF con etiquetas de párrafo (`--etiquetar-parrafos`, `[ID.PPP]`) o Word (`.docx`) para comentarios/control de cambios.
+- [x] **Actualización de datos y ejemplos de 2006 (criterio cerrado en `SSOT/guia_estilo_editorial.md` §1.1):** Contextualización histórica + puente al presente (conservar cifras/hitos de 2006 como genealogía y contrastarlos con el escenario actual verificado).
+- [x] **Respeto a textos de terceros (criterio cerrado en `SSOT/guia_estilo_editorial.md` §1.1):** Conservar íntegros los cinco textos invitados de 2006 (*Liminar*, *Pro(Logos)* I–III y ensayo de Javier Biardeau en `29_post_scriptum.md` desde `L101`) como memoria de la 1.ª edición, explicándolo en el futuro Prefacio.
+- [x] **Formato preferido para rondas de revisión con el autor (criterio cerrado en `SSOT/guia_estilo_editorial.md` §1.1):** **PDF limpio de lectura** por defecto (`compilar_pdf.py --capitulo <id>` en `dist/`) + resumen breve de 5–10 viñetas (`.docx` o `--etiquetar-parrafos` solo bajo pedido puntual).
 - [ ] **Elección de capítulo piloto para validar el flujo completo:** Definir por cuál capítulo iniciar el ciclo completo (edición → validación → entrega → revisión → aprobación). Candidato piloto breve: [`20_parte4_ensayo_4.md`](capitulos/20_parte4_ensayo_4.md) (`1,080` palabras, 40 puntos); candidatos de alto impacto temático: [`19_parte4_ensayo_3.md`](capitulos/19_parte4_ensayo_3.md) o [`07_preambulo.md`](capitulos/07_preambulo.md).
 
 ---
@@ -91,17 +91,25 @@ Hallazgos transversales detectados en la auditoría previa de los 33 archivos de
   * **Falta llamada en el cuerpo (5):** `[^15]` y `[^19]` (más salto del `17`) en [`11_parte2_ensayo_1.md`](capitulos/11_parte2_ensayo_1.md), `[^28]` en [`17_parte4_ensayo_1.md`](capitulos/17_parte4_ensayo_1.md), `[^2]` en [`24_parte5_ensayo_4.md`](capitulos/24_parte5_ensayo_4.md) y `[^3]` en [`27_parte6_ensayo_3.md`](capitulos/27_parte6_ensayo_3.md).
 - [ ] Completar datos faltantes (lugar y año) de la nota truncada `[^6]` en [`14_parte3_ensayo_1.md`](capitulos/14_parte3_ensayo_1.md).
 
-### Criterios de uniformidad para toda la obra
-- [ ] **Notas al pie:** Acordar criterio único para `Ibíd.` / `Ibid.`, `Op. cit.` / `Op cit.` y cerrar con punto final las ~25 notas que carecen de puntuación de cierre.
-- [ ] **Comillas:** Unificar criterio entre comillas latinas (`«»`), inglesas (`""`) y revisar las comillas angulares simples (`‹›`, presentes en `11`, `14`, `16`, `17`, `21`, `27` y `28`).
-- [ ] **Grafía consistente de términos y autores recurrentes:**
+### Criterios de uniformidad para toda la obra *(criterios confirmados en `SSOT/guia_estilo_editorial.md` §1.1; aplicación progresiva capítulo por capítulo)*
+- [ ] **Notas al pie:** Aplicar criterio acordado (`Ibíd.`, `Op. cit.` y punto final en las ~25 notas sin puntuación de cierre) al editar cada capítulo.
+- [ ] **Comillas:** Aplicar criterio acordado (`«»` citas textuales, `""` énfasis/citas internas) y reemplazar las 40 comillas angulares simples (`‹›`, en `11`, `14`, `16`, `17`, `21`, `27` y `28`).
+- [ ] **Grafía consistente de términos y autores recurrentes (aplicar al paso):**
   * Unificar `Masmediática` (una sola `s` en `01`, `17`, `23`, `28`) → `Massmediática`.
   * Unificar nombres propios errados en varios archivos: `Gumis` → `Gomis` (`20`, `30`, `32`), `Foweler` → `Fowler` (`20`, `30`, `32`), `Lippman` → `Lippmann` (`10`, `20`), `S. i ek` → `S. Žižek` (`10`, `13`, más separación de `ŽIŽEK` respecto a `ZIBECHI` en `30` y `32`).
-- [ ] **Encabezados de apertura:** Al editar cada capítulo (`03`–`19`, `21`–`27` y `29`), unificar en un solo encabezado limpio los títulos que quedaron partidos en 2–3 líneas desde QuarkXPress (incluyendo guiones sueltos `## -` / `### -` en `14`, `16`, `22` y `27`).
-- [ ] **Formato del Glosario ([`31_glosario.md`](capitulos/31_glosario.md)):** Decidir al cierre si conservar el formato actual `· Término:` en sus 93+ entradas o convertirlas a subtítulos `### Término`.
+- [ ] **Encabezados de apertura:** Al editar cada capítulo (`03`–`19`, `21`–`27` y `29`), unificar en un solo encabezado limpio los títulos partidos en 2–3 líneas desde QuarkXPress (y guiones sueltos `## -` / `### -` en `14`, `16`, `22` y `27`). *(En textos invitados `03`–`06`, solo al cierre si el autor lo confirma.)*
+- [ ] **Formato del Glosario ([`31_glosario.md`](capitulos/31_glosario.md)):** Conservar `· Término:` durante la edición y decidir al cierre si pasa a subtítulos `### Término`.
 
 ### Hallazgos técnicos y mejoras pendientes en herramientas (`scripts/edicion/`)
-- [ ] **Colisión de notas al pie en compilación `.docx` multi-capítulo (`scripts/edicion/compilar_pdf.py`):** En `compilar_docx()`, la exportación de un solo capítulo (`--capitulo <id> --formato docx`) funciona sin problemas, pero al compilar el libro completo a Word se concatenan todos los `.md` en un único archivo temporal y los identificadores repetidos (`[^1]`, `[^2]`, …) entre capítulos colisionarán en Pandoc. Antes de compilar un `.docx` completo, prefijar los IDs de notas por capítulo al concatenar (ej. `[^cap07_1]`).
-- [ ] **Validación de sintaxis Markdown no soportada por PangoCairo (`scripts/edicion/validar_libro.py`):** Ampliar el validador para detectar automáticamente construcciones prohibidas en `SSOT/guia_estilo_editorial.md` que `compilar_pdf.py` imprimiría en crudo (`####`, tablas Markdown `|...|`, bloques de código `` ``` ``, imágenes `![...]`, notas al pie partidas en múltiples párrafos y asteriscos `*` desbalanceados).
+- [x] **Colisión de notas al pie en compilación `.docx` multi-capítulo (`scripts/edicion/compilar_pdf.py`):** Resuelto mediante `prefijar_notas_capitulo()` en `compilar_docx()`, que prefija `[^capXX_id]` al concatenar múltiples capítulos (verificado en compilación completa de los 33 capítulos sin colisiones en Pandoc).
+- [x] **Validación de sintaxis Markdown no soportada por PangoCairo (`scripts/edicion/validar_libro.py`):** Implementada en `analizar_sintaxis_editorial()` (`####`, tablas, bloques de código, imágenes, asteriscos impares, notas multipárrafo y marcadores `[VERIFICAR/TODO/TBD]`), más protección activa de textos invitados (`03`–`06` y `29` desde L101) y verificación automática de `README.md` públicos.
 - [ ] **Dependencia de `scripts/edicion/generar_indice.py` respecto a encabezados partidos:** `extraer_encabezados()` recoge todos los `##` reales de cada archivo; no ejecutar `generar_indice.py --escribir` hasta haber unificado los encabezados partidos en 2–3 líneas (`03`–`19`, `21`–`27`, `29`) y eliminado los guiones sueltos (`## -` / `### -` en `14`, `16`, `22`, `27`) heredados de QuarkXPress.
 - [ ] **Maquetación final de imprenta / publicación (cierre editorial):** `compilar_pdf.py` usa fuentes genéricas (`Serif`/`Sans`) pensadas para rondas de revisión. Para la edición definitiva (impresa o digital), planificar la maquetación final evaluando el reaprovechamiento de los insumos originales conservados en `fuente/FUENTES/`, `fuente/PORTADA/` y `fuente/RAZON/images/`.
+
+---
+
+## 7. Preferencias Confirmadas del Autor en Rondas de Revisión
+
+*(Registrar aquí las pautas de tono, extensión, densidad de citas o formato que confirme Juan Barreto a medida que revise los primeros capítulos, para aplicarlas coherentemente al resto de la obra.)*
+
+- [ ] *(Pendiente de las primeras rondas de revisión con el autor.)*

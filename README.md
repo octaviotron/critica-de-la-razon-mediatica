@@ -57,6 +57,7 @@ critica-de-la-razon-mediatica/
 ├── notas/                     # Anotaciones de trabajo (ideas, autores, sugerencias, fuentes y notas del autor)
 │   ├── README.md              # Guía breve de uso de la carpeta de anotaciones
 │   ├── NOTAS.md               # Ideas globales del libro, autores por incluir, frases, glosario e índice
+│   ├── mapa_obra.md           # Panorámica argumental condensada de los 33 capítulos y registro de 2.ª edición
 │   ├── capitulos/             # Una ficha de notas y sugerencias por capítulo (mismo nombre que en libro/)
 │   └── fuentes/               # Catálogo maestro (catalogo.yaml) y fichas curadas de la bibliografía en externos/
 ├── respaldo_v1.0/             # [Inmutable] Respaldo congelado de estructura y contenido inicial (1.ª edición 2006)
@@ -77,13 +78,16 @@ critica-de-la-razon-mediatica/
 │       ├── reporte_cambios.py # Resumen comparativo por capítulo o libro completo contra respaldo_v1.0/
 │       ├── generar_indice.py  # Regeneración automática de libro/01_indice.md desde libro.yaml
 │       ├── indexar_externos.py # Indexador incremental de externos/ (SQLite FTS5 + notas/fuentes/catalogo.yaml)
-│       └── buscar_externos.py # Búsqueda de citas verificadas y lectura por rango de páginas en externos/
-└── SSOT/                      # Single Source of Truth (Índice, Especificación, Auditoría, Flujo y Guía de Estilo)
+│       ├── buscar_externos.py # Búsqueda de citas verificadas y lectura por rango de páginas en externos/
+│       ├── buscar_libro.py    # Búsqueda interna sobre libro/, Glosario y Bibliografía por capítulo
+│       └── contexto_capitulo.py # Briefing consolidado por capítulo (ficha, fuentes, diagnóstico y alertas)
+└── SSOT/                      # Single Source of Truth (Índice, Especificación, Auditoría, Flujo, Estilo y Voz)
     ├── README.md              # Guía de inicio rápido y mapa de responsabilidades del repositorio
     ├── proceso_conversion_pdf_a_md.md
     ├── detalle_ejecucion_y_auditoria_conversion.md
     ├── flujo_editorial_segunda_edicion.md
-    └── guia_estilo_editorial.md
+    ├── guia_estilo_editorial.md
+    └── perfil_voz_autor.md    # Referencia empírica de cadencia del autor e inventario de 92 términos del Glosario
 ```
 
 ### Descripción y Vínculos a las Carpetas Principales
@@ -117,6 +121,8 @@ critica-de-la-razon-mediatica/
      * **[`scripts/edicion/generar_indice.py`](scripts/edicion/generar_indice.py):** Regenera `libro/01_indice.md` automáticamente desde `libro.yaml` y los encabezados reales cuando cambie el índice o al cierre editorial.
      * **[`scripts/edicion/indexar_externos.py`](scripts/edicion/indexar_externos.py):** Indexa incrementalmente (por SHA-256) los archivos de `externos/` en un índice local SQLite FTS5 (`dist/indice_externos/corpus.db`) y sincroniza [`notas/fuentes/catalogo.yaml`](notas/fuentes/catalogo.yaml).
      * **[`scripts/edicion/buscar_externos.py`](scripts/edicion/buscar_externos.py):** Busca fragmentos literales con número de página exacto, lee rangos específicos de páginas y lista fuentes asignadas por capítulo con auto-sincronización silenciosa.
+     * **[`scripts/edicion/buscar_libro.py`](scripts/edicion/buscar_libro.py):** Búsqueda interna insensible a tildes sobre `libro/`, el Glosario (`--glosario`) y la Bibliografía (`--bibliografia`) con distribución de ocurrencias por capítulo.
+     * **[`scripts/edicion/contexto_capitulo.py`](scripts/edicion/contexto_capitulo.py):** Consolida en una sola salida el briefing de un capítulo (metadatos, ficha espejo, fuentes externas, diagnóstico técnico y alertas de textos protegidos).
    * **`scripts/extraccion_v1/` (pipeline histórico congelado de 2006):**
      * **[`scripts/extraccion_v1/01_extraer_xml.py`](scripts/extraccion_v1/01_extraer_xml.py):** Extrae la capa vectorial XML de las 666 páginas del PDF mediante `pdftohtml -xml -i` y filtra determinísticamente el ruido de QuarkXPress.
      * **[`scripts/extraccion_v1/02_convertir_a_md.py`](scripts/extraccion_v1/02_convertir_a_md.py):** Reconstruye los 33 archivos Markdown (protegido: escribe por defecto en `dist/extraccion_v1_md/` y bloquea sobrescrituras accidentales sobre `respaldo_v1.0/` o `libro/`).
@@ -124,6 +130,7 @@ critica-de-la-razon-mediatica/
 7. **[`SSOT/`](SSOT/) — *Single Source of Truth* (Documentación de Proceso, Auditoría, Flujo y Estilo):**
    * **[`SSOT/flujo_editorial_segunda_edicion.md`](SSOT/flujo_editorial_segunda_edicion.md):** Flujo oficial simplificado de edición asistida capítulo por capítulo, revisión/aprobación del autor, gestión de nuevos capítulos e índice en `libro.yaml`, y operación de `respaldo_v1.0/`.
    * **[`SSOT/guia_estilo_editorial.md`](SSOT/guia_estilo_editorial.md):** Reglas de fidelidad estilística, vocabulario filosófico protegido y protocolo operativo de edición asistida por capítulo.
+   * **[`SSOT/perfil_voz_autor.md`](SSOT/perfil_voz_autor.md):** Referencia empírica de cadencia ensayística del autor, anti-patrones a evitar e inventario completo de los 92 términos del Glosario.
    * **[`SSOT/proceso_conversion_pdf_a_md.md`](SSOT/proceso_conversion_pdf_a_md.md):** Especificación técnica histórica del Método 1 (2006) y política del respaldo inmutable `respaldo_v1.0/`.
    * **[`SSOT/detalle_ejecucion_y_auditoria_conversion.md`](SSOT/detalle_ejecucion_y_auditoria_conversion.md):** Memoria técnica de la conversión ejecutada y tabla de auditoría contable capítulo por capítulo.
 

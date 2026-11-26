@@ -5,10 +5,16 @@ Validador editorial para la Segunda Edición (y verificador del respaldo inmutab
 
 Comprueba:
 1. Existencia de todos los archivos declarados en `libro.yaml` y detección de archivos `.md` huérfanos.
-2. Unicidad de IDs y rutas en el manifiesto.
+2. Unicidad de IDs y rutas en el manifiesto y validez de `estado`.
 3. Integridad de notas al pie por capítulo (`[^n]` en texto <-> `[^n]:` en definiciones).
 4. Enlaces Markdown relativos rotos entre capítulos.
-5. (Opcional `--verificar-respaldo`) Verificación criptográfica SHA-256 de `respaldo_v1.0/md/`
+5. Compatibilidad con el compilador PangoCairo (`compilar_pdf.py`): prohíbe `####`, tablas,
+   bloques de código e imágenes; advierte sobre asteriscos desbalanceados, notas multipárrafo
+   y marcadores pendientes (`[VERIFICAR`, `TODO`, `TBD`).
+6. Protección activa de textos de autores invitados (`03`, `04`, `05`, `06` íntegros y
+   `29_post_scriptum.md` a partir de `### Tercer movimiento:` — ensayo de Javier Biardeau).
+7. Higiene de `README.md` públicos (0 menciones de «IA» / «Inteligencia Artificial»).
+8. (Opcional `--verificar-respaldo`) Verificación criptográfica SHA-256 de `respaldo_v1.0/md/`
    contra `respaldo_v1.0/manifiesto_v1.0.md`.
 """
 
@@ -17,7 +23,7 @@ import hashlib
 from pathlib import Path
 import re
 import sys
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from manifiesto import (  # noqa: E402
@@ -26,6 +32,22 @@ from manifiesto import (  # noqa: E402
     buscar_capitulo,
     cargar_manifiesto,
 )
+
+INVITADOS_INTEGROS: Dict[str, str] = {
+    "03_liminar.md": "Michel Maffesoli",
+    "04_prologo_1_rigoberto_lanz.md": "Rigoberto Lanz",
+    "05_prologo_2_nelson_guzman.md": "Nelson Guzmán",
+    "06_prologo_3_magaldy_tellez.md": "Magaldy Téllez",
+}
+POST_SCRIPTUM_ARCHIVO = "29_post_scriptum.md"
+POST_SCRIPTUM_MARCA_INVITADO = "### Tercer movimiento:"
+READMES_PUBLICOS = [
+    "README.md",
+    "libro/README.md",
+    "notas/README.md",
+    "respaldo_v1.0/README.md",
+    "SSOT/README.md",
+]
 
 
 def analizar_notas_al_pie(md_text: str) -> Tuple[Set[str], Set[str], List[str]]:
@@ -49,6 +71,99 @@ def analizar_notas_al_pie(md_text: str) -> Tuple[Set[str], Set[str], List[str]]:
                 llamadas.add(ref)
 
     return llamadas, definiciones, invalidas
+
+
+def analizar_sintaxis_editorial(md_text: str, estado: Optional[str] = None) -> Tuple[List[str], List[str]]:
+    """
+    Detecta sintaxis incompatible con `compilar_pdf.py` (PangoCairo) y anomalías editoriales.
+    Devuelve (errores_sintaxis, advertencias_sintaxis).
+    """
+    errores: List[str] = []
+    advertencias: List[str] = []
+    lines = md_text.splitlines()
+    en_bloque_notas = False
+
+    for idx, line in enumerate(lines, start=1):
+        s = line.strip()
+
+        if re.match(r"^#{4,}\s+", s):
+            errores.append(f"L{idx}: encabezado de nivel 4+ ('####') no soportado por compilar_pdf.py")
+        if re.match(r"^```", s):
+            errores.append(f"L{idx}: bloque de código ('```') prohibido en libro/*.md")
+        if re.search(r"!\[[^\]]*\]\([^)]+\)", s):
+            errores.append(f"L{idx}: imagen Markdown ('![...]') no soportada por compilar_pdf.py")
+        if re.match(r"^\|.+\|\s*$", s):
+            errores.append(f"L{idx}: tabla Markdown ('|...|') no soportada por compilar_pdf.py")
+
+        if re.match(r"^\[\^[^\]]+\]:", s):
+            en_bloque_notas = True
+        elif en_bloque_notas and s and not s.startswith(("#", "---")):
+            # Si venimos de una línea en blanco dentro del bloque de notas y aparece texto sin [^id]:
+            if idx >= 2 and not lines[idx - 2].strip():
+                advertencias.append(f"L{idx}: posible nota al pie dividida en varios párrafos (unificar en un párrafo)")
+
+        # Asteriscos impares por línea (excluyendo viñetas '* ' o '**' de separación)
+        if s and not s.startswith("* ") and s != "***":
+            sin_enlaces = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", s)
+            if sin_enlaces.count("*") % 2 == 1:
+                advertencias.append(f"L{idx}: número impar de asteriscos '*' (cursiva/negrita sin cerrar)")
+
+        # Marcadores temporales pendientes
+        if re.search(r"\[(VERIFICAR\b|TODO\b|TBD\b)", s, flags=re.IGNORECASE):
+            msg = f"L{idx}: marcador pendiente sin resolver ('[VERIFICAR/TODO/TBD]')"
+            if estado == "aprobado":
+                errores.append(f"{msg} en capítulo marcado como 'aprobado'")
+            else:
+                advertencias.append(msg)
+
+    return errores, advertencias
+
+
+def extraer_bloque_biardeau(md_text: str) -> Optional[str]:
+    """Devuelve el contenido desde '### Tercer movimiento:' (Javier Biardeau) hasta el final."""
+    lines = md_text.splitlines()
+    for i, line in enumerate(lines):
+        if line.strip().startswith(POST_SCRIPTUM_MARCA_INVITADO):
+            return "\n".join(lines[i:]).strip()
+    return None
+
+
+def verificar_texto_invitado(archivo: str, md_text: str) -> Optional[str]:
+    """Compara textos invitados protegidos contra `respaldo_v1.0/md/`. Devuelve mensaje si cambió."""
+    respaldo_path = REPO_ROOT / "respaldo_v1.0" / "md" / archivo
+    if not respaldo_path.exists():
+        return None
+    base_txt = respaldo_path.read_text(encoding="utf-8")
+
+    if archivo in INVITADOS_INTEGROS:
+        if md_text != base_txt:
+            return (
+                f"Texto de autor invitado modificado ({INVITADOS_INTEGROS[archivo]}). "
+                "Confirmar orden expresa del autor o usar --permitir-invitados."
+            )
+    elif archivo == POST_SCRIPTUM_ARCHIVO:
+        b_base = extraer_bloque_biardeau(base_txt)
+        b_act = extraer_bloque_biardeau(md_text)
+        if b_base is not None and b_act != b_base:
+            return (
+                "Sección protegida de Javier Biardeau modificada en 29_post_scriptum.md "
+                "(desde '### Tercer movimiento:'). Confirmar orden expresa o usar --permitir-invitados."
+            )
+    return None
+
+
+def verificar_readmes_publicos() -> List[str]:
+    """Verifica que ningún README.md público mencione 'IA' ni 'Inteligencia Artificial'."""
+    errores: List[str] = []
+    patron = re.compile(r"\b(IA|Inteligencia Artificial)\b")
+    for rel in READMES_PUBLICOS:
+        p = REPO_ROOT / rel
+        if not p.exists():
+            continue
+        for idx, line in enumerate(p.read_text(encoding="utf-8").splitlines(), start=1):
+            if patron.search(line):
+                errores.append(f"{rel}:L{idx}: mención prohibida de 'IA'/'Inteligencia Artificial' en README público")
+    return errores
 
 
 def verificar_enlaces_locales(md_text: str, archivo_actual: Path) -> List[str]:
@@ -130,9 +245,14 @@ def main() -> int:
         help="Verifica también las huellas SHA-256 de respaldo_v1.0/md/ contra respaldo_v1.0/manifiesto_v1.0.md",
     )
     parser.add_argument(
+        "--permitir-invitados",
+        action="store_true",
+        help="Permite cambios en textos de autores invitados (03-06 y Tercer movimiento de 29) cuando exista orden expresa",
+    )
+    parser.add_argument(
         "--estricto",
         action="store_true",
-        help="Trata las advertencias (ej. archivos huérfanos o notas desparejadas) como errores",
+        help="Trata las advertencias (ej. archivos huérfanos, notas desparejadas o sintaxis dudosa) como errores",
     )
     args = parser.parse_args()
 
@@ -213,7 +333,18 @@ def main() -> int:
         for roto in enlaces_rotos:
             errores.append(f"[{cap.id}] {cap.archivo}: enlace local roto -> '{roto}'")
 
-    # Detectar archivos .md huérfanos solo cuando se valida el libro completo (ignorando README.md)
+        err_sint, adv_sint = analizar_sintaxis_editorial(md_text, estado=cap.estado)
+        for e_s in err_sint:
+            errores.append(f"[{cap.id}] {cap.archivo}: {e_s}")
+        for a_s in adv_sint:
+            advertencias.append(f"[{cap.id}] {cap.archivo}: {a_s}")
+
+        if not args.permitir_invitados and not manifiesto.obra.inmutable:
+            alerta_inv = verificar_texto_invitado(cap.archivo, md_text)
+            if alerta_inv:
+                advertencias.append(f"[{cap.id}] {cap.archivo}: [PROTEGIDO] {alerta_inv}")
+
+    # Detectar archivos .md huérfanos y verificar higiene de README.md en validación global
     if not args.capitulo and manifiesto.carpeta_base.is_dir():
         en_disco = sorted(p.resolve() for p in manifiesto.carpeta_base.rglob("*.md"))
         for p in en_disco:
@@ -222,6 +353,7 @@ def main() -> int:
             if p not in rutas_vistas:
                 rel = p.relative_to(manifiesto.carpeta_base)
                 advertencias.append(f"Archivo .md no registrado en manifiesto: '{rel}'")
+        errores.extend(verificar_readmes_publicos())
 
     if args.verificar_respaldo:
         n_sha, err_sha = verificar_respaldo_sha256()

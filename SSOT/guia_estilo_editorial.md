@@ -7,7 +7,7 @@
 
 ## 1. Reglas de Fidelidad Textual y Estilo
 
-1. **Conservar la voz filosófica y académica del autor:** No aplanar, simplificar ni vulgarizar el registro ensayístico del profesor Juan Barreto Cipriani.
+1. **Conservar la voz filosófica y académica del autor:** No aplanar, simplificar ni vulgarizar el registro ensayístico del profesor Juan Barreto Cipriani. Consultar siempre [`SSOT/perfil_voz_autor.md`](perfil_voz_autor.md) (párrafos modelo, anti-patrones de prosa sintética prohibidos e inventario de los 92 términos del Glosario).
 2. **Nunca resumir ni recortar argumentos** salvo instrucción explícita del usuario o del autor.
 3. **Vocabulario conceptual protegido (no reemplazar por sinónimos ni eliminar guiones conceptuales):**
    * `massmediática`, `mass-media`, `biopolítica`, `biopoder`, `agenciamiento`, `significante-signo`, `cuerpo-potencia`, `rostro-proceso`, `hecha-en-común`, `trabajo-valor`, `ético-política`, `post-scriptum`, `rizoma`, `pliegue`, `líneas de fuga`, `subjetividad`, `performativo`, `habitus`, `multitud`, `dispositivo`, `aura`.
@@ -34,6 +34,15 @@
      * `24_parte5_ensayo_4.md`: llamada `[^4]` cuya definición nunca se imprimió en el folio 467, y definición `[^2]:` sin llamada en el impreso.
      * `27_parte6_ensayo_3.md`: definición `[^3]:` sin llamada en el impreso.
 
+### 1.1. Decisiones Editoriales Confirmadas para la Segunda Edición
+Estas 6 pautas ya fueron definidas con el proyecto y rigen por defecto en todas las sesiones (sin necesidad de volver a preguntarlas):
+1. **Inserción de actualizaciones (2006 → actualidad):** *Integración híbrida* — tejer orgánicamente los desarrollos nuevos dentro del flujo del ensayo (sin borrar argumentos de 2006) cuando amplían una tesis ya presente, y abrir subapartados nuevos al cierre de secciones clave cuando se introduce un giro histórico mayor (ej. paso de la TV a plataformas/algoritmos/IA).
+2. **Anclaje temporal de cifras y ejemplos de 2006:** *Contextualización histórica + puente al presente* — conservar las referencias de 2006 como hito genealógico (*«hace dos décadas…»*) y contrastarlas de inmediato con el escenario contemporáneo verificado.
+3. **Citas de fuentes en otro idioma (ej. francés en `La vie spectrale.pdf`):** *Traducción directa al español + nota de edición original* — insertar las citas traducidas en el cuerpo e indicar en la nota al pie europea la edición original seguida de `[trad. propia]` (sustituible si luego ingresa edición publicada en castellano).
+4. **Textos de autores invitados de 2006 (`03`–`06` y Biardeau en `29` desde `L101`):** *Conservación íntegra* como memoria histórica de la 1.ª edición (explicada en el futuro *Prefacio a la Segunda Edición*; solo se unificarían encabezados partidos al cierre si el autor lo confirma).
+5. **Formato de entrega por defecto para rondas de revisión del autor:** *PDF limpio de lectura* (`compilar_pdf.py --capitulo <id>` en `dist/`) acompañado de resumen breve de 5–10 viñetas. Word `.docx` (`--formato docx`) y PDF etiquetado (`--etiquetar-parrafos`) quedan disponibles solo bajo pedido puntual.
+6. **Uniformidad tipográfica y de aparato crítico (aplicación progresiva por capítulo):** Comillas latinas `«»` para citas textuales, `""` para énfasis/citas internas y sustitución de las 40 comillas `‹›`; notas al pie estandarizadas con `Ibíd.`, `Op. cit.` y punto final; corrección automática al paso de `Masmediática` → `Massmediática`, `S. i ek` → `S. Žižek`, `Gumis` → `Gomis`, `Foweler` → `Fowler`, `Lippman` → `Lippmann` y unificación de encabezados partidos; conservar `· Término:` en `31_glosario.md` y decidir recién al cierre si pasa a `### Término`.
+
 ---
 
 ## 2. Protocolo Operativo de la IA por Capítulo
@@ -41,8 +50,8 @@
 Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por sesión** (sin leer el resto de `libro/` ni `respaldo_v1.0/md/` salvo para comparar el mismo capítulo contra 2006).
 
 1. **Al recibir instrucciones de edición sobre un capítulo (`libro/<archivo>.md`):**
-   * Leer únicamente el archivo `.md` objetivo, su ficha espejo en [`notas/capitulos/`](../notas/capitulos/) (`notas/capitulos/<archivo>.md`), las referencias pertinentes de [`notas/NOTAS.md`](../notas/NOTAS.md), las fuentes asignadas a ese capítulo (`python3 -B scripts/edicion/buscar_externos.py --para-capitulo <id>` y sus fichas en `notas/fuentes/`) y esta guía.
-   * Para cualquier cita literal de una obra presente en `externos/`, consultar los pasajes exactos mediante `buscar_externos.py` (nunca cargar el PDF completo en contexto).
+   * Ejecutar `python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>` para obtener en un solo paso el briefing completo (estado en `libro.yaml`, alerta de autoría protegida, diagnóstico técnico en vivo, ficha de `notas/capitulos/`, fuentes externas asignadas y menciones en `notas/NOTAS.md`), y consultar [`notas/mapa_obra.md`](../notas/mapa_obra.md) y [`SSOT/perfil_voz_autor.md`](perfil_voz_autor.md).
+   * Para verificar citas o conceptos dentro del propio libro o del Glosario sin cargar otros capítulos, usar `python3 -B scripts/edicion/buscar_libro.py`; para citas literales de `externos/`, usar `python3 -B scripts/edicion/buscar_externos.py`.
    * Aplicar las modificaciones solicitadas directamente en `libro/<archivo>.md`.
    * Actualizar su `estado` a `"en_revision"` en [`libro.yaml`](../libro.yaml) si estaba en `"pendiente"`.
    * Ejecutar silenciosamente la validación del capítulo:
@@ -60,6 +69,7 @@ Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por ses
    * Registrar las observaciones en `notas/capitulos/<archivo>.md`, aplicar las correcciones indicadas sobre el mismo `libro/<archivo>.md`, volver a validar el capítulo y generar un nuevo PDF/DOCX de revisión si hace falta.
 5. **Al recibir la aprobación explícita del autor (confirmada por el usuario):**
    * Marcar como completadas (`- [x]`) las tareas incorporadas en `notas/capitulos/<archivo>.md`, en `notas/fuentes/<slug>.md` (si se integraron fuentes externas) y en [`notas/NOTAS.md`](../notas/NOTAS.md).
+   * Actualizar el resumen de 2.ª edición y el registro de autores/conceptos ya introducidos en [`notas/mapa_obra.md`](../notas/mapa_obra.md).
    * Anotar cualquier término nuevo de Glosario o referencia nueva para Bibliografía en [`notas/NOTAS.md`](../notas/NOTAS.md) (no en `CHANGELOG.md`).
    * Cambiar `estado: "aprobado"` en [`libro.yaml`](../libro.yaml).
    * Registrar el capítulo aprobado en [`CHANGELOG.md`](../CHANGELOG.md).
@@ -70,12 +80,12 @@ Para ahorrar tokens y evitar mezclas, **se trabaja un solo archivo `.md` por ses
 ## 3. Reglas de Seguridad Inviolables
 
 * **Directorios intocables / solo lectura:** Nunca modificar, renombrar ni escribir dentro de [`respaldo_v1.0/`](../respaldo_v1.0/), [`fuente/`](../fuente/), [`scripts/extraccion_v1/`](../scripts/extraccion_v1/) ni [`externos/`](../externos/).
-* **Textos de autores invitados protegidos (NO reescribir contenido sin orden expresa del usuario/autor):**
-  * [`libro/03_liminar.md`](../libro/03_liminar.md) — Michel Maffesoli.
-  * [`libro/04_prologo_1_rigoberto_lanz.md`](../libro/04_prologo_1_rigoberto_lanz.md) — Rigoberto Lanz.
-  * [`libro/05_prologo_2_nelson_guzman.md`](../libro/05_prologo_2_nelson_guzman.md) — Nelson Guzmán.
-  * [`libro/06_prologo_3_magaldy_tellez.md`](../libro/06_prologo_3_magaldy_tellez.md) — Magaldy Téllez.
-  * [`libro/29_post_scriptum.md`](../libro/29_post_scriptum.md) — *Tercer movimiento: Entre dinosaurios y unicornios* (Javier Biardeau).
+* **Textos de autores invitados protegidos (NO reescribir contenido sin orden expresa del usuario/autor; verificados automáticamente por `validar_libro.py`):**
+  * [`libro/03_liminar.md`](../libro/03_liminar.md) — Michel Maffesoli (íntegro).
+  * [`libro/04_prologo_1_rigoberto_lanz.md`](../libro/04_prologo_1_rigoberto_lanz.md) — Rigoberto Lanz (íntegro).
+  * [`libro/05_prologo_2_nelson_guzman.md`](../libro/05_prologo_2_nelson_guzman.md) — Nelson Guzmán (íntegro).
+  * [`libro/06_prologo_3_magaldy_tellez.md`](../libro/06_prologo_3_magaldy_tellez.md) — Magaldy Téllez (íntegro).
+  * [`libro/29_post_scriptum.md`](../libro/29_post_scriptum.md) — **Frontera exacta:** líneas `1–100` (*Primer* y *Segundo movimiento*) son de Juan Barreto (editables); desde la **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios`) es ensayo invitado de Javier Biardeau (protegido).
 * **Regla sobre todos los `README.md` públicos:** Prohibido mencionar explícitamente «IA» o «Inteligencia Artificial» en cualquier archivo `README.md` del repositorio (`README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md`, `SSOT/README.md`). Emplear siempre términos como *edición asistida* o *ejecución asistida de scripts*.
 * **Límites en Git y estado `aprobado`:** Trabajar siempre en `main`; **no crear ramas ni tags**; **no ejecutar `git commit` ni `git push` sin instrucción explícita del usuario**; y **nunca marcar `estado: "aprobado"` en `libro.yaml`** por iniciativa propia (solo cuando el usuario confirme la aprobación del autor).
 * **Separación estricta `notas/NOTAS.md` vs. `CHANGELOG.md`:** Todo lo *pendiente* (autores, glosario, bibliografía futura, cambios de índice) va en [`notas/NOTAS.md`](../notas/NOTAS.md); [`CHANGELOG.md`](../CHANGELOG.md) registra únicamente lo *ya aprobado o completado*.

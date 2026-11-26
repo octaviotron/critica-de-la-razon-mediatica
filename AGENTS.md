@@ -34,13 +34,14 @@ Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
 | `AGENTS.md` | Editable (mantener sincronizado) | Regla universal del workspace para agentes de IA. |
 | `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas ni borradores). Los 33 nombres originales actúan como IDs estables (**Opción A**). |
 | `libro.yaml` | Editable (manifiesto maestro) | Orden del índice, agrupación en 8 secciones y `estado` de cada capítulo. |
-| `notas/NOTAS.md` | Editable | Bandeja global de pendientes: autores por incluir, ideas transversales, candidatos al Glosario, nuevos capítulos/índice y hallazgos técnicos. |
-| `notas/capitulos/` | Editable | Ficha espejo por capítulo (`<mismo_nombre>.md` que en `libro/`, más planificación de capítulos futuros como `prefacio_segunda_edicion.md`). |
+| `notas/NOTAS.md` | Editable | Bandeja global de pendientes, autores, candidatos al Glosario, preferencias confirmadas del autor y hallazgos técnicos. |
+| `notas/mapa_obra.md` | Editable | Panorámica argumental condensada de los 33 capítulos y registro vivo de autores/conceptos ya introducidos en la 2.ª edición. |
+| `notas/capitulos/` | Editable | Ficha espejo por capítulo (`<mismo_nombre>.md` que en `libro/`, más planificación futura como `prefacio_segunda_edicion.md`). |
 | `notas/fuentes/` | Editable | Catálogo maestro (`catalogo.yaml`) y fichas de lectura curadas (`<slug>.md`) de la bibliografía depositada en `externos/`. |
 | `externos/` | **Solo lectura (versionado en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar archivos aquí. |
 | `CHANGELOG.md` | Editable (solo hechos cerrados) | Registro exclusivo de capítulos ya aprobados por el autor e hitos completados. |
-| `scripts/edicion/` | Editable (herramientas internas) | Scripts Python ejecutados por el agente bajo demanda (validación, compilación PDF/DOCX, diffs, índice e indexación/búsqueda en `externos/`). |
-| `SSOT/` | Editable (documentación rectora) | `README.md`, `flujo_editorial_segunda_edicion.md`, `guia_estilo_editorial.md` (activos); `proceso_conversion_pdf_a_md.md` y `detalle_ejecucion_y_auditoria_conversion.md` (solo consulta histórica). |
+| `scripts/edicion/` | Editable (herramientas internas) | Scripts Python ejecutados por el agente bajo demanda (briefing, validación, búsqueda en libro/externos, PDF/DOCX, diffs e índice). |
+| `SSOT/` | Editable (documentación rectora) | `README.md`, `flujo_editorial_segunda_edicion.md`, `guia_estilo_editorial.md`, `perfil_voz_autor.md` (activos); `proceso_conversion_pdf_a_md.md` y `detalle_ejecucion_y_auditoria_conversion.md` (consulta histórica). |
 | `fuente/` | **INTOCABLE (solo lectura)** | PDF maestro de 2006, maquetación QuarkXPress (`.qxp`), tipografías (`FUENTES/`), portadas (`PORTADA/`) y portadillas (`RAZON/images/`). |
 | `respaldo_v1.0/` | **INTOCABLE (solo lectura)** | Copia congelada e inmutable de los 33 `.md` de 2006, `libro.yaml` de v1.0 y huellas SHA-256 (`manifiesto_v1.0.md`). |
 | `scripts/extraccion_v1/` | **CONGELADO (solo lectura)** | Pipeline histórico de extracción y auditoría 100% de 2006. Nunca modificar ni re-ejecutar sobre `libro/`. |
@@ -50,7 +51,7 @@ Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
 
 ## 4. Política de Lectura Progresiva (Ahorro de Contexto)
 
-* **Al editar un capítulo:** lee únicamente `SSOT/guia_estilo_editorial.md`, `libro/<archivo>.md`, `notas/capitulos/<archivo>.md`, los puntos pertinentes de `notas/NOTAS.md` y las fichas asignadas en `notas/fuentes/` (vía `buscar_externos.py --para-capitulo <id>`).
+* **Al editar un capítulo:** ejecuta `python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>` y lee únicamente `SSOT/guia_estilo_editorial.md`, `SSOT/perfil_voz_autor.md`, `notas/mapa_obra.md`, `libro/<archivo>.md` y las fichas asignadas en `notas/fuentes/`. Para consultar otros capítulos o el Glosario sin cargarlos completos, usa `buscar_libro.py`.
 * **NO cargar en sesiones normales:**
   * Múltiples capítulos de `libro/` ni el directorio `respaldo_v1.0/md/` (salvo comparación puntual del mismo capítulo vía `reporte_cambios.py`).
   * Libros o PDFs completos de `externos/` (consultar siempre mediante `buscar_externos.py` por búsqueda FTS5 o rangos cortos de páginas `--leer <slug> --paginas A-B`).
@@ -66,7 +67,7 @@ Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
    * `libro/04_prologo_1_rigoberto_lanz.md` — Rigoberto Lanz.
    * `libro/05_prologo_2_nelson_guzman.md` — Nelson Guzmán.
    * `libro/06_prologo_3_magaldy_tellez.md` — Magaldy Téllez.
-   * `libro/29_post_scriptum.md` — *Tercer movimiento: Entre dinosaurios y unicornios* (Javier Biardeau).
+   * `libro/29_post_scriptum.md` — **Frontera exacta:** líneas `1–100` (*Primer* y *Segundo movimiento*) son de Juan Barreto (editables); desde la **línea `101`** (`### Tercer movimiento: Entre dinosaurios y unicornios`) es ensayo de Javier Biardeau (protegido automáticamente por `validar_libro.py`).
 3. **Prohibición absoluta en todos los `README.md` públicos:** Nunca mencionar «IA» ni «Inteligencia Artificial» en `README.md`, `libro/README.md`, `notas/README.md`, `respaldo_v1.0/README.md` ni `SSOT/README.md`. Usar siempre *edición asistida* o *ejecución asistida de scripts*.
 4. **Git lineal y aprobaciones:**
    * Trabajar siempre en `main`; **no crear ramas ni tags**.
@@ -79,7 +80,7 @@ Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
 
 ## 6. Reglas Editoriales, de Estilo y Límites de Compilación
 
-1. **Fidelidad de voz y argumentos:** Conservar el registro filosófico-ensayístico de Juan Barreto Cipriani; nunca resumir ni recortar argumentos sin instrucción expresa.
+1. **Fidelidad de voz y argumentos:** Conservar el registro filosófico-ensayístico de Juan Barreto Cipriani (`SSOT/perfil_voz_autor.md`: párrafos modelo, anti-patrones de IA prohibidos y los 92 términos del Glosario); nunca resumir ni recortar argumentos sin instrucción expresa.
 2. **Vocabulario conceptual protegido (no sustituir ni quitar guiones):** `massmediática`, `mass-media`, `biopolítica`, `biopoder`, `agenciamiento`, `significante-signo`, `cuerpo-potencia`, `rostro-proceso`, `hecha-en-común`, `trabajo-valor`, `ético-política`, `post-scriptum`, `rizoma`, `pliegue`, `líneas de fuga`, `subjetividad`, `performativo`, `habitus`, `multitud`, `dispositivo`, `aura`.
 3. **Sintaxis Markdown en `libro/*.md` (compatibilidad con PangoCairo en `compilar_pdf.py`):**
    * **Permitida:** `#`, `##`, `###`, epígrafes (`> *...*` + `> — Autor`), citas a bando (`> ...`), listas `- `, listas numeradas `1.`, `2.` **con una línea en blanco entre cada ítem**, inline `***...***`, `**...**`, `*...*`, llamadas `[^id]` y definiciones `[^id]: texto` en un solo párrafo al final tras `---`.
@@ -95,6 +96,13 @@ Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
    * `20_parte4_ensayo_4.md`: llamada `[^3]` sin definición al pie (folio 377).
    * `24_parte5_ensayo_4.md`: llamada `[^4]` sin definición (folio 467) y definición `[^2]:` sin llamada.
    * `27_parte6_ensayo_3.md`: definición `[^3]:` sin llamada.
+7. **Decisiones editoriales confirmadas (fijas para todas las sesiones; detalle en `SSOT/guia_estilo_editorial.md` §1.1):**
+   * **Actualizaciones:** integración híbrida (tejido orgánico sin borrar 2006 + subapartados nuevos ante giros históricos mayores).
+   * **Anclaje temporal:** contextualizar cifras/ejemplos de 2006 históricamente y tender puente inmediato al presente.
+   * **Fuentes en otro idioma:** traducir cita al español en el cuerpo y citar edición original con `[trad. propia]` al pie.
+   * **Autores invitados (`03`–`06`, `29` L101+):** conservar íntegros como memoria de 2006 (explicado en el futuro Prefacio).
+   * **Entrega por defecto al autor:** **PDF limpio** (`compilar_pdf.py --capitulo <id>`) + resumen de 5–10 viñetas (`.docx` o `--etiquetar-parrafos` solo si se piden).
+   * **Uniformidad al paso:** `«»` citas / `""` énfasis / eliminar `‹›`; `Ibíd.`, `Op. cit.` y punto final; corregir `Masmediática`, `S. i ek`, `Gumis`, `Foweler`, `Lippman` y encabezados partidos; mantener `· Término:` en `31_glosario.md` hasta el cierre.
 
 ---
 
@@ -103,10 +111,10 @@ Para evitar reglas duplicadas o contradictorias, rige esta precedencia estricta:
 El usuario nunca necesita invocar scripts manualmente. El agente ejecuta los comandos de `scripts/edicion/` de forma silenciosa y transparente según la intención del usuario:
 
 ### Flujo A — Edición capítulo por capítulo (`libro/`)
-1. **Inicio / edición:** Leer `libro/<archivo>.md`, `notas/capitulos/<archivo>.md`, `notas/NOTAS.md` y fuentes mapeadas (`python3 -B scripts/edicion/buscar_externos.py --para-capitulo <id>`). Aplicar cambios en `libro/<archivo>.md`, pasar `estado` a `"en_revision"` en `libro.yaml` (si estaba en `"pendiente"`) y validar con `python3 -B scripts/edicion/validar_libro.py --capitulo <id>`.
+1. **Inicio / edición:** Ejecutar `python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>` (briefing completo con ficha, fuentes externas y diagnóstico); consultar `notas/mapa_obra.md`, `SSOT/perfil_voz_autor.md`, `buscar_libro.py` y `buscar_externos.py`. Aplicar cambios en `libro/<archivo>.md`, pasar `estado` a `"en_revision"` en `libro.yaml` (si estaba en `"pendiente"`) y validar con `python3 -B scripts/edicion/validar_libro.py --capitulo <id>`.
 2. **Entrega al autor:** Compilar solo ese capítulo en `dist/` (`compilar_pdf.py --capitulo <id>`, añadiendo `--formato docx` si el autor pide Word, o `--etiquetar-parrafos` para PDF etiquetado `[ID.PPP]`), ejecutar `reporte_cambios.py --capitulo <id>` y redactar un resumen breve (5–10 viñetas) para acompañar el envío.
-3. **Observaciones del autor:** Registrarlas en `notas/capitulos/<archivo>.md`, aplicar los ajustes en `libro/<archivo>.md`, revalidar y recompilar.
-4. **Cierre (solo tras confirmación explícita de aprobación):** Marcar `- [x]` en `notas/capitulos/<archivo>.md`, `notas/fuentes/<slug>.md` y `notas/NOTAS.md`; anotar nuevos términos de Glosario/Bibliografía en `notas/NOTAS.md`; marcar `estado: "aprobado"` en `libro.yaml`; registrar el capítulo en `CHANGELOG.md`. Dejar listo para `commit`/`push` del usuario.
+3. **Observaciones del autor:** Registrarlas en `notas/capitulos/<archivo>.md` (y cualquier pauta transversal en `notas/NOTAS.md` Sección 7), aplicar los ajustes en `libro/<archivo>.md`, revalidar y recompilar.
+4. **Cierre (solo tras confirmación explícita de aprobación):** Marcar `- [x]` en `notas/capitulos/<archivo>.md`, `notas/fuentes/<slug>.md` y `notas/NOTAS.md`; actualizar `notas/mapa_obra.md`; anotar nuevos términos de Glosario/Bibliografía en `notas/NOTAS.md`; marcar `estado: "aprobado"` en `libro.yaml`; registrar el capítulo en `CHANGELOG.md`. Dejar listo para `commit`/`push` del usuario.
 
 ### Flujo B — Incorporación y consulta de bibliografía externa (`externos/` → `notas/fuentes/`)
 Cuando el usuario diga que añadió, modificó o quitó archivos en `externos/` (ej. *"Añadí nueva bibliografía en `externos/`"*):
@@ -131,15 +139,16 @@ Ejecutar siempre con `python3 -B` para evitar cachés `__pycache__`:
 | Script | Propósito | Ejemplo de invocación interna |
 | :--- | :--- | :--- |
 | `manifiesto.py` | Módulo compartido que carga `libro.yaml` o `respaldo_v1.0/libro.yaml` y bloquea escrituras en `respaldo_v1.0/`. | *(importado por los demás scripts)* |
-| `validar_libro.py` | Valida estructura, notas al pie, enlaces locales, tablero de `estado` y SHA-256 del respaldo (`--verificar-respaldo`). | `python3 -B scripts/edicion/validar_libro.py --capitulo 19` |
-| `compilar_pdf.py` | Compila 1 capítulo (`--capitulo`) o el libro completo en `dist/` en PDF o Word (`--formato docx`). Soporta `--manifiesto respaldo_v1.0/libro.yaml` y `--etiquetar-parrafos`. | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
+| `validar_libro.py` | Valida estructura, notas al pie, sintaxis PangoCairo, asteriscos, `[VERIFICAR]`, textos invitados (`03`–`06` y `29` desde L101), `README.md` y SHA-256 (`--verificar-respaldo`). | `python3 -B scripts/edicion/validar_libro.py --capitulo 19` |
+| `compilar_pdf.py` | Compila 1 capítulo (`--capitulo`) o el libro completo en `dist/` en PDF o Word (`--formato docx`, con prefijado automático de notas por capítulo). | `python3 -B scripts/edicion/compilar_pdf.py --capitulo 19` |
 | `reporte_cambios.py` | Compara 1 capítulo o el libro completo contra `respaldo_v1.0/` (o `--desde-git`) generando informe en `dist/`. | `python3 -B scripts/edicion/reporte_cambios.py --capitulo 19 --incluir-diffs` |
 | `generar_indice.py` | Genera el Índice General desde `libro.yaml` y encabezados `#`/`##` (en `dist/` por defecto; `--escribir` actualiza `libro/01_indice.md`). | `python3 -B scripts/edicion/generar_indice.py --escribir` |
 | `indexar_externos.py` | Indexa incrementalmente `externos/` (PDF, HTML, TXT, MD, DOCX, EPUB) en SQLite FTS5 (`dist/indice_externos/corpus.db`) y sincroniza `notas/fuentes/catalogo.yaml`. | `python3 -B scripts/edicion/indexar_externos.py` |
 | `buscar_externos.py` | Consulta FTS5 BM25, lee rangos exactos (`--leer <slug> --paginas A-B`), inspecciona TOC (`--info`) y lista fuentes por capítulo (`--para-capitulo <id>`) con auto-sync silencioso. | `python3 -B scripts/edicion/buscar_externos.py "regimen de verdad" --limite 8` |
+| `buscar_libro.py` | Búsqueda insensible a tildes sobre `libro/`, Glosario (`--glosario`) y Bibliografía (`--bibliografia`) con distribución de ocurrencias por capítulo. | `python3 -B scripts/edicion/buscar_libro.py --glosario "cuerpo"` |
+| `contexto_capitulo.py` | Genera el briefing completo de un capítulo en un paso (metadatos, protección, diagnóstico técnico, ficha espejo, fuentes externas y menciones globales). | `python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19` |
 
-**Limitaciones técnicas conocidas (vigilar hasta resolverse en `notas/NOTAS.md`):**
-* `compilar_pdf.py --formato docx` funciona limpio para **un capítulo** (`--capitulo <id>`), pero al compilar el **libro completo a `.docx`** los IDs de notas (`[^1]`, `[^2]`, …) repetidos entre capítulos colisionan en Pandoc si no se prefijan previamente por capítulo.
+**Limitación técnica pendiente (ver `notas/NOTAS.md`):**
 * `generar_indice.py --escribir` no debe ejecutarse hasta unificar los encabezados partidos en 2–3 líneas y los guiones sueltos (`## -` / `### -`) heredados de 2006.
 
 ---

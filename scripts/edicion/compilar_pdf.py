@@ -583,6 +583,15 @@ class BookPDFBuilder:
         return self.page_num
 
 
+def prefijar_notas_capitulo(md_text: str, cap_id: str) -> str:
+    """
+    Prefija los identificadores de notas al pie (`[^id]` y `[^id]:`) con el ID del capítulo
+    (`[^cap19_id]`) para evitar colisiones en Pandoc al compilar múltiples capítulos en `.docx`.
+    """
+    prefijo = re.sub(r"[^a-zA-Z0-9_]+", "_", f"cap{cap_id}")
+    return re.sub(r"\[\^([^\]]+)\]", lambda m: f"[^{prefijo}_{m.group(1)}]", md_text)
+
+
 def compilar_docx(
     manifiesto: LibroManifiesto,
     capitulos: List[CapituloRef],
@@ -599,7 +608,10 @@ def compilar_docx(
     for cap in capitulos:
         if not cap.ruta.exists():
             raise FileNotFoundError(f"No se encontró el archivo de capítulo declarado en el manifiesto: {cap.ruta}")
-        partes_md.append(cap.ruta.read_text(encoding="utf-8").strip())
+        texto_cap = cap.ruta.read_text(encoding="utf-8").strip()
+        if not es_capitulo_unico:
+            texto_cap = prefijar_notas_capitulo(texto_cap, cap.id)
+        partes_md.append(texto_cap)
 
     contenido_unido = "\n\n---\n\n".join(partes_md) + "\n"
     with tempfile.NamedTemporaryFile("w", suffix=".md", encoding="utf-8", delete=False) as tmp:
