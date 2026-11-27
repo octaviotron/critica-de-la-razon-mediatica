@@ -14,6 +14,8 @@ Sigue este flujo de principio a fin trabajando siempre **un solo capítulo `.md`
 
 ## Fase 1 — Preparación y Briefing (antes de tocar `libro/`)
 
+0. **Si es una sesión nueva o se retoma el trabajo:** ejecutar primero `python3 -B scripts/edicion/contexto_capitulo.py --estado` (excluyente con `--capitulo`). Pautas de higiene de sesión en `SSOT/flujo_editorial_segunda_edicion.md` §2.2.
+
 1. **Generar el briefing completo en un solo paso:**
    ```bash
    python3 -B scripts/edicion/contexto_capitulo.py --capitulo <id>
@@ -60,6 +62,7 @@ Aplicar las **7 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editoria
    * Releer los párrafos nuevos frente a `SSOT/perfil_voz_autor.md` para asegurar que **no contienen ninguno de los 5 anti-patrones de prosa sintética** ni redefinen sin consultar los 93 términos del Glosario.
    * Si se citaron PDFs con capa OCR previa (p. ej. `Sadin-Eric-La-Inteligencia-Artificial...pdf`), verificar y limpiar cualquier errata OCR en la cita literal.
 9. **Actualizar estado:** si el capítulo estaba en `estado: "pendiente"` en `libro.yaml`, pasarlo a `estado: "en_revision"`.
+10. **Verificar por diff, sin releer:** tras editar, comprobar con `git diff libro/<archivo>.md` y `validar_libro.py --capitulo <id>` en lugar de volver a leer el capítulo completo. Al terminar un bloque sustantivo, sobrescribir `notas/estado_sesion.md` (`<= 2 KB`, sin historial; archivo local ignorado por Git, créalo si falta).
 
 ---
 
@@ -79,7 +82,7 @@ Aplicar las **7 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editoria
    ```bash
    python3 -B scripts/edicion/reporte_cambios.py --capitulo <id>
    ```
-4. **Entregar al usuario:** ruta del archivo compilado en `dist/` + **resumen breve (5–10 viñetas)** de los cambios y cualquier duda puntual de 2006 para Juan Barreto.
+4. **Entregar al usuario:** ruta del archivo compilado en `dist/` + **resumen breve (5–10 viñetas)** de los cambios y cualquier duda puntual de 2006 para Juan Barreto. Actualizar `notas/estado_sesion.md` con el próximo paso.
 
 ---
 
@@ -94,3 +97,4 @@ Aplicar las **7 decisiones editoriales confirmadas** (`SSOT/guia_estilo_editoria
   4. Verificar que no queden marcadores `[VERIFICAR` sin resolver y cambiar `estado: "aprobado"` en `libro.yaml`.
   5. Registrar el capítulo aprobado en `CHANGELOG.md`.
   6. Ejecutar `python3 -B scripts/edicion/validar_libro.py --capitulo <id>` y dejar listo para el `commit`/`push` del usuario (nunca ejecutar `git commit` ni `git push` sin orden expresa).
+  7. Restablecer `notas/estado_sesion.md` (a `—` o apuntando al siguiente capítulo).

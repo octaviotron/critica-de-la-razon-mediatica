@@ -10,7 +10,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y arranque
 * **Autor:** Juan Barreto Cipriani (1.ª ed.: UCV / CIPOST, Caracas, 2006; ISBN `980-12-1936-X`) | **Asesoría informática:** Octavio Rossell Tabet (`octavio.rossell@gmail.com`)
 * **Objetivo activo:** Preparar la **Segunda Edición** trabajando **un capítulo `.md` a la vez** en `libro/`, con cero fricción CLI para el usuario (opera en lenguaje natural; el agente ejecuta silenciosamente `scripts/edicion/` con `python3 -B`).
 * **Base verificada (2006):** `33` archivos congelados en `respaldo_v1.0/md/` (`197,690` palabras, `535` notas al pie, `100.000%` integridad alfanumérica) + anexo de cierre `A1` en `libro/` (`34` entradas en `libro.yaml`; el conteo vivo de palabras —excluyendo `libro/README.md`— lo reporta `validar_libro.py`).
-* **Arranque rápido en sesión nueva:** Si el usuario dice *«sigamos»* o pregunta *«¿cómo vamos?»*, ejecutar primero `python3 -B scripts/edicion/validar_libro.py` (para leer el tablero de `estado` en `libro.yaml`) y revisar el último registro de `notas/registro_cambios_edicion.md` antes de proponer el siguiente paso.
+* **Arranque rápido en sesión nueva:** Si el usuario dice *«sigamos»* o pregunta *«¿cómo vamos?»*, ejecutar primero `python3 -B scripts/edicion/contexto_capitulo.py --estado` (muestra `notas/estado_sesion.md` si existe —archivo local que puede faltar en un clon nuevo—, el tablero de `estado` de `libro.yaml` y el último registro de `notas/registro_cambios_edicion.md`) antes de proponer el siguiente paso. `validar_libro.py` queda para validar, no para retomar.
 
 ---
 
@@ -20,7 +20,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y arranque
 2. **`SSOT/` (`guia_estilo_editorial.md`, `perfil_voz_autor.md`, `flujo_editorial_segunda_edicion.md`, `guia_maquetacion_segunda_edicion.md`):** Fuente única de verdad operativa para estilo, voz, citas, vocabulario, flujo y maquetación editorial.
 3. **`.agents/skills/` (`editar-capitulo`, `procesar-externos`, `cierre-editorial`, `mantenimiento-proyecto`):** Procedimientos paso a paso bajo demanda subordinados al `SSOT/`.
 4. **`libro.yaml`:** Manifiesto maestro del orden de partes/capítulos (`10` secciones, `34` entradas) y `estado` (`pendiente` | `en_revision` | `aprobado`).
-5. **`notas/` (`NOTAS.md`, `mapa_obra.md`, `registro_cambios_edicion.md`, `capitulos/`, `fuentes/`):** Pendientes, panorámica, bitácora de cambios al libro, observaciones del autor y fichas de `externos/`.
+5. **`notas/` (`NOTAS.md`, `mapa_obra.md`, `registro_cambios_edicion.md`, `capitulos/`, `fuentes/`, `estado_sesion.md`):** Pendientes, panorámica, bitácora de cambios al libro, observaciones del autor y fichas de `externos/`. `estado_sesion.md` es un archivo local (ignorado por Git, `<= 2 KB`, se sobrescribe) solo de seguimiento operativo: apunta a `notas/capitulos/` pero **no** los sustituye ni los contradice.
 6. **`CHANGELOG.md`:** Registro exclusivo de capítulos aprobados e hitos técnicos ya cerrados.
 
 > Ante cualquier contradicción entre estos archivos o un script, **detente, repórtala al usuario** y activa `.agents/skills/mantenimiento-proyecto/SKILL.md`.
@@ -35,7 +35,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y arranque
 | `.agents/skills/` | Editable (bajo demanda) | 4 Skills: `editar-capitulo`, `procesar-externos`, `cierre-editorial`, `mantenimiento-proyecto`. |
 | `libro/` | **Única copia viva** | Capítulos publicables en Markdown (sin notas internas). Los 33 nombres originales son IDs estables (**Opción A**); los nuevos usan nombre descriptivo (`anexo_cambios_segunda_edicion.md`, `id: A1`). |
 | `libro.yaml` | Editable (manifiesto maestro) | Orden del índice (`10` secciones: `preliminares`, `prologos_2006`, `apertura`, Partes I–VI, `cierre`), `34` entradas y `estado`. |
-| `notas/` | Editable | `NOTAS.md`, `mapa_obra.md`, `registro_cambios_edicion.md`, `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`) y `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`). |
+| `notas/` | Editable | `NOTAS.md`, `mapa_obra.md`, `registro_cambios_edicion.md`, `capitulos/` (fichas espejo + futuro `prefacio_segunda_edicion.md`), `fuentes/` (`catalogo.yaml` + fichas `<slug>.md`) y `estado_sesion.md` (local, ignorado por Git). |
 | `externos/` | **Solo lectura (en Git)** | Biblioteca de bibliografía externa (PDF, HTML, TXT, MD, DOCX, EPUB). Nunca editar ni renombrar. |
 | `CHANGELOG.md` | Editable (hechos cerrados) | Exclusivo para capítulos aprobados e hitos ya completados. |
 | `scripts/edicion/` | Editable (herramientas internas) | 11 scripts Python ejecutados con `python3 -B` (detalle CLI y requisitos en `scripts/README.md`). |
@@ -51,6 +51,7 @@ Contexto raíz, límites inviolables, decisiones editoriales cerradas y arranque
 ## 4. Política de Lectura Progresiva (Ahorro de Contexto)
 
 * **Al editar un capítulo:** activar `editar-capitulo` (ejecuta `contexto_capitulo.py --capitulo <id>` y lee solo `libro/<archivo>.md`, `notas/mapa_obra.md`, `SSOT/perfil_voz_autor.md` y las fichas asignadas en `notas/fuentes/`). Consultar el resto del libro o `externos/` únicamente vía `buscar_libro.py` y `buscar_externos.py`.
+* **Higiene de sesión:** una conversación por capítulo, retomar con `contexto_capitulo.py --estado` y verificar ediciones con `git diff` en vez de releer el capítulo (pautas completas en `SSOT/flujo_editorial_segunda_edicion.md` §2.2).
 * **NO cargar completos en sesiones normales:** múltiples capítulos de `libro/`, `respaldo_v1.0/md/`, libros/PDFs enteros de `externos/` ni los 2 documentos históricos de `SSOT/`.
 
 ---
@@ -95,7 +96,7 @@ Activar la Skill correspondiente según la solicitud del usuario:
 ### Herramientas internas (`scripts/edicion/`, ejecutar siempre con `python3 -B`)
 
 Referencia única de descripción, flags y ejemplos CLI en **`scripts/README.md`**:
-* **Manifiesto, briefing y validación:** `manifiesto.py`, `contexto_capitulo.py`, `validar_libro.py`, `reporte_cambios.py`.
+* **Manifiesto, briefing y validación:** `manifiesto.py`, `contexto_capitulo.py` (`--capitulo <id>` o `--estado`), `validar_libro.py`, `reporte_cambios.py`.
 * **Compilación, maquetación e índices:** `compilar_pdf.py` (PDF/DOCX por capítulo o libro), `compilar_maqueta.py` (maqueta `LuaLaTeX` en `dist/maqueta/`), `generar_indice.py`, `recalcular_onomastico.py`.
 * **Búsqueda interna y bibliografía externa:** `buscar_libro.py`, `indexar_externos.py`, `buscar_externos.py`.
 

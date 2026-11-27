@@ -24,3 +24,6 @@ dist/
 # Editores / IDEs
 .vscode/
 .idea/
+
+# Caché de estado de sesión de edición asistida (archivo local por equipo; no se versiona)
+notas/estado_sesion.md

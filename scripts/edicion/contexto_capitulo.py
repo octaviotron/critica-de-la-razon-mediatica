@@ -67,14 +67,68 @@ def referencias_en_notas_globales(archivo: str) -> List[str]:
     return hallazgos
 
 
+def ultima_entrada_registro() -> str:
+    ruta = REPO_ROOT / "notas" / "registro_cambios_edicion.md"
+    if not ruta.exists():
+        return "(No existe notas/registro_cambios_edicion.md)"
+    lineas = ruta.read_text(encoding="utf-8").splitlines()
+    idx = None
+    for i, l in enumerate(lineas):
+        if re.match(r"^###\s+\[E-\d+", l):
+            idx = i
+    if idx is None:
+        idx = next((i for i in range(len(lineas) - 1, -1, -1) if lineas[i].startswith("#")), None)
+    if idx is None:
+        return "(Registro sin entradas)"
+    fin = len(lineas)
+    for j in range(idx + 1, len(lineas)):
+        if lineas[j].startswith("#"):
+            fin = j
+            break
+    bloque = "\n".join(lineas[idx:fin]).strip()
+    return bloque if len(bloque) <= 500 else bloque[:497] + "..."
+
+
+def mostrar_estado(manifiesto) -> int:
+    """Modo --estado: solo lectura, salida compacta (~1.5 KB) para retomar sesión."""
+    print("=== ESTADO DE SESIÓN ===")
+    ruta = REPO_ROOT / "notas" / "estado_sesion.md"
+    if ruta.exists():
+        print(ruta.read_text(encoding="utf-8").strip())
+    else:
+        print("No existe notas/estado_sesion.md")
+
+    caps = manifiesto.capitulos
+    conteo = {"aprobado": 0, "en_revision": 0, "pendiente": 0}
+    for c in caps:
+        if c.estado in conteo:
+            conteo[c.estado] += 1
+    print("\n--- Tablero (libro.yaml) ---")
+    print(
+        f"aprobado: {conteo['aprobado']} | en_revision: {conteo['en_revision']} | "
+        f"pendiente: {conteo['pendiente']}"
+    )
+    en_rev = [f"[{c.id}] {c.archivo}" for c in caps if c.estado == "en_revision"]
+    print("En revisión: " + (", ".join(en_rev) if en_rev else "ninguno"))
+
+    print("\n--- Último registro (notas/registro_cambios_edicion.md) ---")
+    print(ultima_entrada_registro())
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Muestra el briefing editorial completo de un capítulo antes de editarlo."
     )
     parser.add_argument(
         "--capitulo",
-        required=True,
+        default=None,
         help="ID o nombre de archivo del capítulo (ej. 19 o 19_parte4_ensayo_3.md)",
+    )
+    parser.add_argument(
+        "--estado",
+        action="store_true",
+        help="Resumen compacto de retoma de sesión (estado local, tablero de libro.yaml y último registro)",
     )
     parser.add_argument(
         "--manifiesto",
@@ -83,7 +137,17 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    if args.estado and args.capitulo:
+        print("Error: use --capitulo o --estado, no ambos.", file=sys.stderr)
+        return 2
+    if not args.estado and not args.capitulo:
+        print("Error: indique --capitulo <id> o --estado.", file=sys.stderr)
+        return 2
+
     manifiesto = cargar_manifiesto(args.manifiesto)
+    if args.estado:
+        return mostrar_estado(manifiesto)
+
     cap = buscar_capitulo(manifiesto, args.capitulo)
     md_text = cap.ruta.read_text(encoding="utf-8") if cap.ruta.exists() else ""
     palabras = len(md_text.split())

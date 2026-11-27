@@ -172,6 +172,7 @@ def verificar_salud_workspace(capitulos: List) -> Tuple[List[str], List[str]]:
     Comprobaciones globales de higiene del workspace:
     - Tamaño de `AGENTS.md` (aviso > 20,000 B; error > 24,000 B).
     - Existencia de ficha espejo en `notas/capitulos/<archivo>` para cada capítulo del manifiesto.
+    - Tamaño de `notas/estado_sesion.md` si existe (aviso suave > 2,048 B; nunca error).
     """
     errores: List[str] = []
     advertencias: List[str] = []
@@ -183,6 +184,14 @@ def verificar_salud_workspace(capitulos: List) -> Tuple[List[str], List[str]]:
             errores.append(f"AGENTS.md supera el límite estricto de 24,000 bytes ({n_bytes:,} B)")
         elif n_bytes > 20000:
             advertencias.append(f"AGENTS.md supera los 20,000 bytes ({n_bytes:,} B); conviene aligerarlo hacia .agents/skills/")
+
+    estado_path = REPO_ROOT / "notas" / "estado_sesion.md"
+    if estado_path.exists():
+        n_estado = estado_path.stat().st_size
+        if n_estado > 2048:
+            advertencias.append(
+                f"notas/estado_sesion.md supera los 2,048 bytes ({n_estado:,} B); conviene compactarlo (se sobrescribe, no acumula historial)"
+            )
 
     notas_caps_dir = REPO_ROOT / "notas" / "capitulos"
     if notas_caps_dir.is_dir():

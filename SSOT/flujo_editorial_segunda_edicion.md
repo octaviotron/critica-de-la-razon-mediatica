@@ -16,7 +16,7 @@
 4. **Orden y avance centralizados en [`libro.yaml`](../libro.yaml) (Opción A):** Los nombres de archivo existentes en `libro/` (`00_preliminares.md` … `32_indice_onomastico.md`) se conservan como **identificadores estables**; el orden del índice, las partes y el `estado` de cada capítulo (`pendiente` | `en_revision` | `aprobado`) viven en [`libro.yaml`](../libro.yaml). Un capítulo solo pasa a `"aprobado"` tras confirmación explícita del usuario.
 5. **Separación clara entre pendientes/seguimiento ([`notas/`](../notas/)) e historial cerrado ([`CHANGELOG.md`](../CHANGELOG.md)):** En [`notas/`](../notas/) viven las ideas/pendientes globales ([`NOTAS.md`](../notas/NOTAS.md)), la panorámica de la obra ([`mapa_obra.md`](../notas/mapa_obra.md)), la bitácora detallada de cambios al libro ([`registro_cambios_edicion.md`](../notas/registro_cambios_edicion.md)), las fichas espejo por ensayo ([`notas/capitulos/`](../notas/capitulos/)) y el catálogo/fichas de bibliografía externa ([`notas/fuentes/`](../notas/fuentes/)). [`CHANGELOG.md`](../CHANGELOG.md) registra únicamente capítulos ya *aprobados* e hitos técnicos completados.
 6. **Respaldo inmutable de la 1.ª edición ([`respaldo_v1.0/`](../respaldo_v1.0/)):** Conserva congelados los 33 archivos originales de 2006 y su manifiesto estructural (`respaldo_v1.0/libro.yaml`) para tener siempre una referencia exacta y poder compilar la 1.ª edición (`v1.0.0`) aunque cambien los archivos de `libro/` o la estructura del índice.
-7. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs y archivos Word (`.docx`) generados para lectura/revisión del autor se escriben en `dist/`, carpeta excluida en [`.gitignore`](../.gitignore).
+7. **Artefactos compilados fuera de Git (`dist/`):** Los PDFs y archivos Word (`.docx`) generados para lectura/revisión del autor se escriben en `dist/`, carpeta excluida en [`.gitignore`](../.gitignore) (que además excluye el archivo local `notas/estado_sesion.md`, ver §2.2).
 
 ---
 
@@ -56,6 +56,7 @@ En cada etapa basta pedirle a la IA:
 * **Al recibir comentarios del autor:** *"Aplica estas observaciones del autor sobre `libro/19_parte4_ensayo_3.md` y vuelve a generar el PDF del capítulo."*
 * **Al aprobarse el capítulo:** *"El autor aprobó el capítulo 19; márcalo como aprobado en `libro.yaml` y regístralo en `CHANGELOG.md`."*
 * **Para consultar avance:** *"Muéstrame el avance de los capítulos según `libro.yaml`."*
+* **Al retomar en una conversación nueva:** *"Sigamos"* o *"¿cómo vamos?"* (el agente ejecuta `contexto_capitulo.py --estado`; ver §2.2).
 * **Al añadir nueva bibliografía en `externos/`:** *"Añadí nuevos archivos en `externos/`, procésalos e indexa todo."*
 * **Al buscar citas verificadas en `externos/`:** *"Busca qué dice Éric Sadin (o Harari / Palantir) sobre el cuerpo-pantalla y verifica las páginas exactas."*
 
@@ -65,6 +66,15 @@ Para incorporar bibliografía contemporánea (PDFs, artículos HTML, TXT, MD, DO
 2. **El agente ejecuta internamente** `python3 -B scripts/edicion/indexar_externos.py`, que procesa de forma incremental únicamente los archivos nuevos o modificados (por SHA-256), actualiza el índice local SQLite FTS5 en `dist/indice_externos/corpus.db` y agrega las entradas nuevas en [`notas/fuentes/catalogo.yaml`](../notas/fuentes/catalogo.yaml) sin sobrescribir campos ya curados.
 3. **Fichado curado:** El agente inspecciona metadatos, créditos y tabla de contenidos mediante `buscar_externos.py --info` / `--leer`, completa en `notas/fuentes/catalogo.yaml` la cita en estilo europeo, postura de diálogo (`afin` | `dialogo_critico` | `critica` | `insumo_empirico`), temas y capítulos destino, y redacta la ficha resumida `notas/fuentes/<slug>.md` (enlazándola en [`notas/NOTAS.md`](../notas/NOTAS.md) si aplica).
 4. **Auto-sincronización silenciosa en consulta:** `buscar_externos.py` verifica automáticamente si hay novedades en `externos/` (o si `corpus.db` aún no existe tras un `git clone`) y reindexa en segundo plano antes de buscar. Al editar un capítulo, permite extraer citas literales con **página exacta verificada**.
+
+### 2.2. Higiene de Sesión y Memoria Mínima entre Conversaciones
+El historial de una conversación se reenvía completo en cada turno, de modo que un chat largo tras cargar capítulos extensos (`07`, `10`, `19`, `26`, `27`) encarece cada paso. Para abrir conversaciones limpias sin perder continuidad:
+1. **Una conversación nueva por capítulo:** al entregar o cerrar un capítulo (o cada 2–3 bloques en ensayos `> 50 KB`), abrir una sesión nueva o compactar el contexto antes de continuar.
+2. **Retomar con `--estado`:** al empezar una sesión, ejecutar `python3 -B scripts/edicion/contexto_capitulo.py --estado`. Muestra `notas/estado_sesion.md`, el tablero de `libro.yaml` y el último registro de `notas/registro_cambios_edicion.md`. `--estado` y `--capitulo` son excluyentes (usar uno u otro).
+3. **Estado de sesión (`notas/estado_sesion.md`):** archivo local, ignorado por Git (puede no existir tras un `git clone`; se crea bajo demanda), `<= 2,048 B`, que se **sobrescribe** sin acumular historial al terminar un bloque sustantivo, entregar un borrador, recibir observaciones o cerrar sesión (no en cada micro-edición). Solo apunta al trabajo en curso: **no** sustituye ni contradice a `notas/capitulos/` (observaciones del autor), `notas/registro_cambios_edicion.md` ni `CHANGELOG.md`; ante discrepancia prevalecen estos.
+4. **Verificar por diff:** tras editar `libro/`, comprobar con `git diff libro/<archivo>.md` y `validar_libro.py --capitulo <id>` en lugar de releer el capítulo completo.
+5. **Agrupar peticiones afines:** en rondas de correcciones o ajustes de maquetación, reunir varios cambios en un mismo mensaje.
+6. **Recomendación de uso (no obligatoria, depende del entorno):** reservar el modelo más potente para planear intervenciones y redactar prosa en la voz del autor, y usar uno ligero para tareas mecánicas (validar, compilar, buscar citas, fichar libros, sincronizar documentación).
 
 ---
 

@@ -10,6 +10,7 @@ notas/
 ├── NOTAS.md                     # Ideas globales del libro, autores por incluir, frases, glosario e índice
 ├── mapa_obra.md                 # Panorámica argumental condensada de los 33 capítulos y registro de 2.ª edición
 ├── registro_cambios_edicion.md  # Bitácora editorial de cambios sustantivos al libro (base de futuro reporte/anexo)
+├── estado_sesion.md             # [Local, ignorado por Git] Estado operativo de la sesión en curso (<= 2 KB)
 ├── capitulos/                   # Una ficha de notas por cada capítulo (mismo nombre exacto que en libro/)
 │   ├── 00_preliminares.md
 │   ├── ...
@@ -30,5 +31,6 @@ notas/
 3. **Bibliografía externa (`externos/` → `notas/fuentes/`):** Cuando añadas nuevos documentos en [`externos/`](../externos/), solo avisa durante la sesión de edición asistida; el catálogo [`notas/fuentes/catalogo.yaml`](fuentes/catalogo.yaml), el índice local de búsqueda y la ficha de lectura en `notas/fuentes/` se actualizarán automáticamente sin ejecutar comandos manuales.
 4. **Seguimiento limpio:** Conforme cada punto se integra al manuscrito y recibe aprobación del autor, cambia `- [ ]` por `- [x]` para conservar memoria de lo ya resuelto.
 5. **Nuevos capítulos:** Si añades un capítulo nuevo en `libro/` y [`libro.yaml`](../libro.yaml), puedes crear su ficha correspondiente en `notas/capitulos/` con el mismo nombre de archivo.
+6. **Retomar sesiones:** `notas/estado_sesion.md` es un archivo local (ignorado por Git; puede no existir en un clon nuevo), de `<= 2 KB`, que se sobrescribe al terminar un bloque de trabajo y se consulta con `python3 -B scripts/edicion/contexto_capitulo.py --estado`. No sustituye al registro de cambios ni a las fichas de `capitulos/`.
 
 > Para el flujo completo de edición asistida, véanse [`SSOT/flujo_editorial_segunda_edicion.md`](../SSOT/flujo_editorial_segunda_edicion.md) y [`SSOT/guia_estilo_editorial.md`](../SSOT/guia_estilo_editorial.md).

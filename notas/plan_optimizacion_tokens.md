@@ -1,6 +1,6 @@
 # Plan Técnico: Optimización de Tokens (Pilares 1 y 2)
 
-> **Estado del plan:** `propuesto` — sin ejecutar. Ningún otro archivo del proyecto ha sido modificado por este plan.
+> **Estado del plan:** `ejecutado` (2026-11-26). Alcance ampliado: `SSOT/README.md`, `SSOT/flujo_editorial_segunda_edicion.md` §2.2 (Pilar 1 normativo), `README.md` raíz y `AGENTS.md` §4; `--estado` y `--capitulo` son excluyentes (código 2).
 > **Ubicación:** `notas/plan_optimizacion_tokens.md` (seguimiento técnico y pendientes).
 > **Enfoque:** Máximo ahorro real de tokens con **riesgo nulo**, sin tocar `libro/`, sin alterar `SSOT/guia_estilo_editorial.md` ni `SSOT/perfil_voz_autor.md`, y manteniendo 100 % la compatibilidad actual de todos los scripts (`11` scripts activos).
 > **Fecha:** 2026-11-26.
@@ -136,10 +136,10 @@ Aplicar únicamente los ajustes estrictamente necesarios siguiendo `.agents/skil
 
 ## 7. Registro de Ejecución *(rellenar solo cuando se ejecute)*
 
-- [ ] Pilar 1 adoptado en flujo diario y reflejado en `editar-capitulo/SKILL.md`
-- [ ] `notas/estado_sesion.md` añadido a `.gitignore` y creado localmente (`<= 2 KB`)
-- [ ] `contexto_capitulo.py --estado` implementado y verificado (con y sin archivo local, y sin regresión en `--capitulo`)
-- [ ] Aviso de tamaño (`> 2,048 B`) añadido en `validar_libro.py`
-- [ ] Documentación sincronizada (`AGENTS.md`, `scripts/README.md`, `notas/README.md`, `CHANGELOG.md`)
-- [ ] `validar_libro.py --verificar-respaldo` en `0` errores
-- [ ] Estado del plan cambiado a `ejecutado`
+- [x] Pilar 1 adoptado en flujo diario y reflejado en `editar-capitulo/SKILL.md`
+- [x] `notas/estado_sesion.md` añadido a `.gitignore` y creado localmente (`<= 2 KB`)
+- [x] `contexto_capitulo.py --estado` implementado y verificado (con y sin archivo local, y sin regresión en `--capitulo`)
+- [x] Aviso de tamaño (`> 2,048 B`) añadido en `validar_libro.py`
+- [x] Documentación sincronizada (`AGENTS.md`, `scripts/README.md`, `notas/README.md`, `CHANGELOG.md`)
+- [x] `validar_libro.py --verificar-respaldo` en `0` errores
+- [x] Estado del plan cambiado a `ejecutado`

@@ -11,8 +11,8 @@ Documentación técnica de las herramientas internas de validación, compilació
 | Script | Propósito |
 | :--- | :--- |
 | [`manifiesto.py`](edicion/manifiesto.py) | Módulo compartido que carga [`libro.yaml`](../libro.yaml) o [`respaldo_v1.0/libro.yaml`](../respaldo_v1.0/libro.yaml), resuelve capítulos por `id`/archivo y bloquea cualquier escritura sobre `respaldo_v1.0/`. |
-| [`contexto_capitulo.py`](edicion/contexto_capitulo.py) | Consolida en una sola salida el briefing editorial de un capítulo (metadatos, alerta de textos invitados protegidos, diagnóstico técnico en vivo, ficha espejo en `notas/capitulos/`, fuentes externas mapeadas y menciones en `notas/NOTAS.md`). |
-| [`validar_libro.py`](edicion/validar_libro.py) | Valida un capítulo (`--capitulo`) o el libro completo: archivos, notas al pie, enlaces locales, sintaxis compatible con PangoCairo, asteriscos impares, marcadores `[VERIFICAR]`, protección de textos invitados (`03`–`06` y `29` desde L101), higiene de los 6 `README.md`, tamaño de `AGENTS.md`, fichas espejo en `notas/capitulos/` y huellas SHA-256 de `respaldo_v1.0/md/` (`--verificar-respaldo`). |
+| [`contexto_capitulo.py`](edicion/contexto_capitulo.py) | Con `--capitulo`, consolida en una sola salida el briefing editorial de un capítulo (metadatos, alerta de textos invitados protegidos, diagnóstico técnico en vivo, ficha espejo en `notas/capitulos/`, fuentes externas mapeadas y menciones en `notas/NOTAS.md`). Con `--estado` (excluyente con `--capitulo`; solo lectura, salida compacta) muestra `notas/estado_sesion.md` si existe, el tablero de `libro.yaml` y el último registro de `notas/registro_cambios_edicion.md`, para retomar una sesión nueva. |
+| [`validar_libro.py`](edicion/validar_libro.py) | Valida un capítulo (`--capitulo`) o el libro completo: archivos, notas al pie, enlaces locales, sintaxis compatible con PangoCairo, asteriscos impares, marcadores `[VERIFICAR]`, protección de textos invitados (`03`–`06` y `29` desde L101), higiene de los 6 `README.md`, tamaño de `AGENTS.md`, fichas espejo en `notas/capitulos/`, aviso si `notas/estado_sesion.md` supera 2,048 B y huellas SHA-256 de `respaldo_v1.0/md/` (`--verificar-respaldo`). |
 | [`compilar_pdf.py`](edicion/compilar_pdf.py) | Compila un capítulo (`--capitulo`) o el libro completo en `dist/` en formato **PDF** (por defecto, o con etiquetas `[ID.PPP]` mediante `--etiquetar-parrafos`) o **Word (`.docx`)** (`--formato docx`, con prefijado automático de notas por capítulo). También compila la 1.ª edición intacta desde `--manifiesto respaldo_v1.0/libro.yaml`. |
 | [`compilar_maqueta.py`](edicion/compilar_maqueta.py) | Compila la **maqueta editorial `LuaLaTeX`** (tipografías, caja espejo `126.4 × 191.1 mm`, sello lateral y portadillas de 2006) desde [`maquetacion/diseno_2ed.yaml`](../maquetacion/diseno_2ed.yaml) y [`maquetacion/plantilla/`](../maquetacion/plantilla/) en `dist/maqueta/`. Soporta `--capitulo <id>`, `--modo digital\|imprenta`, `--solo-tex` y genera un reporte JSON de calidad tipográfica. |
 | [`recalcular_onomastico.py`](edicion/recalcular_onomastico.py) | Recalcula los números de página de [`libro/32_indice_onomastico.md`](../libro/32_indice_onomastico.md) analizando el PDF maquetado con `pdftotext`. Genera vista previa segura en `dist/maqueta/onomastico_recalculado.md` por defecto (`--escribir` solo en el cierre editorial). |
@@ -30,6 +30,9 @@ Documentación técnica de las herramientas internas de validación, compilació
 ```bash
 # Obtener briefing completo antes de editar un capítulo
 python3 -B scripts/edicion/contexto_capitulo.py --capitulo 19
+
+# Retomar una sesión nueva (estado local, tablero y último registro)
+python3 -B scripts/edicion/contexto_capitulo.py --estado
 
 # Validar un capítulo recién editado o todo el libro junto al respaldo SHA-256
 python3 -B scripts/edicion/validar_libro.py --capitulo 19
