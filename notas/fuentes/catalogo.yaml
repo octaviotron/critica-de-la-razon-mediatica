@@ -409,3 +409,491 @@ fuentes:
   ficha: notas/fuentes/unesco_guia_para_ia_generativa.md
   notas: ISBN 978-92-3-300221-0 (CC-BY-SA 3.0 IGO). Útil para cifras institucionales (ej. 100 millones de usuarios
     mensuales de ChatGPT en enero de 2023 vs. vacío regulatorio) y debates sobre regulación y diversidad cultural.
+- id: fisher_ucm_teknokultura
+  archivo: Fisher_UCM_Teknokultura.pdf
+  formato: pdf
+  sha256: 5dd1f5789d589d20814be146f5f794d863938f2972efcb75087fc31952c19d4d
+  titulo: Reseña de Realismo Capitalista. ¿No hay alternativa? de Mark Fisher
+  autor: Nantu Arroyo
+  anio: '2020'
+  editorial: Teknokultura. Revista de Cultura Digital y Movimientos Sociales (UCM)
+  ciudad: Madrid
+  url: http://dx.doi.org/10.5209/tekn.69483
+  idioma: es
+  tipo: articulo
+  postura_dialogo: afin
+  cita_europea: N. Arroyo, «Reseña de *Realismo Capitalista. ¿No hay alternativa?* de Mark Fisher», *Teknokultura.
+    Revista de Cultura Digital y Movimientos Sociales*, Vol. 17, N.º 2, Madrid, 2020, pp. 255-257.
+  paginas: 3
+  caracteres: 16082
+  requiere_ocr: false
+  temas:
+  - realismo capitalista
+  - salud mental
+  - subjetividad posliteraria
+  capitulos_destino:
+  - '13'
+  - '15'
+  - '17'
+  - '23'
+  - '25'
+  - '26'
+  - '29'
+  estado: fichado
+  ficha: notas/fuentes/fisher_ucm_teknokultura.md
+  notas: Reseña académica en acceso abierto con referencias y citas paginadas a la edición de Caja Negra (2018).
+- id: han_ucm_1
+  archivo: Han_UCM_1.pdf
+  formato: pdf
+  sha256: 7b012740bee6fb92d868a3a14d3c84b849f9827c9f8d67906b2953a028389277
+  titulo: Reseña de Psicopolítica. Neoliberalismo y nuevas técnicas de poder de Byung-Chul Han
+  autor: Carla González Pousada
+  anio: '2017'
+  editorial: Cuadernos de Relaciones Laborales (UCM)
+  ciudad: Madrid
+  url: http://dx.doi.org/10.5209/CRLA.56772
+  idioma: es
+  tipo: articulo
+  postura_dialogo: afin
+  cita_europea: C. González Pousada, «Reseña de *Psicopolítica. Neoliberalismo y nuevas técnicas de poder* de Byung-Chul
+    Han», *Cuadernos de Relaciones Laborales*, Vol. 35, N.º 2, Madrid, 2017, pp. 443-458.
+  paginas: 5
+  caracteres: 16787
+  requiere_ocr: false
+  temas:
+  - psicopolítica
+  - biopolítica
+  - autoexplotación neoliberal
+  capitulos_destino:
+  - '07'
+  - '17'
+  - '18'
+  - '22'
+  - '23'
+  estado: fichado
+  ficha: notas/fuentes/han_ucm_1.md
+  notas: Reseña analítica en acceso abierto sobre Psicopolítica (Herder, 2016).
+- id: han_ucm_2
+  archivo: Han_UCM_2.pdf
+  formato: pdf
+  sha256: d7ef0c0474513f6faf8c71fde7457c5e836a3486f2dd4d58b33226b9a6e73486
+  titulo: Reseña de Psicopolítica. Neoliberalismo y nuevas técnicas de poder de Byung-Chul Han
+  autor: Yimin Yu
+  anio: '2021'
+  editorial: Mediaciones Sociales (UCM)
+  ciudad: Madrid
+  url: https://dx.doi.org/10.5209/meso.79174
+  idioma: es
+  tipo: articulo
+  postura_dialogo: afin
+  cita_europea: Y. Yu, «Reseña de *Psicopolítica. Neoliberalismo y nuevas técnicas de poder* de Byung-Chul Han»,
+    *Mediaciones Sociales*, Vol. 20, Madrid, 2021, pp. 1-3.
+  paginas: 3
+  caracteres: 10249
+  requiere_ocr: false
+  temas:
+  - psicopolítica
+  - big data
+  - sociedad de rendimiento
+  capitulos_destino:
+  - '07'
+  - '17'
+  - '18'
+  estado: fichado
+  ficha: notas/fuentes/han_ucm_2.md
+  notas: Síntesis académica con citas paginadas a Psicopolítica (Herder, 2020).
+- id: han_unlp_infocracia
+  archivo: Han_UNLP_Infocracia.pdf
+  formato: pdf
+  sha256: e23fe0382393084edc8e66cd7dc0f91b0749ef3ba179071761e2b4f3eac11b5f
+  titulo: Infocracia. La digitalización y la crisis de la democracia
+  autor: Byung-Chul Han
+  anio: '2022'
+  editorial: '[VERIFICAR EDITORIAL — PDF cátedra FPyCS-UNLP]'
+  ciudad: '[VERIFICAR CIUDAD]'
+  url: https://perio.unlp.edu.ar/catedras/wp-content/uploads/sites/18/2025/03/Byung-Chul-Han-Infocracia.pdf
+  idioma: es
+  tipo: libro
+  postura_dialogo: afin
+  cita_europea: B.-C. Han, *Infocracia. La digitalización y la crisis de la democracia*, [VERIFICAR EDITORIAL/CIUDAD],
+    2022.
+  paginas: 59
+  caracteres: 112674
+  requiere_ocr: false
+  temas:
+  - infocracia
+  - régimen de la información
+  - crisis de la verdad
+  - esfera pública
+  capitulos_destino:
+  - '07'
+  - '17'
+  - '21'
+  - '22'
+  - '23'
+  - '24'
+  estado: fichado
+  ficha: notas/fuentes/han_unlp_infocracia.md
+  notas: Texto íntegro alojado en repositorio de cátedra de la UNLP (págs. 1-5 y 57-58 en blanco).
+- id: harari_uca_ar_1
+  archivo: Harari_UCA_AR_1.pdf
+  formato: pdf
+  sha256: 3d37222196638e7c94a1b64e80133c8b1eb31516682fa5eea7fc7e1d106ec3b5
+  titulo: ¿Los seres humanos somos meros "algoritmos"? Una reflexión crítica sobre el libro Homo Deus. Breve historia
+    del mañana
+  autor: Jorge Nicolás Lafferrière
+  anio: '[VERIFICAR AÑO]'
+  editorial: El Derecho (Repositorio UCA)
+  ciudad: Buenos Aires
+  url: https://repositorio.uca.edu.ar/bitstream/123456789/8948/1/seres-humanos-somos-meros.pdf
+  idioma: es
+  tipo: articulo
+  postura_dialogo: dialogo_critico
+  cita_europea: J. N. Lafferrière, «¿Los seres humanos somos meros "algoritmos"? Una reflexión crítica sobre el
+    libro *Homo Deus. Breve historia del mañana*», *El Derecho*, 272-406, Buenos Aires, [VERIFICAR AÑO].
+  paginas: 11
+  caracteres: 28016
+  requiere_ocr: false
+  temas:
+  - homo deus
+  - dataísmo
+  - reduccionismo algorítmico
+  capitulos_destino:
+  - '07'
+  - 08
+  - 09
+  - '17'
+  estado: fichado
+  ficha: notas/fuentes/harari_uca_ar_1.md
+  notas: Análisis crítico con citas y páginas de Homo Deus (Debate, Buenos Aires, 2016).
+- id: harari_una_cr
+  archivo: Harari_UNA_CR.pdf
+  formato: pdf
+  sha256: 16f20d5d812edb4fbd6bf0b1c98cc420e7360ad7bce8c9997f8eaeabd965171a
+  titulo: 'El dataísmo: ¿una nueva religión?'
+  autor: José Luis Meza-Rueda y Camilo Alfonso López-Saavedra
+  anio: '2026'
+  editorial: Revista Siwo (UNA)
+  ciudad: Heredia
+  url: https://doi.org/10.15359/siwo.19-1.9
+  idioma: es
+  tipo: articulo
+  postura_dialogo: dialogo_critico
+  cita_europea: 'J. L. Meza-Rueda y C. A. López-Saavedra, «El dataísmo: ¿una nueva religión?», *Revista Siwo*, Vol.
+    19, N.º 1, Heredia, 2026, pp. 1-36.'
+  paginas: 36
+  caracteres: 66356
+  requiere_ocr: false
+  temas:
+  - dataísmo
+  - transhumanismo
+  - infocracia
+  - inteligencia artificial
+  capitulos_destino:
+  - '07'
+  - '17'
+  - '22'
+  estado: fichado
+  ficha: notas/fuentes/harari_una_cr.md
+  notas: Artículo académico extenso sobre el dataísmo en Harari (Homo Deus) y la datificación de la vida.
+- id: varoufakis_scielo_ar
+  archivo: Varoufakis_SciELO_AR.html
+  formato: html
+  sha256: 20d7446fb854db71bae61d0fa285bd7aa87c7b23d302e01498377cc697aec6cd
+  titulo: Reseña de Tecno-feudalismo. El sigiloso sucesor del capitalismo de Yanis Varoufakis
+  autor: José Miguel Amuiune
+  anio: '2024'
+  editorial: Ciclos en la historia, la economía y la sociedad (SciELO Argentina)
+  ciudad: Buenos Aires
+  url: https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1851-37352024000100008
+  idioma: es
+  tipo: articulo
+  postura_dialogo: dialogo_critico
+  cita_europea: J. M. Amuiune, «Reseña de *Tecno-feudalismo. El sigiloso sucesor del capitalismo* de Yanis Varoufakis»,
+    *Ciclos en la historia, la economía y la sociedad*, Vol. 35, N.º 62, Buenos Aires, jun. 2024.
+  paginas: 2
+  caracteres: 5322
+  requiere_ocr: false
+  temas:
+  - tecnofeudalismo
+  - capital en la nube
+  - renta digital
+  capitulos_destino:
+  - 08
+  - '19'
+  - '21'
+  - '22'
+  - '24'
+  estado: fichado
+  ficha: notas/fuentes/varoufakis_scielo_ar.md
+  notas: Reseña en acceso abierto sobre la edición argentina (Ariel, 2024).
+- id: varoufakis_sinpermiso_1
+  archivo: Varoufakis_SinPermiso_1.html
+  formato: html
+  sha256: 61551f178c66c36fae740c54b9e8f463d03e6c93869f698d24fb4c0a38e4b167
+  titulo: Marxismo es lo que necesitamos en una época de crisis económica y reacción populista
+  autor: Yanis Varoufakis
+  anio: '2025'
+  editorial: Sin Permiso
+  ciudad: Barcelona
+  url: https://www.sinpermiso.info/textos/marxismo-es-lo-que-necesitamos-en-una-epoca-de-crisis-economica-y-reaccion-populista
+  idioma: es
+  tipo: articulo
+  postura_dialogo: afin
+  cita_europea: Y. Varoufakis, «Marxismo es lo que necesitamos en una época de crisis económica y reacción populista»,
+    *Sin Permiso*, 2025 [VERIFICAR FECHA EXACTA].
+  paginas: 2
+  caracteres: 6468
+  requiere_ocr: false
+  temas:
+  - marxismo
+  - tecnofeudalismo
+  - alienación algorítmica
+  capitulos_destino:
+  - 08
+  - '21'
+  - '24'
+  - '29'
+  estado: fichado
+  ficha: notas/fuentes/varoufakis_sinpermiso_1.md
+  notas: Artículo de opinión y análisis teórico de Yanis Varoufakis en acceso abierto.
+- id: varoufakis_tecnofeudalismo_resena_cts
+  archivo: Varoufakis_Tecnofeudalismo_Resena_CTS.pdf
+  formato: pdf
+  sha256: 8db80c11041821ba9b72cc58993be1bf3491d2d336b0a59717e6446e533f497d
+  titulo: Reseña de Tecnofeudalismo. El sigiloso sucesor del capitalismo de Yanis Varoufakis
+  autor: Juan Sebastián Fernández-Prados
+  anio: '2025'
+  editorial: Revista Iberoamericana de Ciencia, Tecnología y Sociedad (CTS)
+  ciudad: Madrid
+  url: https://ojs.revistacts.net/index.php/CTS/article/view/817
+  idioma: es
+  tipo: articulo
+  postura_dialogo: dialogo_critico
+  cita_europea: 'J. S. Fernández-Prados, «Reseña de *Tecnofeudalismo: El sigiloso sucesor del capitalismo* de Yanis
+    Varoufakis», *Revista CTS*, Vol. 20, N.º 58, marzo de 2025, pp. 223-226.'
+  paginas: 4
+  caracteres: 11031
+  requiere_ocr: false
+  temas:
+  - tecnofeudalismo
+  - capital en la nube
+  - big tech
+  - renta vs beneficio
+  capitulos_destino:
+  - 08
+  - '19'
+  - '21'
+  - '22'
+  - '24'
+  estado: fichado
+  ficha: notas/fuentes/varoufakis_tecnofeudalismo_resena_cts.md
+  notas: Reseña académica detallada en acceso abierto sobre Tecnofeudalismo (Ariel, Barcelona, 2024).
+- id: contexto_byung_chul_han
+  archivo: contexto_byung_chul_han.md
+  formato: md
+  sha256: 4ade67beaf532576520a3fe5171226be333f65d3e254d75d4431c511bb0dbbef
+  titulo: 'Contexto Conceptual: Byung-Chul Han (*La sociedad de la transparencia*, *Psicopolítica*, *En el enjambre*,
+    *La sociedad del cansancio*)'
+  autor: Notas de contexto editorial (sobre Byung-Chul Han)
+  anio: ''
+  editorial: ''
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: nota_personal
+  postura_dialogo: afin
+  cita_europea: ''
+  paginas: 1
+  caracteres: 2858
+  requiere_ocr: false
+  temas:
+  - psicopolítica
+  - sociedad de la transparencia
+  - enjambre digital
+  - sociedad del cansancio
+  capitulos_destino:
+  - '07'
+  - '17'
+  - '18'
+  - '21'
+  - '22'
+  - '23'
+  - '24'
+  - '25'
+  - '27'
+  - '31'
+  estado: fichado
+  ficha: notas/fuentes/contexto_byung_chul_han.md
+  notas: CONTEXTO SINTÉTICO (no es referencia bibliográfica primaria ni sustituye las obras originales; apoyo conceptual
+    para redacción).
+- id: contexto_kingsley_dennis
+  archivo: contexto_kingsley_dennis.md
+  formato: md
+  sha256: e4234c06fd6ae8a5ad6f8396eaf01394ee8fbffc7ce64b4834c51564ce8c532c
+  titulo: 'Contexto Conceptual: Kingsley L. Dennis (*After the Car*, hiperconectividad y cultura post-móvil)'
+  autor: Notas de contexto editorial (sobre Kingsley L. Dennis)
+  anio: ''
+  editorial: ''
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: nota_personal
+  postura_dialogo: afin
+  cita_europea: ''
+  paginas: 1
+  caracteres: 2493
+  requiere_ocr: false
+  temas:
+  - hiperconectividad
+  - after the car
+  - redes digitales de control
+  - cultura post-móvil
+  capitulos_destino:
+  - '07'
+  - '11'
+  - '17'
+  - '18'
+  - '19'
+  - '28'
+  estado: fichado
+  ficha: notas/fuentes/contexto_kingsley_dennis.md
+  notas: CONTEXTO SINTÉTICO (no es referencia bibliográfica primaria ni sustituye las obras originales; apoyo conceptual
+    para redacción).
+- id: contexto_mark_fisher
+  archivo: contexto_mark_fisher.md
+  formato: md
+  sha256: b198948e4ff12838c36c9f43cd69c27b6236f70cd3affbb90b370b3c22d7bad0
+  titulo: 'Contexto Conceptual: Mark Fisher (*Realismo capitalista* y *Los fantasmas de mi vida*)'
+  autor: Notas de contexto editorial (sobre Mark Fisher)
+  anio: ''
+  editorial: ''
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: nota_personal
+  postura_dialogo: afin
+  cita_europea: ''
+  paginas: 1
+  caracteres: 2351
+  requiere_ocr: false
+  temas:
+  - realismo capitalista
+  - hauntología
+  - salud mental
+  - comunismo ácido
+  capitulos_destino:
+  - '13'
+  - '15'
+  - '17'
+  - '23'
+  - '25'
+  - '26'
+  - '29'
+  estado: fichado
+  ficha: notas/fuentes/contexto_mark_fisher.md
+  notas: CONTEXTO SINTÉTICO (no es referencia bibliográfica primaria ni sustituye las obras originales; apoyo conceptual
+    para redacción).
+- id: contexto_slavoj_zizek
+  archivo: contexto_slavoj_zizek.md
+  formato: md
+  sha256: 9c4369e68a060a1f38c6a92d9e2240e386133b5350b3edd490005335f338d87c
+  titulo: 'Contexto Conceptual: Slavoj Žižek (Ideología digital, «gran Otro» algorítmico y automatización)'
+  autor: Notas de contexto editorial (sobre Slavoj Žižek)
+  anio: ''
+  editorial: ''
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: nota_personal
+  postura_dialogo: afin
+  cita_europea: ''
+  paginas: 1
+  caracteres: 2208
+  requiere_ocr: false
+  temas:
+  - ideología digital
+  - gran Otro algorítmico
+  - automatización
+  - subjetividad pospolítica
+  capitulos_destino:
+  - '10'
+  - '13'
+  - '14'
+  - '15'
+  - '18'
+  - '22'
+  - '23'
+  - '25'
+  - '29'
+  estado: fichado
+  ficha: notas/fuentes/contexto_slavoj_zizek.md
+  notas: CONTEXTO SINTÉTICO (no es referencia bibliográfica primaria ni sustituye las obras originales; apoyo conceptual
+    para redacción).
+- id: contexto_yanis_varoufakis
+  archivo: contexto_yanis_varoufakis.md
+  formato: md
+  sha256: 2c47dc9969966221baed837675a03cb71540f899db4dfaecad544c04c3f3cb26
+  titulo: 'Contexto Conceptual: Yanis Varoufakis (*Tecnofeudalismo: El sigiloso sucesor del capitalismo*)'
+  autor: Notas de contexto editorial (sobre Yanis Varoufakis)
+  anio: ''
+  editorial: ''
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: nota_personal
+  postura_dialogo: dialogo_critico
+  cita_europea: ''
+  paginas: 1
+  caracteres: 2357
+  requiere_ocr: false
+  temas:
+  - tecnofeudalismo
+  - capital en la nube
+  - renta digital
+  - siervos de la nube
+  capitulos_destino:
+  - 08
+  - '19'
+  - '21'
+  - '22'
+  - '24'
+  - '30'
+  estado: fichado
+  ficha: notas/fuentes/contexto_yanis_varoufakis.md
+  notas: CONTEXTO SINTÉTICO (no es referencia bibliográfica primaria ni sustituye las obras originales; apoyo conceptual
+    para redacción).
+- id: contexto_yuval_noah_harari
+  archivo: contexto_yuval_noah_harari.md
+  formato: md
+  sha256: 45b600f81b6d061229fb25bea4f4fc18f279707dedfd5f73864ccc53f8e59cf2
+  titulo: 'Contexto Conceptual: Yuval Noah Harari (*Homo Deus* y *21 lecciones para el siglo XXI*)'
+  autor: Notas de contexto editorial (sobre Yuval Noah Harari)
+  anio: ''
+  editorial: ''
+  ciudad: ''
+  url: ''
+  idioma: es
+  tipo: nota_personal
+  postura_dialogo: critica
+  cita_europea: ''
+  paginas: 1
+  caracteres: 2279
+  requiere_ocr: false
+  temas:
+  - dataísmo
+  - homo deus
+  - clase inútil
+  - hackeabilidad humana
+  capitulos_destino:
+  - '07'
+  - 08
+  - 09
+  - '17'
+  - '18'
+  - '21'
+  - '22'
+  estado: fichado
+  ficha: notas/fuentes/contexto_yuval_noah_harari.md
+  notas: CONTEXTO SINTÉTICO (no es referencia bibliográfica primaria ni sustituye las obras originales; apoyo conceptual
+    para redacción).
