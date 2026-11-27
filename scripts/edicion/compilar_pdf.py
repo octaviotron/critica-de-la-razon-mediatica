@@ -227,11 +227,10 @@ class BookPDFBuilder:
     def draw_header(self) -> None:
         self.ctx.save()
         layout = PangoCairo.create_layout(self.ctx)
-        layout.set_font_description(Pango.FontDescription("Sans 7.5"))
+        layout.set_font_description(Pango.FontDescription("Sans 6.5"))
         layout.set_width(int(CONTENT_WIDTH * Pango.SCALE))
-        titulo_esc = escape_pango(self.manifiesto.obra.titulo)
         header_esc = escape_pango(self.current_chapter_header)
-        markup = f'<span foreground="#666666">{titulo_esc} ({escape_pango(self.version_str)}) | {header_esc}</span>'
+        markup = f'<span foreground="#666666">{header_esc}</span>'
         layout.set_markup(markup, -1)
         self.ctx.move_to(MARGIN_LEFT, 28.0)
         PangoCairo.show_layout(self.ctx, layout)
@@ -256,11 +255,7 @@ class BookPDFBuilder:
         layout.set_font_description(Pango.FontDescription("Sans 8.5"))
         layout.set_width(int(CONTENT_WIDTH * Pango.SCALE))
         layout.set_alignment(Pango.Alignment.CENTER)
-        edicion_esc = escape_pango(self.manifiesto.obra.edicion)
-        if self.etiquetar:
-            footer_text = f'<span foreground="#555555">Página <b>{self.page_num}</b>  —  {edicion_esc} (Modo revisión etiquetado)</span>'
-        else:
-            footer_text = f'<span foreground="#555555">Página <b>{self.page_num}</b>  —  {edicion_esc}</span>'
+        footer_text = f'<span foreground="#555555"><b>{self.page_num}</b></span>'
         layout.set_markup(footer_text, -1)
         self.ctx.move_to(MARGIN_LEFT, footer_y)
         PangoCairo.show_layout(self.ctx, layout)
@@ -269,14 +264,14 @@ class BookPDFBuilder:
     def render_layout_block(
         self,
         markup: str,
-        font_str: str = "Serif 10.5",
+        font_str: str = "Serif 9.5",
         indent_left: float = 0.0,
         indent_right: float = 0.0,
         justify: bool = True,
         align: Pango.Alignment = Pango.Alignment.LEFT,
         space_before: float = 0.0,
-        space_after: float = 6.0,
-        line_spacing: float = 1.15,
+        space_after: float = 8.5,
+        line_spacing: float = 1.05,
         keep_with_next: bool = False,
     ) -> None:
         avail_width = CONTENT_WIDTH - indent_left - indent_right
@@ -316,7 +311,7 @@ class BookPDFBuilder:
         for idx in range(line_count):
             layout_line = layout.get_line_readonly(idx)
             _, line_ext = layout_line.get_pixel_extents()
-            lh = max(float(line_ext.height), 13.0) * line_spacing
+            lh = max(float(line_ext.height), 10.0) * line_spacing
             if self.y + lh > max_y:
                 self.start_new_page()
             baseline_y = self.y + (float(line_ext.height) * 0.82)
@@ -512,35 +507,38 @@ class BookPDFBuilder:
                 self.total_paragraphs += 1
                 self.render_layout_block(
                     f"{tag_span}<i>{pango_txt}</i>",
-                    font_str="Serif Italic 9.5",
+                    font_str="Serif Italic 8.5",
                     indent_left=70.0,
                     indent_right=10.0,
                     justify=False,
                     align=Pango.Alignment.RIGHT,
                     space_before=2.0,
-                    space_after=4.0,
+                    space_after=5.5,
+                    line_spacing=1.05,
                 )
             elif btype == "epigraph_author":
                 self.render_layout_block(
                     f"<b>{pango_txt}</b>",
-                    font_str="Serif Bold 9.5",
+                    font_str="Serif Bold 8.5",
                     indent_left=70.0,
                     indent_right=10.0,
                     justify=False,
                     align=Pango.Alignment.RIGHT,
                     space_before=0.0,
-                    space_after=10.0,
+                    space_after=12.0,
+                    line_spacing=1.05,
                 )
             elif btype == "bq":
                 self.total_paragraphs += 1
                 self.render_layout_block(
                     f"{tag_span}{pango_txt}",
-                    font_str="Serif 9.5",
+                    font_str="Serif 8.5",
                     indent_left=28.0,
                     indent_right=12.0,
                     justify=True,
-                    space_before=3.0,
-                    space_after=6.0,
+                    space_before=3.5,
+                    space_after=8.0,
+                    line_spacing=1.05,
                 )
             elif btype.startswith("li:"):
                 self.total_paragraphs += 1
@@ -548,31 +546,34 @@ class BookPDFBuilder:
                 ind = (lvl - 1) * 16.0
                 self.render_layout_block(
                     f"{tag_span}• {pango_txt}",
-                    font_str="Serif 10",
+                    font_str="Serif 9",
                     indent_left=ind,
                     justify=False,
-                    space_before=1.0,
-                    space_after=3.5,
+                    space_before=1.5,
+                    space_after=5.0,
+                    line_spacing=1.05,
                 )
             elif btype == "fn":
                 self.total_footnotes += 1
                 fn_tag_span = f'<span font_desc="Monospace Bold 8.5" foreground="#004488">{escape_pango(tag)}</span> '
                 self.render_layout_block(
                     f"{fn_tag_span}{pango_txt}",
-                    font_str="Serif 9",
+                    font_str="Serif 8",
                     indent_left=8.0,
                     justify=True,
-                    space_before=1.0,
-                    space_after=4.0,
+                    space_before=1.5,
+                    space_after=5.5,
+                    line_spacing=1.05,
                 )
             else:
                 self.total_paragraphs += 1
                 self.render_layout_block(
                     f"{tag_span}{pango_txt}",
-                    font_str="Serif 10.5",
+                    font_str="Serif 9.5",
                     justify=True,
-                    space_before=1.0,
-                    space_after=6.5,
+                    space_before=1.5,
+                    space_after=9.0,
+                    line_spacing=1.05,
                 )
 
     def finish(self) -> int:
