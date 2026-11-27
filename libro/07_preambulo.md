@@ -1,6 +1,4 @@
-# UN INTENTO PARA HACERSE CARGO DE LA MASSMEDIÁTICA
-
-## A MODO DE PREÁMBULO
+# Un intento para hacerse cargo de la massmediática. A modo de preámbulo
 
 > *Siempre he experimentado internamente el hecho de que la noción de realidad está indisolublemente ligada a los problemas del tiempo y del devenir. Es sorprendente que este lazo constituya, desde los griegos, uno de los temas centrales del pensamiento occidental. Antes de venir a Cerisy releí lo últimos *Diálogos* de Platón; no se puede sino estar sorprendido por su insistencia en retomar el tema del devenir y de su correlato dialéctico: la inmovilidad. Es así que en el *Sofista*, el Extranjero evoca, para mostrar los límites, una posición típica de la problemática platónica: Y es por medio del cuerpo, decís, que por la intermediación de la percepción nos comunicamos con el Devenir, mientras que es por la intermediación del razonamiento que, por medio de alma, nos poneos en relación con la realidad de la existencia, de una existencia que, decís, siempre compone habitualmente las mismas relaciones, el Devenir desarrollándose por su lado, tanto de una forma como de otra.Lo que encuentro conmovedor en Platón es que pone permanentemente en duda sus propios enunciados, un poco más lejos, ¿no es el propio Extranjero quien estima que hablemos «a imitación de los niños pequeños», porque queremos a la vez el Ser y el Devenir?*
 
@@ -28,6 +26,8 @@ Ya es corriente adquirir cada vez menos películas de tapa blanda o VHS, a favor
 
 Y ni hablar de los logros de la cibernética, la ingeniería genética y la termodinámica, que ya experimentan con clones y células madres para completar implantes que conecten al cerebro con los programadores. El sueño de la IA (Inteligencia Artificial) se hace realidad y comienza a pensar la VA (Vida Artificial).
 
+Aquellas máquinas y soportes que en los albores del siglo XXI —cuando se redactaba la primera versión de estas páginas— parecían el vértigo último de la miniaturización y el almacenamiento, han sido rebasados con creces por la computación ubicua, el teléfono inteligente convertido en prótesis permanente del cuerpo, las infraestructuras corporativas de la nube y la irrupción de la inteligencia artificial generativa. La promesa que entonces apenas asomaba en el horizonte del CD-ROM y el cableado doméstico devino hoy entorno ambiental continuo, capaz de producir lenguaje, imágenes y decisiones en tiempo real sobre cada gesto de la vida ordinaria.
+
 Stuart Sim, en su libro *Lyotard y lo inhumano*, reflexionando sobre los virus cibernéticos, sostiene que ya no tienen necesidad de activación humana, sino que operan autónomamente, de ahí que estemos «en presencia del eclipse de lo humano, por medio de la tecnología de avanzada y sólo queda la política» como apelación ética, como alternativa ante una sociedad indiferente que es testigo del impacto de la tecnociencia y sus resultados *inhumanos*, con toda su narrativa escenográfica y el secuestro que desde allí acecha.
 
 En este mismo sentido, como también lo ha advertido J. F. Lyotard, desde una visión considerada por algunos de neoconservadora, dice que ya es tiempo de reconsiderar hacia dónde nos dirigimos cultural y globalmente hablando y cuál es el imperativo de nuestras vidas. Debemos saber si es el momento de cambiar de rumbo o de aceptar que éste es el único modo de conducirnos.
@@ -40,9 +40,11 @@ La fuerza de trabajo, en ese sentido, también será impactada en su sustancia c
 
 Los tecnócratas quieren que sirvan para casi todo. Se podrán reparar motores a distancia, ir al supermercado sin salir de la oficina, manejar autos por control remoto y hasta cocinar en casa desde el trabajo. Incluso, algunos creen que muchas sensaciones íntimas pueden ser sustituidas y que esto tiene también sus ventajas. Desde esta perspectiva, la idea de una ciudad inteligente ya no es una utopía mcluhaniana. La profecía de aquel almuerzo no luce tan descaminada.
 
-Para T. Roszak, el culto a la información se ha instalado en nuestras vidas y Dios dejó de ser el relojero, el eterno arquitecto del universo, para convertirse en un *nerd del Silicón Valle*. Ya que la inteligencia puede ser artificial, entonces el hombre ha cedido uno de sus principales atributos y el cerebro-pensamiento progresivamente deviene prótesis del arsenal tecnológico y no al contrario. Al respecto, este científico de Harvard University, comenta:
+Para T. Roszak, el culto a la información se ha instalado en nuestras vidas y Dios dejó de ser el relojero, el eterno arquitecto del universo, para convertirse en un *nerd de Silicon Valley*. Ya que la inteligencia puede ser artificial, entonces el hombre ha cedido uno de sus principales atributos y el cerebro-pensamiento progresivamente deviene prótesis del arsenal tecnológico y no al contrario. Al respecto, este científico de Harvard University, comenta:
 
 > Los comerciantes de datos, como los he llamado, se dan cuenta de que sus carreras-o sus inversiones- están vinculadas a las promesas extravagantes que acompañan a los ordenadores; alegan cualquier razón para creer que nada hay que los ordenadores no puedan hacer ni deberían estar haciendo. El resultado de ello, es que se haya creado una mística de la información que hace imposible una distinción fundamental entre datos, conocimiento, juicio, comprensión, información y sabiduría.[^5]
+
+Esa «mística de la información» denunciada por Roszak no permaneció en el terreno de la retórica entusiasta: en las últimas décadas dio paso a lo que Éric Sadin caracteriza como un «giro conminatorio» de la técnica, en el que los sistemas algorítmicos dejan de ser simples asistentes de cálculo para erigirse en un régimen prescriptivo de verdad que orienta y dicta las conductas humanas.[^5b] En la misma estela tecnodeterminista, discursos de amplia circulación contemporánea —como el «dataísmo» popularizado por Yuval Noah Harari— elevan el flujo de datos a principio rector del universo y reducen la experiencia histórica a un mero procesamiento de información,[^5c] encubriendo bajo apariencia de neutralidad científica las relaciones de propiedad, acumulación y poder que sostienen a las plataformas digitales.
 
 Ahora bien, el *impacto* de estas tecnologías también promete un nuevo mapa social configurado por relaciones de propiedad, manejo de información, nuevas destrezas del cuerpo y su relación con la máquina, control político de la sensibilidad y el gusto, nuevos fines de los poseedores y propietarios a partir de nuevos usos y consumos. Además de una profunda brecha entre los que las poseen y usan y los que no las tienen, hoy llamados analfabetos tecnológicos (que conforman casi dos tercios de los habitantes del planeta, que no saben si quiera leer y escribir y mucho menos qué cosa es un teléfono).
 
@@ -78,7 +80,7 @@ No es de extrañar, por ende, que en el discurso de la vida ordinaria, mucha gen
 
 Lo mismo ocurre a partir de los últimos descubrimientos sobre el átomo, el electrón y el universo de partículas que lo conforman. Allí se ha instalado un debate fuerte que también está cruzado por las mismas tensiones producto de la epísteme dominante que amenaza, incluso, sólidas investigaciones como la teoría de Schrôdinger, de 1943, sobre la duplicación mecánico-cuántica del gen.
 
-Tan sólo 5 años después, en 1948, John Von Neumann dio una conferencia en Princenton, en la cual introdujo la metáfora de la célula viva como ordenador autómata. Esto bastó para que se produjera una desbandada científica y nadie más continuara el camino iniciado por Schrödinger. Nosotros creemos que es igualmente peligrosa la aplicación de una tecnología sin fundamento ético, asumiéndola como un paradigma universal neutro, que critica sin fundamentos cualquier nuevo dispositivo de saber poder.
+Tan sólo 5 años después, en 1948, John Von Neumann dio una conferencia en Princeton, en la cual introdujo la metáfora de la célula viva como ordenador autómata. Esto bastó para que se produjera una desbandada científica y nadie más continuara el camino iniciado por Schrödinger. Nosotros creemos que es igualmente peligrosa la aplicación de una tecnología sin fundamento ético, asumiéndola como un paradigma universal neutro, que critica sin fundamentos cualquier nuevo dispositivo de saber poder.
 
 Pero resulta que toda idea con pretensiones de verdad proviene de un universo en el que intervienen además de los conceptos, el azar, el caos, las pasiones, la experiencia, la memoria, el olvido, las necesidades, los intereses dominantes, las tensiones sociales y hasta la percepción reticular más íntima, en fin, la voluntad humana como subjetividad general o “genio de la especie”, diría Nietzsche.
 
@@ -96,9 +98,15 @@ Por lo que las conexiones neuronales aleatorias que recogen la experiencia queda
 
 Sobre este asunto, E. Beauport sostiene que la materia del cerebro es energía en movimiento continuo y para D. Bohm, en sintonía con D. Chopra, los procesos que almacenan la emoción-experiencia de la conciencia son de carácter cuántico, una creación del mundo siempre original. Es decir, una misma experiencia puede derivar en distintos estados emocionales subjetivos que deciden la realidad individual o colectiva.
 
-Son los llamados *qualia neuronales* que resultan de un afuera no dependiente únicamente del cerebro. Dicho de otro modo, los *cuantos* de memoria son fractales y rizomáticos, lo que Shopenhauer denominó «el nudo del mundo» de *la razón suficiente*. ¿Podrá esta compleja operación: conciencia-realidad-emoción-sentimiento, ser algún día reproducida? Žižek, en su estilo provocador, asegura:
+Son los llamados *qualia neuronales* que resultan de un afuera no dependiente únicamente del cerebro. Dicho de otro modo, los *cuantos* de memoria son fractales y rizomáticos, lo que Schopenhauer denominó «el nudo del mundo» de *la razón suficiente*. ¿Podrá esta compleja operación: conciencia-realidad-emoción-sentimiento, ser algún día reproducida?
+
+Contra esa complejidad irreductible del cuerpo-experiencia chocan hoy las lecturas que pretenden reducir el organismo humano a una simple colección de algoritmos bioquímicos supervisados por una red informática superior. Cuando se confunde la potencia afectiva y singular de la conciencia con un mero cálculo de flujos de datos, se incurre en lo que É. Sadin ha denunciado como «hararismo»: la elevación de un relato divulgativo de éxito editorial a profecía inapelable sobre la supuesta superioridad de la máquina y la obsolescencia de lo humano.[^10b] Frente a tal determinismo, la perspectiva materialista y biopolítica sostiene que la producción de sentido no brota de una combinatoria estadística desencarnada, sino del encuentro histórico de los cuerpos, sus conflictos y sus afecciones.
+
+Žižek, en su estilo provocador, asegura:
 
 > Si la próxima década produce la unificación de los múltiples medios de comunicación, en un sólo aparato que combine las características de una computadora interactiva, un televisor, un equipo de videoaudio, y si Microsoft, realmente consigue convertirse en el dueño casi monopólico de ese nuevo medio universal, controlando no sólo el lenguaje que se emplee en él, sino también las condiciones de su aplicación, entonces es obvio que nos enfrentaremos con una situación absurda en la que sólo una gente, libre de todo control público, dominará la estructura comunicacional básica de nuestras vidas, y será, por lo tanto, más poderoso que cualquier gobierno. Lo que da pie para más de una intriga paranoica. Dado que el lenguaje digital que todos usaremos habrá sido hecho por hombres y constituido por programadores, ¿no es posible imaginar a la corporación que lo posea, instalando en él un ingrediente de programación secreto que le permita controlarnos, o un virus que ella misma podrá detonar, interrumpiendo nuestra posibilidad de comunicación? Cuando las corporaciones de biogenética firman su propiedad sobre nuestros genes, patentándolos, lo que también hacen es plantear la paradoja de que son dueños de las partes más intimas de nuestro cuerpo. De modo que todos, sin ser concientes de ello, ya somos propiedad de una corporación.[^11]
+
+Si en 2003 aquella advertencia apuntaba al eventual monopolio de una sola corporación de software sobre el aparato convergente, dos décadas después el dominio se ha desplazado hacia un oligopolio de plataformas globales, infraestructuras en la nube y modelos fundacionales de inteligencia artificial que no solo median el lenguaje digital, sino que, como observa el propio Harari al caracterizar la «red inorgánica», operan como máquinas capaces de «tomar decisiones por sí mismas y generar nuevas ideas por sí mismas».[^11b] La pregunta ya no es únicamente quién patenta el código o el genoma, sino qué ocurre con la autonomía política cuando la mediación algorítmica pretende sustituir el juicio colectivo.
 
 ### La era de las conexiones
 
@@ -144,7 +152,7 @@ Procesos en acto como este, plantean interrogantes anteriormente no asumidas por
 
 Y agregamos, que un potente artificio que transforma todo lo que está a su alcance, sea material, espiritual o humano -y esto no necesariamente, dice, es una postura moral, sino una constatación-, pues el conjunto tecnológico crea sus propias necesidades, modificaciones, reificaciones, usos, costumbres, síntesis; en fin, define el alcance de una lógica de sentido.
 
-Y no se trata sólo de la lógica instrumental weberianafrankfurtiana, sino también de muchas otras formas de relaciones perceptivas, afectivas, estéticas, políticas, que producen el llamado y preocupante efecto de adaptación inversa*,* es decir, los fines humanos al servicio de los modelos y los medios tecnológicos disponibles, hasta convertirlos en valores universales, legitimados por la presunta neutralidad tecnológica. Asistimos, entonces, a una suerte de *inversión de la carga* del presupuesto tecnológico.
+Y no se trata sólo de la lógica instrumental weberiana-frankfurtiana, sino también de muchas otras formas de relaciones perceptivas, afectivas, estéticas, políticas, que producen el llamado y preocupante efecto de adaptación inversa*,* es decir, los fines humanos al servicio de los modelos y los medios tecnológicos disponibles, hasta convertirlos en valores universales, legitimados por la presunta neutralidad tecnológica. Asistimos, entonces, a una suerte de *inversión de la carga* del presupuesto tecnológico.
 
 Al respecto, J. Rancière sostiene que el sobrepliegue tecnológico pone en cuestión el concepto mismo de igualdad y de inteligencia, al proceder por desmaterialización informática de ambos conceptos, y en la medida en que desmaterializa los procesos de producción de riqueza, también aumenta el *embrutecimiento masivo,* por sobre-exposición a la superabundancia informativa, o por sobre-explotación del tiempo y el trabajo, como ocurre actualmente en buena parte de Asia. Manejo especulativo de los precios de la energía y su creciente importancia para sostener el complejo industrial militar del mundo de las nuevas tecnologías.
 
@@ -153,6 +161,8 @@ Esto define la época, sus formas de poder y de construcción de la subjetividad
 Es la nueva razón instrumental tecnológica como imperativo sistémico dominante, actuando desde la razón técnica. Entonces, el problema de los usos, emplazamientos, estrategias y momentos de la tecnología pasan a ser también problemas éticos, políticos y por supuesto, de la epistemología matricial de cualquier teoría.
 
 Tiene razón Winner cuando dice: «Más que un neo-ludismo tecnológico, lo que estaría planteado sería preguntarse la cuestión del significado de las tecnologías de la información sobre nuestras vidas y qué cosas ocurren en y con nosotros mismos».[^20]
+
+Lo que hacia 2006 apenas despuntaba con implantes experimentales como *Verichip* y las primeras redes de televigilancia adquirió hoy la forma de un entorno psicopolítico integral. En el tránsito hacia lo que Byung-Chul Han denomina el «régimen de la información», el poder ya no precisa disciplinar cuerpos dóciles por coacción externa, sino que explota información y datos bajo una apariencia de autonomía en la que el sujeto conectado «no es dócil ni obediente», sino que «se cree libre, auténtico y creativo», produciéndose y exponiéndose a sí mismo en plataformas móviles permanentes.[^20b] Lejos de quedar superada la materialidad del cuerpo, esta hiperconectividad post-móvil reorganiza la movilidad, la atención y el territorio mediante redes digitales de control y fija a los sujetos frente a la pantalla en una dinámica que Sadin describe como encuadramiento de la vida humana y desposesión de nuestras facultades en nombre de intereses privados y de una racionalidad estrictamente utilitarista.[^20c] Frente a este escenario, incluso propuestas filosóficas de corte ético-normativo como la de Adela Cortina advierten que la «razón comunicativa» habermasiana se ve hoy ensombrecida y amenazada por el imperio renovado de la razón instrumental;[^20d] sin embargo, como sostendremos a lo largo de esta obra, el desafío no se resuelve mediante una mera regulación moral de los algoritmos, sino desnudando el dispositivo biopolítico y económico que captura la subjetividad y el común.
 
 Que nadie se escandalice, no estamos planteando que todo tiempo pasado fue mejor y que la rueca y el machete superan al computador y al teléfono móvil. También somos usuarios de Internet y consumidores de cuanta oferta tecnológica salga al mercado; por cierto, mientras más mega bites tenga el objeto, pues mejor.
 
@@ -324,7 +334,7 @@ Sin embargo, como es de esperarse, vemos con agrado y sin sorpresa, cómo, más 
 
 A estos seres poblados de pasiones extravagantemente tristes que tanto nos alegran, llenando nuestras vidas de razones para la perseverancia revolucionaria, recomendamos la sentencia con la cual fue en 1656, acusado de blasfemo, expulsado de La Sinagoga y excomulgado, Baruch De Spinoza; de manera que puedan ahorrarse la lectura del libro y la salud de sus resecas y resentidas neuronas:
 
-> Excomulgamos, maldecimos y separamos a Baruch Spinoza, con el consentimiento de Dios bendito y con el de toda esta comunidad; delante de estos libros de la ley, que contienen 313 preceptos; lo excomulgamos con la misma excomunión que Josué lanzó sobre Jericó, y con la maldición que Elías profirió sobre los niños de este pueblo y con todas las maldiciones escritas en el libro de la ley; maldito seas de día y de noche; maldito seas al acostarte y levantarte; maldito al salir de tú casa y cuando a ella regreses; que Dios no te perdone jamás; que la airada cólera de Dios se inflame contra tal hombre y le envíe todas las maldiciones que en el libro de la ley hay escritas; que Dios borre su nombre de el cielo y lo aparte de las tribus de Israel, con todas las maldiciones de los pergaminos sagrados. Los que permanecéis en El Señor vuestro, vivid eternamente. Que nadie tenga trato con él, ni escrito ni hablado; que nadie permanezca con él bajo el mismo techo , y ante todo, que nadie lea lo por él escrito *.*
+> Excomulgamos, maldecimos y separamos a Baruch Spinoza, con el consentimiento de Dios bendito y con el de toda esta comunidad; delante de estos libros de la ley, que contienen 313 preceptos; lo excomulgamos con la misma excomunión que Josué lanzó sobre Jericó, y con la maldición que Elías profirió sobre los niños de este pueblo y con todas las maldiciones escritas en el libro de la ley; maldito seas de día y de noche; maldito seas al acostarte y levantarte; maldito al salir de tú casa y cuando a ella regreses; que Dios no te perdone jamás; que la airada cólera de Dios se inflame contra tal hombre y le envíe todas las maldiciones que en el libro de la ley hay escritas; que Dios borre su nombre de el cielo y lo aparte de las tribus de Israel, con todas las maldiciones de los pergaminos sagrados. Los que permanecéis en El Señor vuestro, vivid eternamente. Que nadie tenga trato con él, ni escrito ni hablado; que nadie permanezca con él bajo el mismo techo, y ante todo, que nadie lea lo por él escrito.
 
 Ahora bien, si con esto no es suficiente, junto al asesinato moral del autor, también recomendamos el asalto de las librerías y la hoguera de toda edición de este libro, incluido con ella, por supuesto, al escritor del mismo. ¡Qué así sea! Amén!
 
@@ -354,7 +364,7 @@ Ahora bien, si con esto no es suficiente, junto al asesinato moral del autor, ta
 
 [^12]: F. Mires, *La revolución que nadie soñó*, Nueva Sociedad, Caracas, 1995.
 
-[^13]: Uno de estos nuevos actores son las nuevas *tribus sociales* que se están agrupando alrededor de los hipertextos y del cyberespacio. Los *cyberpunks* contienen en su interior a los *hacker*, *cyfer*, *cyberhippies* y demás especies que hoy pululan alrededor de la tecnología. Tienen sitios en donde se reúnen, realizan encuentros mundiales, congresos, peticiones a los gobiernos y los más radicales practican nuevas formas de terrorismo y piratería que desconciertan a la banca mundial y a los gobiernos creándoles verdaderos dolores de cabeza. Estos actores, casi todos muchachos menores de 30 años, son capaces de generar crisis planetarias parecidas a los conflictos de la ciencia ficción. Algunos de ellos ya se están planteando novedosas formas de participación política y comienzan a hablar de los problemas de la subjetividad a la luz de estos cambios. Al respecto véase: J. Mayo, *La contra cultura digital*, Gedisa, Buenos Aires, 1999
+[^13]: Uno de estos nuevos actores son las nuevas *tribus sociales* que se están agrupando alrededor de los hipertextos y del cyberespacio. Los *cyberpunks* contienen en su interior a los *hacker*, *cyfer*, *cyberhippies* y demás especies que hoy pululan alrededor de la tecnología. Tienen sitios en donde se reúnen, realizan encuentros mundiales, congresos, peticiones a los gobiernos y los más radicales practican nuevas formas de terrorismo y piratería que desconciertan a la banca mundial y a los gobiernos creándoles verdaderos dolores de cabeza. Estos actores, casi todos muchachos menores de 30 años, son capaces de generar crisis planetarias parecidas a los conflictos de la ciencia ficción. Algunos de ellos ya se están planteando novedosas formas de participación política y comienzan a hablar de los problemas de la subjetividad a la luz de estos cambios. Al respecto véase: J. Mayo, *La contra cultura digital*, Gedisa, Buenos Aires, 1999.
 
 [^14]: P. Virilio, *Un Paisaje de acontecimientos*, Paidós, Barcelona, 1998.
 
@@ -364,11 +374,11 @@ Ahora bien, si con esto no es suficiente, junto al asesinato moral del autor, ta
 
 [^17]: D. Lyon, *El ojo electrónico*, Alianza, Madrid, 1998.
 
-[^18]: Véase también de C. Colina, “Telemática y control social”, en *Anuario del ININCO*, Nº 8, Caracas, 1996-1997, pp. 151-188. Y a J. Sulston. *El genoma y la división de clases*, Tebeo, Bogotá, 2005
+[^18]: Véase también de C. Colina, “Telemática y control social”, en *Anuario del ININCO*, Nº 8, Caracas, 1996-1997, pp. 151-188. Y a J. Sulston, *El genoma y la división de clases*, Tebeo, Bogotá, 2005.
 
 [^19]: L. Winner, *La ballena y el reactor*, Gedisa, Barcelona, 1987.
 
-[^20]: *Ibid.*, p. 123.
+[^20]: *Ibíd.*, p. 123.
 
 [^21]: “El proceso a una economía informática necesariamente implica un cambio en la calidad y la naturaleza del trabajo. Esta es la implicación sociológica y antropológica más inmediata de la transición de un paradigma económico a otro. Hoy la información y la comunicación han llegado a desempeñar una función esencial en los procesos de producción…El proceso que estamos describiendo no es meramente formal, es material y se realiza en el terreno biopolítico. T. Negri. *Imperio*, Paidós, Barcelona. 2002, pp. 269 y 327.
 
@@ -378,7 +388,7 @@ Ahora bien, si con esto no es suficiente, junto al asesinato moral del autor, ta
 
 [^24]: O. Calabrese, *La era neobarroca*, Cátedra, Madrid, 1993.
 
-[^25]: *Ibid*., p. 26.
+[^25]: *Ibíd.*, p. 26.
 
 [^26]: B. De Spinoza, *Ética demostrada según el orden geométrico,* Orbis, Madrid, 1980.
 
@@ -395,3 +405,17 @@ Ahora bien, si con esto no es suficiente, junto al asesinato moral del autor, ta
 [^32]: N. Richard, "Zonas de cruce", en *Redes*, Revista de Estudios Sociales, Vol. 3, N° 7, Buenos Aires, mayo 1997.
 
 [^33]: Cfr. W. Benjamin, *Discursos interrumpidos,* Taurus, Madrid, 1973.
+
+[^5b]: É. Sadin, *La inteligencia artificial o el desafío del siglo. Anatomía de un antihumanismo radical*, Caja Negra Editora, Buenos Aires, 2020, Parte 1 («El giro conminatorio de la técnica», p. 47) y Parte 2 («El estadio prescriptivo de la verdad», p. 119 [PDF]).
+
+[^5c]: Y. N. Harari, *Nexus. Una breve historia de las redes de información desde la Edad de Piedra hasta la IA*, Debate, Barcelona, 2024. Para el análisis crítico de la noción de «dataísmo» formulada previamente en *Homo Deus*, véanse J. N. Lafferrière, «¿Los seres humanos somos meros "algoritmos"? Una reflexión crítica sobre el libro *Homo Deus. Breve historia del mañana*», *El Derecho*, 272-406, Buenos Aires, y J. L. Meza-Rueda y C. A. López-Saavedra, «El dataísmo: ¿una nueva religión?», *Revista Siwo*, Vol. 19, N.º 1, Heredia, 2026, pp. 1-36.
+
+[^10b]: É. Sadin, *La vie spectrale. Penser l'ère du métavers et des IA génératives*, Grasset, París, 2023, pp. 153-154 [PDF], [trad. propia].
+
+[^11b]: Y. N. Harari, *Nexus. Una breve historia de las redes de información desde la Edad de Piedra hasta la IA*, *Op. cit.*, Cap. 6, pp. 235-236 [PDF].
+
+[^20b]: B.-C. Han, *Infocracia. La digitalización y la crisis de la democracia*, 2022, pp. 6-7 [PDF].
+
+[^20c]: É. Sadin, *La vie spectrale*, *Op. cit.*, p. 153 [PDF], [trad. propia].
+
+[^20d]: A. Cortina, *¿Ética o ideología de la inteligencia artificial?*, Paidós, Barcelona, 2024, Cap. 9, p. 134 [PDF].
