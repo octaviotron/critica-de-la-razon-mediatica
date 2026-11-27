@@ -23,7 +23,7 @@ Panorámica condensada de los **33 capítulos base** (más el futuro Prefacio) d
 ## Apertura y Preámbulo (`apertura`)
 
 * **`[futuro]` [`prefacio_segunda_edicion.md`](capitulos/prefacio_segunda_edicion.md)** *(solo definido en notas — aún no creado en `libro/`)* — Balance 2006 → actualidad, puente biopolítica/psicopolítica/IA y clave de lectura de la 2.ª edición.
-* **`07` [`07_preambulo.md`](../libro/07_preambulo.md)** (`12,784` pal. · **Prioritario**) — Gran apertura metodológica y estilística (*Profecías y realidades tecnológicas*, *La era de las conexiones*, *Urgencias de la teoría*, *Cuestión de Método*, *El drama de la escritura*, *Algo sobre nosotros mismos*). *Fuentes mapeadas:* Cortina, Sadin (×2), Harari (*Nexus*), Bostrom, Reyes Matute, UNESCO. *2.ª ed.:* pendiente.
+* **`07` [`07_preambulo.md`](../libro/07_preambulo.md)** (`12,784` pal. base → `13,681` pal. en borrador · **Prioritario**) — Gran apertura metodológica y estilística (*Profecías y realidades tecnológicas*, *La era de las conexiones*, *Urgencias de la teoría*, *Cuestión de Método*, *El drama de la escritura*, *Algo sobre nosotros mismos*). *Fuentes mapeadas:* Cortina, Sadin (×2), Harari (*Nexus* + estudios *Homo Deus*), Han (*Infocracia* + *Psicopolítica*), Dennis (contexto), Bostrom, Reyes Matute, UNESCO. *2.ª ed.:* **en revisión** (primer borrador entregado en `dist/cap_07_preambulo.pdf`; introduce a Sadin, Harari, Han y Cortina —*giro conminatorio*, *dataísmo*, *régimen de la información / infocracia*, *promptismo*—; 4 apartados finales preservados íntegros).
 
 ## Bloque 1 — Primera Parte: Aproximación a una caja de herramientas
 

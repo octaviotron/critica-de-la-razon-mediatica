@@ -219,7 +219,7 @@ Plan operativo para resolver los **12 hallazgos** detectados en la auditoría do
 > **Única precaución inmediata antes de abrir un capítulo nuevo (ej. `08` o `19`):** `notas/estado_sesion.md` **se sobrescribe** al cambiar de capítulo, por lo que conviene guardar antes en `notas/capitulos/07_preambulo.md` los pendientes del Cap. `07` para no perderlos.
 
 ### 1. Prioridad Inmediata — Atender antes de pasar al siguiente capítulo (~2 archivos en `notas/`, 0 riesgo)
-- [ ] **`A-03` *(solo resguardo en `notas/`, sin tocar `libro/07_preambulo.md`)*:**
+- [x] **`A-03` *(solo resguardo en `notas/`, sin tocar `libro/07_preambulo.md`)*:**
   * Volcar los pendientes actuales de `notas/estado_sesion.md` (notas temporales `[^5b]`–`[^20d]` y verificación editorial de `[^5c]`, `[^10b]` y `[^20b]`, más revisión de folios `[PDF]` en `[^5b]`, `[^11b]`, `[^20d]`) hacia [`capitulos/07_preambulo.md`](capitulos/07_preambulo.md), para que no se borren cuando `estado_sesion.md` se sobrescriba con el siguiente capítulo.
   * Anotar en [`mapa_obra.md`](mapa_obra.md) (L26) que `07_preambulo.md` ya está *en revisión* e introdujo a Sadin, Harari, Han y Cortina (*giro conminatorio*, *dataísmo*, *infocracia*, *promptismo*), evitando re-presentarlos desde cero como si fueran inéditos al editar el próximo capítulo.
 
