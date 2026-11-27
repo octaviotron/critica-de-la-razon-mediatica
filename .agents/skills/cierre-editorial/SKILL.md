@@ -21,7 +21,7 @@ Este flujo se ejecuta **una sola vez al cierre de la Segunda Edición** (o por b
    ```
 2. Comprobar que:
    * Todos los ensayos editables estén en `estado: "aprobado"` (y sin marcadores `[VERIFICAR`, `TODO` ni `TBD`).
-   * Las **7 omisiones reales de notas al pie de 2006** (`11`: `[^15]`, `[^19]`; `17`: `[^28]`; `20`: `[^3]`; `24`: `[^2]`, `[^4]`; `27`: `[^3]`) y la nota truncada `14:[^6]` hayan sido resueltas o ratificadas por el autor.
+   * Las **7 advertencias heredadas** en `validar_libro.py` (`6` líneas que agrupan `7` omisiones reales de notas de 2006: `11`: `[^15]`, `[^19]`; `17`: `[^28]`; `20`: `[^3]`; `24`: `[^2]`, `[^4]`; `27`: `[^3]` + `1` asterisco impar en `17:L19`) y la nota truncada `14:[^6]` hayan sido resueltas o ratificadas por el autor.
    * Los textos invitados (`03`–`06` y `29` desde `L101`) permanecen íntegros salvo orden expresa.
 
 ---

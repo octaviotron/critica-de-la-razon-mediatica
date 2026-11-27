@@ -17,7 +17,7 @@ Sigue esta matriz y su auditoría final **en el mismo turno** ante cualquier cam
 
 | Tipo de cambio | Archivos que DEBEN sincronizarse |
 | :--- | :--- |
-| **Script en `scripts/edicion/`** | El script (siempre protegiendo `respaldo_v1.0/` vía `es_ruta_dentro_de_respaldo`) + `AGENTS.md` (§7) + `SSOT/flujo_editorial_segunda_edicion.md` (§6.1) + `.agents/skills/` afectada + `scripts/README.md` (sin «IA»). |
+| **Script en `scripts/edicion/`** | El script (siempre protegiendo `respaldo_v1.0/` vía `es_ruta_dentro_de_respaldo`) + `scripts/README.md` (catálogo único, sin «IA») + resumen de nombres en `AGENTS.md` (§7) y Skill afectada si se añade/renombra un script. |
 | **Directorio o Skill nueva/modificada** | `AGENTS.md` (§3 y §7) + `SSOT/README.md` + `README.md` (resumen público, sin «IA») + `README.md` interno / `.gitignore` si aplica. |
 | **Maquetación (`maquetacion/` o `compilar_maqueta.py`)** | `maquetacion/diseno_2ed.yaml` / `maquetacion/plantilla/*.tex` + `maquetacion/README.md` + `SSOT/guia_maquetacion_segunda_edicion.md` + prueba rápida (`compilar_maqueta.py --capitulo 08`). |
 | **Regla editorial, decisión o flujo** | `SSOT/guia_estilo_editorial.md` y/o `SSOT/flujo_editorial_segunda_edicion.md` + `AGENTS.md` (§5–§6) + `.agents/skills/` afectada + `notas/NOTAS.md` (y `notas/registro_cambios_edicion.md` si afecta al libro). |
@@ -42,6 +42,6 @@ Ejecutar estos tres chequeos antes de cerrar el turno:
    ```bash
    python3 -B scripts/edicion/validar_libro.py --verificar-respaldo
    ```
-   Debe concluir con **0 errores** (`33/33` SHA-256 íntegros, `0` menciones prohibidas en los 6 `README.md` y `AGENTS.md` `< 20,000` bytes).
+   Debe concluir con **0 errores** (`33/33` SHA-256 íntegros, `0` menciones prohibidas en los 6 `README.md` y `AGENTS.md` `<= 20,000` bytes sin aviso / tope estricto `24,000` bytes).
 2. **Probar con casos reales cualquier script creado o modificado** (y comprobar idempotencia si aplica).
 3. **Verificar enlaces locales rotos, frontmatter de Skills y consistencia de conteos** (número de decisiones editoriales, secciones en `libro.yaml`, capítulos base + nuevos, entradas del Glosario) entre `AGENTS.md`, `.agents/skills/`, `SSOT/` y los `README.md`.

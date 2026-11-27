@@ -87,7 +87,7 @@ Las sugerencias específicas de cada archivo `.md` viven en [`notas/capitulos/`]
 Hallazgos transversales detectados en la auditoría previa de los 33 archivos de [`libro/`](../libro/) (el detalle puntual por archivo vive en cada ficha de [`notas/capitulos/`](capitulos/)):
 
 ### Consultas prioritarias al autor (omisiones confirmadas del impreso de 2006)
-- [ ] Resolver las **7 omisiones reales de notas al pie** de la 1.ª edición:
+- [ ] Resolver las **7 omisiones reales de notas al pie** de la 1.ª edición (agrupadas en `6` líneas de advertencia en `validar_libro.py`, que junto al asterisco impar de `17:L19` suman las `7` advertencias heredadas):
   * **Falta definición al pie (2):** `[^3]` en [`20_parte4_ensayo_4.md`](capitulos/20_parte4_ensayo_4.md) y `[^4]` en [`24_parte5_ensayo_4.md`](capitulos/24_parte5_ensayo_4.md).
   * **Falta llamada en el cuerpo (5):** `[^15]` y `[^19]` (más salto del `17`) en [`11_parte2_ensayo_1.md`](capitulos/11_parte2_ensayo_1.md), `[^28]` en [`17_parte4_ensayo_1.md`](capitulos/17_parte4_ensayo_1.md), `[^2]` en [`24_parte5_ensayo_4.md`](capitulos/24_parte5_ensayo_4.md) y `[^3]` en [`27_parte6_ensayo_3.md`](capitulos/27_parte6_ensayo_3.md).
 - [ ] Completar datos faltantes (lugar y año) de la nota truncada `[^6]` en [`14_parte3_ensayo_1.md`](capitulos/14_parte3_ensayo_1.md).
