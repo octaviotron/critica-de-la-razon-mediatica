@@ -2,25 +2,37 @@
 
 **Capítulo:** `08` — Ensayo I: Crisis de la teoría del valor y nuevo dispositivo información-comunicación  
 **Sección:** Primera Parte: Aproximación a una caja de herramientas  
-**Archivo editable:** [`libro/08_parte1_ensayo_1.md`](../../libro/08_parte1_ensayo_1.md) | **Extensión base (2006):** 7,084 palabras (folios 87–109)  
+**Archivo editable:** [`libro/08_parte1_ensayo_1.md`](../../libro/08_parte1_ensayo_1.md) | **Extensión base (2006):** 7,084 palabras → **borrador 2.ª ed.:** 8,067 palabras (folios 87–109, 20 notas al pie)  
 **Notas globales:** [`notas/NOTAS.md`](../NOTAS.md)
 
 ---
 
 ## Enfoque actual del capítulo (base 2006)
-Apertura de la Primera Parte (*Crisis de la teoría del valor y nuevo dispositivo información-comunicación*; epígrafes de Foucault y Marx). Plantea la transformación del valor en el nuevo dispositivo informacional-comunicacional y la producción del deseo político.
+Apertura de la Primera Parte (*Crisis de la teoría del valor y nuevo dispositivo información-comunicación*; epígrafes de Foucault y Marx). Plantea la redefinición mínima y el «espíritu del capitalismo» (Boltanski y Chiapello), la producción de opacidad, el mercado como significante amo (Lacan), la deconstrucción materialista de la teoría marxiana del valor (*quanta* de trabajo-valor fractal, *Grundrisse*, *Fragmento sobre las máquinas* y *general intellect*), la metamorfosis estratificada del dinero (`D-D-D`, Žižek) y la hegemonía de la producción inmaterial y del dispositivo información-comunicación hasta desembocar en la producción del deseo y la voluntad política otra.
 
-## Sugerencias de actualización y ampliación
-- [ ] Dialogar directamente con **Yanis Varoufakis** (*Tecnofeudalismo*): actualizar la «crisis de la teoría del valor» incorporando el capital-nube, la extracción de rentas algorítmicas y la figura de los usuarios como productores no remunerados de datos.
-- [ ] Cruzar el «nuevo dispositivo información-comunicación» con el análisis de **Yuval Noah Harari** sobre redes de información y propiedad de los datos, contrastándolo con la crítica marxiana del valor que sostiene el ensayo.
-- [ ] Explicitar cómo las «plataformas» (término que ya aparece al inicio del ensayo en sentido metafórico) pasaron a ser hoy la infraestructura material dominante de captura de valor.
+## Plan de intervención editorial (edición híbrida — aplicada en borrador `en_revision`)
+- [x] **Del «espíritu del capitalismo» a la infraestructura de plataformas (`L47`):** Conservada intacta la apertura con Boltanski y Chiapello y la metáfora del *Tangram*, añadiendo el puente conceptual sobre cómo las «plataformas» —nombradas en `L13` en 2006 como metáfora epistemológica— pasaron a constituir la arquitectura material y monopólica dominante de mediación, captura de atención y extracción de rastros del trabajo social.
+- [x] **Diálogo 1 — Yanis Varoufakis y la polémica del «tecnofeudalismo» (`L125–127`):** Incorporado tras la discusión con Žižek sobre la estratificación `D-D-D` el planteamiento de **Yanis Varoufakis** ([`varoufakis_sinpermiso_1.md`](../fuentes/varoufakis_sinpermiso_1.md), `[^11b]`; [`varoufakis_tecnofeudalismo_resena_cts.md`](../fuentes/varoufakis_tecnofeudalismo_resena_cts.md) y [`varoufakis_scielo_ar.md`](../fuentes/varoufakis_scielo_ar.md), `[^11c]`): se recoge su categoría de *capital-nube* (*cloud capital*), el vaciamiento cognitivo, los feudos digitales y la extracción de rentas algorítmicas y trabajo impago de los usuarios, **discutiendo críticamente** la etiqueta «tecnofeudal» poscapitalista desde la clave marxiana del ensayo (sobrepliegue estratificado de renta de plataforma, financiarización `D-D-D` y extracción intensiva de *quanta* de trabajo-valor fractal).
+- [x] **Diálogo 2 — Carlos Reyes y la materialidad de la acumulación en la IA (`L85` y `L155`):** Integrado en dos momentos articulados ([`iacc_vf.md`](../fuentes/iacc_vf.md)): (a) junto al *general intellect* de los *Grundrisse* (`L85`, `[^7b]`, folio impreso p. 92), mostrando la objetivación algorítmica de las potencias cognitivas y adaptativas del trabajador colectivo; y (b) tras la denuncia ecológica y laboral de `L153` (`L155`, `[^15b]`, folios impresos pp. 33–34 y 50–51), desmontando el espejismo ingrávido de la nube al exponer la «megamáquina» planetaria de la IA (extractivismo mineral en el Sur Global, voracidad eléctrica e hídrica de los centros de datos, millones de «trabajadores invisibles» o «fantasma» a destajo y acoplamiento militar).
+- [x] **Diálogo 3 — Contrapunto con Yuval Noah Harari sobre las redes de información (`L139`):** Retomado brevemente **Yuval Noah Harari** ([`nexus_una_breve_historia_de_las_redes_de_informacion.md`](../fuentes/nexus_una_breve_historia_de_las_redes_de_informacion.md), `[^13b]`, p. 26 `[PDF]`) sin repetir su presentación del Preámbulo, contrastando su alerta liberal-institucional sobre la «red inorgánica» de silicio con la crítica materialista del régimen de propiedad, explotación y valorización que programa esas redes.
+- [x] **Anclaje temporal de ejemplos y cifras de 2006 (`L95` y `L139`):**
+  * `L95`: Contextualizado históricamente el «síndrome del milenio» y los «500 billones de dólares» de reservas chinas de comienzos de siglo, proyectando el experimento hacia el colapso de 2008, la expansión monetaria fiduciaria de los bancos centrales, las reservas multimillonarias, los criptoactivos y la capitalización bursátil de la nube y la IA.
+  * `L139`: Ampliada la enumeración técnica («electricidad, el microchip, la satelización, las redes telemáticas y la industria militar») hacia la computación en la nube, las plataformas algorítmicas y los sistemas generativos.
+- [ ] **Términos nuevos que debutan en este capítulo (consolidar al aprobar en `mapa_obra.md` y evaluar para `31_glosario.md`):** *Capital-nube* (*cloud capital*) / *Tecnofeudalismo* (en clave crítica) y *Megamáquina algorítmica*.
 
 ## Erratas y detalles técnicos heredados de 2006
-- [ ] Limpiar la jerarquía de encabezados de apertura (`# Primera Parte ...` / `# I` / `## CRISIS DE LA TEORÍA DEL VALOR...` / `### INFORMACIÓN-COMUNICACIÓN`) para evitar saltos de nivel en el índice generado.
-- [ ] Corregir el asterisco de cursiva desplazado dentro de palabra en línea 75 (`*un* p*lano de consistencia*` → `*un plano de consistencia*`).
+- [x] **Unificación de encabezados de apertura (`L1–7`):** Unificado en `# Primera Parte: Aproximación a una caja de herramientas` (`L1`) y `# Ensayo I: Crisis de la teoría del valor y nuevo dispositivo información-comunicación` (`L7`), eliminando los falsos niveles `##` y `###` de 2006.
+- [x] **Limpieza ortotipográfica en el cuerpo del capítulo:** Corregidos `ininterrumpida` (`L59`), `W. Heisenberg` (`L61`), `Böhm-Bawerk` (`L63`), `¡claro que sí!` (`L69`), `Es decir` (`L71`), `*un plano de consistencia*` y `Crítica` (`L73`), `«*general intellect*»,` (`L85`), `aún` y `trotskistas-mandelistas` (`L97`), `¿Será que` (`L123`), `a sí misma` (`L151`) y `por sí solo` (`L157`).
+- [x] **Limpieza de aparato crítico en notas al pie (`L165–203`):** Corregidos `J.-F. Lyotard` y `1989` (`[^3]`), `E. J. Palti` (`[^6]`), restituido por instrucción expresa `Véase I. Wallerstein, *Utopística o las opciones históricas del siglo XXI*, Siglo XXI, México, 2003.` (`[^9]`), corregida concordancia en transcripción de Bourdieu (`mecanismos`, `puesta en práctica` en `[^14]`) y uniformadas comillas latinas `«»` / internas `""` en las notas.
 
-## Autores, citas o frases adicionales por incluir
-- [ ] *(Añade aquí citas, argumentos o ideas propias para este capítulo.)*
+## Pendientes de verificación bibliográfica y notas temporales (resolver antes de `estado: aprobado`)
+- [ ] **IDs temporales de notas al pie por renumerar al cierre (`L179–203`):** `[^7b]`, `[^11b]`, `[^11c]`, `[^13b]` y `[^15b]`. *(Folios impresos de C. Reyes ya verificados: p. 92, pp. 33–34 y 50–51; fecha exacta de `Sin Permiso` ya verificada en metadatos del original: `6 de julio de 2025`; en `[^13b]` de Harari se mantiene `p. 26 [PDF]` porque el archivo en `externos/` proviene de conversión sin foliación impresa).*
+
+## Autores, citas o frases adicionales por incluir (banco de fuentes asignadas)
+- [x] **Yanis Varoufakis:** [`varoufakis_sinpermiso_1.md`](../fuentes/varoufakis_sinpermiso_1.md) (`6 de julio de 2025`), [`varoufakis_tecnofeudalismo_resena_cts.md`](../fuentes/varoufakis_tecnofeudalismo_resena_cts.md) (pp. 223–226) y [`varoufakis_scielo_ar.md`](../fuentes/varoufakis_scielo_ar.md).
+- [x] **Carlos Reyes:** [`iacc_vf.md`](../fuentes/iacc_vf.md) (folios impresos verificados: pp. 33–34, 50–51 y 92).
+- [x] **Yuval Noah Harari:** [`nexus_una_breve_historia_de_las_redes_de_informacion.md`](../fuentes/nexus_una_breve_historia_de_las_redes_de_informacion.md) (Prólogo, p. 26 `[PDF]`).
 
 ## Observaciones del autor (rondas de revisión)
-- [ ] *(Registra aquí las orientaciones del autor antes de aplicarlas al archivo en `libro/`.)*
+- [x] **2026-11-28 — Entrega de primer borrador (`en_revision`):** Ejecutado el plan completo de 7 puntos (incluyendo restitución confirmada del título y editorial de Wallerstein en `[^9]`), validación sin errores, compilación de `dist/cap_08_parte1_ensayo_1.pdf` y reporte `dist/cambios_cap_08_parte1_ensayo_1.md`.
+- [ ] **En espera de revisión del autor:** Aguardar observaciones o aprobación explícita de Juan Barreto sobre `dist/cap_08_parte1_ensayo_1.pdf` antes de pasar a Fase 4 (cierre editorial del capítulo).

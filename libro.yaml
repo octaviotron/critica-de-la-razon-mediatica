@@ -92,7 +92,7 @@ secciones:
         titulo: "Ensayo I: Crisis de la teoría del valor y nuevo dispositivo información-comunicación"
         tipo: "cuerpo"
         folios_2006: "87–109"
-        estado: "pendiente"
+        estado: "en_revision"
       - id: "09"
         archivo: "09_parte1_ensayo_2.md"
         titulo: "Ensayo II: Un ejercicio sobre materia oscura y agujeros negros, virus y ADN"
